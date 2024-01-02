@@ -1,0 +1,19 @@
+use find command to search suid files.
+
+
+> checker (suid file)
+
+strings that checker. We see /bin/bash
+
+Use ltrace tool to trace the user is admin or not.
+
+#ltrace checker (we see environment variable is admin but it isn't actual admin.)
+
+Check the env variable #env
+
+there is no admin. So, #export admin=0
+
+checker becomes uid=0 (root)
+
+#./checker
+
