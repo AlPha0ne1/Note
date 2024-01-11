@@ -44,7 +44,8 @@ Website defacement
 
 Insecure deserialization
 
-Say you have a password of "password123" from a program that needs to be stored in a database on another system. To travel across a network this string/output needs to be converted to binary. Of course, the password needs to be stored as "password123" and not its binary notation. Once this reaches the database, it is converted or deserialised back into "password123" so it can be stored.
+Say you have a password of "password123" from a program that needs to be stored in a database on another system. To travel across a network this 
+string/output needs to be converted to binary. Of course, the password needs to be stored as "password123" and not its binary notation. Once this reaches the database, it is converted or deserialised back into "password123" so it can be stored.
 
 Expiry--> Set a timestamp where the cookie will be removed from the browser
 
