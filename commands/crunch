@@ -1,0 +1,5 @@
+crunch 3 5 123456789ABCD -o 3digits.txt
+
+
+3 - mininum number
+5 - maximum number
