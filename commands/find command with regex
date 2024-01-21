@@ -1,0 +1,32 @@
+finding best-group 
+
+#find / -type f -group best-group 2>/dev/null
+
+Find Ip address in a file
+
+#for i in $(cat filenames);do find / -name "$i" -exec grep -oE "([0-9]{1,3}\.){3}[0-9]{1,3}" '{}' \; 2>/dev/null;done
+
+if you wanna know which file contains just add l(list of file on match)
+
+for i in $(cat filenames);do find / -name "$i" -exec grep -loE "([0-9]{1,3}\.){3}[0-9]{1,3}" '{}' \; 2>/dev/null;done
+
+Find the file which has sha1 hash
+
+#for i in $(cat filenames);do find / -name "$i" -exec sha1sum '{}' \; 2>/dev/null;done | grep 9d54da7584015647ba052173b84d45e8007eba94
+
+{} prints the files.
+\ (the end of the exec command)
+
+which file has 230 lines?
+
+#for i in $(cat filenames);do find / -name "$i" -exec wc -l 230 '{}' \; 2>/dev/null; done
+
+which file's owner has an ID of 502
+
+#for i in $(cat filenames);do find / -name "$i" -user 502 2>/dev/null; done
+
+Which file is executable?
+
+#for i in $(cat filenames);do find / -name "$i" -executable 2>/dev/null; done
+
+If -exec is not included, don't need to include "{}" \
