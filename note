@@ -5,15 +5,19 @@ find / -user root -perm -4000 2>/dev/null  #command to search for suid files
 Edit crontab
 #crontab -e
 wildcard or asterisk (*)
+#crontab -l (to see automate tasks)
 
 SMB Enumeration
 enum4linux -a ip address - enumeration
 
 SSH with key
-ssh kay@10.10.1.2 -i /home/kay/.ssh/id_rsa
+#chmod 600 key
+ssh user@10.10.1.2 -i key
 
 Only Use this after saving the request from burp suite
-sqlmap -r request.txt --dbms=mysql --dump
+
+# sqlmap -r request.txt --dbms=mysql --dump
+
 -r uses the intercepted request you saved earlier
 --dbms tells SQLMap what type of database management system it is
 --dump attempts to outputs the entire database
