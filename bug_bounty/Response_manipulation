@@ -56,6 +56,8 @@ Alt-Svc: h3=":443"; ma=86400
 
 5.If it is ok --> server-side response [200] ---> It will take fronted client side/banner (GET /market/announcement)
 
+**Some website gave admin user function in AI chatbot. At that time we can try response manipulation.
+>>username and password can be wrong but change only status code 200 can access the admin function.
 
 authorization: JWT
 
