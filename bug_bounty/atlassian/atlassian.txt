@@ -1,0 +1,5 @@
+*.atlassian.com 
+*.atl-paas.net
+*.atlassian.net
+*.atlastunnel.com
+

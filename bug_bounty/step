@@ -1,0 +1,35 @@
+step1
+
+use subfinder tool to find all domains.
+#subfinder -d domain.com -o file.txt
+
+And then combine all domain files into final txt file.
+
+step2
+
+set http,https > file.txt
+use httprobe
+#cat final.txt | httprobe -c 100 | tee -a final2.txt
+
+1642 >>> available domain 69
+
+step3
+
+set line number a to z, 0 to 9
+#cat final2.txt | sort | uniq | tee -a final3.txt
+
+step4
+
+select 200 ok url
+use httpx-toolkit
+#httpx-toolkit -l final3.txt -sc | grep 200 | tee -a final4.txt
+
+step5
+
+find domain's name server
+#httpx-toolkit final4.txt -sc -td | tee -a final5.txt
+
+step6
+
+find Domain's IP address with nslookup
+#cat final5.txt | nslookup

