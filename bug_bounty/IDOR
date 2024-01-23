@@ -43,9 +43,16 @@ Comment access to all users(by using IDOR) --> Medium
 
 By using KyawKyaw Uid and write comment in the comment box, Also can do DOS (writing the comment repeatly or sending comment request from burpsuite)
 
+Confuse all users as System_Administrator
+-----------------------------------------
 
+Creating account with the name of System_Administrator (or) Application_Administrator.
 
+Securing OBJECT
+----------------
 
+1.Authentication key + object(uid,session_id)
+2.Hashing the object
 
 
 
