@@ -54,6 +54,13 @@ Securing OBJECT
 1.Authentication key + object(uid,session_id)
 2.Hashing the object
 
+Account Registration Error
+----------------------------
+Eventhough we fill all the necessary forms, we can't register.
+1.Intercept with burpsuite and send to repeater.
+2.After that fill the form and send to response.
+3.Close the registration form and Login.
+
 
 
 
