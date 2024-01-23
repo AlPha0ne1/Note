@@ -1,0 +1,54 @@
+IDOR (Insecure Direct Object References)
+
+Object = unique numbers (session_id,uid,product_id)
+
+Databases
+---------
+
+KyawKyaw				MaungMaung					Joker
+uid=1                   uid=2                       uid=3
+kyaw111@gmail.com		Maung345@gmail.com			joker123@gmail.com
+pass=kyaw123            pass=MaungMoe				pass=joker722
+
+KyawKyaw changes his email
+
+KyawKyaw --------- Kyaw111@gmail.com ------ KyawKyaw@gmail.com(PUT,POST) ------ uid=1 -------> KyawKyaw@gmail.com
+
+Joker    --------- joker123@gmail.com ----- attacker@gmail.com(PUT,POST) ------ uid=1(by using KyawKyaw uid) ------> attacker@gmail.com
+
+KyawKyaw final email ----> attacker@gmail.com
+
+****Forgot password ------> attacker@gmail.com (account takeover)
+_____________________________________________________________________________________________________________________
+
+HTTP Requests = GET (take data from server)     By using Burpsuite
+			  = PUT,POST (send data to server)  By using Burpsuite
+
+Cookie-uid
+/self/edit-profile
+
+API
+GET ----> ?userid=100004 --> IDOR
+
+Json
+{"userid":1}
+
+XML
+<userid>1</userid>
+
+Impact : High, Medium, Low
+-----------------------------
+Comment access to all users(by using IDOR) --> Medium
+
+
+By using KyawKyaw Uid and write comment in the comment box, Also can do DOS (writing the comment repeatly or sending comment request from burpsuite)
+
+
+
+
+
+
+
+
+
+
