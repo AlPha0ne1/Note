@@ -1,0 +1,1 @@
+javascript:alert(document.querySelector('body').innerHTML="Hacked+By+Gh03t");/
