@@ -1,0 +1,14 @@
+Blind SSRF(Server Side Request Forgery)
+ hacker -----> web server           ----> request ---> localhost(internal)
+ hacker -----> web server(computer) ---> request  ---> https://attacker.com(external)
+
+ hacker -----> https://attacker.com ---> hacker ip
+- What?
+- Types?
+- Where?
+- api url json request
+- web application url ( Enter your domain: )
+- url ?get= ?call=
+
+Impact :
+DDOS, Server Scanning, Vulnerablity scanning, Direct access
