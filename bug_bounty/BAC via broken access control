@@ -1,0 +1,21 @@
+Business Logic Bug via Broken Access Control
+
+Title:
+
+ Attacker can remove victim's saving cart using attacker's own password(note : don't need to know victim password)
+ 
+Steps to reproduce :
+(Note :  - Create, saving cart in both attacker and victim to test this)
+
+step1 : we need to know victim's "saving cart" id... ********
+(so we can find in his saving cart remove request no need to know his password)
+  
+step2 : attacker will use his "saving cart" remove request using his password
+- so first create a saving 
+- then remove that using correct password
+
+step3 : intercept the remove request and change "saving cart" id to Victim's saving cart id.
+
+step4 : then send the request .
+
+(Look , attacker can remove the victim saving and collect moneys from victim )
