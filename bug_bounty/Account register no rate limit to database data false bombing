@@ -1,0 +1,20 @@
+Register the account with username and email.
+Next time register the user account with different username and email.
+
+There is no rate limit,so that we have to create lots of username and password in burpsuite intruder mode.
+By using pitchfork method.
+
+But we failed, because account creation needs CSRF token.
+HTTP proxy, number 6 there is a CSRF token.
+
+copy and paste that in user request and create again.
+We succeed.
+
+CSRF
+-----
+CSRF token is the user request token. If the 1st user request and 2nd user request of CSRF token is the same, cannot send the request to the server.
+
+Secure
+--------
+CSRF token must be variable, so creating different CSRF token must be secure for this exploitation.
+
