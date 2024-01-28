@@ -1,0 +1,8 @@
+Race condition
+
+Sending the same HTTP requests in one single time.
+
+e.g. If we have 500 we can't buy 1000 item
+     But if we have 500+500, we can buy 1000 item.
+
+Capture the request and send to intruder , sniper mode, by using null byte payload, on the continuously send.
