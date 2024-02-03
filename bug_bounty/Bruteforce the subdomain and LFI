@@ -1,4 +1,6 @@
 Use wfuzz to bruteforce subdomain
 wfuzz -c --hw 977 -u http://team.thm -H "Host: FUZZ.team.thm" -w /usr/share/wordlists/subdomains.txt
 
+IF LFI is vul try searching /etc/ssh/sshd_config
+
 
