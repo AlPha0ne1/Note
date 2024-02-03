@@ -10,6 +10,9 @@ wildcard or asterisk (*)
 SMB Enumeration
 enum4linux -a ip address - enumeration
 
+Run file in ftp
+ftp> get shell.sh-
+
 Exporting the path
 export PATH=/tmp:$path
 
