@@ -10,6 +10,9 @@ wildcard or asterisk (*)
 SMB Enumeration
 enum4linux -a ip address - enumeration
 
+Exporting the path
+export PATH=/tmp:$path
+
 SSH with key
 #chmod 600 key
 ssh user@10.10.1.2 -i key
