@@ -16,6 +16,9 @@ ftp> get shell.sh-
 Exporting the path
 export PATH=/tmp:$path
 
+Use wfuzz to bruteforce subdomain
+wfuzz -c --hw 977 -u http://team.thm -H "Host: FUZZ.team.thm" -w /usr/share/wordlists/subdomains.txt
+
 SSH with key
 #chmod 600 key
 ssh user@10.10.1.2 -i key
