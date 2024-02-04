@@ -7,6 +7,10 @@ Edit crontab
 wildcard or asterisk (*)
 #crontab -l (to see automate tasks)
 
+Steganography tool
+Use stegseek to brutefoce the file
+#stegseek -sf a.jpg /usr/share/wordlist/rockyou.txt
+
 SMB Enumeration
 enum4linux -a ip address - enumeration
 
