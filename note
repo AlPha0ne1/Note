@@ -26,6 +26,25 @@ ftp> get shell.sh-
 Exporting the path
 export PATH=/tmp:$path
 
+Portward with ssh tunneling
+#ssh -L 7878(you can use a different port):182.17.0.2:8080 aubreanna@internal.thm
+To gain access to Jenkins, type localhost:[Port Number] in your browser:
+
+You can also portforward with meterpreter shell by using multi/handler
+meterpreter > run autoroute -s 127.0.0.1/24   
+meterpreter > portfwd add -l 5555 -p 8080 -r 127.0.0.1
+meterpreter > portfwd list
+
+Active Port Forwards
+====================
+
+   Index  Local         Remote          Direction
+   -----  -----         ------          ---------
+   1      0.0.0.0:5555  127.0.0.1:8080  Forward
+
+
+
+
 Use wfuzz to bruteforce subdomain
 wfuzz -c --hw 977 -u http://team.thm -H "Host: FUZZ.team.thm" -w /usr/share/wordlists/subdomains.txt
 
