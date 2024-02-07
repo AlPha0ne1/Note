@@ -2,6 +2,16 @@ cat ~/.*history | less     #to show history of hidden files
 cat a.txt, less a.txt      #cat and less to read files
 find / -user root -perm -4000 2>/dev/null  #command to search for suid files
 
+Use ss command instead of netstat ( netstat needs perimssion)
+#ss -tulnp
+
+ss: This is the command for socket statistics. It is used to dump socket statistics.
+-t: This option filters the output to show only TCP connections.
+-u: This option filters the output to show only UDP connections.
+-l: This option stands for "listening" and filters the output to display only listening sockets.
+-n: This option prevents the translation of hostnames and port numbers to names, showing numerical values instead.
+-p: This option displays the process that is associated with each socket
+
 (ALL:ALL) means users (represented by "ALL") the permission to run any command on any host as any user with elevated privilege.
 Don't need to change #su root
 just write #sudo cat /root/root.txt
