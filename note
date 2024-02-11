@@ -78,7 +78,7 @@ Active Port Forwards
 Use wfuzz to bruteforce subdomain
 wfuzz -c --hw 977 -u http://team.thm -H "Host: FUZZ.team.thm" -w /usr/share/wordlists/subdomains.txt
 Use wfuzz to brueforce directory
-wfuzz -w hashdump.txt -u http://10.10.223.4/FUZZ
+wfuzz --hc 404 -c -w /usr/share/wordlists/dirb/common.txt http://10.10.87.72/FUZZ
 
 SSH with key
 #chmod 600 key
