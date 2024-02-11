@@ -4,3 +4,7 @@ https://github.com/internetwache/GitTools.git/
 #.gitdumper.sh http://10.10.2.3/.git git(custom-name)
 #git log
 #git show 443849272938492(commit-id)
+
+940d71e8655ac41efb5f8ab850668505b86dd64186a66e57d1483e7f5fe6fd81 (Gost hash)
+
+synt{a0jvgf33zfa0ez4y} (It looks like flag but it uses ROT 13
