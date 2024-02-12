@@ -58,4 +58,10 @@ in machine
 ----------
 #cat ./-
 
+sometimes check .bash_history 
+
+#cat .bash_history 
+mysql -u drac -p 'Th3dRaCULa1sR3aL' (command found in .bash_history).
+
+
 
