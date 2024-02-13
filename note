@@ -21,6 +21,9 @@ root:x:0:0:root:/root:/usr/bin/zsh (x redirects the /etc/shadow)
 When changing the su root > it takes the password from /etc/passwd first instead /etc/shadow.
 If the password is not in /etc/passwd > it takes password from /etc/shadow.
 
+Use OpenSSL to creash hash
+#openssl passwd newpasswordhere
+
 Use ss command instead of netstat ( netstat needs perimssion)
 #ss -tulnp
 
