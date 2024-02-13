@@ -129,6 +129,7 @@ wfuzz --hc 404 -c -w /usr/share/wordlists/dirb/common.txt http://10.10.87.72/FUZ
 SSH with key
 #chmod 600 key
 ssh user@10.10.1.2 -i key
+ssh user@10.10.106.14 -oHostKeyAlgorithms=+ssh_rsa
 
 Only Use this after saving the request from burp suite
 
