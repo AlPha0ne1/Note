@@ -70,7 +70,7 @@ ________________________________________________________________________________
 </html>
 ______________________________________________________________________________________________________________________________
 
-Sha512 can be bruteforced with John the ripper ($6$ --> root password)
+sha512crypt can be bruteforced with John the ripper ($6$ --> root password)
 john hash.txt --wordlist=/usr/share/wordlists/rockyou.txt
 
 
