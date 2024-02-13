@@ -58,6 +58,44 @@ enum4linux -a ip address - enumeration
 smbmap -H 10.10.135.221
 smbclient //10.10.135.221/shares
 
+NFS and RPC-bind enumeration (they are used for RPC(remote procedure call)
+2049/tcp  open  nfs         syn-ack 3-4 (RPC #100003)
+111/tcp   open  rpcbind     syn-ack 2-4 (RPC #100000)
+#sudo showmount -e 10.10.55.3 (show the mount information of the NFS server)
+#sudo mount -t nfs 10.10.135.221:/opt/conf /tmp/internal (always mount in tmp folder)
+
+
+Redis is an open-source, in-memory data structure store that is used as a database, cache, and message broker. It is often referred to as a "data structure server" 
+because it allows you to store and manipulate various types of data structures, such as strings, hashes, lists, sets, and more. 
+
+6379/tcp  open  redis       syn-ack Redis key-value store
+#redis-cli -h 10.10.63.208
+10.10.64.208 > AUTH (authentication_key)
+10.10.64.208 > info (Check the keyspace)
+10.10.64.208 > keys *
+10.10.64.208 > get "internal flag" (one of the keys)
+
+if value is of type string -> GET <key>
+if value is of type hash -> HGETALL <key>
+if value is of type lists -> lrange <key> <start> <end>
+if value is of type sets -> smembers <key>
+if value is of type sorted sets -> ZRANGEBYSCORE <key> <min> <max>
+
+10.10.63.208:6379> lrange "authlist" 0 100
+
+Rsync
+-----
+If so, rsync is a widely used command-line utility for file synchronization and data transfer between systems. 
+It is particularly useful for efficiently copying files and directories either locally or between different machines over a network.
+
+873/tcp   open  rsync       syn-ack (protocol version 31)
+nc -vn 10.10.63.208 873
+#list
+#rsync rsync://rsync-connect@10.10.63.208/files
+#rsync rsync://rsync-connect@10.10.63.208/files/sys-internals
+#rsync -av rsync://rsync-connect@10.10.63.208/files/sys-internals /tmp/
+
+
 Run file in ftp
 ftp> get shell.sh-
 
