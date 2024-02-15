@@ -1,6 +1,10 @@
 cat ~/.*history | less     #to show history of hidden files
 cat a.txt, less a.txt      #cat and less to read files
 
+When you use chmod -R,(Recursive)
+Recursive means it applies the specified changes not only to the given file or directory
+but also to all of its subdirectories and their contents.
+
 Find all files that concerns with the user (elyana)
 #find / -type f -user elyana 2>/dev/null
 
