@@ -1,7 +1,12 @@
 WEP
 ---
-aircrack-ng /home/attacker/Desktop/Sample Captures/WEPcrack-01.cap
+aircrack-ng /home/attacker/Desktop/Sample Captures/WEPcrack-01.cap (finding BSSID)
 
 WPA
 ---
 aircrack-ng -a2 -b [Target BSSID] -w /home/attacker/Desktop/Wordlist/password.txt /home/attacker/Desktop/Sample Captures/WPA2crack-01.cap
+
+-a flag is used in WPA,WPA2
+-a0: Open System authentication
+-a1: Shared Key authentication
+-a2: PSK (Pre-Shared Key) authentication
