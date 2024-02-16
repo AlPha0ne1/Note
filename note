@@ -1,6 +1,10 @@
 cat ~/.*history | less     #to show history of hidden files
 cat a.txt, less a.txt      #cat and less to read files
 
+Transfer or Receive files with scp (if key algorithm is needed, add it)(always need remote server Password)
+#scp -oHostKeyAlgorithms=ssh-rsa shell.elf user@10.10.7.24:/home/user/shell.elf
+#scp user@10.10.7.24:/home/user/.bash_history /home/peter
+
 When you use chmod -R,(Recursive)
 Recursive means it applies the specified changes not only to the given file or directory
 but also to all of its subdirectories and their contents.
