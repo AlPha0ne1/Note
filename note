@@ -4,6 +4,7 @@ cat a.txt, less a.txt      #cat and less to read files
 Transfer or Receive files with scp (if key algorithm is needed, add it)(always need remote server Password)
 #scp -oHostKeyAlgorithms=ssh-rsa shell.elf user@10.10.7.24:/home/user/shell.elf
 #scp user@10.10.7.24:/home/user/.bash_history /home/peter
+#scp -i /path/to/id_rsa example.txt user@192.168.1.100:/home/user/documents/ (scp with id_rsa)
 
 When you use chmod -R,(Recursive)
 Recursive means it applies the specified changes not only to the given file or directory
