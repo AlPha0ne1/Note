@@ -69,6 +69,25 @@ enum4linux -a ip address - enumeration
 smbmap -H 10.10.135.221
 smbclient //10.10.135.221/shares
 
+Sometimes you have to put username 
+smbclient //10.10.56.103/milesdyson -U milesdyson
+
+SMB shares command
+smbclient -L ipaddress
+
+SMB connect command
+smbclient \\\\10.10.x.x\\nt4wrksv
+10.10.x.x- ip-address
+nt4wrksv - network share name
+
+SMB Share file put
+After connecting to file sharing network, use the following command
+put hello.txt
+hello.txt = any file 
+http://10.10.157.157:49663/nt4wrksv/hello.txt
+after inseting this into web, should launch the text file.
+
+
 NFS and RPC-bind enumeration (they are used for RPC(remote procedure call)
 2049/tcp  open  nfs         syn-ack 3-4 (RPC #100003)
 111/tcp   open  rpcbind     syn-ack 2-4 (RPC #100000)
@@ -192,20 +211,7 @@ hashcat -m 1710 -a 0 salt /usr/share/wordlists/rockyou.txt
 1710 - https://hashcat.net/wiki/doku.php?id=example_hashes, search here and choose the number suitable for your hash
 salt - ur hash file
 
-SMB shares command
-smbclient -L ipaddress
 
-SMB connect command
-smbclient \\\\10.10.x.x\\nt4wrksv
-10.10.x.x- ip-address
-nt4wrksv - network share name
-
-SMB Share file put
-After connecting to file sharing network, use the following command
-put hello.txt
-hello.txt = any file 
-http://10.10.157.157:49663/nt4wrksv/hello.txt
-after inseting this into web, should launch the text file.
 
 PrintSpoofer - works window 10 vulnerability 
 Printspoofer command to use for priviledge escalation
