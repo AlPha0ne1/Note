@@ -165,6 +165,10 @@ SSH with key
 ssh user@10.10.1.2 -i key
 ssh user@10.10.106.14 -oHostKeyAlgorithms=+ssh_rsa
 
+sshpass send with ssh password and implement a connection
+#sshpass -p "hackerrules!" ssh james@10.10.249.163
+
+
 Only Use this after saving the request from burp suite
 
 # sqlmap -r request.txt --dbms=mysql --dump
