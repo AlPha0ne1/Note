@@ -178,7 +178,7 @@ ________________________________________________________________________________
 
 port 27017 => mongodb
 #mongo
-#show databases;
+#show dbs;
 #show collections;
 #db.user.find();
 
