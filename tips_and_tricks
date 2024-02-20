@@ -161,10 +161,19 @@ http://10.10.174.96/th1s_1s_h1dd3n/?secret=hi
 Welcome! I have been expecting you!
 To obtain my identity you need to guess my secret!
 
-Secret Entered: hi (<<<)
+Secret Entered: hi 
 That is wrong! Get outta here!
 _________________________________________________________________________________________________________________________________
 Some username shows like that wbxre, but it used ROT13, you have to decrypt it.
+_________________________________________________________________________________________________________________________________
+http://10.10.149.190/island/2100/ (original), that displays
+
+<!-- you can avail your .ticket here but how?   -->
+
+Bruteforce the .ticket extension file with gobuster
+----------------------------------------------------
+gobuster dir -u http://10.10.149.190/island/2100 -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -t 80 -x ticket
+
 
 
 
