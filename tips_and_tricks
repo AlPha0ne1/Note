@@ -173,6 +173,14 @@ http://10.10.149.190/island/2100/ (original), that displays
 Bruteforce the .ticket extension file with gobuster
 ----------------------------------------------------
 gobuster dir -u http://10.10.149.190/island/2100 -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -t 80 -x ticket
+____________________________________________________________________________________________________________________________________
+#ss -tulnp
+
+port 27017 => mongodb
+#mongo
+#show databases;
+#show collections;
+#db.user.find();
 
 
 
