@@ -7,7 +7,10 @@ https://github.com/internetwache/GitTools.git/
 
 940d71e8655ac41efb5f8ab850668505b86dd64186a66e57d1483e7f5fe6fd81 (Gost hash)
 
-synt{a0jvgf33zfa0ez4y} (It looks like flag but it uses ROT 13
+Rot13
+-----
+synt{a0jvgf33zfa0ez4y} 
+wbxre
 
 Privilege escalation using capabilities
 ----------------------------------------
@@ -142,9 +145,26 @@ Sometimes don't forget to check Videos, Documents, Desktop, Downloads, folders i
 Can also find the flag or file with locate command instead of find command.
                                     -------
 #locate fire-type
+______________________________________________________________________________________________________________________________
+http://10.10.174.96/th1s_1s_h1dd3n (original page)
+the site displays
+----------------
+Welcome! I have been expecting you!
+To obtain my identity you need to guess my secret!
 
+Secret Entered: 
 
+So, we need to input secret parameter and insert data
+-------------------------------------------------------
+http://10.10.174.96/th1s_1s_h1dd3n/?secret=hi 
 
+Welcome! I have been expecting you!
+To obtain my identity you need to guess my secret!
+
+Secret Entered: hi (<<<)
+That is wrong! Get outta here!
+_________________________________________________________________________________________________________________________________
+Some username shows like that wbxre, but it used ROT13, you have to decrypt it.
 
 
 
