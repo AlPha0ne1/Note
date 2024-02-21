@@ -17,13 +17,10 @@ Internal CSS ()
 <style>
 
 h1,p
-
 {
 color: black;
 background-color: yellow;
-
 }
-
 </style>
 
 h1 and p = selectors; 
@@ -31,8 +28,10 @@ background-color: yellow = rule;
 background-color = property;
 yellow =value;
 
-
 <em> tags as italicized
 <b> tag is used to make text bold
+
+![photo](https://github.com/AlPha0ne1/Note/assets/143469477/5b94549c-6ac8-4fe5-8b45-8739e4bf7316)
+
 
 
