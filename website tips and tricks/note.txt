@@ -31,6 +31,43 @@ yellow =value;
 <em> tags as italicized
 <b> tag is used to make text bold
 
+<head>
+  <style>
+    h1 u {
+      color: seagreen;
+    }
+  </style>
+</head>
+<body>
+  <h1>Back to <u>school!</u></h1>
+  <p>Our back to <u>school</u> sale from July 15th.</p>
+</body>
+
+color:seagreen affects only u selector in h1 not the whole h1.
+
+id  = unique element
+class = multiple elements
+
+<h1 class=demo>Hi</h1>
+<p class=demo> How are you </p>
+
+h1.demo
+{
+  color:red;
+  font-size:large;
+}
+p.demo
+{
+  background-color:red;
+  background-size: 100%
+}
+
+
+
+
+
+
+
 
 
 
