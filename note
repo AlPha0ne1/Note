@@ -54,7 +54,10 @@ In metasploitable find the specific module (start with auxiliary)
 #search type:auxiliary postgres
 
 Use WPS scan
-#wpscan --url http://internal.thm/wordpress/ -e
+#wpscan --url http://10.10.67.25/blog -e vp,u
+-e = enumerate
+vp = vulnerable plugins
+u = users
 #wpscan --url http://internal.thm/wordpress/ -U admin -P /usr/share/wordlists/rockyou.txt
 wps revershell path
 internal.thm/blog/wp-content/themes/twentyseventeen/404.php
@@ -205,12 +208,6 @@ bruteforce
 hydra -l john -P /usr/share/wordlists/rockyou.txt 10.10.110.113 -s 62337 http-post-form "/components/user/controller.php?action=authenticate:username=^USER^&password=^PASS^&theme=default&language=en:Incorrect Username or Password"
 
 
-
-
-
-
-
-
 Finding hidden directories with dirb
 dirb http://10.10.181.92 /usr/share/wordlists/dirb/common.txt
 
@@ -227,13 +224,6 @@ PrintSpoofer.exe -i -c cmd
 
 WP Scan - used for scanning vulnerabilities in webpage created by wordpress
   Command to use for enumeration
-  wpscan --url http://10.10.67.25/blog -e vp,u
-  -e = enumerate
-  vp = vulnerable plugins
-  u = users
-
-  Command to crack password
-  wpscan --url http://10.10.67.25/blog --usernames admin --passwords /root/Desktop/rockyou.txt
 
 Command to find files
 find / -name *.txt 
