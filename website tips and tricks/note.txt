@@ -1,0 +1,36 @@
+.navbar_toggle#mobile-menu (creating the class and id at the same time)
+
+it displays like that
+--------------------- 
+
+<div class="nav_toggle" id="mobile-menu"></div>
+
+
+ul.navbar_item
+---------------
+
+<ul class="navbar_item"></ul>
+
+Internal CSS ()
+-------------
+
+<style>
+
+h1,p
+
+{
+color: black;
+background-color: yellow;
+
+}
+
+</style>
+
+h1 and p = selectors; 
+background-color: yellow = rule;
+background-color = property;
+yellow =value;
+
+
+<em> tags as italicized
+<b> tag is used to make text bold
