@@ -6,6 +6,15 @@ Transfer or Receive files with scp (if key algorithm is needed, add it)(always n
 #scp user@10.10.7.24:/home/user/.bash_history /home/peter
 #scp -i /path/to/id_rsa example.txt user@192.168.1.100:/home/user/documents/ (scp with id_rsa)
 
+socat port-forwarding
+----------------------
+socat binary script install and send to victim machine
+https://github.com/andrew-d/static-binaries/blob/master/binaries/linux/x86_64/socat
+
+in victim machine
+#chmod +x socat
+#./socat TCP-LISTEN:9999(whatever you like),fork TCP:127.0.0.1:22
+
 When you use chmod -R,(Recursive)
 Recursive means it applies the specified changes not only to the given file or directory
 but also to all of its subdirectories and their contents.
