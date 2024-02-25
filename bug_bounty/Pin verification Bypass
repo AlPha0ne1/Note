@@ -1,0 +1,6 @@
+PIN verification Bypass using Response Manipulation
+
+1.Test with wrong PIN
+2.Intercept the Response code with burpsuite
+3.Change the Response code 400 to 200 OK
+I will successfully bypass the PIN verification.
