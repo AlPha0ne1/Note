@@ -1,0 +1,23 @@
+Pug_js exploit
+----------------
+
+router.post('/api/submit', (req, res) => {
+    const { artist } = unflatten(req.body);
+
+	if (artist.name.includes('Haigh') || artist.name.includes('Westaway') || artist.name.includes('Gingell')) {
+		return res.json({
+			'response': pug.compile('span Hello #{user}, thank you for letting us know!')({ user: 'guest' })
+		});
+	} else {
+		return res.json({
+			'response': 'Please provide us with the full name of an existing member.'
+		});
+
+
+unflatten pug is used to convert a flattened object into a nested object structure.
+
+For instance, { 'artist.name': 'John Doe', 'artist.genre': 'Rock' } is a flattened object representing information about an artist.
+The unflatten function or pug would transform this flattened structure into a nested object like { artist: { name: 'John Doe', genre: 'Rock' } }.
+
+**PugJS is designed to make it easier for developers to write in a predetermined format.**
+
