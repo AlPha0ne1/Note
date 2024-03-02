@@ -45,6 +45,9 @@ Parmaeter fuzzing with ffuf
 -fs =minimum http response_size
 -mc = match all status code
 
+Subdomain fuzzing with ffuf
+---------------------------
+#ffuf -w /usr/share/wordlists/subdomain.txt -H "Host: FUZZ.nahamstore.com" -u http://nahamstore.com
 
 Sending && receiving file with tar 
 ----------------------------------
