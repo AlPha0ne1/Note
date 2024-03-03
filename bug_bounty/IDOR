@@ -5,10 +5,10 @@ Object = unique numbers (session_id,uid,product_id)
 Databases
 ---------
 
-KyawKyaw				MaungMaung					Joker
-uid=1                   uid=2                       uid=3
-kyaw111@gmail.com		Maung345@gmail.com			joker123@gmail.com
-pass=kyaw123            pass=MaungMoe				pass=joker722
+KyawKyaw			MaungMaung		      Joker
+uid=1                             uid=2                       uid=3
+kyaw111@gmail.com	    Maung345@gmail.com		joker123@gmail.com
+pass=kyaw123                  pass=MaungMoe		  pass=joker722
 
 KyawKyaw changes his email
 
@@ -22,7 +22,7 @@ KyawKyaw final email ----> attacker@gmail.com
 _____________________________________________________________________________________________________________________
 
 HTTP Requests = GET (take data from server)     By using Burpsuite
-			  = PUT,POST (send data to server)  By using Burpsuite
+	      = PUT,POST (send data to server)  By using Burpsuite
 
 Cookie-uid
 /self/edit-profile
