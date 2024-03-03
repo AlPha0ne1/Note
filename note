@@ -38,6 +38,10 @@ Rustscan
 --------
 #rustscan -r 1-1000 -a 10.10.229.240 -- -sV -sC -oN scan
 
+dirsearch
+----------
+dirsearch -u http://marketing.nahamstore.thm -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt
+
 Parmaeter fuzzing with ffuf
 ---------------------------
 #ffuf -w /usr/share/wordlists/dirb/common.txt -X POST -u http://10.10.229.240/api/items?FUZZ=jsdfjsf -fs 45 -mc all
