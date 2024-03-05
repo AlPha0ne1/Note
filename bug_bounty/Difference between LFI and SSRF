@@ -1,0 +1,3 @@
+Both LFI and SSRF involve manipulating input to compromise a system, 
+LFI focuses on including local files on the server,
+whereas SSRF involves making the server perform unintended requests to external or internal resources.
