@@ -33,8 +33,11 @@ In admin.html
    request.halloween_name is trusted and can contain HTML markup.
 
 2. When user inputs or untrusted data are marked as safe, it can lead to Cross-Site Scripting (XSS) vulnerabilities.
-_____________________________________________________________________________________________________________________________________________
-REST API FUZZING (parameter)POST /account/settings/email HTTP/1.1
+_______________________________________________________________________________________________________________________________
+REST API FUZZING (parameter)
+-----------------------------
+
+POST /account/settings/email HTTP/1.1
 Host: nahamstore.thm
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/115.0
 Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8
