@@ -1,3 +1,13 @@
+If you press --> http://nahamstore-2020-dev.nahamstore.thm/  (or) http://nahamstore.thm:8000/
+And it doesn't show any thing on the webpage, do directory fuzzing.
+
+When you press --->  http://nahamstore-2020-dev.nahamstore.thm/api/customers
+webpage shows ----> customer_id is required.
+
+So,if parameter is required, don't forget to put (?) in front of it.
+http://nahamstore-2020-dev.nahamstore.thm/api/customers/?customer_id=3
+__________________________________________________________________________________________________________________________________________________
+
 step1
 
 use subfinder tool to find all domains.
