@@ -11,3 +11,11 @@ aircrack-ng -a2 -b [Target BSSID] -w /home/attacker/Desktop/Wordlist/password.tx
 -a0: Open System authentication
 -a1: Shared Key authentication
 -a2: PSK (Pre-Shared Key) authentication
+
+
+IOT
+---
+
+>mqtt
+>publish release (1159) (or)Ping response (1619)
+>publish message
