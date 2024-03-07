@@ -334,12 +334,9 @@ To stabalise shell to get into cmd
 python -c 'import pty;pty.spawn("/bin/bash")'
 
 
-
 Armitage Command To start
 cd /opt/armitage/release/unix && ./teamserver YourIP P@ssw0rd123
 
-
-1. AdminTeam.ECCCEH.com
 
 CEWL Command
 cat file1.txt file2.txt file3.txt > combined_list.txt #combines the wordlists into one
@@ -353,64 +350,7 @@ Use tr command to convert uppercase to lowercase (after creating wordlist).
 -------------------------------------------------
 tr '[:upper:]' '[:lower:]' < wordlist.txt > lowercase.txt
 
-2.172.20.0.16
 
 Finding all files with SUID
 find / -perm -u=s -type f 2>/dev/null
-
-3.Hydra command
----------------
-#hydra-l laura -P /usr/share/wordlists/rockyou.txt 192.168.0.1 smb
-
-4.How find hash in android by connecting from computer 
-1. sudo nmap -p 5555 192.168.0.0/24
-2. adb connect 192.168.0.14:5555
-3. adb shell
-4. ls and cd sdcard and ls and pwd
-5. adb pull /sdcard/scan/ or adb pull /sdcard/scan attacker/home/
-6. ls and cd scan and ls
-7. ent -h or apt install ent
-8. ent evil.elf
-9. ent evil2.elf
-10. ent evil3.elf
-11. sha384sum evil.elf
-: f262
-
-6.Netpass ====!devg?o 
-
-7.
-Steganography tool (ROT47)
-Use stegseek to brutefoce the file
-#stegseek -sf a.jpg /usr/share/wordlist/rockyou.txt
-image file --   }fR$6!u?
-
-8. iamgkks lsddkfdkf ==>  9$!RerD2
-
-9.. Using DIE
----------------
-1.Run the die.exe file in windows, upload the target file then click open now in scanned all now click on file 
-info there you can see the entry point address.
-2. Find the Portable Executable (PE) Information of a Malware Executable File
-3. Open manuals go malware analysis folder, static malware analysis folder and PE Extraction tools folder 
-then you can install and launch it. 
-4. Click on file and upload the file from windows, after uploading it manually open the header file then you 
-can see the entry point address
-__c`6feg
-
-10.
-eq, ==    Equal
-ne, !=    Not Equal
-gt, >     Greater Than
-lt, <     Less Than
-ge, >=    Greater than or Equal to
-le, <=    Less than or Equal to
-tcp.flags.syn == 1 and tcp.flags.ack == 0
-
- 11. find a  p74NSHXz
-
-wireless password1
-IOT 37
-
-final -->(C@tchm32) Use veracrypt to decrypt the volume
-Open veracrypt and upload the file and give password and open the file see the text
 
