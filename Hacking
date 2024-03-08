@@ -17,7 +17,7 @@ Use tr command to convert uppercase to lowercase (after creating wordlist).
 tr '[:upper:]' '[:lower:]' < wordlist.txt > lowercase.txt
 
 namp -sV -A -p 80 10.10.1.13/24
-172.20.0.16
+172.20.0.16/ 172.20.0.21
 
 
 Hydra command
