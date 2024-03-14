@@ -97,8 +97,9 @@ When you use chmod -R,(Recursive)
 Recursive means it applies the specified changes not only to the given file or directory
 but also to all of its subdirectories and their contents.
 
-CURL command by using -L (redirect) and -H (use custom header)
+CURL command by using -L (redirect) and -H (use custom header), -k (or) --insecure (to neglect ssl certificate)
 #curl http://10.10.249.163/ -H "User-Agent: C" -L
+#curl --insecure https://bizness.htb | grep href
 
 Find all files that concerns with the user (elyana)
 #find / -type f -user elyana 2>/dev/null
