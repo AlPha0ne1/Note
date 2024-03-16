@@ -12,7 +12,7 @@ We succeed.
 
 CSRF
 -----
-CSRF token is the user request token. If the 1st user request and 2nd user request of CSRF token is the same, cannot send the request to the server.
+CSRF token is the user request token. If the 1st user request and 2nd user request of CSRF token is the same, can be exploited
 
 Secure
 --------
