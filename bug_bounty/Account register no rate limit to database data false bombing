@@ -18,3 +18,17 @@ Secure
 --------
 CSRF token must be variable, so creating different CSRF token must be secure for this exploitation.
 
+
+Every input place and number place has no rate limite validation, can do bruteforce attack.(post_id and comment)
+------------------------------------------------------------------------------------------------------------------
+
+Sec-Fetch-Site: same-site
+Te: trailers
+{"post_id":4,"comment":"maayeloe"}
+
+Phone_number is the only one validated, so bruteforcing the last 3 characters in Phone_number, can create lots of accounts
+----------------------------------------------------------------------------------------------------------------------------
+Sec-Fetch-Mode: cors
+Sec-Fetch-Site: same-site
+Te: trailers
+{"name":"kms","Phone_number":"0912345234","password":"leelr123","confirm_password":"leelr123"}
