@@ -4,9 +4,6 @@ cat a.txt, less a.txt      #cat and less to read files
 Identify FQDN of the Domain Controller
 #nmap --script=smb-os-discovery.nse 10.10.1.22
 
-To put IP and DNS directly in the /etc/hosts
-#sudo echo "10.10.1.22 bizness.htb" | tee -a /etc/hosts
-
 Transfer or Receive files with scp (if key algorithm is needed, add it)(always need remote server Password)
 #scp -oHostKeyAlgorithms=ssh-rsa shell.elf user@10.10.7.24:/home/user/shell.elf
 #scp user@10.10.7.24:/home/user/.bash_history /home/peter
