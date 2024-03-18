@@ -4,6 +4,13 @@ cat a.txt, less a.txt      #cat and less to read files
 Identify FQDN of the Domain Controller
 #nmap --script=smb-os-discovery.nse 10.10.1.22
 
+Normal nmap scanning is TCP scanning, but some ports are opened in UDP session.
+#sudo nmap -sU -min-rate 5000 10.10.11.248
+
+smbenumeration
+--------------
+#smbwalk -v2c -c public ngios.monitored.htb
+
 Transfer or Receive files with scp (if key algorithm is needed, add it)(always need remote server Password)
 #scp -oHostKeyAlgorithms=ssh-rsa shell.elf user@10.10.7.24:/home/user/shell.elf
 #scp user@10.10.7.24:/home/user/.bash_history /home/peter
