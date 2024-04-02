@@ -328,5 +328,10 @@ Instead of using <script></script> (use <button></button>
 -----------------------------------------------------------
 https://www.ytech.vip/message/en/record.html?id=hello<button onclick=prompt(1)</button>
 ____________________________________________________________________________________________________________________________________________
+ Product Ordering Bypass with free money 
+----------------------------------------
+When the shop gives pawns or points (we can buy with that ting)
+Intercept (buy now) and do response manipulation and change the points(pawns), After that we can buy anything.
+____________________________________________________________________________________________________________________________________________
 
 
