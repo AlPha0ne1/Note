@@ -9,7 +9,7 @@ sed command
 #sed -i '$ s/replaced_object/replacing_object/' /etc/hosts (s means substitue)
 #sed '$!d' (or) tail -n 1 ($!d = last line)
 #sudo sed -i -e '$a\10.10.173.97 vulnnet-rst.local' /etc/hosts (a means append)
-#sudo sed -i "$ s/$(sudo sed '$!d' /etc/hosts)/10.10.33.231 vulnnet-rst.local/" /etc/hosts ($ is also last line)
+#sudo sed -i "$ s/$(sudo sed '$!d' /etc/hosts)/10.10.33.231 vulnnet-rst.local/" /etc/hosts 
 #sudo sed -i "$ s/$(sudo sed '$!d' /etc/hosts)/$ip $(sudo sed '$!d' /etc/hosts | awk '{print $2}')/" /etc/hosts
 
 Upload reverse shell script file in web-server But must upload with PHP server
