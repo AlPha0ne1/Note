@@ -245,8 +245,7 @@ NFS and RPC-bind enumeration (they are used for RPC(remote procedure call)
 #sudo mount -t nfs 10.10.135.221:/opt/conf /tmp/internal (always mount in tmp folder)
 
 
-Redis is an open-source, in-memory data structure store that is used as a database, cache, and message broker. It is often referred to as a "data structure server" 
-because it allows you to store and manipulate various types of data structures, such as strings, hashes, lists, sets, and more. 
+Redis is NoSQL database, which stores everything in RAM as key/value pairs such as various types of data structures, example (strings, hashes, lists, sets, and more)
 
 6379/tcp  open  redis       syn-ack Redis key-value store
 #redis-cli -h 10.10.63.208
