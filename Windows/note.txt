@@ -110,3 +110,7 @@ nc -vn 10.10.63.208 873
 #rsync rsync://rsync-connect@10.10.63.208/files
 #rsync rsync://rsync-connect@10.10.63.208/files/sys-internals
 #rsync -av rsync://rsync-connect@10.10.63.208/files/sys-internals /tmp/
+____________________________________________________________________________________________________________________________________________________________________________
+Windows privilege escalation with rlwrap
+-----------------------------------------
+#rlwrap nc -lvnp 2222
