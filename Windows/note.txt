@@ -70,7 +70,16 @@ NFS and RPC-bind enumeration (they are used for RPC(remote procedure call)
 2049/tcp  open  nfs         syn-ack 3-4 (RPC #100003)
 111/tcp   open  rpcbind     syn-ack 2-4 (RPC #100000)
 #sudo showmount -e 10.10.55.3 (show the mount information of the NFS server)
-#sudo mount -t nfs 10.10.135.221:/opt/conf /tmp/internal (always mount in tmp folder)
+#sudo mount -t nfs 10.10.135.221:/opt/conf /tmp/users (always mount in tmp folder)
+
+the mounted directory is nobody and nogroup (can't change permission && cannot get in with sudo)
+-------------------------------------------------------------------------------------------------
+drwx------  2 nobody nogroup   64 Feb 27  2021 users
+
+That directory can be in with root user
+----------------------------------------
+#sudo -s
+#cd users
 
 
 Redis is NoSQL database, which stores everything in RAM as key/value pairs such as various types of data structures, example (strings, hashes, lists, sets, and more)
