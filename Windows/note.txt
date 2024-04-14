@@ -1,6 +1,7 @@
 
 #smb -L 10.10.173.97
 
+As soon as SMB port is open, we can bruteforce SID_Users with crackmapexec
 
 Bruteforcing SID users with crackmapexec (or) impacket
 -------------------------------------------------------
