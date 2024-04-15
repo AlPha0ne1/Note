@@ -6,7 +6,7 @@ As soon as SMB port is open, we can bruteforce SID_Users with crackmapexec
 
 RID user," it's generally referring to a user account identified by its RID within a domain. This is because RIDs are used as part of the SID to identify users within a domain.
 
-Bruteforcing RID users with crackmapexec (or) impacket
+Bruteforcing RID users with crackmapexec (or) impacket (Since, we have READ permission on IPC$)
 -------------------------------------------------------
 crackmapexec smb 10.10.173.97 -u lee -p "" --rid-brute 10000 (RID user accounts 10000)
 						(or)
