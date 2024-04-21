@@ -17,6 +17,7 @@ Boolean-based
 --------------
 username --> admin' AND 1=1#
 username --> admin' or 1=1 --
+username --> admin'#' in password --> anything(1jfldsf)
 
 To know SQL injection first
 ---------------------------
