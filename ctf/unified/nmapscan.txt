@@ -1,0 +1,29 @@
+# Nmap 7.94SVN scan initiated Sat Apr 20 07:06:26 2024 as: nmap -sV -sA -sC -A -p 8080,8443,8843,8880 -oN nmapscan.txt 10.129.71.45
+Nmap scan report for 10.129.71.45
+Host is up (0.37s latency).
+
+PORT     STATE      SERVICE    VERSION
+8080/tcp unfiltered http-proxy
+8443/tcp unfiltered https-alt
+| ssl-cert: Subject: commonName=UniFi/organizationName=Ubiquiti Inc./stateOrProvinceName=New York/countryName=US
+| Subject Alternative Name: DNS:UniFi
+| Not valid before: 2021-12-30T21:37:24
+|_Not valid after:  2024-04-03T21:37:24
+8843/tcp unfiltered unknown
+| ssl-cert: Subject: commonName=UniFi/organizationName=Ubiquiti Inc./stateOrProvinceName=New York/countryName=US
+| Subject Alternative Name: DNS:UniFi
+| Not valid before: 2021-12-30T21:37:24
+|_Not valid after:  2024-04-03T21:37:24
+8880/tcp unfiltered cddbp-alt
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Aggressive OS guesses: Aruba IAP-105 WAP (95%), AVM FRITZ!Box FON WLAN 7240 WAP (95%), Belkin N600 DB WAP (95%), Buffalo LinkStation NAS device (95%), Buffalo LS-WXL NAS device (95%), Check Point VPN-1 UTM appliance (95%), Cisco CP 8945 VoIP phone (95%), D-Link DSR-1000N WAP (95%), EnGenius ESR-9250 WAP (95%), Android 2.3.5 (Linux 2.6.35) (95%)
+No exact OS matches for host (test conditions non-ideal).
+Network Distance: 2 hops
+
+TRACEROUTE (using port 8880/tcp)
+HOP RTT       ADDRESS
+1   907.81 ms 10.10.14.1
+2   907.98 ms 10.129.71.45
+
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Sat Apr 20 07:06:48 2024 -- 1 IP address (1 host up) scanned in 21.88 seconds

