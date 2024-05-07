@@ -1,0 +1,1 @@
+# Nmap 7.94SVN scan initiated Sun Apr 14 03:08:58 2024 as: nmap -vv --reason -Pn -T4 -sV -sC --version-all -A --osscan-guess -oN /home/victor/Desktop/reset/results/10.10.218.170/scans/_quick_tcp_nmap.txt -oX /home/victor/Desktop/reset/results/10.10.218.170/scans/xml/_quick_tcp_nmap.xml 10.10.218.170

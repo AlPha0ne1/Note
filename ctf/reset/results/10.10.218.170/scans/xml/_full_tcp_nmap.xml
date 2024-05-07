@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE nmaprun>
+<?xml-stylesheet href="file:///usr/bin/../share/nmap/nmap.xsl" type="text/xsl"?>
+<!-- Nmap 7.94SVN scan initiated Sun Apr 14 03:08:58 2024 as: nmap -vv -&#45;reason -Pn -T4 -sV -sC -&#45;version-all -A -&#45;osscan-guess -p- -oN /home/victor/Desktop/reset/results/10.10.218.170/scans/_full_tcp_nmap.txt -oX /home/victor/Desktop/reset/results/10.10.218.170/scans/xml/_full_tcp_nmap.xml 10.10.218.170 -->
+<nmaprun scanner="nmap" args="nmap -vv -&#45;reason -Pn -T4 -sV -sC -&#45;version-all -A -&#45;osscan-guess -p- -oN /home/victor/Desktop/reset/results/10.10.218.170/scans/_full_tcp_nmap.txt -oX /home/victor/Desktop/reset/results/10.10.218.170/scans/xml/_full_tcp_nmap.xml 10.10.218.170" start="1713078538" startstr="Sun Apr 14 03:08:58 2024" version="7.94SVN" xmloutputversion="1.05">
+<scaninfo type="syn" protocol="tcp" numservices="65535" services="1-65535"/>
+<verbose level="2"/>
+<debugging level="0"/>
+<taskbegin task="NSE" time="1713078538"/>
+<taskend task="NSE" time="1713078538"/>
+<taskbegin task="NSE" time="1713078538"/>
+<taskend task="NSE" time="1713078538"/>
+<taskbegin task="NSE" time="1713078538"/>
+<taskend task="NSE" time="1713078538"/>
+<taskbegin task="Parallel DNS resolution of 1 host." time="1713078538"/>
+<taskend task="Parallel DNS resolution of 1 host." time="1713078539"/>
+<taskbegin task="SYN Stealth Scan" time="1713078539"/>

