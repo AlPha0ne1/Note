@@ -1,0 +1,6 @@
+# Dirsearch started Fri Mar 29 03:51:53 2024 as: /usr/lib/python3/dist-packages/dirsearch/dirsearch.py -u https://www.lystn.fm/ -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt
+
+301   238B   https://www.lystn.fm/download    -> REDIRECTS TO: https://www.lystn.fm/download/
+301   236B   https://www.lystn.fm/images    -> REDIRECTS TO: https://www.lystn.fm/images/
+302    20B   https://www.lystn.fm/profile    -> REDIRECTS TO: https://www.lystn.fm/
+301   231B   https://www.lystn.fm/i    -> REDIRECTS TO: https://www.lystn.fm/i/
