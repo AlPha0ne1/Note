@@ -1,0 +1,16 @@
+POST /dashboard.php HTTP/1.1
+Host: 10.129.113.222
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:124.0) Gecko/20100101 Firefox/124.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate, br
+Connection: close
+Cookie: PHPSESSID=qf6slqv1k4f1eh92dpted5quhm
+Upgrade-Insecure-Requests: 1
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 12
+
+search=hello
+
+
+
