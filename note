@@ -1,12 +1,17 @@
 cat ~/.*history | less     #to show history of hidden files
 cat a.txt, less a.txt      #cat and less to read files
 
+put host name directly with tee and echo
+----------------------------------------
+echo "10.10.11.14 mailing.htb" | sudo tee -a /etc/hosts
+
 using cat to know the line number
 ---------------------------------
 #cat -n lfi-linux-list.txt | grep "/etc/ssh"
 
 
 Identify FQDN of the Domain Controller
+-------------------------------------
 #nmap --script=smb-os-discovery.nse 10.10.1.22
 
 sed command
