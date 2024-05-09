@@ -1,3 +1,6 @@
+Bug Bountyမှာ လူရှာတာ နည်းမယ်လို ထင်တဲ့ Domainမှာ Bugရှာတာက အထိရောက်ဆုံးပဲ
+လူရှာတားနည်းလေလေ = အဲ့domainမှာ ယိုပေါက်ရှိနိုင်ချေ များလေလေးပေါ့
+
 If you press --> http://nahamstore-2020-dev.nahamstore.thm/  (or) http://nahamstore.thm:8000/
 And it doesn't show any thing on the webpage, do directory fuzzing.
 
