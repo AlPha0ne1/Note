@@ -385,6 +385,39 @@ Inspect > can see > both dom manipulation & website display
 Dom based XSS > add additional attribute (onload)
 
 https://0a3c008203a264fa83da39b2006200c5.web-security-academy.net/?search=test" onload="alert(1)
+_______________________________________________________________________________________________________________________________________________________________________________________________
+Dom based XSS in select option
+-------------------------------
+
+<script>
+  var stores = ["London","Paris","Milan"];
+  var store = (new URLSearchParams(window.location.search)).get('storeId');
+  document.write('<select name="storeId">');
+  if(store) {
+    document.write('<option selected>'+store+'</option>');
+           }
+  for(var i=0;i<stores.length;i++) {
+    if(stores[i] === store) {
+       continue;
+      }
+    document.write('<option>'+stores[i]+'</option>');
+    }
+  document.write('</select>');
+
+</script>
+           
+
+That code
+var store = (new URLSearchParams(window.location.search)).get('storeId');  > it means look at the URL bar with the parameter storeId. So, we need to add storeId parameter in the URL bar.
+
+https://0a4200c003e746a68219ddee0048006b.web-security-academy.net/product?productId=1&storeId=test
+
+After that we can do dom based XSS attack
+-----------------------------------------
+
+https://0a4200c003e746a68219ddee0048006b.web-security-academy.net/product?productId=1&storeId=<script>alert(1)</script>
+
+https://0ad7000d033174a3826883e4000300b4.web-security-academy.net/product?productId=1&storeId=fuck<select><img src=fuckyou onerror=alert(1)>
 
  
 
