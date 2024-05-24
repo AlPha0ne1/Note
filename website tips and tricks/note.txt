@@ -437,7 +437,7 @@ https://0a67001b03d231a780716cda00a80042.web-security-academy.net/feedback?retur
 
 location.search > it means it retrieves everything behind the ?
 
-
+It uses JQuery's attr()
 When we type anything as a value of returnPath parameter > it pass to attr() > attr() manipulates href attribute.
 
 When we click back link, it directs to google.com (open-redirect vulnerability)
