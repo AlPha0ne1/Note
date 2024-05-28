@@ -727,6 +727,35 @@ Website _____________________
 
 Also, the name who commented is also must be hyperlinked, if someone clicked the name
 and it will take to his website.
+___________________________________________________________________________________________________________________________________________________________________
+
+Reflected XSS in canonical link tag
+-----------------------------------
+
+This is especially important when there are multiple pages with very similar or duplicate content. By using a canonical link, 
+webmasters can indicate to search engines which URL is the authoritative version of the page that should be indexed and ranked.
+
+Improve Crawl Efficiency: Search engines have limited resources for crawling websites. 
+By using canonical links, webmasters can help search engines avoid wasting resources on duplicate pages, improving the efficiency of the crawl.
+
+ 
+<link rel="canonical" href='https://0a7d00e70327e3fb8503c6e4009b00bb.web-security-academy.net'/>
+
+
+So,you have to add ?, use accesskey attribute and onclick event handler. But no space (%20) between them.
+
+access key attribute allows key combination
+
+    On Windows: ALT+SHIFT+X
+    On MacOS: CTRL+ALT+X
+    On Linux: Alt+X
+
+if target click that key combination, onclick will work
+
+
+<link rel="canonical" href='https://0a7d00e70327e3fb8503c6e4009b00bb.web-security-academy.net/?'accesskey='x'onclick='alert(1)'/>
+
+
 
 final payload --> Website javascript:alert(1)
 
