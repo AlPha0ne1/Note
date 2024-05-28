@@ -728,6 +728,7 @@ Website _____________________
 Also, the name who commented is also must be hyperlinked, if someone clicked the name
 and it will take to his website.
 
-
 final payload --> Website javascript:alert(1)
+
+<a id="author" href="javascript:alert(1)">test</a>
  
