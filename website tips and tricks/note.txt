@@ -716,4 +716,18 @@ So,we have to break the value attribute and put the onmouseover attribute with a
 final result --> <input type="text" value= " " onmouseover="alert(1)">
 
 payload = " onmouseover="alert(1)
+___________________________________________________________________________________________________________________________________________________________________
+Inject in website link
+--------------------------------
+
+When the comment section give you the website link
+
+
+Website _____________________
+
+Also, the name who commented is also must be hyperlinked, if someone clicked the name
+and it will take to his website.
+
+
+final payload --> Website javascript:alert(1)
  
