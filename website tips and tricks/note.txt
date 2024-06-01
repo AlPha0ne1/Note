@@ -725,6 +725,7 @@ When the comment section give you the website link
 
 Website _____________________
 
+inject with --> javascript:alert(1)
 Also, the name who commented is also must be hyperlinked, if someone clicked the name
 and it will take to his website.
 ___________________________________________________________________________________________________________________________________________________________________
