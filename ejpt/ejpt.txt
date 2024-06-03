@@ -543,3 +543,10 @@ Eula.txt
 The EULA (End User License Agreement) for Windows, typically found in a file named eula.txt, is a legal contract between the end user and Microsoft. 
 Location --> C:\Windows\System32
 __________________________________________________________________________________________________________________________________
+Hotfixes
+--------
+Hotfixes are indeed updates specifically designed to fix bugs or address critical issues in software
+C:> systeminfo
+
+You can see the hotfixes by writing that command
+__________________________________________________________________________________________________________________________________
