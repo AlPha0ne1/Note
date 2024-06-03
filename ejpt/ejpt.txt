@@ -351,8 +351,9 @@ Privilege Escalation
 
 4.Shell updating
 	
-	meterpreter >pgrep explorer (explorer process-id running in meterpreter session 2448)
-						  >migrate 2448  	(migrate from real process-id to 2448 to get 64 bit meterpreter shell)
+	meterpreter >ps
+		    >pgrep explorer (64bit explorer process-id - 2448)
+		    >migrate 2448   (migrate from 32 bit process-id to 2448)
 
 	If migratation isn't successful,we are exploitating unprivileged user(service user).
 
@@ -616,7 +617,12 @@ To enable administrator account
 --------------------------------
 C:\> net user administrator /active:yes
 __________________________________________________________________________________________________________________________________
+Show firewall status
+---------------------
+C:\> netsh firewall show state
 
+C:\> netsh advfirewall show allprofiles (advfirewall - advanced firewall)
+__________________________________________________________________________________________________________________________________
 
 
 
