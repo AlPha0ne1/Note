@@ -538,3 +538,8 @@ Post Exploitation Methdology
 7. Pivoting
 8. Clearing Tracks
 __________________________________________________________________________________________________________________________________
+Eula.txt
+-------
+The EULA (End User License Agreement) for Windows, typically found in a file named eula.txt, is a legal contract between the end user and Microsoft. 
+Location --> C:\Windows\System32
+__________________________________________________________________________________________________________________________________
