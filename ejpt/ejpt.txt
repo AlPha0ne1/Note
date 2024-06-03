@@ -623,8 +623,35 @@ C:\> netsh firewall show state
 
 C:\> netsh advfirewall show allprofiles (advfirewall - advanced firewall)
 __________________________________________________________________________________________________________________________________
+To show scheduled tasks
+------------------------
+C:\> tasklist /SVC (to see which services are run in which process)
 
+C:\> schtasks /query /fo LIST /v (if scheduled task is misconfigured, we can exploit from that service)
+__________________________________________________________________________________________________________________________________
+Automating Windows Local Enumeration
+____________________________________
 
+Initial exploit from WinRM port (5985,5986)
+--------------------------------------------
+If you find those ports are enbled, you can use meterpreter (winrm_script_exec)
 
+To identify your target system is run in VM or real
+---------------------------------------------------
+Use meterpreter exploit (checkvm) > use the initial meterpreter session again.
 
+To identify smb enum shares
+----------------------------
+Use meterpreter exploit (windows/gather/enum_shares) > use the initial meterpreter session again.
+
+JAWS-enum.ps1 script
+-------------------
+Ctrl+Shift+alt > to get clipboard
+
+meterpreter >cd Temp
+	    >upload jaws-enu.ps1
+	    >shell
+
+C:\Temp > powershell.exe -ExecutionPolicy Bypass -File .\jaws-enum.ps1 -OutputFilename JAWS-Enum.txt
+__________________________________________________________________________________________________________________________________
 
