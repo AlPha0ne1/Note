@@ -549,4 +549,9 @@ Hotfixes are indeed updates specifically designed to fix bugs or address critica
 C:> systeminfo
 
 You can see the hotfixes by writing that command
+
+
+C:> wmic qfe get Caption,Description,HotFixID,InstalledOn
+
+That command can be used to enumerate a list of installed updates in addition to the HotFix URL?
 __________________________________________________________________________________________________________________________________
