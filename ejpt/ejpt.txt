@@ -525,5 +525,16 @@ Invoke-Obfuscation > set SCRIPTPATH /home/kali/Desktop/shell.ps1
 After that copy the encoding and save in .ps1 file, after that transport to target and run.
 
 #nc -lvnp 1234 (listen and connect)
+__________________________________________________________________________________________________________________________________
+Post Exploitation Methdology
+----------------------------
 
-
+1. Local enumeration
+2. Transfering files
+3. Upgrading shells
+4. Privilege escalation
+5. Persistence
+6. Dumping & Cracking hashes
+7. Pivoting
+8. Clearing Tracks
+__________________________________________________________________________________________________________________________________
