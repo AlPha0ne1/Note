@@ -654,4 +654,21 @@ meterpreter >cd Temp
 
 C:\Temp > powershell.exe -ExecutionPolicy Bypass -File .\jaws-enum.ps1 -OutputFilename JAWS-Enum.txt
 __________________________________________________________________________________________________________________________________
+groups command is used to display the groups that a specific user is a member of
 
+#groups bob
+
+Add user into group
+------------------
+#usermod -aG bob root (adding bob user into root group)
+
+lastlogin user
+-------------
+#last
+#lastlog
+__________________________________________________________________________________________________________________________________
+Linux command to see main name server
+--------------------------------------
+
+#cat /etc/resolv.conf
+__________________________________________________________________________________________________________________________________
