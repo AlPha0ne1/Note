@@ -695,8 +695,7 @@ It will create PSH code > and paste in into target cmd, after that we get a sess
 
 msf5> sessions 1
 
-
-
-
-
+What PowerShell command can be used to bypass the default execution policy when running PowerShell scripts from the Windows command line?
+-------------------------------------------------------------------------------------------------------------------------------------------
+C:\> powershell -ep bypass -c ". .\PrivescCheck.ps1; Invoke-PrivescCheck"
 __________________________________________________________________________________________________________________________________
