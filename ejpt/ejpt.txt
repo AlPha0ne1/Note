@@ -753,7 +753,7 @@ If you delete wait binary > it will reset the connection > id_rsa and authorized
 
 So, that copy those into your own system with scp
 
-#scp student@10.10.4.5~/.ssh/id_rsa /tmp
+#scp student@10.10.4.5:~/.ssh/id_rsa /tmp
 
 Eventhough wait binary is deleted, we can see have access to the target system with it's id_rsa
 #ssh -i id_rsa student@10.10.4.5
