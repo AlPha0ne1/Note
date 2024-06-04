@@ -671,4 +671,9 @@ Linux command to see main name server
 --------------------------------------
 
 #cat /etc/resolv.conf
+
+Linux command used to display a list of installed shells on linux system
+-------------------------------------------------------------------------
+
+#cat /etc/shells
 __________________________________________________________________________________________________________________________________
