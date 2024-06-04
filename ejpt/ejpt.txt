@@ -677,3 +677,8 @@ Linux command used to display a list of installed shells on linux system
 
 #cat /etc/shells
 __________________________________________________________________________________________________________________________________
+Use samba exploit module in meterpreter
+-----------------------------------------
+#search exploit/linux/samba/is_known_pipename
+
+__________________________________________________________________________________________________________________________________
