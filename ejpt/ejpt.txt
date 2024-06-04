@@ -795,13 +795,17 @@ If you want to know the john format list
 #john --list=format
 #john --format=NT (NTLM format)
 _________________________________________________________________________________________________________________________________
-Clearing tracks
----------------
+Clearing tracks in windows
+-----------------------------
 Some meterpreter exploit module has its own rc file to clear tracks (e.g. persistence windows has its' own rc file)
 
 meterpreter > resource /root/.msf4/logs/persistence/...../033453.rc (clearing your track)
 meterpreter > clearev
 
+Clearing tracks in linux
+-------------------------
+#echo "1 cd/tmp " > .bash_history
+#history -c 
 
 
 __________________________________________________________________________________________________________________________________
