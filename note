@@ -1,6 +1,11 @@
 cat ~/.*history | less     #to show history of hidden files
 cat a.txt, less a.txt      #cat and less to read files
 
+Shell upgrade TTY 
+------------------
+#/usr/bin/script -qc /bin/bash /dev/null
+#python3 -c "import pty; pty.spawn('/bin/bash')"
+
 put host name directly with tee and echo
 ----------------------------------------
 echo "10.10.11.14 mailing.htb" | sudo tee -a /etc/hosts
