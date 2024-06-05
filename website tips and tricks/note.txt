@@ -370,7 +370,13 @@ it displays in view-source:
 
 !!We can finally find /etc/apache2/.htpasswd (LFI)
 _______________________________________________________________________________________________________________________________________________________________________________________________
-Dom based XSS
+Uploading php5 extension
+------------------------
+Sometimes when you upload your php_reverse_shell.php into a webserver, we can inject with double extension or whatever.
+But, in this time upload with .php5 extension, can bypass the webserver, because some webserver still supports php5 version
+
+php_reverse_shell.php5
+_______________________________________________________________________________________________________________________________________________________________________________________________Dom based XSS
 --------------
 View page source > cannot see > dom manipulation > can see only website display 
 
