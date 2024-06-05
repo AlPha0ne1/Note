@@ -858,9 +858,19 @@ ANS - Follow > TCP stream
 7.What layers of the TCP/IP model can be identified via wireshark, looking at captured packets?
 ANS- All layers
 _________________________________________________________________________________________________________________________________
+Tshark
+------
+#tshark -r HTTP.pcap -Y 'https' | more
+#tshark -r HTTP.pcap -Y 'ip.src==192.158.4.2 && ip.dst=192.158.4.3' 
+#tshark -r HTTP.pcap -Y 'http.request.method==GET' -Tfields -e frame.time -e ip.src -e http.request.full_uri | more
+#tshark -r HTTP.pcap -Y 'http.request.method==GET && http.host=www.nytimes.com' -Tfields -e ip.dst (it will show the ip destination containing with this filter)
+#tshark -r HTTP.pcap -Y 'ip contains amazon.inn && ip.src=192.158.22.3' -Tfields -e ip.src -e http.cookie
+#tshark -r HTTP.pcap -Y 'ip.src=192.158.22.3 && http' -Tfields -e http.user_agent
 
 
 
+
+_________________________________________________________________________________________________________________________________
 
 
 _________________________________________________________________________________________________________________________________
