@@ -843,3 +843,21 @@ msf5 exploit(/windows/....) > set payload windows/meterpreter/bind_tcp
 			    > set RHOSTS 10.0.17.153
 			    > run
 _________________________________________________________________________________________________________________________________
+Network based attack
+---------------------
+1. Protocol Hierarchy statistic page breaks down the protocols found in the packet capture.
+2. Wireshark default time display setting is Relative time in seconds
+3. How do you go back to the display filter you had set before?
+ANS- Select the display filter you want from the dropdown history
+
+4.Endpoints statistics page breaks down by addresses each machine found in the packet capture.
+5.In order to more easily follow a "conversation" between two machines in Wireshark, what must you choose from the right-click menu?
+ANS - Follow > TCP stream
+6. MITM is one of the most useful Network-based attack
+_________________________________________________________________________________________________________________________________
+
+
+
+
+
+_________________________________________________________________________________________________________________________________
