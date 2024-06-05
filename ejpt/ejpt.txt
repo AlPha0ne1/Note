@@ -806,6 +806,11 @@ Clearing tracks in linux
 -------------------------
 #echo "1 cd/tmp " > .bash_history
 #history -c 
-
-
 __________________________________________________________________________________________________________________________________
+Pivoting
+-------
+
+Pivoting is a post exploitation technique that involves utilizing the compromised device that is connected to multiple networks to gain access
+to systems within other networks
+
+_________________________________________________________________________________________________________________________________
