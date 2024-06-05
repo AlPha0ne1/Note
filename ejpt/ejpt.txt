@@ -853,7 +853,10 @@ ANS- Select the display filter you want from the dropdown history
 4.Endpoints statistics page breaks down by addresses each machine found in the packet capture.
 5.In order to more easily follow a "conversation" between two machines in Wireshark, what must you choose from the right-click menu?
 ANS - Follow > TCP stream
+
 6. MITM is one of the most useful Network-based attack
+7.What layers of the TCP/IP model can be identified via wireshark, looking at captured packets?
+ANS- All layers
 _________________________________________________________________________________________________________________________________
 
 
