@@ -1,1 +1,0 @@
-Powershell is an interpreted scripting language
