@@ -1,1 +1,3 @@
 Powershell is an interpreted scripting language
+
+32 bit version of powershell is in > C:\windows\sysWOW64\Windowspowershell
