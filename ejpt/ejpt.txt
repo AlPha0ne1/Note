@@ -868,6 +868,17 @@ Tshark
 #tshark -r HTTP.pcap -Y 'ip.src=192.158.22.3 && http' -Tfields -e http.user_agent
 
 
+Pivoting (sock_proxy)
+--------
+msf6> use auxiliary/server/sock_proxy
+SRVPort 1080
+
+It doesn't need portforwarding > by using only route add
+
+Use foxyproxy ( add port 1080)
+
+go to -->internal network --> 10.0.23.97:1080 (badblue)
+
 
 
 _________________________________________________________________________________________________________________________________
