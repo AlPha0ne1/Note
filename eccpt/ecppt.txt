@@ -8,6 +8,7 @@ To run the powershell script without having problems, we have to use Bypass or U
 -------------------------------------------------------------------------------------------
 powershell.exe -ExecutionPolicy Bypass .\script.ps1
 powershell.exe -ExecutionPolicy Unrestricted .\script.ps1
+powershell.exe -ExecutionPolicy Unrestricted calc.exe (running calculator program)
 
 abbreviated parameter
 ---------------------
