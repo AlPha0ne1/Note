@@ -70,7 +70,9 @@ $concatenatedString = $string1 + " " + $string2
 
 # Output the result
 Write-Output $concatenatedString
-_____________________________________________________________________________________________________________________________________________________________________________________________
+
+Which PowerShell cmdlet is commonly used for retrieving system information such as running processes, services, and system properties? > Get-Service
+_______________________________________________________________________________________________________________________________________________________________________
 
 
 
