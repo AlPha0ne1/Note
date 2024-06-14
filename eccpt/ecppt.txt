@@ -4,6 +4,8 @@ Powershell is an interpreted scripting language
 
 32 bit version of powershell is in > C:\windows\sysWOW64\Windowspowershell
 
+If powershell is not recognized as cmdlet > add (C:\Windows\System32\WindowsPowerShell\v1.0\) in SystemPath Environment variable 
+
 To run the powershell script without having problems, we have to use Bypass or Unrestricted
 -------------------------------------------------------------------------------------------
 powershell.exe -ExecutionPolicy Bypass .\script.ps1
