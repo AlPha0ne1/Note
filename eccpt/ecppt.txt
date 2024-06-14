@@ -90,8 +90,18 @@ Get-Process chrome | sort-object Unique | select-object processname,id,cpu
 To know chrome path
 -------------------
 Get-Process chrome | sort-object Unique | format-list path
+______________________________________________________________________________________________________________________________________________________________________
+Alias is an alternative name or shortcut for a cmdlet, function, script, or executable program
+-----------------------------------------------------------------------------------------------
+get-alias -definition get-process
 
+CommandType     Name                                               Version    Source
+-----------     ----                                               -------    ------
+Alias           gps -> Get-Process
+Alias           ps -> Get-Process
 
+Instead of using get-process, use gps is ok.
+e.g > gps chrome | sort-object Unique | select-object processname,id,cpu
 
 
 
