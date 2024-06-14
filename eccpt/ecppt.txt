@@ -44,5 +44,31 @@ If you want to change powershell version to run (-Version)
 -------------------------------------------------
 powershell.exe -Version 2
 
+Get-Help command is used to retrieve information about the specific cmdlet
+--------------------------------------------------------------------------
+Get-Help Get-Process 
+Get-Help Get-Process -Full
+Get-Help Get-Process -Online 
+
+Get-Command cmdlet is used to list all cmdlets,aliases,functions 
+-----------------------------------------------------------------
+Get-Command -Name *Firewall*
+
+Which operator is used for string concatenation in PowerShell? -- Plus Sign
+
+# Script: ConcatenateStrings.ps1
+
+# Define two strings
+$string1 = "Hello"
+$string2 = "World"
+
+# Concatenate the strings using the + operator
+$concatenatedString = $string1 + " " + $string2
+
+# Output the result
+Write-Output $concatenatedString
+_____________________________________________________________________________________________________________________________________________________________________________________________
+
+
 
 
