@@ -125,3 +125,7 @@ Export CSV
 ----------
 get-wmiobject -class win32_operatingsystem | fl * | export-csv C:\Users\User\wmi.csv
 
+New-item parameter with -itemtype used to create new folder
+------------------------------------------------------------
+new-item lee -itemtype directory
+______________________________________________________________________________________________________________________________________________________________________
