@@ -72,7 +72,28 @@ $concatenatedString = $string1 + " " + $string2
 Write-Output $concatenatedString
 
 Which PowerShell cmdlet is commonly used for retrieving system information such as running processes, services, and system properties? > Get-Service
-_______________________________________________________________________________________________________________________________________________________________________
+______________________________________________________________________________________________________________________________________________________________________
+Using Pipe
+-----------
+Get-Process | sort-object Unique | select-object processname,id,cpu
+
+using | format-list *
+----------------------
+e.g. In normal output of get-process, we know only (id,processname,cpu), but if you use 
+
+Get-process | format-list * (we know more information)
+
+To know chrome's processname,id,and cpu
+---------------------------------------
+Get-Process chrome | sort-object Unique | select-object processname,id,cpu
+
+To know chrome path
+-------------------
+Get-Process chrome | sort-object Unique | format-list path
+
+
+
+
 
 
 
