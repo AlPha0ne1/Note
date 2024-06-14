@@ -101,10 +101,27 @@ Alias           gps -> Get-Process
 Alias           ps -> Get-Process
 
 Instead of using get-process, use gps is ok.
-e.g > gps chrome | sort-object Unique | select-object processname,id,cpu
+e.g > gps chrome | sort-object Unique | select-object processname,id,CPU
 
+______________________________________________________________________________________________________________________________________________________________________
+Select-object
+--------------
 
+Another alias you'll see quite often is "select" when used in conjunction with other cmdlets in pipeline operations and is an alias for the "Select-Object" cmdlet.
 
+In this example, we're using the "Get-WmiObject" cmdlet, (used to return information about WMI objects) in conjunction with the "-class win32_operatingsystem" parameter and arguments, and then selecting (select) all (*) properties related to that WMI object class; this returns all information related to the current operating system.
 
+Get-wmiobject -class win32_operatingsystem | select -property *
 
+You can also filter 
+
+Get-wmiobject -class win32_operatingsystem | select -property * | select-object Version
+______________________________________________________________________________________________________________________________________________________________________
+By filtering descending order and starting word
+-----------------------------------------------
+Get-service "s*" | sort-object status -descending
+
+Export CSV
+----------
+get-wmiobject -class win32_operatingsystem | fl * | export-csv C:\Users\User\wmi.csv
 
