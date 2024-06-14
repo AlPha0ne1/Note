@@ -1,3 +1,48 @@
+Powershell
+---------
 Powershell is an interpreted scripting language
 
 32 bit version of powershell is in > C:\windows\sysWOW64\Windowspowershell
+
+To run the powershell script without having problems, we have to use Bypass or Unrestricted
+-------------------------------------------------------------------------------------------
+powershell.exe -ExecutionPolicy Bypass .\script.ps1
+powershell.exe -ExecutionPolicy Unrestricted .\script.ps1
+
+abbreviated parameter
+---------------------
+powershell.exe -ex Bypass .\script.ps1
+powershell.exe -ep Bypass .\script.ps1
+
+WindowStyle parameter (it hides the powershell window when used with hidden argument)
+-------------------------------------------------------------------------------------
+powershell.exe -WindowStyle Hidden .\script.ps1
+
+powershell.exe -w Hidden .\script.ps1
+powershell.exe -wi Hidden .\script.ps1
+
+Command parameter is used to specify a command or scriptblock to run
+---------------------------------------------------------------------
+powershell.exe -Command Get-Process
+powershell.exe -Command "& { Get-EventLog -LogName security } "
+
+EncodedCommand is used to execute base64 encoded command
+---------------------------------------------------------
+powershell.exe -EncodedCommand $encodedcommand
+
+powershell.exe -enco $encodedcommand
+powershell.exe -en $encodedcommand
+
+Powershell Profiles 
+--------------------
+Profiles are essentially scripts that run when the powershell executable is launched and can interfere with our operations so that 
+don't load any powershell profiles by using -Noprofile parameter
+
+powershell.exe -Noprofilee .\script.ps1
+
+If you want to change powershell version to run (-Version)
+-------------------------------------------------
+powershell.exe -Version 2
+
+
+
