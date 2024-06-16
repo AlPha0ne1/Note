@@ -198,11 +198,22 @@ Crypters
 --------
 It encrypts the code or payload and decrypts the encoded code in memory. The decryption key/function is usually stored in a stub
 A stub is a small piece of code that is executed first. It serves as an intermediary to perform initial setup or preparation before the main program runs.
-
-
 ____________________________________________________________________________________________________________________________________
+AV Evasion with Shelter
+-----------------------
+Need to install 
 
+1. Shelter
+2. wine 
 
+#sudo apt-get install shelter -y (Currently, shelter can inject only in Windows 32 bit application )
 
+If you want to install 32 bits software, you have to add i386 architecture
+--------------------------------------------------------------------------
+#sudo dpkg --add-architecture i386
+#sudo apt-get install wine32
 
+#sudo wine shelter.exe
 
+Can inject Windows binary (vncviewer.exe, nc.exe, etc..)
+____________________________________________________________________________________________________________________________________
