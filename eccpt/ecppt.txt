@@ -187,8 +187,13 @@ ________________________________________________________________________________
 Which of the following is NOT a benefit of using PowerShell in penetration testing? > Ability to bypass network firewalls
 
 How does PowerShell contribute to the efficiency of penetration testing workflows? > By allowing for rapid development and execution of scripts
+____________________________________________________________________________________________________________________________________
+Starkiller
+----------
+Starkiller is a GUI version of PowerShell Empire. It can support Windows,Linux and MacOS eventhough powershell empire can support only Windows.
 
-
+What is a "stager" in the context of PowerShell Empire? > A payload for initial access
+____________________________________________________________________________________________________________________________________
 
 
 
