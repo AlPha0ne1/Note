@@ -216,4 +216,6 @@ If you want to install 32 bits software, you have to add i386 architecture
 #sudo wine shelter.exe
 
 Can inject Windows binary (vncviewer.exe, nc.exe, etc..)
+
+What is the purpose of AMSI (Antimalware Scan Interface) in AV evasion with PowerShell? > To detect and block malicious PowerShell scripts based on their behavior
 ____________________________________________________________________________________________________________________________________
