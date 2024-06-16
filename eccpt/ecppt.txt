@@ -194,6 +194,13 @@ Starkiller is a GUI version of PowerShell Empire. It can support Windows,Linux a
 
 What is a "stager" in the context of PowerShell Empire? > A payload for initial access
 ____________________________________________________________________________________________________________________________________
+Crypters
+--------
+It encrypts the code or payload and decrypts the encoded code in memory. The decryption key/function is usually stored in a stub
+A stub is a small piece of code that is executed first. It serves as an intermediary to perform initial setup or preparation before the main program runs.
+
+
+____________________________________________________________________________________________________________________________________
 
 
 
