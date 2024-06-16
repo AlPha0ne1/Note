@@ -219,3 +219,12 @@ Can inject Windows binary (vncviewer.exe, nc.exe, etc..)
 
 What is the purpose of AMSI (Antimalware Scan Interface) in AV evasion with PowerShell? > To detect and block malicious PowerShell scripts based on their behavior
 ____________________________________________________________________________________________________________________________________
+Privilege escalation with Powerup.ps1
+-------------------------------------
+https://github.com/PowerShellMafia/PowerSploit/blob/master/Privesc/PowerUp.ps1
+
+
+
+
+____________________________________________________________________________________________________________________________________
+
