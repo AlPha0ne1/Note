@@ -37,4 +37,15 @@ Jobs
 Finally we can scan with proxychains
 
 #proxychains nmap -sT -Pn 192.182.129.3 (internal IP)
+Port 80 is open
+
+We don't have access to the browser so, use curl thorugh proxychains
+#proxychains curl http://192.182.129.3
+
+ProxyChains-3.1 (http://proxychains.sf.net)
+|S-chain|-<>-127.0.0.1:9050-<><>-192.182.129.3:80
+<meta http-equiv="refresh"
+content="0;url=/clipper/manager">root@attackdefense:~# searchsploit clipper
+
+
 
