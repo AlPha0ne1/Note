@@ -45,7 +45,20 @@ We don't have access to the browser so, use curl thorugh proxychains
 ProxyChains-3.1 (http://proxychains.sf.net)
 |S-chain|-<>-127.0.0.1:9050-<><>-192.182.129.3:80
 <meta http-equiv="refresh"
-content="0;url=/clipper/manager">root@attackdefense:~# searchsploit clipper
+content="0;url=/clipper/manager">
+root@attackdefense:~# searchsploit clipper
+_________________________________________________________________________________________________________________________________________________________________________
+SSH tunneling with dynamic port forwarding
+-------------------------------------------
+ssh port is open in victim 1(192.163.141.3)
 
+#ssh root@192.163.141.3 -D 9050
+
+In attacker Machine portforwarding is alreday done (127.0.0.:9050)
+
+We can scan internal IP port with proxychains
+
+#proxychains nmap -sT -sV 192.84.170.3
+_________________________________________________________________________________________________________________________________________________________________________
 
 
