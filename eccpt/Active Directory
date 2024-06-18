@@ -1,3 +1,11 @@
 Machines in the Domain Controllers group are also members of the Domain Computers group. > False
 
 When you create an Active Directory domain, what's the name of the default user account? > Administrator
+
+There are 2 groups in AD
+------------------------
+Security Groups: Security groups are used to manage access permissions to network resources. Users can be added to security groups, and permissions 
+can be assigned to these groups to control resource access.
+
+Distribution Groups: Distribution groups are used for sending email messages to a group of recipients. They do not have security-related permissions and 
+are primarily used for email distribution purposes.
