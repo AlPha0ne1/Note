@@ -73,7 +73,14 @@ Which one of the following is NOT a CrackMapExec SMB module? > hashcat
 
 Which of the following protocols does CrackMapExec support for lateral movement in Windows environments? > LDAP, winRM, SMB, Kerberos
 _______________________________________________________________________________________________________________________________________________________________________
+RDP with .rdg file
+-------------------
 
+What security risk does storing credentials in an RDCMan configuration file (.rdg) pose? > 
+Storing plaintext passwords makes it easier for attackers to gain unauthorized access.
+
+A penetration tester wants to use RDP for lateral movement after compromising a system. Which step should they take to ensure persistent access through RDP? > 
+Add their user account to the "Remote Desktop Users" group.
 
 
 
