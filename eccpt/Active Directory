@@ -1,0 +1,3 @@
+Machines in the Domain Controllers group are also members of the Domain Computers group. > False
+
+When you create an Active Directory domain, what's the name of the default user account? > Administrator
