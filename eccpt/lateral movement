@@ -68,6 +68,10 @@ You can use Mimikatz module and rdp module
 connect with xfreerdp
 --------------------
 #xfreerdp /u:administrator /p:sebastian /v:10.4.26.2
+
+Which one of the following is NOT a CrackMapExec SMB module? > hashcat
+
+Which of the following protocols does CrackMapExec support for lateral movement in Windows environments? > LDAP, winRM, SMB, Kerberos
 _______________________________________________________________________________________________________________________________________________________________________
 
 
