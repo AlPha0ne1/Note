@@ -9,3 +9,13 @@ can be assigned to these groups to control resource access.
 
 Distribution Groups: Distribution groups are used for sending email messages to a group of recipients. They do not have security-related permissions and 
 are primarily used for email distribution purposes.
+
+Security Group
+--------------
+1. Domain Admins
+2. Enterprise Admins
+3. Server Operators
+4. Backup Operators
+5. Account Operators
+
+
