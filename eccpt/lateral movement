@@ -44,4 +44,8 @@ Restart the lanmanserver
 -------------------------
 C:> sc stop lanmanserver
   > sc start lanmanserver
+
+smbexec.py is the same with psexec.py But smbexec.py doesn't create a temporary service on the remote system.
+
+What is a key security risk associated with using SMBExec for lateral movement? > It can bypass traditional firewalls and network segmentation.
 _______________________________________________________________________________________________________________________________________________________________________
