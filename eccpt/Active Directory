@@ -45,3 +45,20 @@ After you changing the GP, you have to update it
 --------------------------------------------------
 C:> gpupdate /force
 _______________________________________________________________________________________________________________________________________________________________________________________________
+Which class of Active Directory has subordinate objects? > container class (e.g OU,Domain,CN)
+
+Select the right order of enforcement of GPOs: > Site --> Domain --> OU
+_______________________________________________________________________________________________________________________________________________________________________________________________
+Domain - Domains are used to group and manage objects in an organization
+Tree   - A domain tree is a hierarchy of domains in AD
+Forest - Forest is a collection of one or more domain trees
+Trust  - Trust provides a mechanism for users to access resources in another domain.
+1. directional trust - trust between 2 domains
+2. transitive trust  - trust between 2 or more domains 
+
+*** All domains in a forest trust all other domains in the forest ***
+    Trust can extend outside the forest
+_______________________________________________________________________________________________________________________________________________________________________________________________
+
+
+_______________________________________________________________________________________________________________________________________________________________________________________________
