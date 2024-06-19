@@ -59,6 +59,13 @@ Trust  - Trust provides a mechanism for users to access resources in another dom
 *** All domains in a forest trust all other domains in the forest ***
     Trust can extend outside the forest
 _______________________________________________________________________________________________________________________________________________________________________________________________
+Kerberoasting: Kerberoasting is a Kerberos attack that targets service accounts to obtain their encrypted service account passwords (SPNs), which can be cracked offline to obtain plaintext passwords.
 
+AS-REP Roasting: AS-REP roasting is a Kerberos authentication attack that targets user accounts with the "Do not require Kerberos preauthentication" attribute set.
 
+Silver Ticket: A Silver Ticket attack is a technique used in Active Directory (AD) environments to impersonate any service or computer account by
+forging Kerberos service tickets without the need to obtain the account's plaintext password.
+
+Golden Ticket: Golden ticket attacks involve forging Kerberos tickets for arbitrary users, allowing attackers to impersonate any user and access 
+any resource within the AD environment.
 _______________________________________________________________________________________________________________________________________________________________________________________________
