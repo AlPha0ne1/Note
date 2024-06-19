@@ -27,6 +27,8 @@ administrators can centrally control settings for users and computers, enhancing
 
 OU stands for Organizational Unit. Organizational Units are containers within an AD domain that can hold users, groups, computers, and other OUs.
 
+If you want to set up security features in OU > create a GPO and add it in that domain (OU)
+
 With a brand new AD domain, what do you need to change before you can enforce GPOs on users and groups? > You need to place users and computers into new OUs.
 
 Joining a computer to Active Directory involves joining the computer to a workgroup. > FALSE
@@ -39,4 +41,7 @@ C:> Get-AdUsers -Filter *
 C:> Get-AdGroups -Filter *
 C:> Get-AdOrganizationalUnit -Filter *
 
-
+After you changing the GP, you have to update it
+--------------------------------------------------
+C:> gpupdate /force
+_______________________________________________________________________________________________________________________________________________________________________________________________
