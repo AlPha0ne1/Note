@@ -19,3 +19,8 @@ Security Group
 5. Account Operators
 
 
+Domain Controller: A server that manages the Active Directory database, handles authentication and authorization, and maintains the overall security and integrity of the domain.
+Domain Admin: A user with elevated privileges capable of managing all aspects of the domain, including AD objects, security policies, and resources.
+_______________________________________________________________________________________________________________________________________________________________________________________________
+
+
