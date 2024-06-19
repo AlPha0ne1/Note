@@ -21,6 +21,22 @@ Security Group
 
 Domain Controller: A server that manages the Active Directory database, handles authentication and authorization, and maintains the overall security and integrity of the domain.
 Domain Admin: A user with elevated privileges capable of managing all aspects of the domain, including AD objects, security policies, and resources.
+
+Group Policy Objects (GPOs) are essential tools for administrators to enforce policies and manage configurations in a Windows environment. By using GPOs, 
+administrators can centrally control settings for users and computers, enhancing security, compliance, and operational efficiency within an Active Directory domain.
+
+OU stands for Organizational Unit. Organizational Units are containers within an AD domain that can hold users, groups, computers, and other OUs.
+
+With a brand new AD domain, what do you need to change before you can enforce GPOs on users and groups? > You need to place users and computers into new OUs.
+
+Joining a computer to Active Directory involves joining the computer to a workgroup. > FALSE
+
+Local policies and password policy is under group policy management editor
 _______________________________________________________________________________________________________________________________________________________________________________________________
+To list all AdUsers,Adgroups and AdOrganizationalUnit 
+------------------------------------------------------
+C:> Get-AdUsers -Filter *
+C:> Get-AdGroups -Filter *
+C:> Get-AdOrganizationalUnit -Filter *
 
 
