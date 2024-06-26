@@ -61,7 +61,7 @@ Trust  - Trust provides a mechanism for users to access resources in another dom
 _______________________________________________________________________________________________________________________________________________________________________________________________
 Kerberoasting: Kerberoasting is a Kerberos attack that targets service accounts to obtain their encrypted service account passwords (SPNs), which can be cracked offline to obtain plaintext passwords.
 
-AS-REP Roasting: AS-REP roasting is a Kerberos authentication attack that targets user accounts with the "Do not require Kerberos preauthentication" attribute set.
+AS-REP Roasting: AS-REP roasting is a Kerberos authentication attack that targets user accounts with the "Do not require Kerberos preauthentication" enabled.
 
 Silver Ticket: A Silver Ticket attack is a technique used in Active Directory (AD) environments to impersonate any service or computer account by
 forging Kerberos service tickets without the need to obtain the account's plaintext password.
