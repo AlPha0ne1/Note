@@ -125,7 +125,11 @@ Kerberoasting
 
   C:\tools> python.exe .\kerberoast-python3\tgsrepcrack.py .\10k-worst-pass.txt .\1-40a100-student@ops~research (TGS) 
 _______________________________________________________________________________________________________________________________________________________________________________________________
+Pass the hash with powershell
+-----------------------------
+How do attackers typically obtain hashed credentials for pass-the-hash attacks in Active Directory? > By dumping memory or stealing password hashes from compromised systems
 
+Which Mimikatz command is used to extract password hashes from memory for pass-the-hash attacks? > "sekurlsa::logonpasswords"
 
 
 
