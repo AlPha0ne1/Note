@@ -2,6 +2,9 @@ Which of the following is NOT a common client-side attack vector? > SQL injectio
 
 Why are client-side attacks particularly challenging to defend against? > They exploit human behavior and interaction, making them harder to predict and defend against.
 
+What is the purpose of Drive-by Download attacks in client-side vectors? > Download and execute a payload when a users visits a compromised website
 
+What makes spear-phishing particularly dangerous compared to other types of phishing? > Spear-phishing is highly targeted, often using personal or contextual information to deceive the target
 
-_____________________________________________________________________________________________________________________________________________________________________________
+What is the purpose of Drive-by Download attacks in client-side vectors? > Download and execute a payload when a users visits a compromised website
+___________________________________________________________________________________________________________________________________________________________________________________________________
