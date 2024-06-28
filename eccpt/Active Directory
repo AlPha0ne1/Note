@@ -173,6 +173,11 @@ The approved steps are the same with pass the hash (pth)
 Finally we got the domain controller
 ------------------------------------
 [seclogs.research.Security.local]: PS C:\> ls \\prod.research.security.local\C$
+
+
+How does Mimikatz facilitate pass-the-ticket attacks in Active Directory? > By dumping and extracting Kerberos tickets from LSASS memory
+
+Which Mimikatz command is used to extract Kerberos tickets from memory for pass-the-ticket attacks? > "sekurlsa::tickets"
 _______________________________________________________________________________________________________________________________________________________________________________________________
 
 
