@@ -179,5 +179,9 @@ How does Mimikatz facilitate pass-the-ticket attacks in Active Directory? > By d
 
 Which Mimikatz command is used to extract Kerberos tickets from memory for pass-the-ticket attacks? > "sekurlsa::tickets"
 _______________________________________________________________________________________________________________________________________________________________________________________________
+Golden ticket attack > kerberos identity authentication protocol attack > krbtgt(a service account that issues with kerberos ticket)
 
+What is the primary objective of a Golden Ticket attack in Active Directory? > To impersonate legitimate users and access network resources without detection
+
+Which type of Kerberos ticket is forged in a Golden Ticket attack? > Ticket Granting Ticket (TGT)
 
