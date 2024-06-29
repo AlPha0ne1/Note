@@ -25,3 +25,16 @@ ________________________________________________________________________________
 Which one of the following DOM properties can be used to change HTML elements? > element.innerHTML
 
 The DOM can be used to modify data stored in the database of a web application. > False
+____________________________________________________________________________________________________________________________________________________________________________________
+SQL injection
+--------------
+
+Which one of the following injected SQL queries will result in an authentication bypass when executed? > SELECT username FROM accounts WHERE username = '' OR 1=1#
+
+Parameter data types are an important factor to consider when constructing a SQL Injection payload. > True
+
+Which one of the following Boolean-Based SQLi payloads will always evaluate to FALSE? > AND 0
+
+____________________________________________________________________________________________________________________________________________________________________________________
+
+
