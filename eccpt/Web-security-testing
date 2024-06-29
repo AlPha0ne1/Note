@@ -17,7 +17,8 @@ Check it has LFI or RFI or nothing
 -Display V: it means Verbose
 
 #nikto -h http://193.158.2.33/index.php?page=arbitrary-file-inclusion.php -Tuning 5 -o nikto.html -Format html
-
-
-
+____________________________________________________________________________________________________________________________________________________________________________________
+OWASP Amass
+------------
+OWASP Amass can resolve subdomains to their respective IP addresses. > True
 ____________________________________________________________________________________________________________________________________________________________________________________
