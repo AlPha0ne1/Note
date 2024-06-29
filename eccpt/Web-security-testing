@@ -4,8 +4,19 @@ Which one of the following DNS records is used to resolve a domain to a mail ser
 When an email is sent to a domain, the MX record helps direct the email to the appropriate mail server.
 
 Spidering is an active information gathering
+____________________________________________________________________________________________________________________________________________________________________________________
+Use Nikto to identify vulnerabilities
+------------------------------------
+#nikto -h http://193.158.2.33/ -a
 
+Check it has LFI or RFI or nothing
+------------------------------------
+#nikto -h http://193.158.2.33/index.php?page=arbitrary-file-inclusion.php -Tuning 5 -Display V
 
+-Tuning 5: The -Tuning option allows you to control the types of tests that Nikto will perform. The number 5 corresponds to tests related to file uploading.
+-Display V: it means Verbose
+
+#nikto -h http://193.158.2.33/index.php?page=arbitrary-file-inclusion.php -Tuning 5 -o nikto.html -Format html
 
 
 
