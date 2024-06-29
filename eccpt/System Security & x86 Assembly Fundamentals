@@ -1,1 +1,8 @@
 x86 assembly language is used for intel and AMD processors, While ARM assembly language is used for ARM-based processors
+
+ISA
+----
+Each CPU has its own instruction set architecture (ISA). The ISA is the set of instructions that a programmer (or a compiler) must understand and 
+use to write a program correctly for that specific CPU and machine.
+In other words, ISA is what a programmer can see: memory, registers, instructions, etc. It provides all the necessary information for who wants to write a program 
+in that machine language.
