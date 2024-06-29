@@ -23,3 +23,5 @@ OWASP Amass
 OWASP Amass can resolve subdomains to their respective IP addresses. > True
 ____________________________________________________________________________________________________________________________________________________________________________________
 Which one of the following DOM properties can be used to change HTML elements? > element.innerHTML
+
+The DOM can be used to modify data stored in the database of a web application. > False
