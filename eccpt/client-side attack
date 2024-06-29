@@ -9,4 +9,6 @@ What makes spear-phishing particularly dangerous compared to other types of phis
 What is the purpose of Drive-by Download attacks in client-side vectors? > Download and execute a payload when a users visits a compromised website
 
 Which one of the following client-side information gathering techniques would be considered passive in nature? > Browsing public forms for discussions about the target organization
-___________________________________________________________________________________________________________________________________________________________________________________________________
+
+Which of the following is an example of a client fingerprinting technique? > Using browser fingerprinting techniques to gather information about a target's browser
+_________________________________________________________________________________________________________________________________________________________________________________
