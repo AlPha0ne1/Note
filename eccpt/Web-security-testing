@@ -3,6 +3,8 @@ How many information gathering tests are outlined in the OWASP Web Security Test
 Which one of the following DNS records is used to resolve a domain to a mail server? > MX
 When an email is sent to a domain, the MX record helps direct the email to the appropriate mail server.
 
+Spidering is an active information gathering
+
 
 
 
