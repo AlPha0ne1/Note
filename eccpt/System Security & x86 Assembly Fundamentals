@@ -6,3 +6,6 @@ Each CPU has its own instruction set architecture (ISA). The ISA is the set of i
 use to write a program correctly for that specific CPU and machine.
 In other words, ISA is what a programmer can see: memory, registers, instructions, etc. It provides all the necessary information for who wants to write a program 
 in that machine language.
+
+Which of the following is a general-purpose register commonly used for arithmetic and data manipulation operations in x86 architecture? > EAX
+_______________________________________________________________________________________________________________________________________________________________________________
