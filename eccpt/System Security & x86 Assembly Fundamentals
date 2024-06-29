@@ -20,4 +20,6 @@ ESI, EDI: Often used for string manipulation operations.
 ESP, EBP: Used for managing the stack (ESP for stack pointer, EBP for base pointer).
 In 64-bit architectures (x64), the general-purpose registers are extended to 64 bits (RAX, RBX, RCX, RDX, etc.), providing increased addressable memory space
 and support for larger data types.
+
+What is the purpose of the General-Purpose Registers (GPRs) in a CPU? > They are used to hold the operands and results of arithmetic and logical operations.
 _______________________________________________________________________________________________________________________________________________________________________________
