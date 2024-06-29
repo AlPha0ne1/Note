@@ -22,3 +22,4 @@ OWASP Amass
 ------------
 OWASP Amass can resolve subdomains to their respective IP addresses. > True
 ____________________________________________________________________________________________________________________________________________________________________________________
+Which one of the following DOM properties can be used to change HTML elements? > element.innerHTML
