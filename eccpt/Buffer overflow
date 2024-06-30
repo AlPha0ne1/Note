@@ -1,0 +1,4 @@
+What is a common cause of buffer overflow vulnerabilities in Windows programs? >  Lack of proper bounds checking on user input.
+
+Which programming language commonly used in Windows development is susceptible to buffer overflow vulnerabilities? > C/C++
+_________________________________________________________________________________________________________________________________________________________________________________
