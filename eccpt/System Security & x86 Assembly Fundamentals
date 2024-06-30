@@ -22,4 +22,6 @@ In 64-bit architectures (x64), the general-purpose registers are extended to 64 
 and support for larger data types.
 
 What is the purpose of the General-Purpose Registers (GPRs) in a CPU? > They are used to hold the operands and results of arithmetic and logical operations.
+
+What is the role of the stack pointer in a computer's memory architecture? > It points to the top element of the stack.
 _______________________________________________________________________________________________________________________________________________________________________________
