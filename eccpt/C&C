@@ -5,4 +5,8 @@ When using a C2 framework, which of the following protocols would likely raise t
 Which of the following is a common technique used by C2 frameworks to maintain persistence on compromised systems? > Creating a service that restarts automatically after rebooting.
 
 DNS also can be used in C2 communication channel by allowing data to be embedded in DNS queries or responses.
+
+Which of the following techniques is often used by C2 frameworks to avoid detection by Intrusion Detection Systems (IDS)? > Obfuscation of C2 traffic to resemble normal network traffic.
+
+A centralized C2 framework has a single point of failure. What is a common mitigation strategy for this vulnerability? > Using redundant C2 servers with automatic failover.
 _________________________________________________________________________________________________________________________________________________________________________________________________________
