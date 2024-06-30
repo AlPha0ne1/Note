@@ -1,3 +1,5 @@
+
+
 x86 assembly language is used for intel and AMD processors, While ARM assembly language is used for ARM-based processors
 
 ISA
@@ -35,3 +37,7 @@ Assembly
 Assembler is a type of language translator, that converts assembly language code into machine code 
 
 Which of the following statements best describes the role of a compiler in assembly language programming? > Compilers convert high-level language code into assembly language.
+
+32 bit intel assembly is called > IA-32
+64 bit intel assembly is called > IA-32e or intel-64
+_______________________________________________________________________________________________________________________________________________________________________________
