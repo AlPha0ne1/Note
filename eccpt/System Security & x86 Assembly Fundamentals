@@ -24,4 +24,8 @@ and support for larger data types.
 What is the purpose of the General-Purpose Registers (GPRs) in a CPU? > They are used to hold the operands and results of arithmetic and logical operations.
 
 What is the role of the stack pointer in a computer's memory architecture? > It points to the top element of the stack.
+
+What happens to the stack frame when a function returns in many programming languages? > It is immediately deallocated from memory.
+
+What is the primary purpose of a stack frame in a function call? > To store local variables and parameters for the function.
 _______________________________________________________________________________________________________________________________________________________________________________
