@@ -29,3 +29,7 @@ What happens to the stack frame when a function returns in many programming lang
 
 What is the primary purpose of a stack frame in a function call? > To store local variables and parameters for the function.
 _______________________________________________________________________________________________________________________________________________________________________________
+Assembly
+--------
+
+Assembler is a type of language translator, that converts assembly language code into machine code 
