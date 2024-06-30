@@ -40,4 +40,9 @@ Which of the following statements best describes the role of a compiler in assem
 
 32 bit intel assembly is called > IA-32
 64 bit intel assembly is called > IA-32e or intel-64
+
+
+What is the purpose of the REP prefix in IA-32 assembly language instructions? > It repeats the instruction until a specified condition is met.
+
+In computer architecture, what does the term "pipeline" refer to? > A sequence of instructions executed in parallel by a processor.
 _______________________________________________________________________________________________________________________________________________________________________________
