@@ -3,4 +3,8 @@ What is a common cause of buffer overflow vulnerabilities in Windows programs? >
 Which programming language commonly used in Windows development is susceptible to buffer overflow vulnerabilities? > C/C++
 
 What technique involves analyzing program binaries to identify potential buffer overflow vulnerabilities without access to source code? > Static analysis
+
+In a Windows stack overflow exploit, what is typically overwritten with a malicious address to redirect program execution to attacker-controlled code? > EIP Register
+
+Which of the following Windows security features can help mitigate the impact of stack overflow exploits by preventing the execution of code in certain memory regions?> DEP
 _________________________________________________________________________________________________________________________________________________________________________________
