@@ -7,4 +7,8 @@ What technique involves analyzing program binaries to identify potential buffer 
 In a Windows stack overflow exploit, what is typically overwritten with a malicious address to redirect program execution to attacker-controlled code? > EIP Register
 
 Which of the following Windows security features can help mitigate the impact of stack overflow exploits by preventing the execution of code in certain memory regions?> DEP
+
+Which technique is commonly used to exploit SEH overflows in Windows systems by corrupting exception handling structures? > SEH overwrite chaining
+
+In a Windows SEH overflow exploit, what data structure is typically overwritten with a malicious address to redirect program execution? > Exception Handler Address
 _________________________________________________________________________________________________________________________________________________________________________________
