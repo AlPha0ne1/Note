@@ -65,3 +65,7 @@ When working with the Intruder, can you configure a Payload processing rule to e
 
 When modifying a request in the Repeater, what Keyboard shortcut can be used to enable URL encoding as you type? > CTRL + U
 _________________________________________________________________________________________________________________________________________________________________________________________________
+Which one of the following is a feature found in OWASP ZAP but not in Burp Suite Community edition? > Active Scanner
+
+
+_________________________________________________________________________________________________________________________________________________________________________________________________
