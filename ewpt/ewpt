@@ -56,4 +56,6 @@ Which one of the following system resources is not taken into account when calcu
 Burp Suite allows you to export all links for a specific site in the Site map. > True
 
 Which one of the following regex expressions would include all subdomains for the domain acme.com when configuring your scope? > .*.acme.com$
+
+When using Burp Suite community edition, do you have the ability to compare Site maps? > TRUE
 _________________________________________________________________________________________________________________________________________________________________________________________________
