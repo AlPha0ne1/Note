@@ -50,4 +50,6 @@ Proxy servers allow you to intercept and modify requests sent between a browser 
 Which one of the following Burp Suite community edition modules has throttling constraints? > intruder
 
 What edition of Burp Suite provides you with scalable scanning options? > Burp Suite Enterprise
+
+Which one of the following system resources is not taken into account when calculating the estimated system impact of a Burp Suite extension? > Disk Space
 _________________________________________________________________________________________________________________________________________________________________________________________________
