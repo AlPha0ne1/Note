@@ -23,10 +23,13 @@ in upload directory.
 Upload file with the curl
 -------------------------
 #curl http://192.157.170.3/uploads/ --upload-file simple-backdoor.php
-
+________________________________________________________________________________________________________________________________________________________________________________________________
 
 How does following a penetration testing methodology benefit an organization? > It ensures that the testing process is consistent and repeatable across different applications.
 
 Why is it important to use a structured web application penetration testing methodology? > It provides a systematic approach to identifying and addressing security vulnerabilities.
-_____________________________________________________________________________________________________________________________________________________________________________
+________________________________________________________________________________________________________________________________________________________________________________________________
+Which of the following OWASP Top 10 vulnerabilities refers to the act of an attacker injecting malicious code into a web application, which is then executed by unsuspecting users? > XSS
 
+What is the primary concern related to the OWASP Top 10 vulnerability "Security Misconfiguration"? > Unauthorized access to sensitive files and directories
+_________________________________________________________________________________________________________________________________________________________________________________________________
