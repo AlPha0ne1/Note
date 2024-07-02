@@ -45,4 +45,4 @@ In addition to taking website screenshots, EyeWitness also downloads the website
 
 How many information gathering tests are outlined in the OWASP Web Security Testing Guide? > 10
 _________________________________________________________________________________________________________________________________________________________________________________________________
-
+Proxy servers allow you to intercept and modify requests sent between a browser and web application. > False (it is browser and server)
