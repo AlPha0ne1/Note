@@ -6,5 +6,9 @@ The PATCH method - it is used to apply partial modifications to a resource. It i
 resource rather than replacing the entire resource.
 The HEAD method  - it is similar to the GET method but only retrieves the response headers and not the response body. It is often used to check
 the headers for things like resource existence or modification dates.
+
+In HTTP response parsing, what does the "Content-Type" header specify? > Type of data in the response body
+
+Which HTTP response header informs the browser how long it should cache the response? > Cache-Control
 _____________________________________________________________________________________________________________________________________________________________________________
 
