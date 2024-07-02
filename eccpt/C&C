@@ -11,4 +11,12 @@ Which of the following techniques is often used by C2 frameworks to avoid detect
 A centralized C2 framework has a single point of failure. What is a common mitigation strategy for this vulnerability? > Using redundant C2 servers with automatic failover.
 
 Which of the following best describes "command chaining" in C2 frameworks? > Executing multiple commands in sequence to automate tasks.
+
+What is a key consideration when choosing a location to deploy a C2 server for red teaming? >
+
+1.The server should be placed in a highly secure environment to prevent unauthorized access.
+2.The deployment location should not raise suspicion, often mimicking typical server environments.
+3.The server should be hosted in a location with low latency to ensure fast communication with agents
+
+A C2 framework may use Domain Fronting as an evasion technique. What does Domain Fronting involve? > Redirecting C2 traffic through well-known domains to evade detection.
 _________________________________________________________________________________________________________________________________________________________________________________________________________
