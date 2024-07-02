@@ -62,4 +62,6 @@ When using Burp Suite community edition, do you have the ability to compare Site
 Which one of the following Intruder Attack types supports the use of multiple payload sets? > Pitchfork
 
 When working with the Intruder, can you configure a Payload processing rule to encode the payload in Base64? > TRUE
+
+When modifying a request in the Repeater, what Keyboard shortcut can be used to enable URL encoding as you type? > CTRL + U
 _________________________________________________________________________________________________________________________________________________________________________________________________
