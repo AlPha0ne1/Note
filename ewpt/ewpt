@@ -38,6 +38,12 @@ Which of the following is NOT a typical activity performed during the pre-engage
 Which section of the penetration test report focuses on providing a technical breakdown of each identified vulnerability? > Vulnerability Details
 
 Why is it essential to include the potential impact and risks associated with the identified vulnerabilities in the report? > To help the organization prioritize remediation efforts based on the risks posed.
+_________________________________________________________________________________________________________________________________________________________________________________________________
+Does HTTRack utilize spidering to find and download files from a webserver? > False
 
+
+
+
+_________________________________________________________________________________________________________________________________________________________________________________________________
 _________________________________________________________________________________________________________________________________________________________________________________________________
 How many information gathering tests are outlined in the OWASP Web Security Testing Guide? > 10
