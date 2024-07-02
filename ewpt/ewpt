@@ -1,5 +1,10 @@
 Which version of HTTP introduced support for persistent connections, reducing the overhead of establishing a new connection for each request? > HTTP/1.1
 
 In an HTTP request, which part specifies the resource being requested from the server? > Request URL
+
+The PATCH method - it is used to apply partial modifications to a resource. It is similar to the PUT method but only updates specific parts of the
+resource rather than replacing the entire resource.
+The HEAD method  - it is similar to the GET method but only retrieves the response headers and not the response body. It is often used to check
+the headers for things like resource existence or modification dates.
 _____________________________________________________________________________________________________________________________________________________________________________
 
