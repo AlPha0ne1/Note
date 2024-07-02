@@ -9,4 +9,6 @@ DNS also can be used in C2 communication channel by allowing data to be embedded
 Which of the following techniques is often used by C2 frameworks to avoid detection by Intrusion Detection Systems (IDS)? > Obfuscation of C2 traffic to resemble normal network traffic.
 
 A centralized C2 framework has a single point of failure. What is a common mitigation strategy for this vulnerability? > Using redundant C2 servers with automatic failover.
+
+Which of the following best describes "command chaining" in C2 frameworks? > Executing multiple commands in sequence to automate tasks.
 _________________________________________________________________________________________________________________________________________________________________________________________________________
