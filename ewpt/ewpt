@@ -11,6 +11,8 @@ In HTTP response parsing, what does the "Content-Type" header specify? > Type of
 
 Which HTTP response header informs the browser how long it should cache the response? > Cache-Control
 
+What does the "Referer" header in an HTTP request typically contain? > The URL of the previous web page from which the request originated.
+
 Response header
 ---------------
 DAV: 1,2 
