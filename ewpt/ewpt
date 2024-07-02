@@ -1,1 +1,5 @@
 Which version of HTTP introduced support for persistent connections, reducing the overhead of establishing a new connection for each request? > HTTP/1.1
+
+In an HTTP request, which part specifies the resource being requested from the server? > Request URL
+_____________________________________________________________________________________________________________________________________________________________________________
+
