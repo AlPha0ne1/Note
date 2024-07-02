@@ -52,4 +52,8 @@ Which one of the following Burp Suite community edition modules has throttling c
 What edition of Burp Suite provides you with scalable scanning options? > Burp Suite Enterprise
 
 Which one of the following system resources is not taken into account when calculating the estimated system impact of a Burp Suite extension? > Disk Space
+
+Burp Suite allows you to export all links for a specific site in the Site map. > True
+
+Which one of the following regex expressions would include all subdomains for the domain acme.com when configuring your scope? > .*.acme.com$
 _________________________________________________________________________________________________________________________________________________________________________________________________
