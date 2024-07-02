@@ -19,4 +19,10 @@ What is a key consideration when choosing a location to deploy a C2 server for r
 3.The server should be hosted in a location with low latency to ensure fast communication with agents
 
 A C2 framework may use Domain Fronting as an evasion technique. What does Domain Fronting involve? > Redirecting C2 traffic through well-known domains to evade detection.
+
+The C2 Framework "Covenant" supports Linux and macOS payloads. > False
+
+What is the role of a kill switch in a C2 framework during a red team exercise? > To terminate C2 operations if the exercise is compromised or needs to end.
+
+Which of the following open source C2 frameworks supports deploying agents and payloads on Windows systems? > Empire, Covenant, Metasploit
 _________________________________________________________________________________________________________________________________________________________________________________________________________
