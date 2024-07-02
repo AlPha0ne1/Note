@@ -35,7 +35,8 @@ What is the primary concern related to the OWASP Top 10 vulnerability "Security 
 _________________________________________________________________________________________________________________________________________________________________________________________________
 Which of the following is NOT a typical activity performed during the pre-engagement phase of a web application penetration test? > Requesting the source code of the web application for a thorough analysis.
 
+Which section of the penetration test report focuses on providing a technical breakdown of each identified vulnerability? > Vulnerability Details
 
-
+Why is it essential to include the potential impact and risks associated with the identified vulnerabilities in the report? > To help the organization prioritize remediation efforts based on the risks posed.
 
 _________________________________________________________________________________________________________________________________________________________________________________________________
