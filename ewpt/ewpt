@@ -69,4 +69,7 @@ Which one of the following is a feature found in OWASP ZAP but not in Burp Suite
 
 On the OWASP ZAP Dashboard, what button provides you with the ability to start a passive crawl on a target site? > Manual Explore
 
+In the Protected Mode, OWASP ZAP prevents you from performing intrusive/active actions on sites outside of your defined scope. > True
+
+To do directory fuzzing, we have to add wordlists in .ZAP/fuzzers/dirbuster directory.
 _________________________________________________________________________________________________________________________________________________________________________________________________
