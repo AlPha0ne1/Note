@@ -11,5 +11,7 @@ What position do Injection vulnerabilities occupy in the OWASP Top 10 2021? >A3
 SQL Injection vulnerabilities could potentially lead to remote code execution (RCE). > True
 
 Which one of the following is not a common target of SQL Injection attacks? > Cookies
+
+Which one of the following is an example of a Relational Database? > Oracle Database
 ______________________________________________________________________________________________________________________________________________________________________________________
 
