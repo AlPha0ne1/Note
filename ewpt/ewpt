@@ -65,6 +65,9 @@ When working with the Intruder, can you configure a Payload processing rule to e
 
 When modifying a request in the Repeater, what Keyboard shortcut can be used to enable URL encoding as you type? > CTRL + U
 _________________________________________________________________________________________________________________________________________________________________________________________________
+OWASP
+-----
+
 Which one of the following is a feature found in OWASP ZAP but not in Burp Suite Community edition? > Active Scanner
 
 On the OWASP ZAP Dashboard, what button provides you with the ability to start a passive crawl on a target site? > Manual Explore
@@ -72,4 +75,15 @@ On the OWASP ZAP Dashboard, what button provides you with the ability to start a
 In the Protected Mode, OWASP ZAP prevents you from performing intrusive/active actions on sites outside of your defined scope. > True
 
 To do directory fuzzing, we have to add wordlists in .ZAP/fuzzers/dirbuster directory.
+
+Web App Scanning 
+----------------
+1. login with credentials > include context type to login form > Authentication > Form > fill the right username and password parameter > fill logout regex (login) >
+user > fill credential
+
+2. include context type to http://192.158.2.33 > RC > active scan > fill username > ok
+
+3. Check the Alert
+_________________________________________________________________________________________________________________________________________________________________________________________________
+
 _________________________________________________________________________________________________________________________________________________________________________________________________
