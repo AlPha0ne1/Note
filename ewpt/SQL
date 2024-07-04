@@ -1,0 +1,13 @@
+SQL injection is typically classified as a type of input validation vulnerability. > False
+
+When referring to the OWASP Top 10 2017 list of vulnerabilities, what is the Technical impact score of Injection vulnerabilities? > 3
+
+In the context of Cybersecurity, SQL Injection vulnerabilities do not pose a risk to the availability of assets like websites and databases.> false
+
+Which one of the following is not a type of Injection vulnerability? > XSSi (XSS inclusion)
+
+What position do Injection vulnerabilities occupy in the OWASP Top 10 2021? >A3
+
+SQL Injection vulnerabilities could potentially lead to remote code execution (RCE). > True
+______________________________________________________________________________________________________________________________________________________________________________________
+
