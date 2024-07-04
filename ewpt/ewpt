@@ -87,5 +87,17 @@ user > fill credential
 
 Can you use the Spider in OWASP ZAP to automatically process forms? > True
 _________________________________________________________________________________________________________________________________________________________________________________________________
+Wordpress
+----------
+To get api-token > login > https://wpscan.com
+
+if 404.php or an unnecessary plugin is not found in WordPress, we have to detect vulnerable plugin
+
+#wpscan --url http://kyakwkdfk.org --enumerate p --plugins-detection aggressive --api-token cskjdljwiek320429458ckkve
+Relevanssi plugin is vulnerable
+
+#searchsploit Relevanssi
+
+
 
 _________________________________________________________________________________________________________________________________________________________________________________________________
