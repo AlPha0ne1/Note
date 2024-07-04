@@ -1,0 +1,1 @@
+Which security principle should developers follow to prevent arbitrary file upload vulnerabilities? > Assume all user input is malicious and validate rigorously
