@@ -17,4 +17,8 @@ In a social engineering attack involving pretexting, which of the following is a
 Which one of the following pretexting factors is pivotal in establishing trust with a target? > Mirroring the target's language and tone in communication
 
 Which of the following activities is most likely part of "Weaponization"? > Creating a malicious macro in a Microsoft Office document.
+
+Which one of the following MS Office document formats does not permit macros? > docx
+
+Microsoft Office does not perform any data validation prior to opening a file, instead validation is performed by checking the file extension. > False
 _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________
