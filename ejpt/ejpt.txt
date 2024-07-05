@@ -127,7 +127,7 @@ Always open with powershell (| Username | Password | | administrator | smbserver
 
  	 4.net use * /delete (delete stored session - map network drive)
 
- 	 5. net use Z: \\10.0.22.92\C$ smbserver_771 /user:administrator (connect with command)
+ 	 5. net use Z: \\10.0.21.94\C$ smbserver_771 /user:administrator (connect with command)
 
 
 24.Using smbmap
