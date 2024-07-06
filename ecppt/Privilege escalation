@@ -85,3 +85,11 @@ Under what condition can the cmdkey utility be used to perform privilege escalat
 
 What is the primary function of the cmdkey command in Windows? > To list or modify credentials stored in the Windows Credential Manager.
 ___________________________________________________________________________________________________________________________________________________________________________________________
+Powershell Command History (to get username && password)
+---------------------------
+
+All files need to be > show hidden files, folders and drives
+
+C:\Users\User\Appdata\Roaming\Microsoft\Windows\Powershell\PsReadline\ConsoleHost_history.txt file
+
+___________________________________________________________________________________________________________________________________________________________________________________________
