@@ -11,6 +11,8 @@ All the functions can be seen in github.
 >. .\Powerup.ps1 (Activate the script)
 >Invoke-Allchecks
 
+>Invoke-PrivsecAudit (to check Administrator password)
+
 Which one of the following PowerUp functions can be used to check for the services that the current user can modify? > Get-ModifiableService
 
 Which PowerUp function can be used to check for unquoted service paths which could potentially allow for privilege escalation? > Get-ServiceUnquoted
