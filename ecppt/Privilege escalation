@@ -80,4 +80,8 @@ There is no password but use that credential to get reverse shell
 5. capture with msfconsole multi/handler
 
 Get Administrator access
+
+Under what condition can the cmdkey utility be used to perform privilege escalation on a Windows machine? > When there are shared credentials among administrators that can be accessed via cmdkey.
+
+What is the primary function of the cmdkey command in Windows? > To list or modify credentials stored in the Windows Credential Manager.
 ___________________________________________________________________________________________________________________________________________________________________________________________
