@@ -219,44 +219,6 @@ Can inject Windows binary (vncviewer.exe, nc.exe, etc..)
 
 What is the purpose of AMSI (Antimalware Scan Interface) in AV evasion with PowerShell? > To detect and block malicious PowerShell scripts based on their behavior
 ____________________________________________________________________________________________________________________________________
-Privilege escalation with Powerup.ps1
--------------------------------------
-
-PowerUp is a PowerShell script designed to facilitate discovering and exploiting privilege escalation vulnerabilities in Windows environments. 
-Penetration testers and red teamers commonly use it to identify weaknesses that could allow an attacker with limited privileges to elevate their access to a higher level, such as local administrator or system
-
-https://github.com/PowerShellMafia/PowerSploit/blob/master/Privesc/PowerUp.ps1 (git clone) && upload in target system
-
-All the functions can be seen in github.
-
->. .\Powerup.ps1 (Activate the script)
->Invoke-Allchecks
-
-Which one of the following PowerUp functions can be used to check for the services that the current user can modify? > Get-ModifiableService
-
-Which PowerUp function can be used to check for unquoted service paths which could potentially allow for privilege escalation? > Get-ServiceUnquoted
-
-You can also use psexec.py to connect the target machine with the administrator
-
-#psexec.py administrator@10.0.20.64
-
-If administrator gives those service accessible, we can use those to connect to the administrator by using it's password
-
-psexec.py (smb-share && psexec utility)
-winrm (winrm.exe)
-evil-winrm (winrm.exe)
-____________________________________________________________________________________________________________________________________
-Privilege escalation with PrivescCheck.ps1
-------------------------------------------
-
-What feature of PrivescCheck is primarily used to identify outdated and potentially vulnerable software installed on a system? > Invoke-AuditInstalledPrograms
-
-Which function in PrivescCheck helps in identifying user privileges that could potentially be escalated by exploiting Windows services? > Invoke-ServiceAudit
-
-
-C:> powershell.exe -ep bypass -c ". .\PrivescCheck.ps1; Invoke-PrivescCheck"
-C:> runas.exe /user:administrator cmd (Calling cmd with administrator privilege from PowerShell)
-____________________________________________________________________________________________________________________________________
 Pivoting with ReGeorg
 ---------------------
 Git clone to that repo
