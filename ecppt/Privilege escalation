@@ -92,4 +92,7 @@ All files need to be > show hidden files, folders and drives
 
 C:\Users\User\Appdata\Roaming\Microsoft\Windows\Powershell\PsReadline\ConsoleHost_history.txt file
 
+In the context of security best practices, which method effectively minimizes the risk of PowerShell history being used for privilege escalation? >
+Disabling PowerShell history logging entirely.
+
 ___________________________________________________________________________________________________________________________________________________________________________________________
