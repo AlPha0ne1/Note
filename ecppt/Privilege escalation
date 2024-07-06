@@ -1,3 +1,7 @@
+Find the file with Get-ChildItem
+---------------------------------
+> Get-Childitem -Path ".\PowerSploit" -Filter "PowerUp.ps1" -Recurse
+
 Privilege escalation with Powerup.ps1
 -------------------------------------
 
