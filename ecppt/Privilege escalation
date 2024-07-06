@@ -55,9 +55,9 @@ ________________________________________________________________________________
 Privilege escalation with PrivescCheck.ps1
 ------------------------------------------
 
-What feature of PrivescCheck is primarily used to identify outdated and potentially vulnerable software installed on a system? > Invoke-AuditInstalledPrograms
+What feature of PrivescCheck is primarily used to identify outdated and potentially vulnerable software installed on a system? > Invoke-AuditInstalledPrograms (PowerView.ps1)
 
-Which function in PrivescCheck helps in identifying user privileges that could potentially be escalated by exploiting Windows services? > Invoke-ServiceAudit
+Which function in PrivescCheck helps in identifying user privileges that could potentially be escalated by exploiting Windows services? > Invoke-ServiceAudit (HostRecon.ps1)
 
 
 C:> powershell.exe -ep bypass -c ". .\PrivescCheck.ps1; Invoke-PrivescCheck"
