@@ -56,6 +56,6 @@ By encoding malicious scripts within harmless-looking HTML attributes or JavaScr
 
 Which of the following is a common method used in HTML smuggling to deliver a malicious payload to a target system? > Embedding encoded scripts in JavaScript blobs
 _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________
-
+HTA (HTML Application) files are only designed to run using Internet Explorer (IE) because they leverage IE's rendering engine and ActiveX controls.
 
 _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________
