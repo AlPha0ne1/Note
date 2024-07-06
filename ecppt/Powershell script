@@ -1,0 +1,17 @@
+# RunPowerUp.ps1
+
+# Set the execution policy to bypass for this process
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass -Force
+
+# Import the PowerUp.ps1 script
+. "C:\Users\Student\Desktop\PowerSploit\Privesc\PowerUp.ps1"
+
+# Run the Invoke-PrivescAudit function
+Invoke-PrivescAudit
+
+Finally
+
+> powershell -ep bypass -File ".\RunPowerUp.ps1"
+
+. "C:\Users\Student\Desktop\PowerSploit\Privesc\PowerUp.ps1" > that is called dot-sourcing a script,it means that the script is executed in the current scope rather than in a new scope.
+__________________________________________________________________________________________________________________________________________________________________________________________
