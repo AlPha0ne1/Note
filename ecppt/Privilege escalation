@@ -15,7 +15,7 @@ All the functions can be seen in github.
 >. .\Powerup.ps1 (Activate the script)
 >Invoke-Allchecks
 
->Invoke-PrivsecAudit (to check Administrator password)
+>Invoke-PrivescAudit (to check Administrator password)
 
 (or)
 
