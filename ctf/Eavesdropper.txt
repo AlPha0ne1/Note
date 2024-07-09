@@ -1,6 +1,6 @@
 Use pspy64 to check root cronjob
 
-sudo /etc/shadow is on
+2024/03/02 00:04:01 CMD: UID=0    PID=22987  | sudo /etc/shadow 
 
 /usr/bin/sudo is also suid.
 
