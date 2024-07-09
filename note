@@ -347,6 +347,9 @@ In order to find hashtype or crack when contating user in hash (use --user)
 hashcat hash /usr/share/wordlists/rockyou.txt --user
 hashcat hash -a 3 -m 3200 /usr/share/wordlists/rockyou.txt --user
 
+smb bruteforce with hashcat
+---------------------------
+hashcat -l Henry -P /usr/share/wordlist/rockyou.txt smb://10.10.40.55 135
 
 
 PrintSpoofer - works window 10 vulnerability 
