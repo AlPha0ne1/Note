@@ -1,8 +1,13 @@
+When I upload .php file, the server add .txt file extension behind .php extension > php_reverse_shell.php.txt
+
+So, I have to upload .phar extension instead of .php > .phar (php archive extension) > so that .txt extension cannot distract.
+__________________________________________________________________________________________________________________________________________________________________________
+
 getdreams.py called the database in mysql 
 --------------------------------------------
 
 SO, that we have to insert data in mysql database.
 
-mysql:> INSERT INTO dreams VALUE(“sha”, “$(/bin/bash)”);
+mysql> INSERT INTO dreams VALUE(“sha”, “$(/bin/bash)”);
 
 If we run the script > python3 getdreams.py > we got a username called dream.
