@@ -1,5 +1,13 @@
 But http smuggling is only worked in HTTP/1.1 so that downgraded HTTP/2 to HTTP/1.1
 
+Transfer-Encoding
+-----------------
+
+Transfer-Encoding: chunked is an HTTP/1.1 feature that allows the server to send the response in a series of chunks. 
+It is used when the server does not know the total size of the content at the start of the response, allowing the content to be sent in pieces as it is generated. 
+Each chunk is preceded by its size in bytes, 
+written in hexadecimal, followed by a newline, the chunk data, and another newline. The end of the data is signaled by a chunk of size 0.
+
 CL-TE attack
 ______________
 
