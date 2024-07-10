@@ -23,7 +23,8 @@ Transfer-Encoding: chunked
 /r/n
 fuckyou
 
-0 is chunked-size, when it is 0 , there is no chuncked > so that fuckyou is posinoed to another request
+Front-end checks only content-length > so it is correct > status code 200
+
 0 to fuckyou is content-length = 12, 
 
 Normal Request
@@ -36,6 +37,8 @@ Content-Length: 7
 foo=bar
 
 Because of using target-encoding: chuncked in attack request, the backend server pause and wait another chunk (request)
+
+0 is chunked-size, when it is 0 , there is no chuncked > so that fuckyou is posinoed to another request
 When normal request is attrived > fuckyou is transfered to that request and sever responds > Unrecognized method FUCKYOUPOST
 
 Response
