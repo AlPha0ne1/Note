@@ -23,7 +23,8 @@ Transfer-Encoding: chunked
 /r/n
 fuckyou
 
-0 to fuckyou is content-length = 12
+0 is chunked-size, when it is 0 , there is no chuncked > so that fuckyou is posinoed to another request
+0 to fuckyou is content-length = 12, 
 
 Normal Request
 --------------
