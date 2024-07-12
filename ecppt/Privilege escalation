@@ -160,6 +160,12 @@ Access : NT AUTHORITY\SYSTEM Allow  FullControl
 
 5. Builtin\all users has read and execute > so that create a folder > inside that folder create new .exe file with reverse shell
 
+6. Caputer with msfconsole, don't forget to set payload windows/meterpreter/reverse_tcp
+
+7. Create a string value under "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" > string value is the directory where program.exe have
+
+8. When the administrator is shutdown and restart again > hfs.exe starts > program.exe runs > we got a reverse shell
+
 
 
 
