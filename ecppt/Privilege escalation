@@ -132,5 +132,8 @@ Caputre with msfconsole > FileZilla Server.exe doesn't have an icon > Only resta
 
 We got reverse shell from Unsecure FileZilla service because  > Owner  : BUILTIN\Administrators
 ________________________________________________________________________________________________________________________________________________________________________
-
+Registry Autoruns
+-----------------
+Which Windows registry key is commonly used by attackers to set up autoruns for privilege escalation? > 
+HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run
 _________________________________________________________________________________________________________________________________________________________________________________________
