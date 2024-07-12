@@ -94,5 +94,10 @@ C:\Users\User\Appdata\Roaming\Microsoft\Windows\Powershell\PsReadline\ConsoleHos
 
 In the context of security best practices, which method effectively minimizes the risk of PowerShell history being used for privilege escalation? >
 Disabling PowerShell history logging entirely.
-
 ___________________________________________________________________________________________________________________________________________________________________________________________
+Insecure Service Permission
+---------------------------
+Which of the following would NOT be a common method for exploiting insecure service permissions? > Replacing the service's log files to obscure malicious activity.
+
+Which type of permission, if set insecurely, poses a significant risk for privilege escalation when inspecting the ACLs of a Windows service? > Write
+_________________________________________________________________________________________________________________________________________________________________________________________
