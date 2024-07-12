@@ -166,6 +166,8 @@ Access : NT AUTHORITY\SYSTEM Allow  FullControl
 
 8. When the administrator is shutdown and restart again > hfs.exe starts > program.exe runs > we got a reverse shell
 
+in powershell > shutdown /l > it is restart
+
 
 
 
