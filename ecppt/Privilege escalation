@@ -135,5 +135,40 @@ ________________________________________________________________________________
 Registry Autoruns
 -----------------
 Which Windows registry key is commonly used by attackers to set up autoruns for privilege escalation? > 
-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run
+HKEY_LOCAL_MACHINE:\SOFTWARE\Microsoft\Windows\CurrentVersion\Run
+
+1. Notice hfs.exe is run in startup
+2. Run autorun software to notice where the hfs.exe file is running
+3. Check that location with ACL (don't forgot = :)
+C:> Get-Acl -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" | format-list
+
+Path   : Microsoft.PowerShell.Core\Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run
+Owner  : NT AUTHORITY\SYSTEM
+Group  : NT AUTHORITY\SYSTEM
+Access : PRIV-ESC\student Allow  FullControl
+
+Student User has full control
+
+4. Check the folder with ACL
+
+Path   : Microsoft.PowerShell.Core\FileSystem::C:\Program Files\HTTPServer\hfs.exe
+Owner  : BUILTIN\Administrators
+Group  : PRIV-ESC\None
+Access : NT AUTHORITY\SYSTEM Allow  FullControl
+         BUILTIN\Administrators Allow  FullControl
+         BUILTIN\Users Allow  ReadAndExecute, Synchronize
+
+5. Builtin\all users has read and execute > so that create a folder > inside that folder create new .exe file with reverse shell
+
+
+
+
+
+
+
+
+
+
+
+
 _________________________________________________________________________________________________________________________________________________________________________________________
