@@ -167,10 +167,20 @@ Access : NT AUTHORITY\SYSTEM Allow  FullControl
 8. When the administrator is shutdown and restart again > hfs.exe starts > program.exe runs > we got a reverse shell
 
 in powershell > shutdown /l > it is restart
+________________________________________________________________________________________________________________________________________________________________________
+Juicy Potato
+--------------
+Juicy Potato is a Windows privilege escalation exploit that leverages specific vulnerabilities related to DCOM (Distributed Component Object Model) and the way Windows manages the communication between
+processes and services.
+It primarily targets Windows' token manipulation features to achieve privilege escalation from a lower-privilege user to a system-level or administrative-level user.
+
+________________________________________________________________________________________________________________________________________________________________________
 
 
 
 
+
+________________________________________________________________________________________________________________________________________________________________________
 
 
 
