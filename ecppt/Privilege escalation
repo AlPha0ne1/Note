@@ -177,6 +177,27 @@ It primarily targets Windows' token manipulation features to achieve privilege e
 Juicy Potato is based on a technique called "Potato," which involves exploiting the behavior of DCOM and the RpcSs (Remote Procedure Call Subsystem) service.
 The exploit leverages Windows' capability to create LocalService/NetworkService tokens and then use those tokens to impersonate higher-privilege accounts like SYSTEM.
 
+DCOM and CLSIDS:
+---------------
+Windows DCOM uses CLSIDS (Class Identifiers) to manage communication between different software components. When a request is made to DCOM, it can
+lead to the creation of new processes running under specific security contexts.
+
+Manipulating LocalService Tokens: 
+---------------------------------
+Juicy Potato exploits a vulnerability in how DCOM processes and services interact, particularly when creating tokens. It does this by leveraging the LocalService
+token to get access to a higher-privilege context.
+
+Creating a Malicious COM Server:
+--------------------------------
+The exploit creates a fake COM server and registers it with a specific CLSID. This allows the attacker to direct requests to their malicious COM server, enabling
+them to manipulate the token used for that process.
+
+Impersonation and Token Duplication:
+------------------------------------
+Once the malicious COM server is registered and the process initiated, Juicy Potato can create a LocalService token and then manipulate it to
+impersonate a high-privilege context like SYSTEM.
+By duplicating and adjusting the token, the exploit achieves privilege escalation.
+
 What type of Windows access token does the Juicy Potato attack primarily aim to obtain? > System token
 What is a common technique used to create/obtain a Windows access token for impersonation, leading to privilege escalation? > token duplicating
 ________________________________________________________________________________________________________________________________________________________________________
