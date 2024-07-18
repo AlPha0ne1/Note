@@ -59,6 +59,15 @@ Trust  - Trust provides a mechanism for users to access resources in another dom
 *** All domains in a forest trust all other domains in the forest ***
     Trust can extend outside the forest
 _______________________________________________________________________________________________________________________________________________________________________________________________
+Bloodhouund
+-----------
+Which of the following Active Directory objects can BloodHound help identify? > Groups with excessive permissions
+
+
+
+
+
+_______________________________________________________________________________________________________________________________________________________________________________________________
 Kerberoasting: Kerberoasting is a Kerberos attack that targets user accounts with Service Principal Name (SPN) enabled.
 
 AS-REP Roasting: AS-REP roasting is a Kerberos authentication attack that targets user accounts with the "Do not require Kerberos preauthentication" enabled.
