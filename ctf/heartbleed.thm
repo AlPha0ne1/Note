@@ -1,0 +1,4 @@
+You have seen the port ssl/TLS 443 > it can have heartbleed bug
+
+Using msfconsole payload > auxiliary/scanner/openssl_heartbleed > turn on verbose and Run > you can see username,password (credentials).
+
