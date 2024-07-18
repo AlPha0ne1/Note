@@ -1,4 +1,6 @@
 You have seen the port ssl/TLS 443 > it can have heartbleed bug
+----------------------------------------------------------------
+#nmap --script vuln -p 443 -Pn (that NSE script can find the vulnerability)
 
 Using msfconsole payload > auxiliary/scanner/openssl_heartbleed > turn on verbose and Run > you can see username,password (credentials).
 
