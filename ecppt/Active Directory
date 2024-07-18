@@ -67,12 +67,22 @@ C:> Invoke-DomainPasswordSpray -UserList C:\Tools\Users.txt -Password 123456 -Ve
 _______________________________________________________________________________________________________________________________________________________________________________________________
 Bloodhouund
 -----------
-Which of the following Active Directory objects can BloodHound help identify? > Groups with excessive permissions
+Which of the following Active Directory objects can BloodHound help identify? > Groups with excessive permissions.
 
+C:> cd C:\tools\Bloodhound\bloodhound\resources\app\collectors 
+C:> powershell -ep bypass
+C:> . .\Sharphound.ps1
 
+You will see the enumerated zip file > upload that zip file in GUI bloodhound
 
+Open bloodhound GUI exe file
 
+C:\tools\Bloodhound\Bloodhound.exe
 
+Username: Neo4j
+Passowrd: password
+
+Analysis > shortest Paths from Owned Principals
 _______________________________________________________________________________________________________________________________________________________________________________________________
 Kerberoasting: Kerberoasting is a Kerberos attack that targets user accounts with Service Principal Name (SPN) enabled.
 
