@@ -3,7 +3,7 @@ echo "10.129.227.248 thetoppers.htb" | sudo tee -a /etc/hosts
 
 subdomain fuzzing with gobuster
 --------------------------------
-gobuster vhost -u http://thetoppers.htb -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-20000.txt
+gobuster vhost -u http://thetoppers.htb -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-20000.txt --append-domain -t 40
 
 s3.thetoppers.htb
 
