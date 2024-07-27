@@ -128,6 +128,7 @@ Kerberoasting
    research is a domain name
    -Q */*: This option queries for SPNs. The asterisks */* act as wildcards, meaning the query will look for all SPNs in the specified domain or forest.
 
+   View the kerberos ticket ( TGT ticket ) 
    C:> klist
 
 2. Request a TGS ticket for the specified SPN using Kerberos.
