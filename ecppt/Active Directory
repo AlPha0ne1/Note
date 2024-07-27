@@ -84,7 +84,12 @@ Passowrd: password
 
 Analysis > shortest Paths from Owned Principals
 _______________________________________________________________________________________________________________________________________________________________________________________________
-Kerberoasting: Kerberoasting is a Kerberos attack that targets user accounts with Service Principal Name (SPN) enabled.
+Kerberoasting: Kerberoasting is a Kerberos attack that targets service accounts with Service Principal Name (SPN) enabled.
+
+- SPNs are associated with the service account under which the service runs. This can be a user account or a managed service account in Active Directory.
+- When a client needs to authenticate a service, it uses the SPN to request a service ticket from the Kerberos Key Distribution Center (KDC). 
+The KDC issues a ticket for the service identified by the SPN.
+
 
 AS-REP Roasting: AS-REP roasting is a Kerberos authentication attack that targets user accounts with the "Do not require Kerberos preauthentication" enabled.
 
