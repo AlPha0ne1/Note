@@ -162,7 +162,7 @@ How do attackers typically obtain hashed credentials for pass-the-hash attacks i
 
 Which Mimikatz command is used to extract password hashes from memory for pass-the-hash attacks? > "sekurlsa::logonpasswords"
 
-Student user has admin access on that system.
+Student user has only admin access on that particular system.
 
 C:> find-localadminaccess
 seclogs.research.SECURITY.local
