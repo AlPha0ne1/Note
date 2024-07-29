@@ -3,7 +3,7 @@
 Autoroute (inside meterpreter session)
 - Location: "/usr/share/metasploit-framework/modules/post/multi/manage/autoroute.rb"
 
-run autoroute -s 10.10.10.0/20 3
+run autoroute -s 10.10.10.0/20 
 
 route add (Inside msfconsole)
 - Location: "/usr/share/metasploit-framework/lib/rex/post/meterpreter/extensions/stdapi/net/route.rb"
