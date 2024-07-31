@@ -6,7 +6,10 @@ Use pspy64 to check root cronjob
 
 In order to take advantage of /usr/bin/sudo, we must put /home/frank to the path
 
-export PATH=/home/frank:$PATH
+export PATH=/home/frank:$PATH (temporary, after you logout and login again it will be gone)
+
+Saving the path in .bashrc is permanent.
+---------------------------------------------
 save the path to /.bashrc (save like that in .bashrc)
 
 PATH = /home/frank:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
