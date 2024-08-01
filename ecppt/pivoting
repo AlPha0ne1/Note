@@ -86,17 +86,17 @@ ProxyChains-3.1 (http://proxychains.sf.net)
 content="0;url=/clipper/manager">
 root@attackdefense:~# searchsploit clipper
 _________________________________________________________________________________________________________________________________________________________________________
-SSH tunneling with dynamic port forwarding
+SSH tunneling with dynamic port forwarding ( Use proxychains with ssh to do port forwarding )
 -------------------------------------------
 ssh port is open in victim 1(192.163.141.3)
 
-#ssh root@192.163.141.3 -D 9050
+#ssh root@192.163.141.3 -D 9050 (9050 port is in proxychains.conf)
 
-In attacker Machine portforwarding is alreday done (127.0.0.:9050)
+If you don't have ssh connection in victim machine, you can't do ssh portforwarding.
 
-We can scan internal IP port with proxychains
+1. ssh connection in victim
+2. Open new tab > proxychains nmap -sT -sV 192.84.170.3 (We can scan internal IP port with proxychains)
 
-#proxychains nmap -sT -sV 192.84.170.3
 _________________________________________________________________________________________________________________________________________________________________________
 
 
