@@ -226,24 +226,31 @@ The default system administrator account in Microsoft SQL Server (MSSQL) is name
 
 3. Login into mssql with mssql_payload (msfconsole payload)
 
+If we got a shell send it to the background
+
 CLSID
 ------
 Each service or component in Windows that uses the Component Object Model (COM) architecture has its own COM object classes,
 and each of these classes is uniquely identified by a Class Identifier (CLSID).
 
+The identifier "4991D34B-80A1-4291-83B6-3328366B9097" refers to a CLSID (Class Identifier) for the Background Intelligent Transfer Service (BITS) in Windows. That token is provided by lab documentation
+
 4. Create meterpreter exe file (backdoor.exe)
 
-5. Run that command in user session
-C:> JuicyPotato.exe -l 3333 -p backdoor.exe -t * -c {4991d34b-80a1-4291-83b6-3328366b9097}
+We are connecting in same meterpreter session
 
-The identifier "4991D34B-80A1-4291-83B6-3328366B9097" refers to a CLSID (Class Identifier) for the Background Intelligent Transfer Service (BITS) in Windows. That token is provided by lab documentation
+5. Listen with multi/handler and do 
+
+> exploit -j (send it to the background)
+> sessions 1 (use the sessions 1 again)
+
+6. Run that command in user session
+C:> JuicyPotato.exe -l 3333 -p backdoor.exe -t * -c {4991d34b-80a1-4291-83b6-3328366b9097}
 
 The -t option specifies the tokens to use for impersonation. The * symbol indicates that Juicy Potato should use any available token. 
 This allows the tool to attempt to find a token that has the necessary privileges for the exploit to succeed
 
-6. listen with multi/handler
-
-Finally, got the administrator.
+Finally, got the administrator's meterpreter shell.
 ________________________________________________________________________________________________________________________________________________________________________
 Linux command can be used to identify files with the write permission applied for all user accounts
 -----------------------------------------------------------------------------------------------------
