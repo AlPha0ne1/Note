@@ -236,6 +236,8 @@ and each of these classes is uniquely identified by a Class Identifier (CLSID).
 5. Run that command in user session
 C:> JuicyPotato.exe -l 3333 -p backdoor.exe -t * -c {4991d34b-80a1-4291-83b6-3328366b9097}
 
+The identifier "4991D34B-80A1-4291-83B6-3328366B9097" refers to a CLSID (Class Identifier) for the Background Intelligent Transfer Service (BITS) in Windows. That token is provided by lab documentation
+
 The -t option specifies the tokens to use for impersonation. The * symbol indicates that Juicy Potato should use any available token. 
 This allows the tool to attempt to find a token that has the necessary privileges for the exploit to succeed
 
