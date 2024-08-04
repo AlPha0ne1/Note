@@ -22,7 +22,7 @@ SO, that exploit the apparmor.
 Apparmor provides an additional layer of security, particularly useful for restricting potentially 
 vulnerable applications such as web browsers, email clients, and server processes.
 
-
+think@publisher:aa --status ( it is used to know apparmor is enabling or not )
 think@publisher:/etc/apparmor.d$ cat usr.sbin.ash
 #include <tunables/global>
 
