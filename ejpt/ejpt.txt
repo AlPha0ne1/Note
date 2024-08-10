@@ -335,19 +335,6 @@ Privilege Escalation
 
 	#Finally found MS16-135 exploit, and upload 41015.exe from meterpreter and get a Priv escalation.
 
-3.UAC (User Account Control)
-	
-	UAC is the windows security feature that is used to ensure that changes to the operating system require approval from the administrator or a user account that is part of the administrator group.
-
-	In order to successfully bypass UAC, we will need to have access to the user account that is part of the local administrator group on the Windows target system.
-
-	In windows search bar > User account control (normal --> default), if UAC turns into always notify hard to penetrate.
-
-	>net users
-	>net localgroup administrators
-
-	Download UACME from github (akagi.exe --> main.c)
-
 
 4.Shell updating
 	
