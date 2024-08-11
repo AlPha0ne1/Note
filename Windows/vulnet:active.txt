@@ -70,11 +70,20 @@ To detect print nightmare vulnerability
 Protocol: [MS-RPRN]: Print System Remote Protocol 
 Protocol: [MS-PAR]: Print System Asynchronous Remote Protocol
 
-Impacket virtual-environment
+
+git clone the impacket first
+
+#git clone https://github.com/cube0x0/impacket
+#cd impacket
+
+Copy CVE-2021-1675.py with anothername (lee.py) in impacket directory.
+
+Create impacket virtual-environment
 -----------------------------
 #virtualenv --python=python3 impacket
 #source impacket/bin/activate
 
+#pip3 install .
 
 CVE-2021-1675(PrintNightmare),smbserver and shell.dll(from msfvenom) must be under same directory
 
