@@ -57,8 +57,6 @@ SeIncreaseWorkingSetPrivilege Increase a process working set            Disabled
 
 Print Nightmare vulnerability
 -------------------------------
-
-
 Print Nightmare is a critical Remote Code Execution (RCE) vulnerability, officially known as CVE-2021–34527, that affects          (Microsoft’s Windows Print Spooler service). The vulnerability allows attackers to exploit the “RpcAddPrinterDriverEx()” function, which is responsible for installing printer drivers on the system. By leveraging this vulnerability, hackers can gain unauthorized access to a vulnerable system.
 
 The Windows Print Spooler service acts as a bridge between the operating system and printers, handling tasks such as managing printer drivers and processing print jobs. However, the Print Nightmare exploit enables the installation of malicious print drivers remotely, posing a significant security risk. This vulnerability is particularly dangerous because it allows both trusted and authenticated users to install arbitrary print drivers on Windows systems.
@@ -83,9 +81,11 @@ Create impacket virtual-environment
 #virtualenv --python=python3 impacket
 #source impacket/bin/activate
 
+Install all the python3 requirements 
+-------------------------------------
 #pip3 install .
 
-CVE-2021-1675(PrintNightmare),smbserver and shell.dll(from msfvenom) must be under same directory
+*******CVE-2021-1675(PrintNightmare).py,smbserver.py and shell.dll(from msfvenom) must be under same directory**********
 
 Change CVE-2021-1675 into lee.py(another name)
 
