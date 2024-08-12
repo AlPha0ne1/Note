@@ -60,6 +60,11 @@ Print Nightmare is a critical Remote Code Execution (RCE) vulnerability, officia
 
 The Windows Print Spooler service acts as a bridge between the operating system and printers, handling tasks such as managing printer drivers and processing print jobs. However, the Print Nightmare exploit enables the installation of malicious print drivers remotely, posing a significant security risk. This vulnerability is particularly dangerous because it allows both trusted and authenticated users to install arbitrary print drivers on Windows systems.
 
+In order to exploit PrintNightmare Vulnerability
+-----------------------------------------------
+1. detect PrintNightmare
+2. Must know Username, Password, Domain 
+
 To detect print nightmare vulnerability
 --------------------------------------------
 #python3 rpcdump.py @10.10.227.30 | egrep 'MS-RPRN|MS-PAR'
