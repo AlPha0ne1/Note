@@ -3,6 +3,13 @@
 
 As soon as SMB port is open, we can bruteforce SID_Users with crackmapexec
 
+In smbserver, all the files have read_only access permission > so that dump all the files with spider_plus
+-----------------------------------------------------------------------------------------------------------
+#crackmapexec smb 10.10.173.97 -u anonymous -p '' -M spider_plus -o READ_ONLY=true
+
+After all the files are dumped > check with tree to /tmp/cme_spider_plus 
+
+#tree /tmp/cme_spider_plus
 
 RID user," it's generally referring to a user account identified by its RID within a domain. This is because RIDs are used as part of the SID to identify users within a domain.
 
