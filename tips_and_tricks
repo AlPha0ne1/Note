@@ -181,6 +181,10 @@ if you create some python file under /tmp, it needs to install some python libra
 But if you create python file under /dev/shm, you don't need any necessary library file.
 ----------------------------------------------------
 gobuster dir -u http://10.10.149.190/island/2100 -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -t 80 -x ticket
+
+to filter the status code with gobuster
+
+gobuster dir -u http://10.10.149.190/island/2100 -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -t 80 -b 200,404
 ____________________________________________________________________________________________________________________________________
 #ss -tulnp
 
