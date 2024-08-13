@@ -14,7 +14,7 @@ victim2: 10.0.17.153
 
 You already need to have a victim1 session. After that addroute to victim2 by creating a gateway
 
-meterpreter> run addroute -s 10.0.31.0/20
+meterpreter> run autoroute -s 10.0.31.0/20
  	   > background
 
 Listen the victim2 port with scanner/portscan/tcp
