@@ -59,6 +59,7 @@ msf5 post(multi/manage/autoroute) > exploit
 Use socks4a module
 -------------------
 msf5 post(multi/manage/autoroute) > use auxiliary/server/socks4a
+msf5 auxiliary(server/socks4a) > set SRVHOST 0.0.0.0 (because portforward is in localIP)
 msf5 auxiliary(server/socks4a) > set SRVPORT 9050
 SRVPORT => 9050
 msf5 auxiliary(server/socks4a) > exploit
