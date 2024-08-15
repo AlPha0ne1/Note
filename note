@@ -1,3 +1,12 @@
+Using awk to cut from :
+------------------------
+GHOST:$y$j9T$1GDOKHFNKsfdsdfsfsYTdK1/ctM/$TphDQPwmQAovPbKgqGmnUxKmfl3vgeyUGAtdfssfsdtfSpiq0:19945:0:99999:7:::
+
+#cat hash | awk -F ":" '{print $2}'
+
+final answer is >>>>$y$j9T$1GDOKHFNKsfdsdfsfsYTdK1/ctM/$TphDQPwmQAovPbKgqGmnUxKmfl3vgeyUGAtdfssfsdtfSpiq0:19945:0:99999:7:::
+_______________________________________________________________________________________________________________________________________________________________________
+
 cat ~/.*history | less     #to show history of hidden files
 cat a.txt, less a.txt      #cat and less to read files
 
