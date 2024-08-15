@@ -13,6 +13,11 @@ Ping Sweep
 cat ~/.*history | less     #to show history of hidden files
 cat a.txt, less a.txt      #cat and less to read files
 
+another way to decode with base64 
+---------------------------------
+#base64 -d <<< "ddfsdvgHEQ=="
+GHOST
+
 Shell upgrade TTY 
 ------------------
 #/usr/bin/script -qc /bin/bash /dev/null
