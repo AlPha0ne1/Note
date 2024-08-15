@@ -5,6 +5,10 @@ GHOST:$y$j9T$1GDOKHFNKsfdsdfsfsYTdK1/ctM/$TphDQPwmQAovPbKgqGmnUxKmfl3vgeyUGAtdfs
 #cat hash | awk -F ":" '{print $2}'
 
 final answer is >>>>$y$j9T$1GDOKHFNKsfdsdfsfsYTdK1/ctM/$TphDQPwmQAovPbKgqGmnUxKmfl3vgeyUGAtdfssfsdtfSpiq0:19945:0:99999:7:::
+
+Ping Sweep
+----------
+#for i in {1..254}; do ping -c1 -W1 192.168.1.${i} | grep bytes ;done 
 _______________________________________________________________________________________________________________________________________________________________________
 
 cat ~/.*history | less     #to show history of hidden files
