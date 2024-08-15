@@ -9,7 +9,6 @@ final answer is >>>>$y$j9T$1GDOKHFNKsfdsdfsfsYTdK1/ctM/$TphDQPwmQAovPbKgqGmnUxKm
 Ping Sweep
 ----------
 #for i in {1..254}; do ping -c1 -W1 192.168.1.${i} | grep bytes ;done 
-_______________________________________________________________________________________________________________________________________________________________________
 
 cat ~/.*history | less     #to show history of hidden files
 cat a.txt, less a.txt      #cat and less to read files
