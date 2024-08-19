@@ -48,7 +48,7 @@ TABATHA_BRITT:marlboro(1985)
 
 
 
-#bloodhound-python -d thm.corp -u TABATHA_BRITT -p 'marlboro(1985)' -ns 10.10.24.189 -c All
+#bloodhound-python -d thm.corp -u TABATHA_BRITT -p 'marlboro(1985)' -ns 10.10.24.189 -c All --zip
 
 
 In order to open Bloodhound
