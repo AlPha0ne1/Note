@@ -12,3 +12,14 @@ Blind SSRF(Server Side Request Forgery)
 
 Impact :
 DDOS, Server Scanning, Vulnerablity scanning, Direct access
+_________________________________________________________________________________________________________________________________________________________________________
+Basic SSRF against another back-end system
+------------------------------------------
+Those directories and information can be fetched by users
+
+stockApi=http://192.168.0.1:8080/product/stock/check?productId=11&storeId=1
+
+But the back-end systems are normally protected by the network topology, it has its own IP address, like that
+
+stockApi=http://192.168.0.65:8080/admin
+_________________________________________________________________________________________________________________________________________________________________________
