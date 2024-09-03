@@ -1,6 +1,6 @@
-##How SameSite cookie restrictions protect CSRF
+# How SameSite cookie restrictions protect CSRF
 
--CSRF Attack Scenario
+- CSRF Attack Scenario
 
 ```
 The SameSite attribute in cookies can protect against Cross-Site Request Forgery (CSRF) attacks by restricting when cookies are sent with cross-site requests. 
@@ -9,9 +9,9 @@ For example, if a user is logged into their banking site, an attacker could crea
 The user's browser would include the bank's cookies (which contain the user's session information), making the request appear legitimate.
 ```
 
-##Types of SameSite cookie restrictions
+# Types of SameSite cookie restrictions
 
--SameSite=Strict
+- SameSite=Strict
 
 ```
 Behavior: The cookie is only sent when the request originates from the same site that set the cookie.
@@ -19,7 +19,7 @@ Protection: If the user is on a different site (e.g., a malicious site) and that
 the browser will not send the bank's cookies with the request. This prevents the CSRF attack from succeeding because the request will lack the necessary authentication.
 ```
 
--SameSite=Lax
+- SameSite=Lax
 
 ```
 Behavior: If there is no cookie protections, automatically chrome will retrieve samesite=lax for cookie protections. The cookie is sent with requests from the same site and with top-level navigation (like clicking a link) from other sites. However, it is not sent with embedded content, such as images or iframes.
@@ -27,7 +27,7 @@ Protection: This mode strikes a balance between security and usability. It preve
 
 ```
 
-SameSite=None + Secure
+- SameSite=None + Secure
 
 ```
 Behavior: The cookie is sent with both same-site and cross-site requests, but it must be marked as Secure, meaning it can only be sent over HTTPS.
