@@ -6,3 +6,7 @@
 # Xinclude injection
 
 ![image](https://github.com/user-attachments/assets/02e634ee-8456-4477-a3e5-4f08d2a04454)
+
+# Break down of Code
+
+![image](https://github.com/user-attachments/assets/dd360c56-92de-4bad-a2ac-2bea74ad7215)
