@@ -77,6 +77,10 @@ java -jar target/rmg-4.2.2-jar-with-dependencies.jar call demo.ine.local 1099 'n
 nc -lvnp 8888
 ```
 
+![image](https://github.com/user-attachments/assets/a3526701-50de-4282-a0c1-65b98e39bef3)
+
+
+
 
 
 
