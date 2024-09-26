@@ -30,6 +30,16 @@ version="1.0">
     </xsl:template>
 </xsl:stylesheet>
 ```
+![image](https://github.com/user-attachments/assets/ea699521-3d7e-4cbf-835f-96392437667c)
+
+# listen the port
+
+nc -lvnp 54321
+
+# Finally got reverse shell, and it's flag
+
+![image](https://github.com/user-attachments/assets/ce8e16db-cc48-47e2-b20b-d2d99a8666bc)
+
 
 # Upload those files and transform
 
