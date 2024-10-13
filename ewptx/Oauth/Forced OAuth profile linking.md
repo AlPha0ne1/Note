@@ -13,11 +13,16 @@
 
 ![image](https://github.com/user-attachments/assets/9141800c-f6a6-43d0-a725-2064e7177be8)
 
-# copy
+# Forward that request
+
+![image](https://github.com/user-attachments/assets/55041dc8-127b-4e6f-a366-be8b19f537a6)
+
+# copy the url
+
 ![image](https://github.com/user-attachments/assets/e966e214-226a-4346-ad3c-8e7f9cdd2173)
 
 
-# drop
+# drop all the requests and back to the page.
 
 ![image](https://github.com/user-attachments/assets/e445ec56-a3e9-4345-8e8b-77aecc89a438)
 
