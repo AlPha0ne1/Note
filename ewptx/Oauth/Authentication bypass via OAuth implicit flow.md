@@ -2,13 +2,17 @@
 
 The OAuth Implicit Flow is a simplified version of OAuth 2.0 primarily designed for client-side web applications (like single-page apps). It skips the need for an intermediary step (authorization code exchange) and directly issues an access token to the client via the browser. The key idea is to reduce complexity, but at the cost of reduced security.
 
-# For Example
+For Example
 
 1. You visit a photo-sharing web app.
 2. The app asks you to login using your Google account.
 3. You are redirected to Google’s login page and authorize the photo-sharing app to access your Google Photos.
 4. Instead of receiving an authorization code, the photo-sharing app immediately gets an access token via the redirect URL after you authenticate.
 5. The app uses this access token to fetch your Google Photos and display them.
+
+In this flow, the access token is sent from the OAuth service to the client application via the user's browser as a URL fragment. The client application then accesses the token using JavaScript.
+In the implicit flow, this POST request is exposed to attackers via their browser. As a result, this behavior can lead to a serious vulnerability if the client application doesn't properly check that the access token matches the other data in the request. In this case, an attacker can simply change the parameters sent to the server to impersonate any user.
+
 
 # Wiener has completed the login access
 
