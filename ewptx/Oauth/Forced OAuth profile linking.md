@@ -10,7 +10,7 @@
 
 ![image](https://github.com/user-attachments/assets/138c2bce-271d-45fa-abf6-fb7eb62753f5)
 
-# Intercept the attach a social profile
+# Intercept attach a social profile
 
 ![image](https://github.com/user-attachments/assets/9141800c-f6a6-43d0-a725-2064e7177be8)
 
@@ -21,7 +21,6 @@
 # copy the url
 
 ![image](https://github.com/user-attachments/assets/e966e214-226a-4346-ad3c-8e7f9cdd2173)
-
 
 # drop all the requests and back to the page.
 
