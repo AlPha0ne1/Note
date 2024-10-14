@@ -10,6 +10,10 @@
 
 ![image](https://github.com/user-attachments/assets/76e60e0b-c9f8-4f36-bf2f-fbf90ca87deb)
 
+# In burpsuite repeater
+
+![image](https://github.com/user-attachments/assets/ef754d21-ad1b-47ce-aa0b-514f9904793b)
+
 
 # The following script means it allows messages to every domain
 ```
@@ -28,11 +32,22 @@
         </script>
 
 ```
+# Post a message with example.com
+
+![image](https://github.com/user-attachments/assets/2fd2be4a-96ae-44a3-9828-b885f190c922)
+
+# When username is clicked, it redirects to example.com because of the aboved script
+
+![image](https://github.com/user-attachments/assets/afb901ba-6b1c-4871-843b-53b662091eb3)
+
+![image](https://github.com/user-attachments/assets/da88e230-3961-4d86-8b2b-f8c4d14ae086)
+
+
 # copy url
 
 ![image](https://github.com/user-attachments/assets/ba0243a0-e244-482d-9d47-e41b9f18fbe0)
 
-# in exploit server
+# Put that url in <iframe>
 
 ![image](https://github.com/user-attachments/assets/305331c2-b4fb-4948-8db5-17f54f770574)
 
