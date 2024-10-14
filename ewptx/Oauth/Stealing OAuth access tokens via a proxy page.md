@@ -10,10 +10,24 @@
 
 ![image](https://github.com/user-attachments/assets/76e60e0b-c9f8-4f36-bf2f-fbf90ca87deb)
 
-# It accepts from every origin
 
-![image](https://github.com/user-attachments/assets/9f5fe55f-643f-43b6-a12b-6ea2f5466938)
+# The following script means it allows messages to every domain
+```
+       <script>
+            parent.postMessage({type: 'onload', data: window.location.href}, '*')
+            function submitForm(form, ev) {
+                ev.preventDefault();
+                const formData = new FormData(document.getElementById("comment-form"));
+                const hashParams = new URLSearchParams(window.location.hash.substr(1));
+                const o = {};
+                formData.forEach((v, k) => o[k] = v);
+                hashParams.forEach((v, k) => o[k] = v);
+                parent.postMessage({type: 'oncomment', content: o}, '*');
+                form.reset();
+            }
+        </script>
 
+```
 # copy url
 
 ![image](https://github.com/user-attachments/assets/ba0243a0-e244-482d-9d47-e41b9f18fbe0)
