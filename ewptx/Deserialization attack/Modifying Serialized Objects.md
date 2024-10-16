@@ -7,15 +7,7 @@
 
 ![image](https://github.com/user-attachments/assets/02882cd8-eacc-4452-b460-369b7358e51d)
 
-# *** Change all session cookie with the modified base64 serialized objects ***
-
-## Home Page
-
-![image](https://github.com/user-attachments/assets/23ee3e7f-6ec9-4979-b749-fbe367cf6262)
-
-# Intercept admin panel and change the modified cookie ( Even deleting user change the session cookie)
-
-![image](https://github.com/user-attachments/assets/3d29319e-f155-4e68-bc98-e13b1d37eecc)
+# Modified session cookie and change the endpoint into /admin
 
 ![image](https://github.com/user-attachments/assets/1f664a69-630e-43dd-805b-2d55e23d3d37)
 
