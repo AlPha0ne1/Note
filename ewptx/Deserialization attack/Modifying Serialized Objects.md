@@ -1,3 +1,5 @@
+# Grap the session cookie from updated email request ( can copy cookie from any request ) 
+
 ![image](https://github.com/user-attachments/assets/c771ee1e-0ece-4449-a488-3bc145b5ea10)
 
 
