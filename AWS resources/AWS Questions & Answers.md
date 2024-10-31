@@ -16,5 +16,12 @@ Answer -> EC2 Instance Savings Plans
 
 ![image](https://github.com/user-attachments/assets/570f6f30-be46-47f5-b516-05a60aee71d7)
 
+# Questions about Amazon SQS and SNS
+
+Which AWS service is the best choice for publishing messages to subscribers?
+
+Answer -> Amazon Simple Notification Service (Amazon SNS)
+
+![image](https://github.com/user-attachments/assets/6d52335c-f04c-40e5-a773-b5dc48ee697f)
 
 
