@@ -2,9 +2,9 @@
 
 ## 1. Question
 
-![image](https://github.com/user-attachments/assets/9ac7601f-08a6-4029-885e-632f301ffc08)
+Which Amazon EC2 pricing option provides a discount when you specify a number of EC2 instances to run a specific OS, instance family and size, and tenancy in one Region?
 
-![image](https://github.com/user-attachments/assets/f1c294c9-91f9-4359-80d3-8be505787fb5)
+Standard Reserved Instances
 
 ## 2. Question
 
