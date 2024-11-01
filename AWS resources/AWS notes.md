@@ -14,3 +14,9 @@ In a microservices approach, application components are loosely coupled. In this
 When designing applications on AWS, you can take a microservices approach with services and components that fulfill different functions. Two services facilitate application integration: Amazon Simple Notification Service (Amazon SNS) and Amazon Simple Queue Service (Amazon SQS).
 
 ![image](https://github.com/user-attachments/assets/04d4076a-8aa7-49a8-9d9e-f1a825f99266)
+
+# Edge location
+
+An edge location is a site that Amazon CloudFront uses to store cached copies of your content closer to your customers for faster delivery.
+
+![image](https://github.com/user-attachments/assets/a67944f6-98f0-48fd-9514-306fe731c4a6)
