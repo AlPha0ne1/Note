@@ -66,6 +66,13 @@ Answer -> Amazon Elastic Kubernetes Service (Amazon EKS)
 
 ![image](https://github.com/user-attachments/assets/8081fa2a-88de-4a0d-8f35-69427c69df33)
 
+# Module 3 Questions
+
+## 1 Question
+
+Which statement best describes an Availability Zone?
+
+Answer -> A single data center or group of data centers within a Region
 
 
 
