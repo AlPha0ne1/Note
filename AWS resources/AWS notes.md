@@ -20,3 +20,23 @@ When designing applications on AWS, you can take a microservices approach with s
 An edge location is a site that Amazon CloudFront uses to store cached copies of your content closer to your customers for faster delivery.
 
 ![image](https://github.com/user-attachments/assets/a67944f6-98f0-48fd-9514-306fe731c4a6)
+
+# AWS Elastic Beanstalk
+
+With AWS Elastic Beanstalk, you provide code and configuration settings, and Elastic Beanstalk deploys the resources necessary to perform the following tasks:
+
+Adjust capacity
+Load balancing
+Automatic scaling
+Application health monitoring
+
+AWS Elastic Beanstalk helps you to focus on your business application not the infrastructure.
+
+![image](https://github.com/user-attachments/assets/021a1f16-2931-4268-b62e-97276dfc1420)
+
+![image](https://github.com/user-attachments/assets/3604c637-4f5c-49de-a543-73f421b36ed5)
+
+
+# AWS Cloudformating
+
+With AWS CloudFormation, you can treat your infrastructure as code. This means that you can build an environment by writing lines of code instead of using the AWS Management Console to individually provision resources
