@@ -74,8 +74,32 @@ Which statement best describes an Availability Zone?
 
 Answer -> A single data center or group of data centers within a Region
 
+## 2 Question
 
+Which statement is TRUE for the AWS global infrastructure?
 
+Answer -> A Region consists of three or more Availability Zones.
+
+## 3 Question
+
+Which factors should be considered when selecting a Region?
+
+Answer -> Compliance with data governance and legal requirements
+          Proximity to your customers
+
+## 4 Question
+
+Which statement best describes Amazon CloudFront?
+
+Answer -> A global content delivery service
+
+![image](https://github.com/user-attachments/assets/59bc6eec-1f86-4f55-92c2-6d16477d3c33)
+
+## 5 Question
+
+Which action can you perform with AWS Outposts?
+
+Answer -> Extend AWS infrastructure and services to different locations including your on-premises data center.
 
 
 
