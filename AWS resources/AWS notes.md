@@ -59,7 +59,13 @@ AWS Direct Connect(opens in a new tab) is a service that lets you to establish a
 
 ![image](https://github.com/user-attachments/assets/8360ce69-5664-40ff-9355-7dafc9f0b019)
 
+# Amazon Route 53 and Amazon Cloudfront
 
+Amazon Route 53(opens in a new tab) is a DNS web service. It gives developers and businesses a reliable way to route end users to internet applications hosted in AWS. 
 
+Amazon Route 53 connects user requests to infrastructure running in AWS (such as Amazon EC2 instances and load balancers). It can route users to infrastructure outside of AWS.
 
+Another feature of Route 53 is the ability to manage the DNS records for domain names. You can register new domain names directly in Route 53. You can also transfer DNS records for existing domain names managed by other domain registrars. This enables you to manage all of your domain names within a single location.
+
+![image](https://github.com/user-attachments/assets/3f6aba12-91e8-4a62-8384-6600653e2c4e)
 
