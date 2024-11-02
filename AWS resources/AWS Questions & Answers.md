@@ -141,8 +141,9 @@ Answer -> Internet gateway
 
 Which of the following are characteristics of the Amazon EBS service? (Select TWO.)
 
-Answer -> Best for data that requires retention
-          Separate drives from the host computer of an EC2 instance
+Answer -> 
+1. Best for data that requires retention
+2. Separate drives from the host computer of an EC2 instance
 
 
 
