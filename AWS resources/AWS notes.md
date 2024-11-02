@@ -39,4 +39,27 @@ AWS Elastic Beanstalk helps you to focus on your business application not the in
 
 # AWS Cloudformating
 
-With AWS CloudFormation, you can treat your infrastructure as code. This means that you can build an environment by writing lines of code instead of using the AWS Management Console to individually provision resources
+With AWS CloudFormation, you can treat your infrastructure as code. This means that you can build an environment by writing lines of code instead of using the AWS Management Console to individually provision resources.
+
+# Internet Gateway
+
+To allow public traffic from the internet to access your VPC, you attach an internet gateway to the VPC.
+
+![image](https://github.com/user-attachments/assets/114c4e29-06e4-4456-b63e-52cab4578f8f)
+
+# Virtual Private Gateway
+
+To access private resources in a VPC, you can use a virtual private gateway. 
+
+![image](https://github.com/user-attachments/assets/61981345-4be9-4377-876c-c17e18565b84)
+
+# AWS Direct Connect
+
+AWS Direct Connect(opens in a new tab) is a service that lets you to establish a dedicated private connection between your data center and a VPC.  
+
+![image](https://github.com/user-attachments/assets/8360ce69-5664-40ff-9355-7dafc9f0b019)
+
+
+
+
+
