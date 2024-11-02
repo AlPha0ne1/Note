@@ -103,7 +103,8 @@ Sending ongoing copies of your data to other target sources instead of doing a o
 
 # AWS Shared Responsibility Model
 
-If someone from AWS calls and asks you for your OS key, it is not AWS
+The shared responsibility model divides into customer responsibilities (commonly referred to as “security in the cloud”) and AWS responsibilities (commonly referred to as “security of the cloud”).
+**** If someone from AWS calls and asks you for your OS key, it is not AWS ****
 
 ![image](https://github.com/user-attachments/assets/130caf11-9c66-455a-9314-6c8f97140c7a)
 
