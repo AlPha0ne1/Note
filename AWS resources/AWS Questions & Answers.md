@@ -103,8 +103,36 @@ Answer -> Extend AWS infrastructure and services to different locations includin
 
 # Module 4: Question
 
+## 1 Question
+
 Which statement best describes an AWS account’s default network access control list?
 
 Answer -> It is stateless and allows all inbound and outbound traffic.
+
+## 2 Question
+
+Which statement best describes security groups?
+
+Answer -> It is stateful and deny all inbound traffic by default.
+
+## 3 Question
+
+Your company has an application that uses Amazon EC2 instances to run the customer-facing website and Amazon RDS database instances to store customers’ personal information. How should the developer configure the VPC according to best practices?
+
+Answer -> Place the Amazon EC2 instances in a public subnet and the Amazon RDS database instances in a private subnet.
+
+## 4 Question 
+
+Which component can be used to establish a private dedicated connection between your company’s data center and AWS?
+
+Answer -> AWS Direct Connect
+
+## 5 Question
+
+Which component is used to connect a VPC to the internet?
+
+Answer -> Internet gateway
+
+![image](https://github.com/user-attachments/assets/7f011adb-8ddc-46d5-a8a4-2be1deba1ebf)
 
 
