@@ -201,5 +201,12 @@ Answer -> Which service is used to query and analyze data across a data warehous
 
 ![image](https://github.com/user-attachments/assets/2e46c78f-2879-4d13-b99a-77a15d937271)
 
+# Module 6 Question
 
+## 1 Question
 
+Which tasks are the responsibilities of customers? (Select TWO.)
+
+Answer -> 
+1. Patching software on Amazon EC2 instances
+2. Setting permissions for Amazon S3 objects
