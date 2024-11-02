@@ -123,3 +123,6 @@ Action can be "Any API Call".
 # AWS IAM roles
 
 ****When an identity assumes a role, it abandons all the previous permissions that it has and it assumes the permissions of that role.****
+
+****You can actually avoid creating IAM users for every person in your organization by federating users into your account, this means that their regular cooperate credentials 
+to log into AWS by mapping their cooperate identities to IAM roles****
