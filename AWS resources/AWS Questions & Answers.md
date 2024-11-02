@@ -158,3 +158,48 @@ What are the scenarios in which you should use Amazon Relational Database Servic
 Answer -> 
 1. Using SQL to organize data
 2. Storing data in an Amazon Aurora database
+
+## 4 Question
+
+Which Amazon S3 storage classes are optimized for archival data? (Select TWO.)
+
+Answer -> 
+1. Amazon S3 Glacier Flexible Retrieval
+2. Amazon S3 Glacier Deep Archive
+
+![image](https://github.com/user-attachments/assets/c63e50e8-79fa-4f19-bf94-881a81a162b7)
+
+## 5 Question
+
+Which statement or statements are TRUE about Amazon EBS volumes and Amazon EFS file systems?
+
+Answer -> EBS volumes store data within a single Availability Zone. Amazon EFS file systems store data across multiple Availability Zones.
+
+![image](https://github.com/user-attachments/assets/775000e8-2887-4c08-927a-5f47e916e6e8)
+
+## 6 Question
+
+You want to store data in an object storage service. Which AWS service is best for this type of storage?
+
+Answer -> Amazon Simple Storage Service (Amazon S3)
+
+![image](https://github.com/user-attachments/assets/01fef298-67b3-4834-a973-c592477255fc)
+
+## 7 Question
+
+Which statement best describes Amazon DynamoDB?
+
+Answer -> A serverless key-value database service
+
+![image](https://github.com/user-attachments/assets/32fb6db6-c924-43e8-868a-0b4da32354bd)
+
+## 8 Question
+
+Which service is used to query and analyze data across a data warehouse?
+
+Answer -> Which service is used to query and analyze data across a data warehouse?
+
+![image](https://github.com/user-attachments/assets/2e46c78f-2879-4d13-b99a-77a15d937271)
+
+
+
