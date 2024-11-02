@@ -69,3 +69,10 @@ Another feature of Route 53 is the ability to manage the DNS records for domain 
 
 ![image](https://github.com/user-attachments/assets/3f6aba12-91e8-4a62-8384-6600653e2c4e)
 
+# Amazon Redshift
+
+Amazon Redshift(opens in a new tab) is a data warehousing service that you can use for big data analytics. It offers the ability to collect data from many sources and helps you to understand relationships and trends across your data.
+
+
+
+
