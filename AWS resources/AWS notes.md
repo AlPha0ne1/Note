@@ -108,3 +108,14 @@ The shared responsibility model divides into customer responsibilities (commonly
 
 ![image](https://github.com/user-attachments/assets/130caf11-9c66-455a-9314-6c8f97140c7a)
 
+![image](https://github.com/user-attachments/assets/05daf8f3-5740-41a6-a973-0839ee8d4849)
+
+# IAM policy
+
+The resource is the Unique ID for S3 bucket.
+
+The user could view the bucket "coffee_shop_reports" but peform no other actions in this account.
+
+Action can be "Any API Call".
+
+![image](https://github.com/user-attachments/assets/bb1d4e9f-4326-4345-ab59-dc26700512c7)
