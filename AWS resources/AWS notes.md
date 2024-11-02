@@ -101,4 +101,9 @@ Sending ongoing copies of your data to other target sources instead of doing a o
 
 ![image](https://github.com/user-attachments/assets/9b837f50-640a-4360-bdfa-caf642a46e98)
 
+# AWS Shared Responsibility Model
+
+If someone from AWS calls and asks you for your OS key, it is not AWS
+
+![image](https://github.com/user-attachments/assets/130caf11-9c66-455a-9314-6c8f97140c7a)
 
