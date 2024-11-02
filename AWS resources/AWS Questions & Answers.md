@@ -101,6 +101,10 @@ Which action can you perform with AWS Outposts?
 
 Answer -> Extend AWS infrastructure and services to different locations including your on-premises data center.
 
+# Module 4: Question
 
+Which statement best describes an AWS account’s default network access control list?
+
+Answer -> It is stateless and allows all inbound and outbound traffic.
 
 
