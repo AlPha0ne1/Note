@@ -73,6 +73,32 @@ Another feature of Route 53 is the ability to manage the DNS records for domain 
 
 Amazon Redshift(opens in a new tab) is a data warehousing service that you can use for big data analytics. It offers the ability to collect data from many sources and helps you to understand relationships and trends across your data.
 
+# Migration
 
+## Homogenous databases
+
+![image](https://github.com/user-attachments/assets/9187ec3e-6487-4100-8bf1-4ffb7603e4c4)
+
+## Hetrogenous databses
+
+![image](https://github.com/user-attachments/assets/fff58254-9316-40b3-b071-322c1587600a)
+
+## Development and test database migrations
+
+Enabling developers to test applications against production data without affecting production users.
+
+![image](https://github.com/user-attachments/assets/caad9dcd-c452-4aa7-ac91-49726c615b42)
+
+## Database consolidation
+
+Combining several databases into a single database.
+
+![image](https://github.com/user-attachments/assets/ae05b8dd-5a38-4d6a-9ab9-7e49282d50cc)
+
+## Continuous database replication
+
+Sending ongoing copies of your data to other target sources instead of doing a one-time migration. 
+
+![image](https://github.com/user-attachments/assets/9b837f50-640a-4360-bdfa-caf642a46e98)
 
 
