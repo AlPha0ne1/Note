@@ -145,5 +145,16 @@ Answer ->
 1. Best for data that requires retention
 2. Separate drives from the host computer of an EC2 instance
 
+## 2 Question
 
+You want to store data that is infrequently accessed but must be immediately available when needed. Which Amazon S3 storage class should you use?
 
+Answer -> S3 Standard-IA
+
+## 3 Question
+
+What are the scenarios in which you should use Amazon Relational Database Service (Amazon RDS)? (Select TWO.)
+
+Answer -> 
+1. Using SQL to organize data
+2. Storing data in an Amazon Aurora database
