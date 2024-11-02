@@ -119,3 +119,7 @@ The user could view the bucket "coffee_shop_reports" but peform no other actions
 Action can be "Any API Call".
 
 ![image](https://github.com/user-attachments/assets/bb1d4e9f-4326-4345-ab59-dc26700512c7)
+
+# AWS IAM roles
+
+****When an identity assumes a role, it abandons all the previous permissions that it has and it assumes the permissions of that role.****
