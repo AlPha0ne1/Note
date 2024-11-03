@@ -261,3 +261,71 @@ Answer -> Create cryptographic keys.
 
 ## 1 Question
 
+Which tasks can you perform using AWS CloudTrail? (Select TWO.)
+
+Answer -> 
+1. Track user activities and API requests throughout your AWS infrastructure
+2. Filter logs to assist with operational analysis and troubleshooting
+
+## 2 Question
+
+Which actions can you perform using Amazon CloudWatch? (Select TWO.)
+
+Answer ->
+
+1. Monitor your resources’ utilization and performance
+2. Access metrics from a single dashboard
+
+## 3 Question
+
+Which service enables you to review the security of your Amazon S3 buckets by checking for open access permissions?
+
+Answer -> AWS Trusted Advisor
+
+## 4 Question
+
+Which categories are included in the AWS Trusted Advisor dashboard? (Select TWO.)
+
+Anser -> Performance & Fault tolerance
+
+# Module 8 Questions
+
+## 1 Question 
+
+Which Support plan includes all AWS Trusted Advisor checks at the lowest cost?
+
+Answer -> Business
+
+## 2 Question
+
+Which action can you perform with consolidated billing?
+
+Answer -> Combine usage across accounts to receive volume pricing discounts.
+
+![image](https://github.com/user-attachments/assets/3252f176-cafd-4643-b81e-224272cb91a5)
+
+## 3 Question
+
+Which pricing tool is used to visualize, understand, and manage your AWS costs and usage over time?
+
+Answer -> AWS Cost Explorer
+
+## 4 Question
+
+Which pricing tool enables you to receive alerts when your service usage exceeds a threshold that you have defined?
+
+Answer -> AWS Budgets
+
+## 5 Question
+
+Your company wants to receive support from an AWS Technical Account Manager (TAM). Which support plan should you choose?
+
+Answer -> Enterprise
+
+## 6 Question
+
+Which service or resource is used to find third-party software that runs on AWS?
+
+Answer -> AWS Marketplace 
+
+![image](https://github.com/user-attachments/assets/58de1e1c-a44c-4905-9dbb-78f07848468b)
