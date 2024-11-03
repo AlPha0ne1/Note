@@ -126,3 +126,9 @@ Action can be "Any API Call".
 
 ****You can actually avoid creating IAM users for every person in your organization by federating users into your account, this means that their regular cooperate credentials 
 to log into AWS by mapping their cooperate identities to IAM roles****
+
+# AWS Advanced Shield
+
+AWS Shield Advanced is a paid service that provides detailed attack diagnostics and the ability to detect and mitigate sophisticated DDoS attacks. 
+
+It also integrates with other services such as Amazon CloudFront, Amazon Route 53, and Elastic Load Balancing. Additionally, you can integrate AWS Shield with AWS WAF by writing custom rules to mitigate complex DDoS attacks.
