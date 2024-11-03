@@ -226,3 +226,38 @@ Which tasks can you complete in AWS Artifact? (Select TWO.)
 Answer -> 
 1. Access AWS compliance reports on-demand.
 2. Review, accept, and manage agreements with AWS.
+
+## 4 Question
+
+Which statement best describes an IAM policy?
+
+Answer -> A document that grants or denies permissions to AWS services and resources
+
+## 5 Question
+
+An employee requires temporary access to create several Amazon S3 buckets. Which option would be the best choice for this task?
+
+Answer -> IAM role
+
+## 6 Question
+
+Which statement best describes the principle of least privilege?
+
+Answer -> Granting only the permissions that are needed to perform specific tasks
+
+## 7 Question
+
+Which service helps protect your applications against distributed denial-of-service (DDoS) attacks?
+
+Answer -> AWS Shield
+
+## 8 Question
+
+Which task can AWS Key Management Service (AWS KMS) perform?
+
+Answer -> Create cryptographic keys.
+
+# Module 7 Questions
+
+## 1 Question
+
