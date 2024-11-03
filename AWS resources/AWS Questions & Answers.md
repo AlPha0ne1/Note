@@ -210,3 +210,11 @@ Which tasks are the responsibilities of customers? (Select TWO.)
 Answer -> 
 1. Patching software on Amazon EC2 instances
 2. Setting permissions for Amazon S3 objects
+
+## 2 Question
+
+You are configuring service control policies (SCPs) in AWS Organizations. Which identities and resources can SCPs be applied to? (Select TWO.)
+
+Answer -> 
+1. An individual member account
+2. An organizational unit (OU)
