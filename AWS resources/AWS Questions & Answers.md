@@ -218,3 +218,11 @@ You are configuring service control policies (SCPs) in AWS Organizations. Which 
 Answer -> 
 1. An individual member account
 2. An organizational unit (OU)
+
+## 3 Question
+
+Which tasks can you complete in AWS Artifact? (Select TWO.)
+
+Answer -> 
+1. Access AWS compliance reports on-demand.
+2. Review, accept, and manage agreements with AWS.
