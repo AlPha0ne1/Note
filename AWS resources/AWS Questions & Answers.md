@@ -353,3 +353,9 @@ Answer -> Repurchasing
 What is the storage capacity of Snowball Edge Storage Optimized?
 
 Answer -> 80TB
+
+## 4 Question
+
+Which service enables you to quickly build, train, and deploy machine learning models?
+
+Answer -> Amazon SageMaker
