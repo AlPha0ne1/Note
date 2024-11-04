@@ -329,3 +329,22 @@ Which service or resource is used to find third-party software that runs on AWS?
 Answer -> AWS Marketplace 
 
 ![image](https://github.com/user-attachments/assets/58de1e1c-a44c-4905-9dbb-78f07848468b)
+
+# Module 9 Questions
+
+## 1 Question
+
+Which Perspective of the AWS Cloud Adoption Framework helps you design, implement, and optimize your AWS infrastructure based on your business goals and perspectives?
+
+Answer -> Platform Perspective
+
+![image](https://github.com/user-attachments/assets/0a42337f-760c-4be5-b8a7-7aebc762c361)
+
+## 2 Question
+
+Which migration strategy involves moving to a different product?
+
+Answer -> Repurchasing
+
+![image](https://github.com/user-attachments/assets/676caa50-8803-4cb8-b940-bc1b391b2794)
+
