@@ -348,3 +348,8 @@ Answer -> Repurchasing
 
 ![image](https://github.com/user-attachments/assets/676caa50-8803-4cb8-b940-bc1b391b2794)
 
+## 3 Question
+
+What is the storage capacity of Snowball Edge Storage Optimized?
+
+Answer -> 80TB
