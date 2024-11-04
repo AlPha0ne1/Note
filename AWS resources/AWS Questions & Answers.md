@@ -359,3 +359,5 @@ Answer -> 80TB
 Which service enables you to quickly build, train, and deploy machine learning models?
 
 Answer -> Amazon SageMaker
+
+![image](https://github.com/user-attachments/assets/531eac10-d691-4c18-b24e-fbbaef9908a3)
