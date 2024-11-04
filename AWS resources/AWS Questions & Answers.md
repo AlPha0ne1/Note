@@ -361,3 +361,33 @@ Which service enables you to quickly build, train, and deploy machine learning m
 Answer -> Amazon SageMaker
 
 ![image](https://github.com/user-attachments/assets/531eac10-d691-4c18-b24e-fbbaef9908a3)
+
+## 5 Question
+
+Which Perspective of the AWS Cloud Adoption Framework helps you structure the selection and implementation of permissions?
+
+Answer -> Security Perspective
+
+![image](https://github.com/user-attachments/assets/594ca3c2-6ce2-4cf1-8092-3f587afc1dc7)
+
+## 6 Question
+
+Which strategies are included in the six strategies for application migration? (Select TWO.)
+
+Answr -> 
+1. Retaining
+2. Rehosting
+
+## 7 Question
+
+What is the storage capacity of AWS Snowmobile?
+
+Answer -> 100TB
+
+## 8 Question
+
+Which statement best describes Amazon Lex?
+
+Answer -> A service that enables you to build conversational interfaces using voice and text
+
+![image](https://github.com/user-attachments/assets/761cc9c0-f53c-48fb-905c-77a836fdeef8)
