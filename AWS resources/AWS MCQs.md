@@ -331,3 +331,15 @@ Answer ->
 
 1.  Lambda charges are dependent on the amount of time it takes to run the code.
 2.  Lambda charges are dependent on the number of requests for your Lambda functions.
+
+# 48. Which AWS service allows customers to purchase unused Amazon EC2 capacity at an often discounted rate?
+
+Answer -> Spot instances
+
+With Spot Instances, you can access unused EC2 capacity. Spot Instances can be discounted.
+
+On-Demand Instances are the default purchase option and are immediately available. On-Demand Instances are not discounted.
+
+Dedicated Instances run in VPCs on hardware dedicated to that individual customer and are often used when there are licensing or compliance constraints. Dedicated Instances are not discounted.
+
+Reserved Instances reserve some capacity for your use at any time. Reserved Instances can sometimes give you a discount. However, this capacity is not unused capacity.
