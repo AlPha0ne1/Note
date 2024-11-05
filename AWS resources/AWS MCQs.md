@@ -255,3 +255,55 @@ Global Accelerator is a networking service that improves the performance of your
 DynamoDB is a fully managed NoSQL database service. DynamoDB provides fast and predictable performance with seamless scalability.
 
 Amazon EBS is an easy-to-use, high-performance block-storage service. 
+
+# 39. A company wants to create a learning application for students. The learning application must give students the option to choose a button to have the text read out loud to them. Which AWS machine learning service will meet this requirement?
+
+Answer -> Amazon Polly
+
+Amazon Polly is a machine learning service that converts text to speech. This service provides the ability to read text out loud.
+
+Amazon Transcribe is a service that uses machine learning to convert audio data to text. Amazon Transcribe is not a text-to-speech conversion service.
+
+Amazon Textract is a machine learning service that can extract text from scanned documents. Amazon Textract is not a text-to-speech conversion service.
+
+# 40. Which AWS service identifies security groups that allow unrestricted access to a user's AWS resources?
+
+Answer -> AWS Trusted Advisor
+
+Trusted Advisor checks security groups for rules that allow unrestricted access to a resource. Unrestricted access increases opportunities for malicious activity, such as hacking, denial-of-service attacks, or loss of data. 
+
+AWS Config is a configuration management service focused on tracking the state of your AWS resources over time.
+
+AWS CloudWatch is primarily a monitoring service that tracks performance and operational metrics.
+
+AWS CloudTrail is a governance, compliance, and operational auditing service that records account activity and API usage across your AWS infrastructure
+
+# 41. A company wants to establish a consistent and private connection from the company's on-premises data center to the AWS Cloud. Which AWS service will meet these requirements?
+
+Answer -> AWS Direct Connect
+
+# 42. Which tasks are the customer's responsibility according to the AWS shared responsibility model? (Select TWO.)
+
+Answer ->
+1. Configure IAM users according to the principle of least privilege.
+2. Configure an Amazon S3 bucket to allow public access.
+
+Install patches on Amazon RDS DB instances is taken by AWS.
+
+# 43. A company is hosting a static website from a single Amazon S3 bucket.  Which AWS service will achieve lower latency and high transfer speeds?
+
+Answer -> Amazon CloudFront
+
+Elastic Beanstalk is a service to deploy and scale web applications and services developed with common programming languages on automatically deployed infrastructure with capacity management, load balancing, auto scaling, and monitoring. Elastic Beanstalk makes it easier to provision and support an application. Elastic Beanstalk does not reduce website latency.
+
+DAX is used to reduce response times from a DynamoDB table from single-digit milliseconds to microseconds.
+
+## 44. What are benefits of using the AWS Cloud for companies with customers in many countries around the world? (Select TWO.)
+
+Answer ->
+1. Companies can deploy applications in multiple AWS Regions to reduce latency.
+2. Amazon CloudFront has multiple edge locations around the world to reduce latency.
+
+Amazon Comprehend is a natural language processing (NLP) service that uses machine learning to find insights and relationships in text. Amazon Comprehend does not translate text.
+
+
