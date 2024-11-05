@@ -1,4 +1,4 @@
-1. Which statement best describes Amazon GuardDuty?
+# 1. Which statement best describes Amazon GuardDuty?
 
 Answer -> A service that provides intelligent threat detection for AWS infrastructure and resources.
 
