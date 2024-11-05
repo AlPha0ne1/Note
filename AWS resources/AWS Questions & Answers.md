@@ -404,3 +404,22 @@ Answer -> Reliability
 Which process is an example of benefiting from massive economies of scale?
 
 Answer -> Receiving lower pay-as-you-go prices as the result of AWS customers’ aggregated usage of services
+
+![image](https://github.com/user-attachments/assets/4837e75b-9a83-467e-a5f6-ced229312c35)
+
+## 11 Question
+
+Which pillar of the AWS Well-Architected Framework includes the ability to run workloads effectively and gain insights into their operations?
+
+Answer -> Operational Excellence
+
+## 12 Question
+
+What are the benefits of cloud computing? (Select TWO.)
+
+Answer -> 
+
+1. Trade variable expense for upfront expense.
+2. Stop spending money running and maintaining data centers.
+
+
