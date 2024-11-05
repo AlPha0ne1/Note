@@ -171,3 +171,12 @@ It has 5 pillars, they are
 3. Reliability
 4. Performance Efficiency
 5. Cost Optimization.
+
+# 6 Main Benefits of Cloud Computing
+
+1. Trade upfront expense for variable expense.
+2. Benefit from massive economies of scale.
+3. Stop guessing capacity.
+4. Increase speed and agility.
+5. Stop spending money running and maintaining data centers.
+6. Go global in minutes.
