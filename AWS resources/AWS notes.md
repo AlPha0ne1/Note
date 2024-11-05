@@ -155,3 +155,19 @@ Compute: 104 vCPUs, 416 GiB of memory, and an optional NVIDIA Tesla V100 GPU. De
 
 AWS Snowmobile(opens in a new tab) is an exabyte-scale data transfer service used to move large amounts of data to AWS. 
 You can transfer up to 100 petabytes of data per Snowmobile, a 45-foot long ruggedized shipping container, pulled by a semi trailer truck.
+
+# Amazon Q Developer
+
+Amazon Q Developer is a machine learning-powered code generator that provides you with code recommendations in real time.
+
+As you write code, Amazon Q Developer analyzes your code and comments as you write code in your integrated development environment (IDE). Amazon Q Developer then automatically generates suggestions based on your existing code and comments.
+
+# AWS Well-Architected framework
+
+It has 5 pillars, they are
+
+1. Operational Excellence
+2. Security
+3. Reliability
+4. Performance Efficiency
+5. Cost Optimization.
