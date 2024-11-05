@@ -180,8 +180,78 @@ Answer -> Amazon Elastic Kubernetes Service (Amazon EKS)
 
 ![image](https://github.com/user-attachments/assets/83fae432-b9c2-42b2-a753-a3606878c94a)
 
+# 31. Which credential components are required to gain programmatic access to an AWS account? (Select TWO.)
 
+1. An access key ID
+2. A secret access key
 
+A primary key is a feature used in database management. It does not grant AWS account access.
+A user ID is used for IAM security credentials, but not for programmatic access.
+A secondary key is a feature used in database management. It does not grant AWS account access.
 
+# 32. What is the MINIMUM AWS Support plan that provides technical support through phone calls?
 
+Answer -> Business
 
+The Developer Support plan allows only email creation of support tickets and does not provide phone support.
+The Basic Support plan provides customer support for non-technical issues, such as increases in service quotas. However, the Basic Support plan does not provide technical support.
+
+# 33. A user deploys an Amazon RDS DB instance in multiple Availability Zones. This strategy involves which pillar of the AWS Well-Architected Framework?
+
+Answer -> Realibility
+
+The performance efficiency pillar includes the ability to use computing resources efficiently to meet system requirements, and to maintain that efficiency as demand changes and technologies evolve. The use of multiple Availability Zones does not increase performance efficiency.
+
+The cost optimization pillar includes the ability to run systems to deliver business value at the lowest price point. Reliability is supported by using resources in multiple Availability Zones. The use of multiple Availability Zones for resources will increase cost.
+
+The security pillar includes the ability to protect data, systems, and assets to take advantage of cloud technologies to improve a company's security. The use of multiple Availability Zones for resources does not make an application more secure.
+
+# 34. A user needs to automatically discover, classify, and protect sensitive data stored in Amazon S3. Which AWS service can meet these requirements?
+
+Answer -> Amazon Macie
+
+Macie is an automated security assessment service that helps improve the security and compliance of applications deployed on AWS.
+
+Amazon Inspector is an automated security assessment service that helps improve the security and compliance of applications deployed on Amazon EC2 instances. Amazon Inspector does not perform S3 data classification and automatic discovery.
+
+AWS Secrets Manager helps you protect secrets needed to access your applications, services, and IT resources. Secrets Manager does not perform S3 data classification and automatic discovery.
+
+# 35. A company is moving all of their development activities to AWS. The company wants a solution to store and manage their developers' source code. Which AWS coding service will meet this requirement?
+
+Answer -> AWS CodeCommit 
+
+CodeCommit is a source code version control service. CodeCommit helps users store and manage developers' source code in AWS.
+
+CodeArtifact is a managed artifact repository service that stores and shares software that is ready for deployment. CodeArtifact is not a source code management service.
+
+CodePipeline is a service that manages the movement of code between the individual services. CodePipeline is not a source code storage service.
+
+CodeBuild is a service that helps users to automatically compile source code, run unit tests, and produce software packages that are ready for deployment. CodeBuild is not a code management service
+
+# 36. A company requires an encrypted connection between the company's on-premises servers and AWS. The connection must use the company's existing internet connection. Which solution will meet these requirements?
+
+Answer -> AWS Site-to-Site VPN
+
+Direct Connect links your internal network to a Direct Connect location over a network connection. One end of the connection attaches to your on-premises router. The other end connects to a Direct Connect router. With this connection, you can bypass the ISPs in your network path. However, the company must use an existing internet connection in this scenario.
+
+Amazon Connect is an omnichannel cloud contact center. Amazon Connect helps you provide customer service at a low cost. Amazon Connect uses an omnichannel design to provide a seamless experience across voice and chat for your customers and agents. Amazon Connect does not provide a network connection.
+
+CloudFront is a web service that speeds up the distribution of your static and dynamic web content to your users. CloudFront delivers your content through a worldwide network of data centers known as edge locations. When a user requests content that you serve through CloudFront, the request is routed to the edge location that provides the lowest latency. However, CloudFront does not provide a network connection.
+
+# 37. Each department within a company has its own independent AWS account and its own payment method. The company needs to centralize departmental governance and consolidate payments. How can the company achieve these objectives by using AWS services or features?
+
+Answer -> Create an organization in AWS Organizations with all features enabled within one account. Invite all accounts to join the organization.
+
+OpsCenter provides a central location for IT professionals to view, investigate, and resolve operational work items. OpsCenter does not consolidate billing.
+
+AWS Cloud Map creates and maintains a map of backend services. AWS Cloud Map will not address governance or payment consolidation.
+
+# 38. A company requires a relational database on AWS that records new customer orders from a website. Which AWS service or feature will meet this requirement?
+
+Answer -> Amazon Aurora
+
+Global Accelerator is a networking service that improves the performance of your users’ network traffic by up to 60%. Global Accelerator uses the AWS global network infrastructure. Global Accelerator is not a relational database.
+
+DynamoDB is a fully managed NoSQL database service. DynamoDB provides fast and predictable performance with seamless scalability.
+
+Amazon EBS is an easy-to-use, high-performance block-storage service. 
