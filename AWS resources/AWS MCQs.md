@@ -298,7 +298,7 @@ Elastic Beanstalk is a service to deploy and scale web applications and services
 
 DAX is used to reduce response times from a DynamoDB table from single-digit milliseconds to microseconds.
 
-## 44. What are benefits of using the AWS Cloud for companies with customers in many countries around the world? (Select TWO.)
+# 44. What are benefits of using the AWS Cloud for companies with customers in many countries around the world? (Select TWO.)
 
 Answer ->
 1. Companies can deploy applications in multiple AWS Regions to reduce latency.
@@ -306,7 +306,7 @@ Answer ->
 
 Amazon Comprehend is a natural language processing (NLP) service that uses machine learning to find insights and relationships in text. Amazon Comprehend does not translate text.
 
-## 45. A company has an on-premises Linux-based server with an Oracle database that runs on it. The company wants to migrate the database server to run on an Amazon EC2 instance in AWS. Which service should the company use to complete the migration?
+# 45. A company has an on-premises Linux-based server with an Oracle database that runs on it. The company wants to migrate the database server to run on an Amazon EC2 instance in AWS. Which service should the company use to complete the migration?
 
 Answer -> AWS Application Migration Service (AWS MGN)
 
@@ -317,3 +317,17 @@ AWS DMS can be used to migrate data from an on-premises database to a database i
 Migration Hub is a service that helps plan and track application migrations. Migration Hub does not perform system migrations.
 
 Application Discovery Service collects information about the usage and configuration of on-premises servers to help plan a migration to AWS. Application Discovery Service does not actually perform migration operations.
+
+# 46. What are the advantages of deploying an application with Amazon EC2 instances in multiple Availability Zones? (Select TWO.)
+
+Answer -> 
+
+1. Preventing a Single Point of Failure
+2. Increasing the availability of the application.
+
+# 47. How does AWS charge for AWS Lambda usage once the free tier has been exceeded? (Select TWO.)
+
+Answer -> 
+
+1.  Lambda charges are dependent on the amount of time it takes to run the code.
+2.  Lambda charges are dependent on the number of requests for your Lambda functions.
