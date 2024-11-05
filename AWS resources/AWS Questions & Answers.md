@@ -391,3 +391,16 @@ Which statement best describes Amazon Lex?
 Answer -> A service that enables you to build conversational interfaces using voice and text
 
 ![image](https://github.com/user-attachments/assets/761cc9c0-f53c-48fb-905c-77a836fdeef8)
+
+## 9 Question
+
+Which pillar of the AWS Well-Architected Framework focuses on the ability of a workload to consistently and correctly perform its intended functions?
+
+Answer -> Reliability
+
+
+## 10 Question
+
+Which process is an example of benefiting from massive economies of scale?
+
+Answer -> Receiving lower pay-as-you-go prices as the result of AWS customers’ aggregated usage of services
