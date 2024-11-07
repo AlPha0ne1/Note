@@ -21,6 +21,10 @@ An edge location is a site that Amazon CloudFront uses to store cached copies of
 
 ![image](https://github.com/user-attachments/assets/a67944f6-98f0-48fd-9514-306fe731c4a6)
 
+# AWS Elastic IP
+
+![image](https://github.com/user-attachments/assets/f285bc19-6238-4b2d-93af-347893853f64)
+
 # AWS Elastic Beanstalk
 
 With AWS Elastic Beanstalk, you provide code and configuration settings, and Elastic Beanstalk deploys the resources necessary to perform the following tasks:
