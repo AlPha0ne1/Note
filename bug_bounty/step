@@ -46,3 +46,12 @@ step6
 
 find Domain's IP address with nslookup
 #cat final5.txt | nslookup
+
+__________________________________________________________________________________________________________________________________________________
+Using LinkFinder.py to find the end-points
+
+#cd ~/Desktop/asana/LinkFinder
+#python3 -m venv venv
+#source venv/bin/activate
+#python linkfinder.py -i https://asana.com/_next/static/fb0299897e481ba8fb593daf6a5aae99adb1bbba/_buildManifest.js -o scan_result
+
