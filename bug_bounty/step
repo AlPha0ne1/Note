@@ -49,9 +49,29 @@ find Domain's IP address with nslookup
 
 __________________________________________________________________________________________________________________________________________________
 Using LinkFinder.py to find the end-points
+------------------------------------------
+
+Create Virtual Environment
 
 #cd ~/Desktop/asana/LinkFinder
 #python3 -m venv venv
+
+Activate the environment
+
 #source venv/bin/activate
+
+Using the linkfinder
+
 #python linkfinder.py -i https://asana.com/_next/static/fb0299897e481ba8fb593daf6a5aae99adb1bbba/_buildManifest.js -o scan_result
+__________________________________________________________________________________________________________________________________________________
+Using katana tool ( Katana retrieves old urls and other endpoints from wayback machine and others )
+----------------------------------------------------------------------------------------------------
+
+#go install github.com/projectdiscovery/katana/cmd/katana@latest
+#sudo cp ~/go/bin/katana /bin/
+#katana -version
+#katana -u target_url
+__________________________________________________________________________________________________________________________________________________
+
+
 
