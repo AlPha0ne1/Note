@@ -22,6 +22,8 @@ Shell upgrade TTY
 ------------------
 #/usr/bin/script -qc /bin/bash /dev/null
 #python3 -c "import pty; pty.spawn('/bin/bash')"
+#export TERM=xterm
+#echo raw; fg
 
 put host name directly with tee and echo
 ----------------------------------------
