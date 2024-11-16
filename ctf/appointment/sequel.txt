@@ -5,6 +5,10 @@ subdomain fuzzing with gobuster
 --------------------------------
 gobuster vhost -u http://thetoppers.htb -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-20000.txt --append-domain -t 40
 
+subdomain fuzzing by using grep to exclude the status
+------------------------------------------------------
+gobuster vhost -u http://permx.htb -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-20000.txt --append-domain | grep -v "302"
+
 s3.thetoppers.htb
 
 
