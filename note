@@ -20,7 +20,8 @@ GHOST
 
 Shell upgrade TTY 
 ------------------
-#/usr/bin/script -qc /bin/bash /dev/null
+#/usr/bin/script -qc /bin/bash /dev/null  (stty raw -echo; fg; reset is not compitable with /usr/bin/script upgraded shell
+# echo raw -echo; fg
           (or)
 #python3 -c "import pty; pty.spawn('/bin/bash')"
 #export PATH=/usr/local/sbin:/usr/sbin:/sbin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/tmp
