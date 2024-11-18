@@ -6,6 +6,11 @@ GHOST:$y$j9T$1GDOKHFNKsfdsdfsfsYTdK1/ctM/$TphDQPwmQAovPbKgqGmnUxKmfl3vgeyUGAtdfs
 
 final answer is >>>>$y$j9T$1GDOKHFNKsfdsdfsfsYTdK1/ctM/$TphDQPwmQAovPbKgqGmnUxKmfl3vgeyUGAtdfssfsdtfSpiq0:19945:0:99999:7:::
 
+
+If python3 HTTP server cannot work, use python2 -m SimpleHTTPServer
+-------------------------------------------------------------------
+#python2 -m SimpleHTTPServer
+
 Ping Sweep
 ----------
 #for i in {1..254}; do ping -c1 -W1 192.168.1.${i} | grep bytes ;done 
