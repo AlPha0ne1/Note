@@ -33,6 +33,13 @@ Shell upgrade TTY
 #export TERM=xterm-256color
 #stty raw -echo ; fg; reset
 
+
+Shell upgrade another way
+--------------------------
+After getting reverse shell > it goes directly to > jippity@blurry > cannot upgrade with python3 or script
+** copy the id_rsa and paste in local machine && connect with ssh **
+
+
 put host name directly with tee and echo
 ----------------------------------------
 echo "10.10.11.14 mailing.htb" | sudo tee -a /etc/hosts
