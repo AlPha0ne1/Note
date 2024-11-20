@@ -11,6 +11,11 @@ If python3 HTTP server cannot work, use python2 -m SimpleHTTPServer
 -------------------------------------------------------------------
 #python2 -m SimpleHTTPServer
 
+Using dig tool to find subdomains
+----------------------------------
+#dig axfr @10.10.11.212 snoopy.htb
+
+
 Ping Sweep
 ----------
 #for i in {1..254}; do ping -c1 -W1 192.168.1.${i} | grep bytes ;done 
