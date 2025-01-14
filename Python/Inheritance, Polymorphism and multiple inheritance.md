@@ -45,6 +45,26 @@ def main():
 main()
 ```
 
+# Multiple inheritance
 
+Dailyusage class inherits from Glass and Earphone classes.
 
+```
+class Glass:
+    def see(self):
+        print("To see everything we need to wear glasses")
+
+class Earphone:
+    def hear(self):
+        print("To hear everything we need to wear earphones")
+        
+class dailyusage(Glass, Earphone):
+    def dailyuse(self):
+        Glass.see(self)
+        Earphone.hear(self)
+        
+
+obj = dailyusage()
+obj.dailyuse()
+```
 
