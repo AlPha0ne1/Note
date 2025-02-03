@@ -1,3 +1,4 @@
+```
 &lt; less than
 
 &gt; greater than
@@ -9,7 +10,9 @@
 <b>&lt;=</b> less than or equal to
 
 &gt;= greater than or equal to
-===================================================================================================
+```
+# Scanf()
+
 scanf() is used as user input
 ------------------------------
 int num1
