@@ -44,4 +44,9 @@ Sometimes you might need to increase or decrease the value of a variable by a di
 For these cases, C provides shorthand operators, too!
 For example, num=num+3 can be shortened to num+=3:
 
+# While and do while loop differences
+
+![image](https://github.com/user-attachments/assets/36c7ea47-6902-46b9-b310-7b86bae2d30d)
+
+
 
