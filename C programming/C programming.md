@@ -38,3 +38,10 @@ int main() {
 }
 
 ```
+# Shorthand Operators
+
+Sometimes you might need to increase or decrease the value of a variable by a different value than 1. 
+For these cases, C provides shorthand operators, too!
+For example, num=num+3 can be shortened to num+=3:
+
+
