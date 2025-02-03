@@ -63,4 +63,24 @@ int main() {
 ```
 
 
+Your program needs to output star * symbols, based on the input.
+For example, for the input 5, the output should be *****.
+Task:
+Take an integer number from input, then output that number of star symbols.
 
+```
+#include<stdio.h>
+
+int main(){
+    int num=0;
+    scanf("Enter star numbers %d", &num);
+    int i=0;
+    while (i < num)
+    {
+        printf("*");
+        i++;
+    }
+    return 0;
+}
+
+```
