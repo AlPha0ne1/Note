@@ -1,0 +1,16 @@
+&lt; less than
+
+&gt; greater than
+
+!= not equal to
+
+== equal to
+
+<b>&lt;=</b> less than or equal to
+
+&gt;= greater than or equal to
+===================================================================================================
+scanf() is used as user input
+------------------------------
+int num1
+scanf ("Enter num1", &num1);
