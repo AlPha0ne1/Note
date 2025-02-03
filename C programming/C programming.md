@@ -23,3 +23,18 @@ scanf ("Enter num1", &num1);
 As it's common to increment and decrement a variable's value by 1 in loops, C provides special increment and decrement operators.
 
 For example, num=num+1&nbsp;can be shortened to num++:
+
+```
+#include <stdio.h>
+
+int main() {
+    int num = 1;
+    while (num < 5) {
+        printf("%d \n", num);
+        num++;
+    }
+
+    return 0;
+}
+
+```
