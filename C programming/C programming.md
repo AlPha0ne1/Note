@@ -98,3 +98,32 @@ for(int x=3;x<10;x++) {
   printf("%d \n", x);
 }
 ```
+# To successfully read the data type using != 1
+
+```
+#include <stdio.h>
+
+int main()
+{
+    float height;
+    printf("Enter your height = ");
+    
+    // Check if scanf successfully reads a float
+    if (scanf("%f", &height) != 1)
+    {
+        printf("Your data type is wrong\n");
+        return 1;  // Exit with error
+    }
+    
+    if (height > 90)
+    {
+        printf("Allowed to go\n");
+    }
+    else if (height < 90)
+    {
+        printf("You cannot go\n");
+    }
+    
+    return 0;
+}
+```
