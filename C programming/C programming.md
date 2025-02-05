@@ -183,4 +183,37 @@ int main() {
 
 So, the buffer space is 9 characters including space.
 ```
+# Take a string and a number from input, then output the letter in the string, which corresponds to that number.
+For example:
+
+Input: Hello 4
+
+Output: o
+
+Explanation: the letter with the index 4 in Hello is o, as the index starts from 0.
+
+strlen() function cannot be used without the library string.h
+```
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char word[50];  
+    int position;   
+
+    // Taking input
+    scanf("%s %d", word, &position);
+
+    // Checking if the index is valid
+    if (position >= 0 && position < strlen(word)) {
+        printf("%c\n", word[position]);  // Output the character at the given index
+    } else {
+        printf("Invalid index\n");  // Handle invalid index cases
+    }
+
+    return 0;
+}
+
+```
+
 
