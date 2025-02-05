@@ -148,9 +148,7 @@ int main() {
     
     return 0;
 }
-
+```
 In order to know the total number of elements in array
 
 ![image](https://github.com/user-attachments/assets/539bafd4-f6d6-4647-93e1-38f4a33e1447)
-
-```
