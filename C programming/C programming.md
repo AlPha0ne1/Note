@@ -309,3 +309,31 @@ int main()
     return 0;
 }
 ```
+# Solving the pointers
+
+```
+
+#include <stdio.h>
+
+void change(int *x, int y) 
+{
+  *x = y;  // Dereference x (i.e., update the value at x's address) and set it to y
+  y = *x;  // Assign the value of *x to y (but this does NOT affect the caller)
+}
+
+int main() {
+  int a = 8;
+  int b = 3;
+  change(&b, a);  // Pass b by reference (pointer) and a by value
+  printf("%d", b);  // Output b
+
+  return 0;
+}
+
+```
+
+Key Takeaways
+-------------
+Pass-by-reference (int *x) allows modifying b inside change().
+Pass-by-value (int y) does NOT affect a or anything in main().
+Final output is 8 since b was updated to 8 in change().
