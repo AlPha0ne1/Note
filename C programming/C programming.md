@@ -152,3 +152,35 @@ int main() {
 In order to know the total number of elements in array
 
 ![image](https://github.com/user-attachments/assets/539bafd4-f6d6-4647-93e1-38f4a33e1447)
+
+# Note, that we dont need the & symbol before the variable in scanf(), because the variable is a char array.
+
+```
+int main()
+{
+    char message[3];
+    printf("Give me a message = ");
+    scanf("%s",message);
+    printf("Message = %s", message);
+    return 0;
+
+}
+
+```
+
+# In case we need to take multiple words as input, we can use the fgets() function.
+fgets() always reserves one space for the null terminator (\0).
+
+```
+int main() {
+    char name[10];
+    fgets(name, 10, stdin);
+
+    printf("Hi %s.", name);
+    
+    return 0;
+}
+
+So, the buffer space is 9 characters including space.
+```
+
