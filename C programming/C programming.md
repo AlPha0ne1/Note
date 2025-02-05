@@ -215,5 +215,41 @@ int main() {
 }
 
 ```
+# You are making a baggage fee calculator. It should take the weight of a bag as input, and output the fee.
+
+Here are the rules: 
+
+A bag weighing up to 23kg is free. After that, each kg is billed at $12. 
+
+So, for example, a bag weighing 28kg will cost 5*12 = $60.
+
+The given code calls a function called baggage() in main().
+
+```
+#include<stdio.h>
+
+void baggage()
+{
+    int weight=0;
+    printf("Enter the weight of baggage = ");
+    scanf("%d", &weight);
+    if (weight > 23 )
+    {
+        printf("%d", ((weight- 23 )* 12));
+    }
+    else
+    {
+        printf("0");
+    }
+    
+}
+
+int main() 
+{
+    
+    baggage();
+    return 0;
+}
+```
 
 
