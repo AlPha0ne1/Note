@@ -251,5 +251,20 @@ int main()
     return 0;
 }
 ```
+# Function with parameter
 
+```
+#include<stdio.h>
+
+void character(char name[], int age)
+{
+    printf("My name is %s and I am %d years old", name, age);
+}
+int main() 
+{
+    character("Victor", 31);
+    return 0;
+}
+
+```
 
