@@ -127,3 +127,30 @@ int main()
     return 0;
 }
 ```
+# Create a program that calculates and outputs the number of win for the given team.
+
+```
+#include <stdio.h>
+
+int main() {
+    int results[] = {0, 1, 0, 0, 1, 1, 1, 0, 0, 1, 0, 1, 0, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1};
+    int totalWins = 0;
+    int totalgames= sizeof(results)/ sizeof(results[0]);
+    for (int i=0; i< totalgames; i++)
+    {
+        if (results[i] == 1)
+        {
+            totalWins++;
+        }
+    }
+    printf("%d", totalWins);
+    
+    
+    return 0;
+}
+
+In order to know the total number of elements in array
+
+![image](https://github.com/user-attachments/assets/539bafd4-f6d6-4647-93e1-38f4a33e1447)
+
+```
