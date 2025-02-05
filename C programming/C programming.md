@@ -267,4 +267,45 @@ int main()
 }
 
 ```
+# Pointer
 
+Every variable in the memory has its unique address.
+The address of a variable can be accessed using the & operator.
+
+```
+#include<stdio.h>
+
+int main()
+{
+    int age = 244;
+    printf("%p",&age);
+    return 0;
+}
+```
+
+A pointer is a variable that stores the memory address of another variable as its value.
+
+```
+#include<stdio.h>
+
+int main()
+{
+    int age = 244;
+    int *p = &age;
+    printf("%p",p);
+    return 0;
+}
+```
+The asterisk * is also used to access the value stored at a memory address. It is called the dereference operator.
+
+```
+#include<stdio.h>
+
+int main()
+{
+    int age = 244;
+    int *p = &age;
+    printf("%d",*p);
+    return 0;
+}
+```
