@@ -690,3 +690,32 @@ int main() {
 }
 
 ```
+# Accessing Union Memebers
+```
+#include <stdio.h>
+#include <string.h>
+
+union val{
+    int age;
+    char name[60];
+    float id;
+
+
+};
+
+int main()
+{
+    union val test;
+    test.age=12;
+    test.id= 11.133;
+    strcpy(test.name, "Victor");
+
+    printf("Age = %d \n ", test.age);
+    printf("ID = %.2f \n ", test.id);
+    printf("Name = %s \n ", test.name);
+
+    return 0;
+}
+```
+The last assignment overrides previous assignments, which is why str stores a value 
+It actually prints only the name.
