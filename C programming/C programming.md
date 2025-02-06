@@ -401,6 +401,8 @@ Answer ---> 8
 
 ***** Do not forget to put a semicolon after structure declaration. ******
 
+By using sprint to declare the value in struct.
+
 ```
 #include <stdio.h>
 
@@ -428,4 +430,27 @@ int main() {
     
     return 0;
 }
+```
+# A struct variable can also be initialized in the declaration by listing initial values in order inside curly braces:
+
+```
+#include <stdio.h>
+
+struct student {
+    int age;
+    int grade;
+    char name[40];
+};
+
+int main() {
+    /* declare two variables */
+    struct student s1 = {19, 9, "John Birghimer"};
+    struct student s2 = {22, 10, "Batman Jokerson"};
+    
+    printf("Student: %s, %d\n", s1.name, s1.age);
+    printf("Student: %s, %d\n", s2.name, s2.age);
+    
+    return 0;
+}
+
 ```
