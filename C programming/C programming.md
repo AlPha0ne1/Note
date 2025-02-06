@@ -454,3 +454,36 @@ int main() {
 }
 
 ```
+# Using strcpy()
+
+You have to declare string.h.
+You cannot directly assign a string to a char[] like cs2.title = "Advanced C++";. Instead, use strcpy(cs2.title, "Advanced C++"); to copy the string into the title array.
+
+```
+#include <stdio.h>
+#include <string.h>
+
+typedef struct course {
+  int id;
+  char title[40];
+  float hours; 
+};
+
+int main() {
+  struct course cs1 = {341279, "Intro to C++", 12.5};
+  struct course cs2;
+
+  cs2.id= 38293;
+  strcpy(cs2.title,"Advanced to C++");
+  cs2.hours= 12;
+
+   
+  /* display course info */
+  printf("%d\t%s\t%4.2f\n", cs1.id, cs1.title, cs1.hours);
+  printf("%d\t%s\t%4.2f\n", cs2.id, cs2.title, cs2.hours);
+  
+  return 0;
+}
+
+%4.2f = only takes 2 steps in float for example (24.00)
+```
