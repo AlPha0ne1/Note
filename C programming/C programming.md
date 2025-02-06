@@ -387,3 +387,13 @@ int main() {
     return 0;
 }
 ```
+#  Moves the pointer p forward by 3 elements
+
+```
+int arr[] = {6, 3, 1, 8, 4};
+int* p = arr;
+p += 3;
+printf("%d", *p);
+
+Answer ---> 8
+```
