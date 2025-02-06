@@ -524,3 +524,30 @@ int main() {
 }
 
 ```
+
+# The members of a structure may also be structures
+
+example structure point
+
+```
+#include <stdio.h>
+
+typedef struct{
+    int x;
+    int y;
+}point;
+
+typedef struct{
+    float radius;
+    point center;
+
+}circle;
+
+
+int main()
+{
+    circle c={4.565, {44,555}};
+    printf("Circle radius is %.2f and circle center is %d %d", c.radius, c.center.x, c.center.y);
+    return 0;
+}
+```
