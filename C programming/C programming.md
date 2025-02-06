@@ -756,3 +756,25 @@ int main() {
   return 0;
 }
 ```
+# Pointers to Union
+
+```
+#include <stdio.h>
+
+union val
+{
+    int num;
+    float id;
+};
+
+int main()
+{
+    union val course;
+    union val *ptr = NULL; //union val *ptr = &course;
+    ptr = &course;
+    ptr -> num=10;
+    printf("Course Number = %d \n ", course.num);
+    return 0;
+}
+
+```
