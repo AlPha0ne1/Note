@@ -806,7 +806,27 @@ int main()
     show_id(item);
     return 0;
 }
+```
+# An array is a data structure that stores collection values that are all the same type. Arrays of unions allow storing values of different types.
 
+```
+#include <stdio.h>
+
+union type {
+  int i_val;
+  float f_val;
+  char ch_val[40];
+};
+
+int main() {
+  union type arr[3];
+  arr[0].i_val = 42;
+  arr[1].f_val = 3.14;
+  strcpy(arr[2].ch_val, "xskjfjdskfj");
+  printf("1st element is %d, 2nd is %.2f, and the 3rd is %s", arr[0].i_val, arr[1].f_val, arr[2].ch_val);
+  
+  return 0;
+}
 
 ```
 
