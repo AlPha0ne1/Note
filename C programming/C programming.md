@@ -362,3 +362,28 @@ Explanation
 
 *x + 2
 *x gives the value at x[0], then +2 adds 2 to that value (not the correct interpretation of x[2]).
+
+# One example is swapping values.  You have two variables values, which are taken from input, and you need to swap the values.
+
+```
+#include <stdio.h>
+
+// Define the swap function
+void swap(int *a, int *b) {
+    int temp = *a;  // Store the value of *a in temp
+    *a = *b;        // Assign the value of *b to *a
+    *b = temp;      // Assign temp (original *a) to *b
+}
+
+int main() {
+    int x, y;
+
+    scanf("%d %d", &x, &y);
+
+    printf("x is %d, y is %d\n", x, y); 
+    swap(&x, &y);
+    printf("x is %d, y is %d\n", x, y); 
+
+    return 0;
+}
+```
