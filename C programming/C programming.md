@@ -719,3 +719,6 @@ int main()
 ```
 The last assignment overrides previous assignments, which is why str stores a value 
 It actually prints only the name.
+
+the statement -> strcpy(test.name, "Victor"); and printf("Name = %s \n ", test.name); must be the last to print the name.
+
