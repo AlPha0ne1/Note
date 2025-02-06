@@ -778,3 +778,35 @@ int main()
 }
 
 ```
+# Union as Functional Parameters
+
+```
+#include <stdio.h>
+
+union val
+{
+    float id;
+    char name[60];
+};
+
+void set_id(union val *item)
+{
+    item-> id= 57.357;
+
+}
+void show_id(union val item)
+{
+    printf("Id = %.2f \n ", item.id);
+}
+
+int main()
+{
+    union val item;
+    set_id(&item);
+    show_id(item);
+    return 0;
+}
+
+
+```
+
