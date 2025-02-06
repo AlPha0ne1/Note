@@ -639,3 +639,31 @@ int main()
 ```
 ****For a function to change the actual values in a struct variable: Pointer parameters are required****
 
+# Array to structure
+
+```
+#include<stdio.h>
+#include<string.h>
+
+typedef struct 
+{
+    int id1;
+    int id2;
+    int id3;
+}box;
+
+int main()
+{
+    box boxes[3]={{1,2,3},{4,5,6},{7,8,9}};
+    int i,volume;
+    for (i=0;i<3;i++)
+    {
+        volume= boxes[i].id1* boxes[i].id2* boxes[i].id3;
+
+        
+    }
+    printf(" Box %d has volume %d \n", i, volume );
+    return 0;
+}
+
+```
