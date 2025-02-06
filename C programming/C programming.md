@@ -551,3 +551,89 @@ int main()
     return 0;
 }
 ```
+
+# Pointer to Structure
+
+```
+#include <stdio.h>
+#include <string.h>
+
+struct student
+{
+    int age;
+    char name[60];
+    float id;
+    
+};
+
+void showstudentinfo(struct student *s)
+{
+    
+    printf("Age = %d \n", s -> age);
+    printf("Name = %s \n", s -> name);
+    printf("id = %.2f \n", s -> id);
+
+}
+
+int main()
+{
+    struct student s1={12,"Sakura",22.334};
+    struct student s2;
+
+    s2.age=24;
+    strcpy(s2.name, "Victor");
+    s2.id= 888.444;
+
+
+    printf("Student1 info \n");
+    showstudentinfo(&s1);
+    printf("\n");
+
+    printf("Student2 info \n");
+    showstudentinfo(&s2);
+
+    return 0;
+}
+```
+
+# As you can see, update_course() takes a pointer as the parameter, while display_course() takes the structure by value.
+
+```
+#include <stdio.h>
+#include <string.h>
+
+typedef struct 
+{
+    char name[20];
+    int id;
+    int age;
+    
+}course;
+
+void updatecourse(course *c)
+{
+    printf("Enter new name: ");
+    scanf("%s", c->name);
+    printf("Enter new id: ");
+    scanf("%d", &c->id);
+    printf("Enter new age: ");
+    scanf("%d", &c->age);
+
+}
+
+void displaycourse(course c)
+{
+    printf("Name: %s\n", c.name);
+    printf("Id: %d\n", c.id);
+    printf("Age: %d\n", c.age);
+}
+
+int main()
+{
+    course c;
+    updatecourse(&c);
+    displaycourse(c);
+    return 0;
+}
+
+```
