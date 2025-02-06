@@ -337,3 +337,28 @@ Key Takeaways
 Pass-by-reference (int *x) allows modifying b inside change().
 Pass-by-value (int y) does NOT affect a or anything in main().
 Final output is 8 since b was updated to 8 in change().
+
+# Another use-case of pointers are arrays.
+
+The name of an array is actually a pointer to its first element.
+For example:
+```
+#include <stdio.h>
+
+int main() {
+  int x[] = {1, 2, 3, 4};
+
+  printf("%d", *x);
+
+  return 0;
+}
+```
+
+# x is an array.
+
+x[2] is equivalent to: *(x+2)
+
+Explanation 
+
+*x + 2
+*x gives the value at x[0], then +2 adds 2 to that value (not the correct interpretation of x[2]).
