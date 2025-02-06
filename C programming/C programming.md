@@ -637,3 +637,5 @@ int main()
 }
 
 ```
+****For a function to change the actual values in a struct variable: Pointer parameters are required****
+
