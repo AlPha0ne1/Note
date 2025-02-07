@@ -977,3 +977,49 @@ calloc allocates blocks of memory within a contiguous block of memory for an arr
 After allocating room for a structure, memory must be allocated for the string within the structure. Using a pointer for the info member allows any length string to be stored.
 
 Dynamically allocated structures are the basis of linked lists and binary trees as well as other data structures.
+
+# Realloc Function
+
+The realloc() function expands a current block to include additional memory.
+
+```
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+  int *ptr;
+  ptr = malloc(10*sizeof(*ptr));  /* a block of 10 ints */
+  if (ptr != NULL) {
+    *(ptr+2) = 50;  /* assign 50 to third int */
+  }
+  ptr = realloc(ptr, 100*sizeof(*ptr)); /* 100 ints */
+  *(ptr+30) = 75;
+  printf("%d %d", *(ptr+2), *(ptr+30));
+
+  return 0;
+}
+```
+
+# Realloc Function Next program
+
+```
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() 
+{
+  
+  int *arr=malloc(sizeof(int));      // Step 1: Allocate memory for 1 integer
+  *arr = 13;                         // Step 2: Store the value 13 in the allocated memory
+  arr= realloc(arr, 2*sizeof(int));  // Step 3: Reallocate memory for 2 integers
+  *(arr+1)=*arr;                     // Step 4: Copy value of first integer to second integer
+  printf("%d", *(arr+1));
+  return 0;
+}
+
+
+Whether the original content (13) remains depends on realloc’s behavior:
+If it expands in place, arr[0] is still 13.
+If it moves to a new location, arr[0] will still be 13 because realloc copies the old data to the new block.
+
+```
