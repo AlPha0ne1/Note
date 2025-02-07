@@ -1023,3 +1023,26 @@ If it expands in place, arr[0] is still 13.
 If it moves to a new location, arr[0] will still be 13 because realloc copies the old data to the new block.
 
 ```
+# Allocating Memory for Strings
+
+
+```
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int main() {
+  char str20[20];
+  char *str = NULL;
+
+  strcpy(str20, "12345");                          // "12345" consists of 5 characters plus the null terminator (\0).
+  printf("str20 size: %ld\n", sizeof(str20));      // sizeof(str20) gives 20, because str20 is declared as a fixed array of size 20.
+  printf("str20 length: %ld\n", strlen(str20));    // strlen(str20) calculates the actual string length, which is 5 (excluding \0).
+  str = malloc(strlen(str20)+1);                   // +1 is added to store the null terminator (\0).
+  strcpy(str, str20);
+  printf("%s", str);
+
+  return 0;
+}
+
+```
