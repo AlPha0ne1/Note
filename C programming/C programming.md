@@ -1092,3 +1092,148 @@ int main() {
 }
 
 ```
+# Accessing Files
+
+
+An external file can be opened, read from, and written to in a C program. For these operations, C includes the FILE type for defining a file stream. The file stream keeps track of where reading and writing last occurred.
+
+The stdio.h library includes file handling functions:
+
+FILE  Typedef for defining a file pointer.
+
+fopen(filename, mode) Returns a FILE pointer to file filename which is opened using mode. If a file cannot be opened, NULL is returned.
+
+Mode options are:
+
+ - r open for reading (file must exist)
+
+ - w open for writing (file need not exist)
+
+ - a open for append (file need not exist)
+
+ - r+ open for reading and writing from beginning
+
+ - w+ open for reading and writing, overwriting file
+
+ - a+ open for reading and writing, appending to file
+
+fclose(fp) Closes file opened with FILE fp, returning 0 if close was successful. EOF (end of file) is returned if there is an error in closing.
+
+The following program opens a file for writing and then closes it:
+
+```
+#include <stdio.h>
+
+int main() {  
+  FILE *fptr;
+  
+  fptr = fopen("myfile.txt", "w");
+  if (fptr == NULL) {
+    printf("Error opening file.");
+    return -1;
+  }
+  fclose(fptr);
+  return 0;
+}
+
+Output : No Output
+
+```
+# File handling
+
+fopen("filename", "w") creates or overwrites a file.
+fopen("filename", "r") opens a file for reading.
+fprintf() writes formatted data to a file.
+fputs() writes a string to a file.
+fscanf() reads formatted data from a file.
+fgets() reads an entire line.
+fgetc() reads one character at a time.
+fclose() closes the file.
+
+```
+#include <stdio.h>
+
+int main() {
+    FILE *fptr;
+    int stock;
+    char buffer[200], item[10], c;
+    float price;
+    
+    /* myfile.txt: Inventory\n100 Widget 0.29\nEnd of List */
+    fptr = fopen("myfile.txt", "w");
+
+    /* write to file */
+    fprintf(fptr, "Inventory\n");                     //fprintf(fptr, "Inventory\n"); writes "Inventory" followed by a newline.
+    fprintf(fptr, "%d %s %f\n", 100, "Widget", 0.29);
+    fputs("End of List", fptr);
+    fclose(fptr);
+    
+    /* myfile.txt: Inventory\n100 Widget 0.29\nEnd of List */
+    fptr = fopen("myfile.txt", "r");
+    fgets(buffer, 20, fptr);                         //fgets(buffer, 20, fptr); reads up to 19 characters or until a newline (\n) is found.
+    printf("%s\n", buffer);
+    fscanf(fptr, "%d%s%f", &stock, item, &price); /* read data */
+    printf("%d %s %4.2f\n", stock, item, price);
+    while ((c = fgetc(fptr)) != EOF) /* read the rest of the file */
+        printf("%c", c);
+    fclose(fptr);
+    return 0;
+}
+```
+# Binary File I/O
+
+
+Writing only characters and strings to a file can become tedious when you have an array or structure. To write entire blocks of memory to a file, there are the following binary functions:
+
+Binary file mode options for the fopen() function are:
+
+ - rb open for reading (file must exist)
+
+ - wb open for writing (file need not exist)
+
+ - ab open for append (file need not exist)
+
+ - rb+ open for reading and writing from beginning
+
+ - wb+ open for reading and writing, overwriting file
+
+ - ab+ open for reading and writing, appending to file
+
+fwrite(ptr, item_size, num_items, fp) Writes num_items items of item_size size from pointer ptr to the file pointed to by file pointer fp.
+
+fread(ptr, item_size, num_items, fp) Reads num_items items of item_size size from the file pointed to by file pointer fp into memory pointed to by ptr.
+
+fclose(fp) Closes file opened with file fp, returning 0 if close was successful. EOF is returned if there is an error in closing.
+
+```
+#include <stdio.h>
+
+int main() {
+  FILE *fptr;
+  int arr[10];
+  int x[10];
+  int k;
+
+  /* generate array of numbers */
+  for (k = 0; k < 10; k++)
+    arr[k] = k;
+
+  /* write array to file */
+  fptr = fopen("datafile.bin", "wb");
+  fwrite(arr, sizeof(arr[0]), sizeof(arr)/sizeof(arr[0]), fptr);
+  fclose(fptr);
+
+  /* read array from file */
+  fptr = fopen("datafile.bin", "rb");
+  fread(x, sizeof(arr[0]), sizeof(arr)/sizeof(arr[0]), fptr);
+  fclose(fptr);
+
+  /* print array */
+  for (k = 0; k < 10; k++)
+    printf("%d", x[k]);
+  return 0;
+}
+
+
+```
+
