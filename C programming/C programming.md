@@ -98,7 +98,7 @@ for(int x=3;x<10;x++) {
   printf("%d \n", x);
 }
 ```
-# To successfully read the data type using != 1
+# To successfully read the data type using != 1 and return 1
 
 ```
 #include <stdio.h>
