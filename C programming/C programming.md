@@ -129,6 +129,8 @@ int main()
 ```
 # Create a program that calculates and outputs the number of win for the given team.
 
+sizeof operator in C is used to determine the size (in bytes) of a variable, data type, or data structure during compile time. It is particularly useful for memory management and portability across different systems.
+
 ```
 #include <stdio.h>
 
