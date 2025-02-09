@@ -155,6 +155,33 @@ In order to know the total number of elements in array
 
 ![image](https://github.com/user-attachments/assets/539bafd4-f6d6-4647-93e1-38f4a33e1447)
 
+# Create a program that calculates and outputs the orange
+
+```
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char fruits[][3] = {"or", "or", "st", "st", "or", "st", "gr", "gr", "gr", "gr"}; // 2-character fruit codes
+    int totalFruits = sizeof(fruits) / sizeof(fruits[0]); // Get number of elements
+
+    for (int i = 0; i < totalFruits; i++) {
+        if (strcmp(fruits[i], "or") == 0) { // Compare strings
+            printf("orange\n");
+        }
+    }
+
+    return 0;
+}
+
+```
+char fruits[][3] → A 2D array with 10 rows (because we initialize 10 values) and 3 columns (each string can have 2 characters + \0).
+"or" is stored as { 'o', 'r', '\0' }
+"st" is stored as { 's', 't', '\0' }
+"gr" is stored as { 'g', 'r', '\0' }
+
+![image](https://github.com/user-attachments/assets/f3342f6e-2dcb-45a7-93c6-7a719961a64f)
+
 # Note, that we dont need the & symbol before the variable in scanf(), because the variable is a char array.
 
 ```
