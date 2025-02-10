@@ -1,0 +1,6 @@
+#cp -r ../Downloads/project/ex* .
+#git status
+#git add * (track all the copy files)
+#git status
+#git commit -m "random_test" (to remember)
+#git push (all uploaded to git repo)
