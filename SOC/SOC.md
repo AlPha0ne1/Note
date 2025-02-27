@@ -9,3 +9,7 @@ So, the primary concept of a Fast Flux network is having multiple IP addresses a
 # Punnycode attack
 
 ![image](https://github.com/user-attachments/assets/e76f8862-2722-463d-ab50-d879782755dd)
+
+# Host Artifacts
+
+Host artifacts are the traces or observables that attackers leave on the system, such as registry values, suspicious process execution, attack patterns or IOCs (Indicators of Compromise), files dropped by malicious applications, or anything exclusive to the current threat.
