@@ -1,5 +1,11 @@
+# Fast Flux
+
 One of the ways an adversary can make it challenging to successfully carry out IP blocking is by using Fast Flux.
 
 According to Akamai, Fast Flux is a DNS technique used by botnets to hide phishing, web proxying, malware delivery, and malware communication activities behind compromised hosts acting as proxies. The purpose of using the Fast Flux network is to make the communication between malware and its command and control server (C&C) challenging to be discovered by security professionals. 
 
 So, the primary concept of a Fast Flux network is having multiple IP addresses associated with a domain name, which is constantly changing. Palo Alto created a great fictional scenario to explain Fast Flux: "Fast Flux 101: How Cybercriminals Improve the Resilience of Their Infrastructure to Evade Detection and Law Enforcement Takedowns"
+
+# Punnycode attack
+
+![image](https://github.com/user-attachments/assets/e76f8862-2722-463d-ab50-d879782755dd)
