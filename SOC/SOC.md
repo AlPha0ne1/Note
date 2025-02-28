@@ -26,6 +26,13 @@ Attackers would use the utilities to create malicious macro documents (maldocs) 
 
 # Pyramid of Pain
 
+1. TTP
+2. Tools
+3. Network
+4. Domain Names
+5. IP addresses
+6. Hash values
+
 # Cyber Kill chain
 
 1. Reconnaice
