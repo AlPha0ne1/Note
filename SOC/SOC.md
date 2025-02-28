@@ -23,3 +23,18 @@ Attackers would use the utilities to create malicious macro documents (maldocs) 
 2. For detection rules, SOC Prime Threat Detection Marketplace is a great platform, where security professionals share their detection rules for different kinds of threats including the latest CVE's that are being exploited in the wild by adversaries. 
 
 3. Fuzzy hashing is also a strong weapon against the attacker's tools. Fuzzy hashing helps you to perform similarity analysis - match two files with minor differences based on the fuzzy hash values. One of the examples of fuzzy hashing is the usage of SSDeep; on the SSDeep official website, you can also find the complete explanation for fuzzy hashing
+
+# Pyramid of Pain
+
+# Cyber Kill chain
+
+1. Reconnaice
+2. Weaponization
+3. Delivery
+4. Exploitation
+5. Installation 
+6. Command & Control (C2 becoaning or C&C)
+7. Actions on Objective
+
+
+## Shadow copy is a Microsoft technology that can create backup copies, snapshots of computer files, or volumes. 
