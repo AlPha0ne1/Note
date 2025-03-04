@@ -102,5 +102,9 @@ Q: How many hops did the email go through to get to the recipient?
 
 
 
+![image](https://github.com/user-attachments/assets/f0473628-5127-42d7-a299-fadddfbc4f10)
+
+
+
 
 
