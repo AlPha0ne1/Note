@@ -100,9 +100,24 @@ Q: How many hops did the email go through to get to the recipient?
 
 ![image](https://github.com/user-attachments/assets/779fc87e-da45-4b2a-b28b-f3c4b2105b86)
 
+______________________________________________________________________________________________________________________________________________________________________
+# Yara
 
+Q: What is the name of the base-16 numbering system that Yara can detect?
 
-![image](https://github.com/user-attachments/assets/f0473628-5127-42d7-a299-fadddfbc4f10)
+Ans - Hexadecimal
+
+# Yara Modules
+
+Integrating With Other Libraries
+Frameworks such as the Cuckoo Sandbox or Python's PE Module allow you to improve the technicality of your Yara rules ten-fold.
+
+Cuckoo
+Cuckoo Sandbox is an automated malware analysis environment. This module allows you to generate Yara rules based upon the behaviours discovered from Cuckoo Sandbox. As this environment executes malware, you can create rules on specific behaviours such as runtime strings and the like.
+
+Python PE
+Python's PE module allows you to create Yara rules from the various sections and elements of the Windows Portable Executable (PE) structure.
+
 
 
 
