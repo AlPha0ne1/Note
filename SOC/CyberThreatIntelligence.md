@@ -86,6 +86,20 @@ With ThreatFox,  security analysts can search for, share and export indicators o
 Q: From the statistics page on URLHaus, what malware-hosting network has the ASN number AS14061?
 
 ![image](https://github.com/user-attachments/assets/a2acd305-a99b-4ddf-a919-0f0f65f927b5)
+______________________________________________________________________________________________________________________________________________________________________
+
+## To find IP address in Thunderbird email.
+
+![image](https://github.com/user-attachments/assets/16b7bd2a-7c37-4da0-8371-79e7e696ab87)
+
+![image](https://github.com/user-attachments/assets/d041b3e3-2c50-445c-9c74-a7b228cf1e58)
+
+Q: How many hops did the email go through to get to the recipient?
+
+4 different receipts that's why > 4 hops.
+
+![image](https://github.com/user-attachments/assets/779fc87e-da45-4b2a-b28b-f3c4b2105b86)
+
 
 
 
