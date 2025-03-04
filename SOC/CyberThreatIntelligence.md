@@ -20,4 +20,27 @@ Q2. During which phase do security analysts get the chance to define the questio
 
 Ans- Direction
 
+# CTI standards and frameworks
+
+1. Mitre ATT&CK framework
+2. TAXII
+3. STIX
+4. Cyber Kill Chain
+5. Diamond Model
+
+
+# Mitre ATT&CK framework
+
+The ATT&CK framework is a knowledge base of adversary behaviour, focusing on the indicators and tactics. Security analysts can use the information to be thorough while investigating and tracking adversarial behaviour.
+
+# TAXII
+
+The Trusted Automated eXchange of Indicator Information (TAXII) defines protocols for securely exchanging threat intel to have near real-time detection, prevention and mitigation of threats. The protocol supports two sharing models:
+
+Collection: Threat intel is collected and hosted by a producer upon request by users using a request-response model.
+Channel:    Threat intel is pushed to users from a central server through a publish-subscribe model.
+
+# STIX
+
+Structured Threat Information Expression (STIX) is a language developed for the "specification, capture, characterisation and communication of standardised cyber threat information". It provides defined relationships between sets of threat info such as observables, indicators, adversary TTPs, attack campaigns, and more.
 
