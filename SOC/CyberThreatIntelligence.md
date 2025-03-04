@@ -7,3 +7,17 @@ Technical Intel: Looks into evidence and artefacts of attack used by an adversar
 Tactical Intel: Assesses adversaries’ tactics, techniques, and procedures (TTPs). This intel can strengthen security controls and address vulnerabilities through real-time investigations.
 
 Operational Intel: Looks into an adversary’s specific motives and intent to perform an attack. Security teams may use this intel to understand the critical assets available in the organisation (people, processes and technologies) that may be targeted.
+
+# CTI lifecycle Phases
+
+![image](https://github.com/user-attachments/assets/410e869a-7ada-46bb-8574-03dbb93509fe)
+
+Q1. At which phase of the CTI lifecycle is data converted into usable formats through sorting, organising, correlation and presentation?
+
+Ans- Processing
+
+Q2. During which phase do security analysts get the chance to define the questions to investigate incidents?
+
+Ans- Direction
+
+
