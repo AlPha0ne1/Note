@@ -44,7 +44,7 @@ Channel:    Threat intel is pushed to users from a central server through a publ
 
 Structured Threat Information Expression (STIX) is a language developed for the "specification, capture, characterisation and communication of standardised cyber threat information". It provides defined relationships between sets of threat info such as observables, indicators, adversary TTPs, attack campaigns, and more.
 
-<u></u>
+_______________________________________________________________________________________________________________________________________________________________________
 # Abuse.ch
 
 Abuse.ch is a research project hosted by the Institue for Cybersecurity and Engineering at the Bern University of Applied Sciences in Switzerland. It was developed to identify and track malware and botnets through several operational platforms developed under the project. These platforms are:
