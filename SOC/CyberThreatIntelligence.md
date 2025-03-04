@@ -118,8 +118,33 @@ Cuckoo Sandbox is an automated malware analysis environment. This module allows 
 Python PE
 Python's PE module allows you to create Yara rules from the various sections and elements of the Windows Portable Executable (PE) structure.
 
+# Yara Tools
 
+## Loki
 
+LOKI is a free open-source IOC (Indicator of Compromise) scanner created/written by Florian Roth.
 
+Based on the GitHub page, detection is based on 4 methods:
 
+File Name IOC Check
+Yara Rule Check (we are here)
+Hash Check
+C2 Back Connect Check
 
+## THOR
+
+THOR Lite is Florian's newest multi-platform IOC AND YARA scanner. There are precompiled versions for Windows, Linux, and macOS. A nice feature with THOR Lite is its scan throttling to limit exhausting CPU resources. For more information and/or to download the binary, start here. You need to subscribe to their mailing list to obtain a copy of the binary. Note that THOR is geared towards corporate customers. THOR Lite is the free version.
+
+## FENRIR
+
+This is the 3rd tool created by Neo23x0 (Florian Roth). You guessed it; the previous 2 are named above. The updated version was created to address the issue from its predecessors, where requirements must be met for them to function. Fenrir is a bash script; it will run on any system capable of running bash (nowadays even Windows). 
+
+## YAYA (Yet Another Yara Automaton)
+
+YAYA was created by the EFF (Electronic Frontier Foundation) and released in September 2020. Based on their website, "YAYA is a new open-source tool to help researchers manage multiple YARA rule repositories. YAYA starts by importing a set of high-quality YARA rules and then lets researchers add their own rules, disable specific rulesets, and run scans of files."
+
+# Loki
+
+Loki scans the entire directory with the tag -p (path)
+
+> python loki.py -p ../../suspicious-files/file1
