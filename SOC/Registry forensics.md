@@ -9,6 +9,7 @@ Software\Microsoft\Windows NT\CurrentVersion\NetworkList
 
 # 4. Investigating shared files and directories
 System\Controlset001\Services\LanmanServer\Shares
+
 The LanmanServer (Server) service is responsible for sharing your computer's drives, printers and other devices with remote users.
 
 # 5. Network Information (hive System)
