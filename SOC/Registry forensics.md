@@ -21,6 +21,8 @@ NTUSER.DAT\Software\Microsoft\Windows\CurrentVersion\Explorer\RecentDocs
 # 7. Investigating commands 
 NTUSER.DAT\Software\Microsoft\Windows\CurrentVersion\Explorer\RunMRU
 
+RunMRU stands for "Run Most Recently Used" and is a registry key that stores the history of commands typed in the Run dialog box (Win + R) in Windows.
+
 # 8. Investigating recentdocuments
 NTUSER.DAT\Software\Microsoft\Windows\CurrentVersion\Explorer\RecentDocs
 
