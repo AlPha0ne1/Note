@@ -29,6 +29,8 @@ NTUSER.DAT\Software\Microsoft\Windows\CurrentVersion\Explorer\RecentDocs
 # 9. Investigate network utility to transfer files
 NTUSER.DAT\Software\Microsoft\Windows\CurrentVersion\Explorer\WordWheelQuery
 
+WordWheelQuery is a registry key that stores the search history from the Windows Search feature.
+
 # 10. Execution Evidence (You can find every execution program in that path) 
 NTUSER.DAT\ Software\ Microsoft\Windows\Currentversion\Explorer\UserAssist\{GUID}\Count > (e.g search > powershell)
 
