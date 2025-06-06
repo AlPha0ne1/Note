@@ -18,5 +18,10 @@ If the code without ORDER BY, it doesn't show ascending.
 
 ![image](https://github.com/user-attachments/assets/275c6ff7-5925-421d-af5a-36bc799e6a09)
 
+6.Using Like 
+
+![image](https://github.com/user-attachments/assets/9d9cd5bd-9dcf-4eea-81eb-d167e96e6014)
+
+
 
 
