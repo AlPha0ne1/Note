@@ -4,3 +4,8 @@ Draw a face with mouth and eyes
 
 ![image](https://github.com/user-attachments/assets/168d23f8-c201-4c45-bd49-e93788e2bd3d)
 
+**Drawing a Snowman**
+
+![image](https://github.com/user-attachments/assets/2e1c3a39-fc6e-4140-97c6-7cadb9a05919)
+
+
