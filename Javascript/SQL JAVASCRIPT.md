@@ -22,6 +22,73 @@ If the code without ORDER BY, it doesn't show ascending.
 
 ![image](https://github.com/user-attachments/assets/9d9cd5bd-9dcf-4eea-81eb-d167e96e6014)
 
+7. To finish creating the 'Pop' playlist, add another query that will select the title of all the songs from the 'Pop' artists. It should use IN on a nested subquery that's based on your previous query.
+
+```
+CREATE TABLE artists (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT,
+    country TEXT,
+    genre TEXT);
+
+INSERT INTO artists (name, country, genre)
+    VALUES ("Taylor Swift", "US", "Pop");
+INSERT INTO artists (name, country, genre)
+    VALUES ("Queen", "UK", "Rock");
+INSERT INTO artists (name, country, genre)
+    VALUES ("Celine Dion", "Canada", "Pop");
+INSERT INTO artists (name, country, genre)
+    VALUES ("Meatloaf", "US", "Hard rock");
+INSERT INTO artists (name, country, genre)
+    VALUES ("Garth Brooks", "US", "Country");
+INSERT INTO artists (name, country, genre)
+    VALUES ("Shania Twain", "Canada", "Country");
+INSERT INTO artists (name, country, genre)
+    VALUES ("Rihanna", "US", "Pop");
+INSERT INTO artists (name, country, genre)
+    VALUES ("Guns N' Roses", "US", "Hard rock");
+
+CREATE TABLE songs (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    artist TEXT,
+    title TEXT);
+
+INSERT INTO songs (artist, title)
+    VALUES ("Taylor Swift", "Shake it off");
+INSERT INTO songs (artist, title)
+    VALUES ("Rihanna", "Stay");
+INSERT INTO songs (artist, title)
+    VALUES ("Celine Dion", "My heart will go on");
+INSERT INTO songs (artist, title)
+    VALUES ("Celine Dion", "A new day has come");
+INSERT INTO songs (artist, title)
+    VALUES ("Shania Twain", "Party for two");
+INSERT INTO songs (artist, title)
+    VALUES ("Gloria Estefan", "Conga");
+INSERT INTO songs (artist, title)
+    VALUES ("Led Zeppelin", "Stairway to heaven");
+INSERT INTO songs (artist, title)
+    VALUES ("ABBA", "Mamma mia");
+INSERT INTO songs (artist, title)
+    VALUES ("Queen", "Bicycle Race");
+INSERT INTO songs (artist, title)
+    VALUES ("Queen", "Bohemian Rhapsody");
+
+SELECT title FROM songs WHERE artist LIKE '%Queen';
+
+SELECT name FROM artists WHERE genre LIKE '%Pop';
+
+SELECT title FROM songs
+WHERE artist IN (
+    SELECT name FROM artists WHERE genre = 'Pop'
+);
+
+
+
+
+
+```
+
 
 
 
