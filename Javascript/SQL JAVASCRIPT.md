@@ -7,3 +7,8 @@ If the code without ORDER BY, it doesn't show ascending.
 
 ![image](https://github.com/user-attachments/assets/e8bfdb26-42b5-4a1d-8b90-1d4f33b9effe)
 
+Using GROUP BY with aggregating function (SUM,MAX,etc..) <br>
+
+![image](https://github.com/user-attachments/assets/4eddbeb1-1716-4bc7-843d-09a3f167dc2c)
+
+
