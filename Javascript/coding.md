@@ -12,7 +12,7 @@ Drawing a rectangle
 
 line(x1,y1,x2,y2)
 
-x1= start point
+x1= start point <br>
 x2= end point
 x2(right eye x+w)
 
