@@ -22,7 +22,7 @@ If the code without ORDER BY, it doesn't show ascending.
 
 ![image](https://github.com/user-attachments/assets/9d9cd5bd-9dcf-4eea-81eb-d167e96e6014)
 
-7. To finish creating the 'Pop' playlist, add another query that will select the title of all the songs from the 'Pop' artists. It should use IN on a nested subquery that's based on your previous query.
+7. (By using IN) To finish creating the 'Pop' playlist, add another query that will select the title of all the songs from the 'Pop' artists. It should use IN on a nested subquery that's based on your previous query.
 
 ```
 CREATE TABLE artists (
