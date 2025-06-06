@@ -14,5 +14,9 @@ If the code without ORDER BY, it doesn't show ascending.
 4.SELECT the total minutes
 ![image](https://github.com/user-attachments/assets/999485c1-4343-4f1a-a6dc-4d94f8ddbd02)
 
+5.Maybe your friends only like singing either recent songs or truly epic songs. Add another SELECT that uses OR to show the titles of the songs that have an 'epic' mood or a release date after 1990.
+
+![image](https://github.com/user-attachments/assets/275c6ff7-5925-421d-af5a-36bc799e6a09)
+
 
 
