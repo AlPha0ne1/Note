@@ -18,16 +18,16 @@ INSERT INTO exercise_logs(type, minutes, calories, heart_rate) VALUES ("hiking",
 SELECT * FROM exercise_logs;
 ```
 
-<h4>You're calculating heart rate zones based on a 30-year-old person. The formula used:</h4>
+<h3>You're calculating heart rate zones based on a 30-year-old person. The formula used:</h3>
 
+```
 Max Heart Rate = 220 - age = 220 - 30 = 190 bpm
+```
 
-#Target zones are:
-
+<h3>Target zones are:</h3>
+```
 Below 50% of max HR → below target zone
-
 50–90% of max HR → within target zone
-
 90–100% of max HR → above target
-
 Over 100% → above max
+```
