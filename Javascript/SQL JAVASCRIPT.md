@@ -82,11 +82,49 @@ SELECT title FROM songs
 WHERE artist IN (
     SELECT name FROM artists WHERE genre = 'Pop'
 );
+```
+8. How many calories I have burned for each type of activities
 
+```
+CREATE TABLE exercise_logs
+    (id INTEGER PRIMARY KEY AUTOINCREMENT,
+    type TEXT,
+    minutes INTEGER, 
+    calories INTEGER,
+    heart_rate INTEGER);
 
+INSERT INTO exercise_logs(type, minutes, calories, heart_rate) VALUES ("biking", 30, 100, 110);
+INSERT INTO exercise_logs(type, minutes, calories, heart_rate) VALUES ("biking", 10, 30, 105);
+INSERT INTO exercise_logs(type, minutes, calories, heart_rate) VALUES ("dancing", 15, 200, 120);
+INSERT INTO exercise_logs(type, minutes, calories, heart_rate) VALUES ("dancing", 15, 165, 120);
+INSERT INTO exercise_logs(type, minutes, calories, heart_rate) VALUES ("tree climbing", 30, 70, 90);
+INSERT INTO exercise_logs(type, minutes, calories, heart_rate) VALUES ("tree climbing", 25, 72, 80);
+INSERT INTO exercise_logs(type, minutes, calories, heart_rate) VALUES ("rowing", 30, 70, 90);
+INSERT INTO exercise_logs(type, minutes, calories, heart_rate) VALUES ("hiking", 60, 80, 85);
 
+SELECT * FROM exercise_logs;
 
+SELECT type, SUM(calories) AS total_calories FROM exercise_logs GROUP BY type
 
+```
+9. Using HAVING caluse for GROUP_VALUES (not individual value)
+
+```
+## If I use like that it shows > dancing is the only one exercise where I burnt more than 100 calories in a SINGLE LOG.
+
+SELECT type, SUM(calories) AS total_calories FROM exercise_logs
+    WHERE calories > 100
+    GROUP BY type;
+
+## I want to know is which exercise is burnt more than 100 calories all of the logs
+
+SELECT type, SUM(calories) AS total_calories FROM exercise_logs
+    GROUP BY type
+    HAVING total_calories > 100;
+
+## This query gives you the list of exercise types that appear two or more times in the table.
+
+SELECT type FROM exercise_logs GROUP BY type HAVING COUNT(*) >= 2;
 ```
 
 
