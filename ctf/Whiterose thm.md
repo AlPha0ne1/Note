@@ -54,10 +54,8 @@ User web may run the following commands on cyprusbank:
 
 ```
 Drags the way down AND write (web ALL=(ALL:ALL) NOPASSWD: ALL) and then save
-
-<img width="1145" height="587" alt="image" src="https://github.com/user-attachments/assets/e57b99d5-c9b2-4e20-9bd8-7b9643e0b796" />
-
 ```
+<img width="1145" height="587" alt="image" src="https://github.com/user-attachments/assets/e57b99d5-c9b2-4e20-9bd8-7b9643e0b796" />
 
 # Finally got ROOT access
 
