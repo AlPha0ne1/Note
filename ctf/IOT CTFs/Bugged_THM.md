@@ -81,3 +81,9 @@ mosquitto_pub -t "XD2rfR9Bez/GqMpRSEobh/TvLQehMg0E/sub" -m "eyJpZCI6ICJjZGQxYjFj
 
 <img width="956" height="589" alt="image" src="https://github.com/user-attachments/assets/dfdab362-a110-4473-b5f2-a631444ac269" />
 
+## Cat the flag.txt and we will get THM flag
+
+<img width="949" height="646" alt="image" src="https://github.com/user-attachments/assets/012767f0-c08b-4093-9e58-793b283aaf63" />
+
+
+
