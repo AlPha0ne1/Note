@@ -18,3 +18,8 @@
 #/bin/bash
 #cd /tmp/hijack
 ```
+
+# PHPSESSID BruteForce [PHPSESSID = base64(username:md5(password))]
+When you reload the page, you will see PHPSESSID in inspect mode
+
+<img width="860" height="362" alt="image" src="https://github.com/user-attachments/assets/42b894cc-ba45-493b-8413-a0143470e575" />
