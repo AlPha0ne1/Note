@@ -23,3 +23,9 @@
 When you reload the page, you will see PHPSESSID in inspect mode
 
 <img width="860" height="362" alt="image" src="https://github.com/user-attachments/assets/42b894cc-ba45-493b-8413-a0143470e575" />
+
+When you decode that base64 > you will see MD5 > MD5 decode and you will see password.
+
+# PHPSESSID BruteForce the administration.php page to get admin password.
+
+
