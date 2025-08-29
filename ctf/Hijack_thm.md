@@ -26,6 +26,10 @@ When you reload the page, you will see PHPSESSID in inspect mode
 
 When you decode that base64 > you will see MD5 > MD5 decode and you will see password.
 
-# PHPSESSID BruteForce the administration.php page to get admin password.
+# PHPSESSID BruteForce the administration.php page to get admin password.[base64(admin:md5(payload))]
+The first one is converting the payload to MD5, followed by adding the prefix “admin:”, and then encoding the entire string in base64. I can then launch the attack.
+
+<img width="789" height="757" alt="image" src="https://github.com/user-attachments/assets/ece54822-efbe-4cb5-999b-f47dc9fab369" />
+
 
 
