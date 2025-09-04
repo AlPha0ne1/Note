@@ -314,7 +314,7 @@ export PATH=/tmp:$path
 
 Portward with ssh tunneling is always (in attacker side) not in victim side
 --------------------------------------------------------------------------
-#ssh -L 7878(you can use a different port):182.17.0.2:8080 aubreanna@internal.thm
+#ssh -L 7878(you can use a different port):182.17.0.2(target IP):8080 aubreanna@internal.thm
 #ssh -L 8111:127.0.0.1:8111 -i id_rsa sys-internal@10.10.158.205 (port forward with id_rsa)
 To gain access to Jenkins, type localhost:[Port Number] in your browser:
 
