@@ -1,4 +1,4 @@
-# New-line (%0a)
+# New-line (\n)
 
 New-line (%0a) is not usually a blacklisted character
 
