@@ -15,9 +15,21 @@ Using tabs (%09) instead of spaces is a technique that may work, as both Linux a
 # Using Brace Expansion {ls,-la}
 
 127.0.0.1%0a{ls,-la}
------------------------------------------------------------------------------------------------------------------------------------------
-Bypassing Blacklist Characters
-------------------------------
+
+# Bypassing Blacklist Characters ( Use LS_COLORS Linux environment variable)
+
+These are the LS_COLORS
+
+<img width="1009" height="188" alt="image" src="https://github.com/user-attachments/assets/7c0ffa6a-52f9-41a4-892b-296b543d9a45" />
+
+
+${LS_COLORS:10:1} → turns into ;
+:10:1 → “take 1 character starting at position 10”
+
+
+
+
+
 
 
 
