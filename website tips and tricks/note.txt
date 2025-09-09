@@ -69,7 +69,16 @@ To do LFI there may be another parameter instead of id
 
 http://10.10.216.223:5000/api/v1/resources/books?show=.bash_history
 
-____________________________________________________________________________________________________________________________________________
+_______________________________________________________________________________________________________________________________________
+Reflected XSS vs Dom-based XSS
+------------------------------
+
+Reflected XSS, which gets processed by the back-end server, and DOM-based XSS, which is completely processed on the client-side and never reaches the back-end server. 
+
+If the payload is proceed and appeared in (inspect> Network) , that is called the payload reached the back-end server. You can copy the link and send it to someone to get exploited.
+
+_______________________________________________________________________________________________________________________________________
+
 XSS injection bypassing the filter (&lt and &gt)
 ------------------------------------------------
 
@@ -1096,3 +1105,4 @@ Cookie: session=9Rg2ESwe0rWsF2s1cWuEniHGWoUyVHXP
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:126.0) Gecko/20100101 Firefox/126.0
 Accept: */*
 ______________________________________________________________________________________________________________________________________________________________
+
