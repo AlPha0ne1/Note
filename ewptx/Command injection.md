@@ -15,6 +15,10 @@ Using tabs (%09) instead of spaces is a technique that may work, as both Linux a
 # Using Brace Expansion {ls,-la}
 
 127.0.0.1%0a{ls,-la}
+-----------------------------------------------------------------------------------------------------------------------------------------
+Bypassing Blacklist Characters
+------------------------------
+
 
 
 
