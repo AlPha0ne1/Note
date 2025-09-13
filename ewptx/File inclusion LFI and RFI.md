@@ -36,6 +36,20 @@ Exploitation
 
 <img width="1279" height="312" alt="image" src="https://github.com/user-attachments/assets/c263cb2c-5071-4922-9742-be63bc0c4ca1" />
 
+# Using FTP server to exploit RCE
+
+This may also be useful in case http ports are blocked by a firewall or the http:// string gets blocked by a WAF. To include our script, we can repeat what we did earlier, but use the ftp:// scheme in the URL, as follows:.
+
+We can start a basic FTP server with Python's pyftpdlib, as follows:
+
+<img width="1126" height="255" alt="image" src="https://github.com/user-attachments/assets/88b54ff1-29f7-4788-8a1f-7630079e238f" />
+
+<img width="1272" height="354" alt="image" src="https://github.com/user-attachments/assets/5202c3b1-93c1-4228-85f2-d4efe4bdac40" />
+
+
+
+
+
 
 
 
