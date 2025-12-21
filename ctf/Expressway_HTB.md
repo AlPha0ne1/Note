@@ -6,9 +6,11 @@ nmap -sU -Pn -p 53,69,123,161,500,1900,4500 -v 10.10.11.87
 # Isakmp is the IPsec Tunnel protocol 
 ## Scan and Search with ike-scan
 
+```
 ike-scan expressway.htb
 ike-scan -A expressway.htb
 ike-scan -A expressway.htb --id=ike@expressway.htb -P ike.psk
+```
 
 ## Crack Ike hash with psk
 
