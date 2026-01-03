@@ -1,3 +1,8 @@
+Change lots of base64 code into image (base64 codes are in logs.txt)
+-------------------------------------
+cat logs.txt | base64 --decode > decoded.jpg
+
+
 Using EOF
 ----------
 > Without EOF, to make the script line by line
