@@ -16,6 +16,6 @@ AddHandler application/x-httpd-php .jpg
 <img width="1792" height="297" alt="image" src="https://github.com/user-attachments/assets/986ac163-2c85-4e89-97ae-e4428195f9bc" />
 
 
-Including addhandler (application/x-httpd-php .jpg) means
-1.Apache no longer treats it as an image
+Including addhandler (application/x-httpd-php .jpg) means <br>
+1.Apache no longer treats it as an image \n
 2.It executes the PHP code inside the file
