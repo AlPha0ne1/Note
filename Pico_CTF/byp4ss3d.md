@@ -17,5 +17,5 @@ AddHandler application/x-httpd-php .jpg
 
 
 Including addhandler (application/x-httpd-php .jpg) means <br>
-1.Apache no longer treats it as an image \n
+1.Apache no longer treats it as an image <br>
 2.It executes the PHP code inside the file
