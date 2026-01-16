@@ -287,6 +287,9 @@ Steganography tool
 Use stegseek to brutefoce the file
 #stegseek -sf a.jpg /usr/share/wordlist/rockyou.txt
 
+To find LSB(Least Significant Bits) or hidden data in image file
+#zsteg file.jpg
+
 SMB Enumeration
 enum4linux -a ip address - enumeration
 smbmap -H 10.10.135.221
