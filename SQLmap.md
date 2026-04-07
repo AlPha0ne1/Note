@@ -79,4 +79,10 @@ ________________________________________________________________________________
 
 --chunked: This option instructs sqlmap to use chunked encoding in HTTP requests. Chunked encoding can help bypass some security measures.
 ______________________________________________________________________________________________________________________________________________________________________
+# Tamper Script
+
+<img width="1022" height="353" alt="image" src="https://github.com/user-attachments/assets/01c57343-05c7-4751-9a8c-ed96a8fbf07f" />
+
+#sqlmap -r file.txt --batch --tamper=randomcase,space2comment
+______________________________________________________________________________________________________________________________________________________________________
 
