@@ -56,13 +56,14 @@ ________________________________________________________________________________
 <br>
 
 
-Anti-CSRF token Bypass
+# Anti-CSRF token Bypass
 
 req.txt file
+
 <img width="675" height="447" alt="image" src="https://github.com/user-attachments/assets/80833c48-a882-4945-b957-65360f884813" />
 
 
-sqlmap -r req.txt --csrf-token="t0ken" --batch --dump
+#sqlmap -r req.txt --csrf-token="t0ken" --batch --dump
 
 
 
