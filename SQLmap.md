@@ -51,7 +51,7 @@ Enumerating with cookies
 #sqlmap -u "http://www.moviescope.com/viewprofile.aspx?id=1" --cookie="mscope=1jwuydl=; ui-tabs-1=0" 
 ______________________________________________________________________________________________________________________________________________________________________
 
-# If User Request doesn't have input , just use JSON input 
+# If User Request doesn't have input , just use JSON input (e.g {"id":1}
 <img width="1440" height="549" alt="image" src="https://github.com/user-attachments/assets/33ab530c-c390-41ad-bb25-2b574076e90d" />
 
 
