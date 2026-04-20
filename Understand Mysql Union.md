@@ -10,7 +10,7 @@ selct * from departments;
 
 <img width="835" height="499" alt="image" src="https://github.com/user-attachments/assets/a0bf99d1-7d96-4882-8599-d3d4eea52f85" />
 
-# Combind those rows (1,4,5,6 are substitute columns)
+# Combind those records (1,4,5,6 are substitute records)
 ## total 663 rows, only rows are added columns won't change
 
 select * from employees Union Select dept_no,dept_name,1,4,5,6 FROM departments;   
