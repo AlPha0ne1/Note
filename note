@@ -320,6 +320,12 @@ ftp> get clean.sh -
 Exporting the path
 export PATH=/tmp:$path
 
+rbash (restricted bash) , you can't write any command in that shell
+--------------------------------------------------------------------------
+normal ssh and get into the user > it can be rbash , so just get into the bash shell first
+# ssh htb-user@10.11.45.234 bash 
+
+
 Portward with ssh tunneling is always (in attacker side) not in victim side (127.0.0.1 is better)
 --------------------------------------------------------------------------
 #ssh -L 7878(you can use a different port):182.17.0.2(target IP):8080 aubreanna@internal.thm
