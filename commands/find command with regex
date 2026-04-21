@@ -30,3 +30,9 @@ Which file is executable?
 #for i in $(cat filenames);do find / -name "$i" -executable 2>/dev/null; done
 
 If -exec is not included, don't need to include "{}" \
+
+____________________________________________________________________________________________________________________________________________________________
+Find every file on the system that anyone can write to, ignoring /proc and suppressing errors.
+----------------------------------------------------------------------------------------------
+
+# find / -path /proc -prune -o -type f -perm -o+w 2>/dev/null
