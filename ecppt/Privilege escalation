@@ -391,5 +391,17 @@ Copy private file from administrator location to user(htb-student) folder locati
 
 Read the contract.txt file
 _________________________________________________________________________________________________________________________________________________________________________________________
+Use wevtutil tool (used to manage windows event log)
+-----------------------------------------------------
 
+# Current User must be a memeber of Event log readers
+
+>net localgroup "Event Log Readers"
+
+# Search Users from windows event logs
+
+> wevtutil.exe qe Security /rd:true /f:text | Select-String "/user"
+						(or)
+>Get-WinEvent -LogName security | where { $_.ID -eq 4688 -and $_.Properties[8].Value -like '*/user*'} | Select-Object @{name='CommandLine';expression={ $_.Properties[8].Value }}
+_________________________________________________________________________________________________________________________________________________________________________________________
 
