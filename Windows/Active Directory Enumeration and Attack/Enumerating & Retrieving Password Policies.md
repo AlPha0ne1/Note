@@ -12,6 +12,17 @@ System error 1331 has occurred.
 
 This user can't sign in because this account is currently disabled.
 ```
+3. net.exe
+
+C:\htb> net accounts
+
+```
+Force user logoff how long after time expires?:       Never
+Minimum password age (days):                          1
+Maximum password age (days):                          Unlimited
+Minimum password length:                              8
+Length of password history maintained:                24
+```
 
 # Tools for Linux
 
