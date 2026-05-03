@@ -33,3 +33,35 @@ sudo responder -I ens224
 hashcat -m 5600 hash /usr/share/wordlist/rockyou.txt
 ```
 
+# Inveigh
+
+It is used for LLMNR and NBNS spoofing
+
+Example:
+
+When a user mistypes something like ps1.local:
+
+The system tries DNS → ❌ fails
+Then it falls back to LLMNR/NBNS broadcast
+
+If you are running Inveigh:
+
+Invoke-Inveigh -LLMNR Y -NBNS Y -ConsoleOutput Y -FileOutput Y
+Inveigh listens for those broadcast requests
+
+When it sees:
+
+“Who is ps1.local?”
+
+👉 It spoofs a reply:
+
+“I am ps1.local”
+
+The victim then tries to authenticate (SMB/HTTP/etc.)
+You capture:
+Username
+NTLMv2 hash
+
+```
+
+```
