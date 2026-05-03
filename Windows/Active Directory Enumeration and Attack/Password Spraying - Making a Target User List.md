@@ -1,6 +1,6 @@
 1. SMB NULL Session to Pull User List
 
-enum4linux -U 172.16.5.5  | grep "user:" | cut -f2 -d"[" | cut -f1 -d"]"
+#enum4linux -U 172.16.5.5  | grep "user:" | cut -f2 -d"[" | cut -f1 -d"]"
 
 2. Usisng rpcclient
 
