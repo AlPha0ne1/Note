@@ -39,16 +39,18 @@ It is used for LLMNR and NBNS spoofing
 
 Example:
 
-When a user mistypes something like ps1.local:
+1.When a user mistypes something like ps1.local:
 
-The system tries DNS → ❌ fails
+2.The system tries DNS → ❌ fails
 Then it falls back to LLMNR/NBNS broadcast
 
-If you are running Inveigh:
-
+3.If you are running Inveigh:
+```
+Import-Module .\Inveigh.ps1
 Invoke-Inveigh -LLMNR Y -NBNS Y -ConsoleOutput Y -FileOutput Y
-Inveigh listens for those broadcast requests
 
+```
+4.Inveigh listens for those broadcast requests
 When it sees:
 
 “Who is ps1.local?”
@@ -57,11 +59,9 @@ When it sees:
 
 “I am ps1.local”
 
-The victim then tries to authenticate (SMB/HTTP/etc.)
+5.The victim then tries to authenticate (SMB/HTTP/etc.)
 You capture:
 Username
 NTLMv2 hash
 
-```
 
-```
