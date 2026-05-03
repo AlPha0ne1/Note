@@ -23,6 +23,10 @@ Maximum password age (days):                          Unlimited
 Minimum password length:                              8
 Length of password history maintained:                24
 ```
+4. Powerview.ps1
+
+PS C:\htb> import-module .\PowerView.ps1
+PS C:\htb> Get-DomainPolicy
 
 # Tools for Linux
 
