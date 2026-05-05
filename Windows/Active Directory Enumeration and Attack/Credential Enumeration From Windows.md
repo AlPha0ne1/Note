@@ -2,11 +2,12 @@
 
 A user account that has a Service Principal Name (SPN) set.
 
+```
 When a user requests access to a service (like SQL, IIS, etc.), the domain controller issues a Kerberos service ticket (TGS).
-
 That ticket is encrypted using the service account’s password hash
+```
 
-The attack (Kerberoasting)
+# The attack (Kerberoasting)
 
 An attacker can:
 
