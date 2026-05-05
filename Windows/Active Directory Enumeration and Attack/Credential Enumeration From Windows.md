@@ -30,3 +30,14 @@ Get-DomainUser -SPN -Properties samaccountname,ServicePrincipalName
 
 .\Snaffler.exe  -d INLANEFREIGHT.LOCAL -s -v data
 
+# Dsquery
+
+1. It is a helpful command-line tool that can be utilized to find Active Directory objects. The queries we run with this tool can be easily replicated with tools like BloodHound and PowerView
+
+2. dsquery will exist on any host with the Active Directory Domain Services Role installed,
+
+3. dsquery DLL exists on all modern Windows systems by default now and can be found at C:\Windows\System32\dsquery.dll.
+
+Q. Utilizing techniques learned in this section, find the flag hidden in the description field of a disabled account with administrative privileges. Submit the flag as the answer.
+
+>dsquery * -filter "(&(objectCategory=person)(objectClass=user)(userAccountControl:1.2.840.113556.1.4.803:=2))" -attr distinguishedName userAccountControl,description
