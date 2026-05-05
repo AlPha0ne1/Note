@@ -18,3 +18,15 @@ Crack it offline to recover the password
 So in simple terms:
 
 👉 Kerberoastable account = any account with an SPN that can be targeted for offline password cracking
+
+# Find how many Kerberoastable accounts exist within the INLANEFREIGHT domain
+
+```
+Import-Module .\PowerView.ps1
+Get-DomainUser -SPN -Properties samaccountname,ServicePrincipalName
+```
+
+# Snaffler Tool (Tool used for enumerating list of hosts in Domain )
+
+.\Snaffler.exe  -d INLANEFREIGHT.LOCAL -s -v data
+
