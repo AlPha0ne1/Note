@@ -18,7 +18,9 @@ Q1: What is the SID of the child domain?
 
 Import-Module .\PowerView.ps1
 Get-DomainSID
+
 ---
+
 Q2: What is the SID of the Enterprise Admins group in the root domain?
 
 Get-DomainGroup -Domain INLANEFREIGHT.LOCAL -Identity "Enterprise Admins" | select distinguishedname,objectsid
