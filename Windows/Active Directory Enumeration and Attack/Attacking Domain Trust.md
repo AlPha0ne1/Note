@@ -10,6 +10,6 @@ Q2: What domain does the INLANEFREIGHT.LOCAL domain have a forest transitive tru
 
 Ans > FREIGHTLOGISTICS.LOCAL
 
-<u></u>
+---
 
 # Attacking Domain Trusts - Child -> Parent Trusts - from Windows
