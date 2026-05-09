@@ -29,4 +29,10 @@ ResolveGUIDs
 
 # ACL Abuse
 
+</b> Active Directory right must be GenericALL permission </b>
+
+GenericAll is Full control.
+
+GenericWrite is Can modify some attributes, but not complete control.
+
 
