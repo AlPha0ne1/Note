@@ -19,3 +19,9 @@ By using this command to check rights GUID
 ```
 Get-DomainObjectACL -Identity * | ? {$_.SecurityIdentifier -eq $sid}
 ```
+
+Q2. What flag can we use with PowerView to show us the ObjectAceType in a human-readable format during our enumeration?
+
+ResolveGUIDs
+
+
