@@ -27,4 +27,6 @@ Q2. What flag can we use with PowerView to show us the ObjectAceType in a human-
 
 ResolveGUIDs
 
+# ACL Abuse
+
 
