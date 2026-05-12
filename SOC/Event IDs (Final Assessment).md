@@ -122,9 +122,27 @@ Ans> No.
 This is the most fundamental Sysmon event because almost every attack eventually executes a process.
 
 <img width="895" height="792" alt="image" src="https://github.com/user-attachments/assets/5be73cdc-c110-47c6-afbc-2274faa08ed2" />
----
 
+---
 Q5.By examining the logs located in the "C:\Logs\StrangePPID" directory, determine a process that was used to temporarily execute code based on a strange parent-child relationship. Enter the process name as your answer. Answer format: _.exe
 
+1.Attackers often try to hide their processes by making them look like they were launched by a legitimate parent (PPID Spoofing). My job was to find a family tree that made no sense. The best tool for this is Sysmon Event ID 1 (“Process Create”).
+
+2.I switched to a robust method of parsing the XML by property name to get a clean list of all parent-child relationships.
+
+```
+Get-WinEvent -FilterHashtable @{Path='C:\Logs\StrangePPID\*.evtx'; Id=1} | ForEach-Object {
+    $xml = [xml]$_.ToXml()
+    $image = $xml.Event.EventData.Data | Where-Object { $_.Name -eq 'Image' } | Select-Object -ExpandProperty '#text'
+    $parentImage = $xml.Event.EventData.Data | Where-Object { $_.Name -eq 'ParentImage' } | Select-Object -ExpandProperty '#text'
+    [PSCustomObject]@{ TimeCreated = $_.TimeCreated; ParentImage = $parentImage; Image = $image }
+} | Format-Table -AutoSize
+```
+3.The output was a short, beautiful list that told the whole story. I saw a normal explorer.exe launching WerFault.exe (the error reporting service). But then, moments later, I saw WerFault.exe launching cmd.exe.
+
+4.That was the anomaly. The error reporting service has no business launching a command prompt. This is a known technique where an attacker hijacks the crash-handling process to get their code to run.
+
+<img width="1156" height="262" alt="image" src="https://github.com/user-attachments/assets/d2860069-6ead-48c3-9a01-dab454c39782" />
 
 
+ANS > WerFault.exe
