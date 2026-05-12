@@ -67,3 +67,15 @@ malware.exe injected into explorer.exe
 ---
 Q2.By examining the logs located in the "C:\Logs\PowershellExec" directory, determine the process that injected into the process that executed unmanaged PowerShell code. Enter the process name as your answer. Answer format: _.exe
 
+Now that I had my victim (Calculator.exe), I needed to find who attacked it. For process injection, that artifact is Sysmon Event ID 8: “CreateRemoteThread”.
+
+```
+Get-WinEvent -FilterHashtable @{Path='C:\Logs\PowershellExec\*.evtx'; Id=8} | Format-List
+```
+
+<img width="1241" height="377" alt="image" src="https://github.com/user-attachments/assets/ae70b349-beb4-41ad-82e5-ea83afe51c55" />
+
+Ans> rundll.exe
+---
+
+
