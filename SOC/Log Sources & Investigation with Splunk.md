@@ -119,4 +119,23 @@ Ans:> rundll32.exe
 
 Q7.Find the two IP addresses of the C2 callback server. Answer format: 10.0.0.1XX and 10.0.0.XX?
 
+I had just spent the last three investigations building a solid list of confirmed suspicious processes on this machine: rundll32.exe, cmd.exe, randomfile.exe, and SharpHound.exe.</br>
 
+This was a major lesson: Trust your own hunt. I decided to build a query based on my own findings by using <b>Event ID 3 (Network Connections)</b>
+
+```
+index="main" sourcetype="WinEventLog:Sysmon" EventCode=3 (Image="*rundll32.exe" OR Image="*cmd.exe" OR Image="*randomfile.exe" OR Image="*SharpHound.exe") | table _time, Image, DestinationIp, DestinationPort
+```
+---
+
+Q8.Find the port the C2 server used to connect back to one of the compromised machines.
+
+I took my two known C2 IPs and built a new query to find any connections originating from them.
+
+```
+index="main" sourcetype="WinEventLog:Sysmon" EventCode=3 (SourceIp="10.0.0.91" OR SourceIp="10.0.0.186") | table _time, SourceIp, SourcePort, DestinationIp, DestinationPort, Image
+```
+
+2.The DestinationPort told the real story: the attacker wasn't just sending commands, they were opening a full-blown Remote Desktop session to take interactive control. The "port that was used" to define the attack was 3389.
+
+<img width="1100" height="451" alt="image" src="https://github.com/user-attachments/assets/023049d5-ab48-4204-a80f-212b3b729195" />
