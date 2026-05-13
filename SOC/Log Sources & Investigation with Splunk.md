@@ -66,3 +66,38 @@ index="main" sourcetype="WinEventLog:Sysmon" EventCode=1 ProcessId=1624
 ```
 ---
 
+Q6. Find through an SPL search against all data any suspicious loads of clr.dll that could indicate a C# injection/execute-assembly attack. Then, again through SPL searches, find if any of the suspicious processes that were returned in the first place were used to temporarily execute code. Enter its name as your answer. Answer format: _.exe
+
+1.The Mission: Find a suspicious load of clr.dll that could indicate a C# injection, then find the process that was "used to temporarily execute code."
+My Mindset: This was the most complex hunt of the module. I knew “suspicious load of clr.dll" was the smoking gun for a .NET process injection, where an attacker runs C# code inside a non-.NET process. My mission was to find this hijacked process and then figure out what it did next.
+
+```
+index="main" sourcetype="WinEventLog:Sysmon" EventCode=7 ImageLoaded="*clr.dll"
+```
+
+2. Filtering the Noise: To make sense of this, I needed to filter out the legitimate .NET processes (like powershell.exe). I built a query using a where clause with multiple AND conditions to exclude the "usual suspects."
+
+```
+index="main" sourcetype="WinEventLog:Sysmon" EventCode=7 ImageLoaded="*clr.dll" | where Image!="C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" AND Image!="C:\\Windows\\System32\\wsmprovhost.exe" AND Image!="C:\\Windows\\System32\\csc.exe" | stats count by Image | sort Image
+```
+From this list, I identified my short list of prime suspects: notepad.exe, rundll32.exe, randomfile.exe, and SharpHound.exe.
+
+3.First, I got the list of unique IDs for all the suspicious notepad.exe instances.
+
+```
+index="main" sourcetype="WinEventLog:Sysmon" EventCode=7 ImageLoaded="*clr.dll" Image="*notepad.exe" | table ProcessGuid
+```
+4.This gave me a list of about 12 GUIDs. I took the first one, {96192a2a-06be-6368-ab04–000000000900}, and hunted for it as a parent.
+
+```
+index="main" sourcetype="WinEventLog:Sysmon" EventCode=1 ParentProcessGuid="{96192a2a-06be-6368-ab04-000000000900}"
+```
+
+To my shock, rundll32.exe, SharpHound.exe, and randomfile.exe all appeared to be dead ends, with no child processes logged at all.
+This is the moment I realized that this phrase doesn’t just mean “launch a child.”
+What is the entire purpose of rundll32.exe? Its job is to temporarily execute code from a DLL.
+
+Ans:> rundll32.exe
+---
+
+
