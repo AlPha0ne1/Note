@@ -31,5 +31,22 @@ Q3.Open the "Search & Reporting" application, and run a SPL search against all 4
 ```
 EventCode=4624 | stats count, range(_time) as TimeRange by Account_Name | where TimeRange <= 600 | sort -count
 ```
+Q4.Find through an SPL search against all data the other process that dumped lsass. Enter its name as your answer. Answer format: _.exe
 
+1. Find the sourcetype first
+
+```
+index="main" | stats count by sourcetype
+```
+
+2.So, armed with the correct sourcetype, I built my query to find the LSASS access.
+
+```
+index="main" sourcetype="WinEventLog:Sysmon" EventCode=10 TargetImage="*lsass.exe"
+```
+
+3. Check the sourcetype image > rundll32.exe is included (it is used to dump lsass)
+
+Ans > rundll32.exe
+---
 
