@@ -139,3 +139,17 @@ index="main" sourcetype="WinEventLog:Sysmon" EventCode=3 (SourceIp="10.0.0.91" O
 2.The DestinationPort told the real story: the attacker wasn't just sending commands, they were opening a full-blown Remote Desktop session to take interactive control. The "port that was used" to define the attack was 3389.
 
 <img width="1100" height="451" alt="image" src="https://github.com/user-attachments/assets/023049d5-ab48-4204-a80f-212b3b729195" />
+
+---
+Q9. Find the source process images that are creating an unusually high number of threads in other processes. Enter the outlier process name as your answer where the number of injected threads is greater than two standard deviations above the average. Answer format: _.exe
+
+```
+index="main" sourcetype="WinEventLog:Sysmon" EventCode=8
+| bin _time span=1h
+| stats count as thread_count by _time, SourceImage
+| eventstats avg(thread_count) as avg_count, stdev(thread_count) as stddev_count
+| eval threshold=avg_count + (2 * stddev_count)
+| where thread_count > threshold
+| sort - thread_count
+| table _time, SourceImage, thread_count, avg_count, stddev_count, threshold
+```
