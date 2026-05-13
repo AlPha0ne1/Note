@@ -100,4 +100,6 @@ What is the entire purpose of rundll32.exe? Its job is to temporarily execute co
 Ans:> rundll32.exe
 ---
 
+Q7.Find the two IP addresses of the C2 callback server. Answer format: 10.0.0.1XX and 10.0.0.XX?
+
 
