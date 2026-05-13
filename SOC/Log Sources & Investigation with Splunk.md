@@ -50,3 +50,19 @@ index="main" sourcetype="WinEventLog:Sysmon" EventCode=10 TargetImage="*lsass.ex
 Ans > rundll32.exe
 ---
 
+Q5. Find through SPL searches against all data the method through which the other process dumped lsass. Enter the misused DLL's name as your answer. Answer format: _.dll
+
+1.I was hunting for the malicious command that launched our rundll32.exe.
+
+2.I needed to connect two different events: the “Process Accessed” event (Event ID 10) from the first question and the “Process Create” event (Event ID 1) that launched it. The key to linking them is the **Process ID**
+
+```
+index="main" sourcetype="WinEventLog:Sysmon" EventCode=10 TargetImage="*lsass.exe" SourceImage="*rundll32.exe" | table SourceProcessId
+```
+3.I took the first PID, 1624, and pivoted my hunt
+
+```
+index="main" sourcetype="WinEventLog:Sysmon" EventCode=1 ProcessId=1624
+```
+---
+
