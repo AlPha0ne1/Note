@@ -65,6 +65,23 @@ index="main" sourcetype="WinEventLog:Sysmon" EventCode=10 TargetImage="*lsass.ex
 index="main" sourcetype="WinEventLog:Sysmon" EventCode=1 ProcessId=1624
 ```
 ---
+# .NET Process
+
+“.NET processes” usually means programs built using Microsoft’s .NET framework/runtime. They are normal Windows processes, but they run managed code through the CLR (Common Language Runtime).
+
+Common .NET-related processes include:
+
+dotnet.exe — runs modern .NET applications (.NET Core / .NET 5+)
+msbuild.exe — builds .NET projects
+powershell.exe
+csc.exe — C# compiler
+vbc.exe — Visual Basic compiler
+
+<img width="977" height="572" alt="image" src="https://github.com/user-attachments/assets/afae8605-0ed1-4298-b809-fd2fc7b9f15e" />
+
+<img width="972" height="308" alt="image" src="https://github.com/user-attachments/assets/7dcffd6f-0761-4a73-a531-849e941669c2" />
+
+---
 
 Q6. Find through an SPL search against all data any suspicious loads of clr.dll that could indicate a C# injection/execute-assembly attack. Then, again through SPL searches, find if any of the suspicious processes that were returned in the first place were used to temporarily execute code. Enter its name as your answer. Answer format: _.exe
 
