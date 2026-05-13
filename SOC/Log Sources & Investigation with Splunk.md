@@ -153,3 +153,13 @@ index="main" sourcetype="WinEventLog:Sysmon" EventCode=8
 | sort - thread_count
 | table _time, SourceImage, thread_count, avg_count, stddev_count, threshold
 ```
+---
+
+Q10.Find the process that created remote threads in rundll32.exe & the process that started the infection. Answer format: _.exe
+
+```
+index="main" sourcetype="WinEventLog:Sysmon" EventCode=8 TargetImage=*rundll32.exe | stats count by SourceImage, TargetImage
+```
+Ans:> randomfile.exe & rundll32.exe
+---
+
