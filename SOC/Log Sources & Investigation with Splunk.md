@@ -71,11 +71,11 @@ index="main" sourcetype="WinEventLog:Sysmon" EventCode=1 ProcessId=1624
 
 Common .NET-related processes include:
 
-dotnet.exe — runs modern .NET applications (.NET Core / .NET 5+)
-msbuild.exe — builds .NET projects
-powershell.exe
-csc.exe — C# compiler
-vbc.exe — Visual Basic compiler
+dotnet.exe — runs modern .NET applications (.NET Core / .NET 5+) </br>
+msbuild.exe — builds .NET projects</br>
+powershell.exe</br>
+csc.exe — C# compiler</br>
+vbc.exe — Visual Basic compiler</br>
 
 <img width="977" height="572" alt="image" src="https://github.com/user-attachments/assets/afae8605-0ed1-4298-b809-fd2fc7b9f15e" />
 
