@@ -9,6 +9,37 @@ Unconstrained Delegation (most permissive/broad) </br>
 Constrained Delegation </br>
 Resource-based Delegation </br>
 
+#  Unconstrained Delegation
+
+With Unconstrained Delegation, a server can impersonate users to any service anywhere in the domain
+Simple idea
+
+“I trust this server completely.”
+
+# Constrained Delegation (More secure)
+
+With Constrained Delegation, the server can impersonate users only to specific services explicitly allowed by admins.
+
+This uses:
+
+msDS-AllowedToDelegateTo
+Simple idea
+
+“I trust this server, but only for certain services.”
+
+# Resource-Based Constrained Delegation (RBCD)
+
+<img width="1086" height="285" alt="image" src="https://github.com/user-attachments/assets/0601f2d2-9864-4bc7-a6d4-b748b0a95593" />
+
+
+Simple idea
+
+“The resource decides who may delegate to it.”
+
+<img width="1077" height="486" alt="image" src="https://github.com/user-attachments/assets/a8e66937-5190-4323-b68b-736bf051e294" />
+
+---
+
 # Constrained Delegation (Walkthrough)
 
 ## 1. First, import the module and run the Get-NetUser function.
