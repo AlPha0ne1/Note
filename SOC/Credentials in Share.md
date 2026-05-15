@@ -16,3 +16,10 @@ findstr \m \s \i "Administrator2" *.ps1
 findstr \m \s \i "Administrator2" *.bat
 ```
 
+# SearchUserClearTextInformation.ps1 (or) SearchUser.ps1
+
+```
+New-Item -Type File -Name SearchUser.ps1
+import-module .\SearchUser.ps1
+SearchUserClearTextInformation -Terms "pass"
+```
