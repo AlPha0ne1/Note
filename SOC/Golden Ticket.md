@@ -45,7 +45,7 @@ C:\Mimikatz>klist
 ```
 <img width="1082" height="461" alt="image" src="https://github.com/user-attachments/assets/68f815e0-e696-4d4c-8e57-4d713c17112d" />
 
-6. Verify the ticket is working, we can list the content of the C$ share of DC1 using it:
+## 6. Verify the ticket is working, we can list the content of the C$ share of DC1 using it:
 ```
 C:\Mimikatz>dir \\dc1\c$
 ```
