@@ -22,8 +22,11 @@ An operation was performed on an object
 
 This event is commonly associated with:
 
-Active Directory object access
-LDAP operations
-Permission changes
-DCSync detection
-Directory replication activity
+Active Directory object access </br>
+LDAP operations</br>
+Permission changes</br>
+DCSync detection</br>
+Directory replication activity</br>
+
+<img width="902" height="561" alt="image" src="https://github.com/user-attachments/assets/4ac8bcf0-ffde-4ccf-a4d1-70320b1523e0" />
+
