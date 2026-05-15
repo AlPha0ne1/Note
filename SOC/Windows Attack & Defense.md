@@ -19,5 +19,18 @@ These file include
 To abuse GPP Passwords, we will use the Get-GPPPassword function from PowerSploit, which automatically parses all XML files in the Policies folder in SYSVOL, 
 picking up those with the cpassword property and decrypting them once detected:
 
+# Bypass the restriction to run the script
+
+### If the script restricted like that
+<img width="1826" height="202" alt="image" src="https://github.com/user-attachments/assets/12b7e9b7-328c-40e0-a1c7-e8fb7183d3f0" />
+
+### Run
+```
+Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy Unrestricted
+```
+
+# Event ID 4663 (An attempt was made to access an object)
+
+If GPPPassword attack is occured, find that event id in windows' EVENT VIEWER.
 
 
