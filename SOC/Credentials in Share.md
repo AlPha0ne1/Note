@@ -23,3 +23,11 @@ New-Item -Type File -Name SearchUser.ps1
 import-module .\SearchUser.ps1
 SearchUserClearTextInformation -Terms "pass"
 ```
+
+## Detection
+
+Cannot find the TargetSid with EventViwer so that Use wmic
+
+```
+wmic useraccount where "name='bonni'" get name,sid
+```
