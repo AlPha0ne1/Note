@@ -11,6 +11,11 @@ They simply forward the authentication in real time.
 
 <img width="1097" height="158" alt="image" src="https://github.com/user-attachments/assets/663d41ab-7b1d-4705-8e4c-e33e0f923133" />
 
+# Printer Spooler–based coercion attacks
+
+If registry setting (RegisterSpoolerRemoteRpcEndPoint 1) , it is opened. That can lead to attack
+
+<img width="785" height="361" alt="image" src="https://github.com/user-attachments/assets/41627266-4116-468b-b2f9-70692510df0c" />
 
 ## First, configure NTLMRelayx to forward connections to DC2(172.16.18.4) and attempt the DCSync attack. It was listening
 
