@@ -13,3 +13,19 @@ Run the command
 ```
 sudo suricata -r ~/pcaps/suspicious.pcap -l /tmp
 ```
+
+# Snort 
+
+Snort is an open-source tool, which serves as both an Intrusion Detection System (IDS) and Intrusion Prevention System (IPS)
+
+Q:There is a file named wannamine.pcap in the /home/htb-student/pcaps directory. Run Snort on this PCAP file and enter how many times the rule with sid 1000001 was triggered as your answer.
+
+```
+sudo snort -c /root/snorty/etc/snort/snort.lua --daq-dir /usr/local/lib/daq -r /home/htb-student/pcaps/wannamine.pcap -R /home/htb-student/local.rules -A cmg
+```
+There was one section labeled ‘detections’ that upon further inspection provided the answer (alert 234)
+
+<img width="480" height="170" alt="image" src="https://github.com/user-attachments/assets/9bb88292-147b-4c8b-aa4c-6caa590ed89c" />
+
+
+
