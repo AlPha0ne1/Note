@@ -27,5 +27,15 @@ There was one section labeled ‘detections’ that upon further inspection prov
 
 <img width="480" height="170" alt="image" src="https://github.com/user-attachments/assets/9bb88292-147b-4c8b-aa4c-6caa590ed89c" />
 
+# Zeek
 
+Zeek, formerly known as Bro, is a powerful network security monitoring tool that allows us to delve deep into our network traffic and extract useful insights.
 
+Q: There is a file named printnightmare.pcap in the /home/htb-student/pcaps directory, which contains network traffic related to the PrintNightmare (https://labs.jumpsec.com/printnightmare-network-analysis/) vulnerability. Enter the zeek log that can help us identify the suspicious spooler functions as your answer. Answer format: _.log
+SSH to 10.129.80.9
+
+```
+/usr/local/zeek/bin/zeek -C -r /home/htb-student/pcaps/printnightmare.pcap && ls
+```
+
+Ans:> dce_rpc.log
