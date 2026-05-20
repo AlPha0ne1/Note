@@ -28,6 +28,10 @@ Q3:Examine the file "/home/htb-student/MemoryDumps/Win7-2515534d.vmem" with Vola
 
 Find the dlllist
 ```
-vol.py -f /home/htb-student/MemoryDumps/Win7-2515534d.vmem --profile=Win7SP1x64 dlllist | grep -B50 "zlib1.dll"
+vol.py -f /home/htb-student/MemoryDumps/Win7-2515534d.vmem --profile=Win7SP1x64 dlllist | grep -E "pid|zlib1.dll"
 ```
+<img width="1776" height="133" alt="image" src="https://github.com/user-attachments/assets/53ca4038-bc08-42ef-a93c-a1399ccb9b90" />
+
+Ans > 3012
+
 
