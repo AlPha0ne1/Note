@@ -5,7 +5,7 @@ Ans:Naive Bayes
 
 ## Spam Filtering 
 
-Spam filtering is the process of automatically detecting and separating unwanted, harmful, or junk messages from legitimate communication
+Spam filtering is the process of automatically detecting and separating unwanted, harmful, or junk messages from legitimate communication </br>
 Example:
 ```
 Routing emails about "free lottery prizes" directly to the spam folder.
@@ -15,7 +15,7 @@ Hiding automated bot comments on social media posts.
 
 ## Sentiment analysis (opinion mining)
 
-Sentiment analysis (also called opinion mining) is the process of identifying the emotional tone behind a body of text.
+Sentiment analysis (also called opinion mining) is the process of identifying the emotional tone behind a body of text. </br>
 Example:
 ```
 Tracking customer reviews to see if people like a new smartphone.
