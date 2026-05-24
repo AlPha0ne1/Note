@@ -255,6 +255,16 @@ In metasploitable find the specific module (start with auxiliary)
 #search type:auxiliary postgres
 
 Use WPS scan
+
+Enumerate Users
+#wpscan --url http://10.10.67.25/blog --enumerate
+
+Password bruteforcing
+----------------------
+xmlrpc method uses WordPress API to make login attempts through /xmlrpc.php. The xmlrpc method is preferred as it’s faster.
+
+#wpscan --password-attack xmlrpc -t 20 --url http://blog.inlanefreight.local -U doug -P /usr/share/wordlists/rockyou.txt
+
 #wpscan --url http://10.10.67.25/blog -e vp,u
 -e = enumerate
 vp = vulnerable plugins
