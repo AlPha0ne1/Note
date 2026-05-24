@@ -52,6 +52,7 @@ Key Characteristics:
 It is a type of Artificial Intelligence that learns the best way to solve a problem strictly through trial and error, without knowing the rules of its environment beforehand.
 
 Think of it like a human learning to ride a bicycle. You do not calculate the physics of gravity or wind resistance in your head (the "model"). Instead, you just pedal, fall over, adjust your balance, and try again until you succeed.
+---
 
 Q4:What is the fundamental computational unit in neural networks that receives inputs, processes them using weights and a bias, and applies an activation function to produce an output? Unlike the perceptron, which uses a step function for binary classification, this unit can use various activation functions such as the sigmoid, ReLU, and tanh.
 
