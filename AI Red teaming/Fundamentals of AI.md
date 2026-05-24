@@ -59,6 +59,8 @@ The fundamental computational unit you are describing is an artificial neuron (o
 
 In modern deep learning contexts, when it uses non-linear activation functions instead of a hard step function, it is also frequently referred to as a sigmoid neuron (historically) or a rectified linear unit (ReLU) depending on the specific function applied.
 
+---
+
 Q5: What deep learning architecture, known for its ability to process sequential data like text by capturing long-range dependencies between words through self-attention, forms the basis of large language models (LLMs) that can perform tasks such as translation, summarization, question answering, and creative writing?
 
 The Transformer is the deep learning architecture that serves as the foundation for modern large language models
