@@ -1,7 +1,7 @@
 # Shell-session
-# Forward local port 8000 to the lab
-# Forward the lab's port 80 to 127.0.0.1:5000
-# Forward the lab's port 25 to 127.0.0.1:2525
+Forward local port 8000 to the lab
+Forward the lab's port 80 to 127.0.0.1:5000
+Forward the lab's port 25 to 127.0.0.1:2525
 @htb[/htb]$ ssh htb-stdnt@<SERVER_IP> -p <PORT> -R 8000:127.0.0.1:8000 -L 2525:127.0.0.1:25 -L 5000:127.0.0.1:80 -N
 
 # Give fictional story and grab an information
