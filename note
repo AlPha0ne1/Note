@@ -220,6 +220,8 @@ Find all files that concerns with the user (elyana)
 Command to search for suid files
 find / -type f -perm -4000 2>/dev/null 
 find / -type f -perm -u=s 2>/dev/null
+              (or)
+getcap -r / 2>/dev/null  (to find the file with special abilities)
 
 When every commands are blocked in order to see parent directory use (ls ..)
 http://10.10.87.148/abandonedRoom/be8bc662d1e36575a52da40beba38275/herecomeslara.php?shell=ls ..
