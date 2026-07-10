@@ -35,3 +35,18 @@ bcdedit /set {default} recoveryenabled No <br>
 What yarascan does: Scans every process's memory for strings you define in a YARA rule. If a process has "vssadmin delete shadows" in its memory, it gets flagged. <br>
 
 Your output will show: The Process column with the executable name (like tasksche.exe, cmd.exe, or @WanaDecryptor@.exe) — that's your answer.
+
+---
+
+# Sigma (By using Sigmac)
+
+Sigma rule is just a YAML description of a detection — it can't run on its own.
+
+Question:Using sigmac translate the "C:\Tools\chainsaw\sigma\rules\windows\builtin\windefend\win_defender_threat.yml" Sigma rule into the equivalent PowerShell command. Then, execute the PowerShell command against "C:\Events\YARASigma\lab_events_4.evtx" and enter the malicious driver as your answer. Answer format: _.sys
+
+1. sigmac converts it into an executable query — in this case a Get-WinEvent PowerShell command for Windows Event Logs. <br>
+2. Running that command against the EVTX searches through the Windows Defender logs in that file for any detected threats. <br>
+The output will show what Windows Defender flagged — including the malicious driver file (.sys).<br>
+
+So the flow is: generic rule → compile to PowerShell → search EVTX → find the driver name.<br>
+Just run the sigmac command and post what PowerShell command it outputs, then run that against the EVTX file.<br>
