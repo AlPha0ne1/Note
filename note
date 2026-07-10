@@ -1,3 +1,7 @@
+nmap minimum rate
+
+# nmap -sCV -Pn $IP --min-rate=1000 -oN nmap.txt
+
 Change lots of base64 code into image (base64 codes are in logs.txt)
 -------------------------------------
 cat logs.txt | base64 --decode > decoded.jpg
