@@ -19,7 +19,7 @@ rule ShadowDelete
 ```
 python2 /usr/local/bin/vol.py -f MemoryDumps/compromised_system.raw yarascan -y shadow_delete.yar
 ```
-Step by step
+### Step by step
 
 
 What you're doing: Analyzing a memory dump (compromised_system.raw) from a machine infected by WannaCry to find which process deleted the Volume Shadow Copies (backups). <br>
