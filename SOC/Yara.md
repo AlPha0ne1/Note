@@ -24,8 +24,8 @@ Why shadows matter: Ransomware deletes shadow copies so you can't restore your f
 
 How WannaCry deletes them: It runs these commands via <b>cmd.exe:</b> 
 
-vssadmin delete shadows /all /quiet
-wmic shadowcopy delete
+vssadmin delete shadows /all /quiet <br>
+wmic shadowcopy delete <br>
 bcdedit /set {default} recoveryenabled No <br>
 
 What yarascan does: Scans every process's memory for strings you define in a YARA rule. If a process has "vssadmin delete shadows" in its memory, it gets flagged. <br>
