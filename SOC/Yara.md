@@ -14,7 +14,11 @@ rule ShadowDelete
       any of them
 }
 ```
+### Command
 
+```
+python2 /usr/local/bin/vol.py -f MemoryDumps/compromised_system.raw yarascan --yara-file=shadow_delete.yar/usr/local/bin/vol.py -Y shadow_delete.yar
+```
 Step by step
 
 
