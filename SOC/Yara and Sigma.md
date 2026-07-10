@@ -50,3 +50,13 @@ The output will show what Windows Defender flagged — including the malicious d
 
 So the flow is: generic rule → compile to PowerShell → search EVTX → find the driver name.<br>
 Just run the sigmac command and post what PowerShell command it outputs, then run that against the EVTX file.<br>
+
+---
+
+# Chainsaw
+
+Using Chansaw to find the excluded directory
+
+```
+.\chainsaw_x86_64-pc-windows-msvc.exe hunt C:\Events\YARASigma\lab_events_5.evtx -s C:\Tools\chainsaw\sigma\rules\windows\powershell\powershell_script\ posh_ps_win_defender_exclusions_added.yml --mapping .\mappings\sigma-event-logs-all.yml
+```
