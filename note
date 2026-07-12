@@ -1,3 +1,16 @@
+Kali linux command for not sleeping
+-----------------------------------
+Run this in a Kali terminal:
+
+#systemctl mask sleep.target suspend.target hibernate.target hybrid-sleep.target
+
+To undo later:
+#systemctl unmask sleep.target suspend.target hibernate.target hybrid-sleep.target
+                    (or)
+The quick-and-dirty way for current session only:
+#xset s off && xset -dpms
+
+
 nmap minimum rate
 
 # nmap -sCV -Pn $IP --min-rate=1000 -oN nmap.txt
