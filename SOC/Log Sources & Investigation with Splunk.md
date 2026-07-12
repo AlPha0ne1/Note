@@ -163,3 +163,14 @@ index="main" sourcetype="WinEventLog:Sysmon" EventCode=8 TargetImage=*rundll32.e
 Ans:> randomfile.exe & rundll32.exe
 ---
 
+Q11.Execute the Splunk search provided at the end of this section to find all usernames that may be have executed a Pass-the-Ticket attack. Enter the missing username from the following list as your answer. Administrator, _
+
+```
+index=main source="WinEventLog:Security" EventCode IN (4768,4769,4770) user!=*$
+| rex field=user "(?<username>[^@]+)"
+| rex field=src_ip "(::ffff:)?(?<src_ip_4>[0-9.]+)"
+| search NOT user="*$@*"
+| stats values(EventCode) as events by username, src_ip_4
+| search NOT events="*4768*"
+```
+
