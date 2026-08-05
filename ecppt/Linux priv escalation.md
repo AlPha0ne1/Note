@@ -22,6 +22,15 @@ strace /usr/local/bin/suid-so 2>&1 | grep -iE "open|access|no such file"
 
 <img width="1505" height="615" alt="image" src="https://github.com/user-attachments/assets/8037a6a4-b14a-4ea0-8742-52db04675b1a" />
 
+---
+
+# Docker image misconfiguration
+
+Check the two classic Docker misconfigurations the module covers:
+
+id                    # are you in the "docker" group? <br>
+ls -la /var/run/docker.sock   # is the socket writable by you? <br>
+docker image ls       # what images are available?
 
 
 
