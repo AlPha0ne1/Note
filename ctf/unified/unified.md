@@ -42,6 +42,8 @@ Let's clone the respective repository and build the package using Maven.
 #cd rogue-jndi
 #mvn package
 
+<img width="906" height="355" alt="image" src="https://github.com/user-attachments/assets/54f3e4a1-b404-48ef-824b-543c14b45581" />
+
 
 This will create a .jar file in rogue-jndi/target/ directory called RogueJndi-1.1.jar . Now we can
 construct our payload to pass into the RogueJndi-1-1.jar Java application.
