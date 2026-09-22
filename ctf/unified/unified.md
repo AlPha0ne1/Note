@@ -38,9 +38,9 @@ application.
 Let's clone the respective repository and build the package using Maven.
 
 
-#git clone https://github.com/veracode-research/rogue-jndi
-#cd rogue-jndi
-#mvn package
+#git clone https://github.com/veracode-research/rogue-jndi <br>
+#cd rogue-jndi <br>
+#mvn package <br>
 
 <img width="906" height="355" alt="image" src="https://github.com/user-attachments/assets/54f3e4a1-b404-48ef-824b-543c14b45581" />
 
